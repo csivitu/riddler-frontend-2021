@@ -15,6 +15,7 @@ function Regs() {
         <Router>
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
+            <About />
         </Router>
     );
 };

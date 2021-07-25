@@ -17,6 +17,7 @@ export const Nav = styled.nav`
     transition: all 0.8s ease-in-out;
   }
 `;
+
 export const NavbarContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -25,6 +26,7 @@ export const NavbarContainer = styled.div`
   width: 100%;
   max-width: 1100px;
 `;
+
 export const NavLogo = styled(LinkRouter)`
   ${'' /* color: #ffffff; */}
   justify-self: flex-start;
