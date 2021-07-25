@@ -13,12 +13,22 @@ export const AboutContainer = styled.div`
 
 export const AboutBox = styled.div`
     position: absolute;
-    top: 2rem;
-    left: 5rem;
-    width: 20%;
+    top: 1rem;
+    left: 1rem;
+    width: 20rem;
     
     img{
         width: 100%;
+    }
+
+    @media screen and (max-width: 700px) {
+        width: 15rem;
+        top: 2rem;
+    }
+
+    @media screen and (max-width: 450px) {
+        width: 12rem;
+        top: 4rem;
     }
 `;
 
@@ -78,10 +88,23 @@ export const AboutText = styled.p`
 
 export const RiddlerBox = styled.div`
     position: absolute;
-    bottom: 4rem;
+    bottom: 2rem;
     right: 1rem;
+    width: 20rem;
 
     img{
-        width: 20rem;
+        width: 100%;
+    }
+
+    @media screen and (max-width: 900px) {
+        bottom: 1rem;
+    }
+
+    @media screen and (max-width: 700px) {
+        width: 15rem;
+    }
+
+    @media screen and (max-width: 450px) {
+        width: 12rem;
     }
 `;
