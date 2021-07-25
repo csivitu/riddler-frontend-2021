@@ -14,7 +14,7 @@ export const Nav = styled.nav`
   z-index: 10;
 
   @media screen and (min-width: 950px) {
-    transition: 0.8s all ease;
+    transition: all 0.8s ease-in-out;
   }
 `;
 export const NavbarContainer = styled.div`
@@ -23,7 +23,6 @@ export const NavbarContainer = styled.div`
   height: 80px;
   z-index: 1;
   width: 100%;
-  padding: 0 24px;
   max-width: 1100px;
 `;
 export const NavLogo = styled(LinkRouter)`
@@ -39,6 +38,7 @@ export const NavLogo = styled(LinkRouter)`
 
   img {
     height: 1.5rem;
+    color: white;
   }
 `;
 

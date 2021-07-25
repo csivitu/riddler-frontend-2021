@@ -11,7 +11,7 @@ import {
   NavBtnLink,
 } from "./NavbarElements";
 import { FaBars } from "react-icons/fa";
-import riddlerLogo from './assets/riddler-logo.png';
+import riddlerLogo from './assets/riddlerlogo_svg.svg';
 
 const Navbar = ({ toggle }) => {
   return (

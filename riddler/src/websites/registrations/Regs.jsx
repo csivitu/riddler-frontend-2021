@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import Navbar from '../../components/navbar/Navbar';
 import {BrowserRouter as Router} from 'react-router-dom';
 import Sidebar from '../../components/sidebar/Sidebar';
+import About from '../../components/about/About';
 
 function Regs() {
     const [isOpen, setIsOpen] = useState(false);

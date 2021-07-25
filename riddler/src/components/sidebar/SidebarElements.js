@@ -63,7 +63,7 @@ export const SidebarLink = styled(LinkS)`
     cursor: pointer;
 
     &:active {
-        border-bottom: 1px solid green;
+        color: rgba(219, 244, 41, 1);
     }
 `;
 
