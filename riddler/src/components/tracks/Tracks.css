@@ -1,0 +1,157 @@
+
+.bg {
+  /* The image used */
+  background-image: url("./assets/image\ 32.png");
+
+  /* Full height */
+  height: 100vh;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: -1;
+}
+
+.bnw{
+  position: relative;
+}
+
+.bnwbg{
+  width: 85%;
+  height: auto;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin-left:8%;
+  position:absolute;
+  z-index: 1;
+  margin-top: 8%;
+}
+
+.track{
+  position: absolute;
+  margin-top: 5%;
+  margin-left:6.5%;
+  z-index: 3;
+  width: 20%;
+  height: auto;
+}
+
+.discs{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  flex: 0 1 33%;
+  
+}
+.disc{
+  flex: 0 1 33%;
+  z-index: 2;
+  align-content: center;
+  justify-content: center;
+}
+
+.disc1{
+  margin-top: 8%;
+  margin-left: 3%;
+  align-content: center;
+  justify-content: center;
+  width: 38%;
+  height: auto;
+  z-index: 2;
+  position: relative;  
+}
+/* .rotate:hover {
+	transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	transform-origin: center;
+	-moz-transform-origin: center;
+	-webkit-transform-origin: center;
+	transition:  2s ease all;
+	-moz-transition: 2s ease all;
+	-webkit-transition:  2s ease all;
+} */
+
+
+/* .rotateY:hover {
+	transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
+	transform-origin: center;
+	-moz-transform-origin: center;
+	-webkit-transform-origin: center;
+	transition: 2.0s ease;
+	-moz-transition: 2.0s ease;
+	-webkit-transition: 2.0s ease;
+} */
+
+/* .rotateX:hover {
+	transform: rotateX(180deg);
+	-moz-transform: rotateX(180deg);
+	-webkit-transform: rotateX(180deg);
+	transform-origin: center;
+	-moz-transform-origin: center;
+	-webkit-transform-origin: center;
+	transition: 2.0s ease;
+	-moz-transition: 2.0s ease;
+	-webkit-transition: 2.0s ease;
+} */
+
+.disc2{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 28%;
+  height: auto;
+  z-index: 2;
+  position: relative;
+}
+
+.disc3{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 28%;
+  height: auto;
+  z-index: 2;
+  position: relative;
+}
+
+/* @media screen and (min-width: 40em) {
+  .discs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+  }
+
+  .disc {
+      flex: 0 1 calc(25% - 1em);
+  }
+} */
+
+@media screen and (max-width: 575px) {
+  .bnwbg{
+    margin-left: 0%;
+    transform: rotate(-90deg);
+    width:100%;
+    height: 100%; 
+  }
+  .track{
+    width:30%;
+  }
+  .disc {
+    flex-direction: column;
+    margin-left: 20%;
+    width:55%;
+  }
+  .discs {
+    flex-direction: column;
+  }
+}
+
+
+
