@@ -13,7 +13,7 @@ export const SidebarContainer = styled.aside`
     align-items:center;
     top:0;
     left:0;
-    transition: all 0.3 ease-in-out;
+    transition: all 0.3s ease-in-out;
     opacity: ${({ isOpen}) => (isOpen ? '1' : '0')};
     top: ${({ isOpen}) => (isOpen ? '0' : '-100%')};
 `;
@@ -51,14 +51,13 @@ export const SidebarMenu = styled.ul`
 
 export const SidebarLink = styled(LinkS)`
     display: flex;
-    align-tems: center;
+    align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    text-decoraction: none;
+    text-decoration: none;
     list-style: none;
     transition: 0;
-    transition: all 2x ease-in-out;
-    text-decoraction: none;
+    transition: all 2s ease-in-out;
     color: #fff;
     cursor: pointer;
 
@@ -73,21 +72,21 @@ export const SideBtnWrap = styled.div`
 `;
 
 export const SidebarRoute = styled(LinkR)`
-    border-radius:50px;
+    border-radius: 40px;
     background: #ffffff;
     white-space: nowrap;
-    padding:10px 22px;
-    color:#000000;
-    font-size:16px;
-    outline:none;
-    border:none;
+    padding: 10px 20px;
+    color: #000000;
+    font-size: 1.25rem;
+    outline: none;
+    border: none;
     font-weight: bold;
-    cursor:pointer;
-    transition:all 0.2 ease-in-out;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
     text-decoration: none;
 
     &:hover {
-        transition:all 0.2 ease-in-out;
+        transition:all 0.2s ease-in-out;
         background:rgba(219, 244, 41, 1);
         color:#000000;
     };

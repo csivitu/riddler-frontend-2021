@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link as LinkScroll } from "react-scroll";
+import { Link as LinkRoute } from "react-router-dom";
 
 export const HomeContainer = styled.div`
   background: #0c0c0c;
@@ -7,7 +7,7 @@ export const HomeContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0 30px;
-  height: 580px;
+  height: calc(100vh - 80px);
   position: relative;
   z-index: 1;
   :before{
@@ -16,7 +16,6 @@ export const HomeContainer = styled.div`
       top: 0;
       left: 0;right: 0;
       bottom:0;
-      z-index;
   }
 `;
 
@@ -30,6 +29,7 @@ export const HomeBG = styled.div`
   height: 100%;
   overflow: hidden;
 `;
+
 export const VideoBG = styled.video`
   width: 100%;
   height: 100%;
@@ -45,7 +45,25 @@ export const HomeContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 8px 24px;
+  justify-content: center;
+  width: 100%;
+`;
+
+export const RiddlerLogo = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  height: 100px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+  }
+
+  @media screen and (max-width: 750px) {
+    width: 90%;
+  }
 `;
 
 export const HomeBtnWrapper = styled.div`
@@ -53,25 +71,31 @@ export const HomeBtnWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 50px;
 `;
 
-export const Button = styled(LinkScroll)`
-  border-radius: 50px;
-  background: #ffffff;
+export const Button = styled(LinkRoute)`
+  border-radius: 30px;
   white-space: nowrap;
-  padding: 10px 22px;
+  padding: 10px 20px;
   color: #000000;
   font-size: 16px;
   outline: none;
-  border: none;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.2 ease-in-out;
   text-decoration: none;
+  border-bottom: 6px solid rgba(254, 49, 118, 1);
+  background: rgba(219, 244, 41, 1);
+  display: inline-block;
+  position: relative;
 
   &:hover {
-    transition: all 0.2 ease-in-out;
-    background: rgba(219, 244, 41, 1);
-    color: #000000;
+    top: 4px;
+    border-bottom: 4px solid rgba(254, 49, 118, 1);
+  }
+
+  &:active {
+    top: 6px;
+    border: none;
   }
 `;

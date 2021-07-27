@@ -5,7 +5,6 @@ import { Link as LinkScroll } from "react-scroll";
 export const Nav = styled.nav`
   background: #000;
   height: 80px;
-  margin-top;-80px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,14 +24,11 @@ export const NavbarContainer = styled.div`
   height: 80px;
   z-index: 1;
   width: 100%;
-  max-width: 1100px;
 `;
 
 export const NavLogo = styled(LinkRouter)`
-  ${'' /* color: #ffffff; */}
   justify-self: flex-start;
   cursor: pointer;
-  ${'' /* font-size: 1.5rem; */}
   display: flex;
   align-items: center;
   margin-left: 24px;
@@ -98,6 +94,7 @@ export const NavLinks = styled(LinkScroll)`
 export const NavBtn = styled.nav`
   display:flex;
   align-items: center;
+  margin-right: 24px;
 
   @media screen and (max-width: 950px){
       display:none;
@@ -114,11 +111,11 @@ export const NavBtnLink = styled(LinkRouter)`
   border:none;
   font-weight: bold;
   cursor:pointer;
-  transition:all 0.2 ease-in-out;
+  transition:all 0.2s ease-in-out;
   text-decoration: none;
 
   &:hover {
-      transition:all 0.2 ease-in-out;
+      transition:all 0.2s ease-in-out;
       background:rgba(219, 244, 41, 1);
       color:#000000;
   }
