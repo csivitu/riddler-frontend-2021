@@ -5,6 +5,7 @@ import Sidebar from '../../components/sidebar/Sidebar';
 import About from '../../components/about/About';
 import Tracks from '../../components/tracks/Tracks';
 import Home from '../../components/home/Home';
+import FaqsList from '../../components/faqs/FaqList.js';
 
 function Regs() {
     const [isOpen, setIsOpen] = useState(false);
@@ -20,6 +21,7 @@ function Regs() {
             <Home />
             <About />
             <Tracks/>
+            <FaqsList />
         </Router>
     );
 };
