@@ -26,7 +26,7 @@ export const NavbarContainer = styled.div`
   width: 100%;
 `;
 
-export const NavLogo = styled(LinkRouter)`
+export const NavLogo = styled(LinkScroll)`
   justify-self: flex-start;
   cursor: pointer;
   display: flex;

@@ -7,7 +7,7 @@ import tracks from "./assets/tracks box.svg";
 
 function Home() {
   return (
-    <div className="home-bg">
+    <div className="home-bg" id="tracks">
       <img className="track" src={tracks} alt="" />
       <div className="discs">
         <img className="disc disc1" src={mythical} alt="mythical" />

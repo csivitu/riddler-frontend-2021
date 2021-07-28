@@ -13,7 +13,7 @@ import {
 
 function Home() {
   return (
-    <HomeContainer>
+    <HomeContainer id="home">
       <HomeBG>
         <VideoBG autoPlay muted loop src={Video} type="teaser.mp4" />
       </HomeBG>

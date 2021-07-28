@@ -1,27 +1,21 @@
-import React, {useState} from 'react'
-import Navbar from '../../components/navbar/Navbar';
-import {BrowserRouter as Router} from 'react-router-dom';
-import Sidebar from '../../components/sidebar/Sidebar';
+import React from 'react'
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import About from '../../components/about/About';
 import Tracks from '../../components/tracks/Tracks';
 import Home from '../../components/home/Home';
 import FaqsList from '../../components/faqs/FaqList.js';
+import Layout from '../../components/layout/Layout';
 
 function Regs() {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const toggle = () => {
-        setIsOpen(!isOpen);
-    };
-
     return (
         <Router>
-            <Sidebar isOpen={isOpen} toggle={toggle}/>
-            <Navbar toggle={toggle}/>
-            <Home />
-            <About />
-            <Tracks/>
-            <FaqsList />
+            <Layout />
+            <Route exact path="/">
+                <Home />
+                <About />
+                <Tracks/>
+                <FaqsList />
+            </Route>
         </Router>
     );
 };

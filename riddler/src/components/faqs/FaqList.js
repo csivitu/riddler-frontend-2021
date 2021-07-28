@@ -34,7 +34,7 @@ const faqsData = [
 
 const FaqsList = () => {
   return (
-    <FaqContainer>
+    <FaqContainer id="faqs">
       <FaqIcon>
         <img src={faqImage} alt="FAQs" />
       </FaqIcon>

@@ -18,7 +18,7 @@ const Navbar = ({ toggle }) => {
     <>
       <Nav>
         <NavbarContainer>
-          <NavLogo to="/">
+          <NavLogo to="home">
               <img src={riddlerLogo} alt="Riddler Logo"></img>
           </NavLogo>
           <MobileIcon onClick={toggle}>

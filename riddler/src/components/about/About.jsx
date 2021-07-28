@@ -14,7 +14,7 @@ import riddlerBoxImage from "./assets/riddler-box.svg";
 const About = ({ toggle }) => {
   return (
     <>
-      <AboutContainer>
+      <AboutContainer id="about">
         <AboutBg>
           <Wave
             className="Wave2"
