@@ -28,7 +28,7 @@ const faqsData = [
   },
   {
     question: "Do i have to pay to participate in the event?",
-    answer: "Frequently Asked Question. Frequently Asked Question. Frequently Asked Question. Frequently Asked Question",
+    answer: "Frequently Asked Question. Frequently Asked Question. Frequently Asked Question. Frequently Asked Question. Frequently Asked Question. Frequently Asked Question. Frequently Asked Question. Frequently Asked Question",
   },
 ];
 

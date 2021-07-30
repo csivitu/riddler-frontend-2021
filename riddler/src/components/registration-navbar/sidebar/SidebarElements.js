@@ -56,12 +56,10 @@ export const SidebarLink = styled(LinkS)`
     font-size: 1.5rem;
     text-decoration: none;
     list-style: none;
-    transition: 0;
-    transition: all 2s ease-in-out;
     color: #fff;
     cursor: pointer;
 
-    &:active {
+    &.active, &:active {
         color: rgba(219, 244, 41, 1);
     }
 `;

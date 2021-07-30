@@ -54,11 +54,17 @@ export const RiddlerLogo = styled.div`
   align-items: center;
   justify-content: center;
   width: 600px;
-  height: 100px;
-  overflow: hidden;
+  height: max-content;
+  position: relative;
 
   img {
     width: 100%;
+  }
+
+  .shadow {
+    position: absolute;
+    z-index: -1;
+    filter: drop-shadow(4px 4px 1px rgba(255, 255, 255, 1));
   }
 
   @media screen and (max-width: 750px) {

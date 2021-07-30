@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Brice from './assets/Brice.otf';
 
 export const AboutContainer = styled.div`
-    height: calc(100vh - 80px);
+    height: calc(100vh - 80px); 
     width: 100%;
     background-color: rgba(254, 49, 118, 1);
     position: relative;
@@ -58,7 +58,7 @@ export const AboutText = styled.p`
         src: url(${Brice}) format('truetype');
     }
 
-    z-index: 10;
+    z-index: 2;
     font-weight: 600;
     font-size: 1.5rem;
     letter-spacing: 0.05rem;

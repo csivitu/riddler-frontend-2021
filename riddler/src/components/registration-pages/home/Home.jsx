@@ -1,6 +1,7 @@
 import React from "react";
 import Video from "./assets/teaser.mp4";
-import riddlerLogo from "./assets/riddler-logo-animated.gif";
+import riddlerLogo from "./assets/riddler-logo-animated2.gif";
+import riddlerLogoSvg from "./assets/riddlerlogo_svg.svg";
 import {
   HomeContainer,
   HomeBG,
@@ -20,6 +21,7 @@ function Home() {
       <HomeContent>
         <RiddlerLogo>
           <img src={riddlerLogo} alt="Riddler Logo" />
+          <img className="shadow" src={riddlerLogoSvg} alt="Riddler Logo" />
         </RiddlerLogo>
         <HomeBtnWrapper>
             <Button to="/register">REGISTER</Button>

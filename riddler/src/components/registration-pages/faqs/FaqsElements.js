@@ -49,9 +49,11 @@ export const StyledFaq = styled.div`
   }
 
   .faq-answer {
-    transition: all 0.2s;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
     /* height: fit-content; */
-    height: ${({ isOpen }) => (isOpen ? "fit-content" : "0")};
+    height: ${({ isOpen }) => (isOpen ? "40px" : "0")};
     opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
     font-size: 14px;
     padding: 5px 10px;
