@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+.timer-bg {
+    /* The image used */
+    background-image: url("./assets/background.png");
+  
+    /* Full height */
+    height: calc(100vh - 80px);
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+.HomeBtnWrapper{
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50px
+}
+
+.reg_button{
+    border-radius: 30px;
+  white-space: nowrap;
+  padding: 15px 25px;
+  color: #000000;
+  font-size: 16px;
+  outline: none;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 6px solid rgba(254, 49, 118, 1);
+  background: rgba(219, 244, 41, 1);
+  display: inline-block;
+  position: relative;
+}
+
+.reg_button:hover {
+    top: 4px;
+    border-bottom: 4px solid rgba(254, 49, 118, 1);
+  }
+
+  .reg_button:active {
+    top: 6px;
+    border: none;
+  }
+
+#days{
+    background-color: url('./assets/Rectangle\ 67.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.timer-card{
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 3rem;
+  margin: 3%;
+    background-image: url('./assets/Rectangle\ 67.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* position: relative; */
+    z-index: 3;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 13rem;
+    
+}
+.timers{
+  width: 100%;
+  height: 20rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#headline{
+  font-family: 'Poppins', sans-serif;
+  color: aliceblue;
+  text-align: center;
+}
+.count{
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.timer{
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 650px) {
+    .timer{
+    height:30%;
+    width: auto;
+  }
+
+  .timers {
+    flex-direction: column;
+  }
+
+}

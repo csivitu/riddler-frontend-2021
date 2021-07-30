@@ -84,8 +84,7 @@
 	-webkit-transition:  2s ease all;
 } */
 
-
-/* .rotateY:hover {
+.rotating.Y {
 	transform: rotateY(180deg);
 	-moz-transform: rotateY(180deg);
 	-webkit-transform: rotateY(180deg);
@@ -95,7 +94,8 @@
 	transition: 2.0s ease;
 	-moz-transition: 2.0s ease;
 	-webkit-transition: 2.0s ease;
-} */
+}
+
 
 /* .rotateX:hover {
 	transform: rotateX(180deg);
@@ -159,4 +159,40 @@
     top: 2%;
     left: 2%;
   }
+}
+
+@-webkit-keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.rotating {
+  -webkit-animation: rotating 7s linear infinite;
+  -moz-animation: rotating 7s linear infinite;
+  -ms-animation: rotating 7s linear infinite;
+  -o-animation: rotating 7s linear infinite;
+  animation: rotating 5s linear infinite;
 }

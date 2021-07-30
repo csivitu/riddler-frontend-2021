@@ -3,6 +3,7 @@ import About from './about/About';
 import Tracks from './tracks/Tracks';
 import Home from './home/Home';
 import FaqsList from './faqs/FaqList.js';
+import Timer from './timer/Timers'
 
 function Pages() {
     return (
@@ -11,6 +12,7 @@ function Pages() {
             <About />
             <Tracks/>
             <FaqsList />
+            <Timer/>
         </div>
     );
 }
