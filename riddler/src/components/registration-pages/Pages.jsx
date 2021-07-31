@@ -4,6 +4,7 @@ import Tracks from './tracks/Tracks';
 import Home from './home/Home';
 import FaqsList from './faqs/FaqList.js';
 import Timer from './timer/Timers'
+import Contact from './contact/Contact';
 
 function Pages() {
     return (
@@ -13,6 +14,7 @@ function Pages() {
             <Tracks/>
             <FaqsList />
             <Timer/>
+            <Contact/>
         </div>
     );
 }

@@ -1,6 +1,6 @@
 import "./Timer.css"
 import React, { useEffect, useState } from "react";
-import p5 from "p5";
+// import p5 from "p5";
 
 
 function Timer() {
