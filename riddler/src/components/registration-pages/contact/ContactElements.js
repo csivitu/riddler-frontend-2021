@@ -1,31 +1,33 @@
 import styled from "styled-components";
+import Brice from "./assets/Brice-Regular.otf";
+import { Link } from "react-router-dom";
 
 export const FooterContainer = styled.div`
-  height: 100%;
-  width: 100%;
-  background-color: black;
+  // height: 100%;
+  // width: 100%;
+  // background-color: black;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // /* align-items: center; */
+  // position: relative;
+  // z-index: -1;
+  // text-align: center;
+
+  min-height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  /* align-items: center; */
-  position: relative;
-  z-index: -1;
-  text-align: center;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: black;
 `;
 export const FooterHeading = styled.div`
-  position: relative;
-  display: block;
-  width: 100%;
-  justify-content: center;
-  font-family: Avara-Black;
-  background: linear-gradient(
-    to right,
-    rgba(215, 167, 134, 1),
-    rgba(108, 77, 59, 1)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 10rem;
+  width: 200px;
+  margin: 15px 0px;
+
+  img {
+    width: 100%;
+  }
 `;
 
 export const FooterContent = styled.div`
@@ -50,11 +52,37 @@ export const Right = styled.div`
   font-size: 4rem;
 `;
 export const AboutH2 = styled.h2`
-  color: white;
-  margin-left: 3rem;
-  font-family: "Poppins" sans-serif;
-  font-weight: bold;
-  font-size: 3rem;
+  @font-face {
+    font-family: Brice;
+    src: url(${Brice}) format("truetype");
+  }
+  color: rgba(219, 244, 41, 1);
+  z-index: 2;
+  font-weight: 600;
+  font-size: 1.6rem;
+  letter-spacing: 0.05rem;
+  width: 80%;
+
+  line-height: 3rem;
+  font-family: Brice;
+
+  @media screen and (max-width: 1100px) {
+    width: 60%;
+  }
+
+  @media screen and (max-width: 900px) {
+    width: 80%;
+  }
+
+  @media screen and (max-width: 650px) {
+    width: 90%;
+    font-size: 1rem;
+    line-height: 2rem;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
 `;
 
 export const LLine1 = styled.div`
@@ -62,27 +90,43 @@ export const LLine1 = styled.div`
   flex-direction: row;
 `;
 export const LeftP = styled.p`
-  margin-left: 4rem;
-  font-family: "Poppins" sans-serif;
+  font-family: montserrat;
   color: white;
-  font-size: 2rem;
+  width: 80%;
 `;
 export const LeftA = styled.a`
-  margin-left: 4rem;
-  font-family: "Poppins" sans-serif;
-  color: white;
-  font-size: 2rem;
+  font-family: montserrat;
+  text-decoration: none;
+  color: rgba(219, 244, 41, 1);
+  font-size: 1rem;
   font-style: italic;
-  :hover {
+  &:hover {
     color: white;
     opacity: 0.7;
   }
 `;
 
 export const ContactP = styled.p`
-  margin-left: 4rem;
-  font-family: "Poppins" sans-serif;
+  font-family: montserrat;
   color: white;
-  font-size: 2rem;
+  font-size: 1rem;
   margin-bottom: 0;
+`;
+export const Social = styled.div`
+  margin-bottom: 1rem;
+`;
+
+export const Sociallogos = styled.div`
+  color: white;
+  padding: 2px;
+  margin: 0;
+  // font-size: 6rem;
+  text-align: center;
+`;
+export const Logo = styled.img`
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 5rem;
 `;
