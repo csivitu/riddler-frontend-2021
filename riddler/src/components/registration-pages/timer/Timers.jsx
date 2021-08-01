@@ -46,7 +46,7 @@ function Timer() {
   //   );
   // });
   timerComponents.push(
-    <div className="timers">
+    <div id="countdown" className="timers">
       <div className="timer-card">
         {timeLeft.days} {" "} {"day"}
       </div>

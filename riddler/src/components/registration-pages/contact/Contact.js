@@ -25,7 +25,7 @@ import {
 
 function Contact() {
   return (
-    <FooterContainer>
+    <FooterContainer id="contact">
       <FooterHeading>
         <img src={aboutUsImage} alt="About Us" />
       </FooterHeading>
