@@ -9,7 +9,7 @@ import $ from "jquery";
 $(document).on('click', ".rotating", function() { $(this).toggleClass("Y"); });
 function Home() {
   return (
-    <div className="home-bg">
+    <div className="home-bg" id="tracks">
       <img className="track" src={tracks} alt="" />
       <div className="discs">
         <img className="disc rotating" src={mythical} alt="mythical" />
