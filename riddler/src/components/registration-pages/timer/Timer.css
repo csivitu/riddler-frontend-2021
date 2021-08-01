@@ -1,34 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 
 .timer-bg {
-    /* The image used */
-    background-image: url("./assets/background.png");
-  
-    /* Full height */
-    height: calc(100vh - 80px);
-  
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    z-index: 1;
-  
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  /* The image used */
+  background-image: url("./assets/background.png");
 
-.HomeBtnWrapper{
-    margin-top: 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 50px
+  /* Full height */
+  min-height: 100vh;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.reg_button{
-    border-radius: 30px;
+.HomeBtnWrapper {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50px;
+}
+
+.reg_button {
+  border-radius: 30px;
   white-space: nowrap;
   padding: 15px 25px;
   color: #000000;
@@ -44,43 +44,45 @@
 }
 
 .reg_button:hover {
-    top: 4px;
-    border-bottom: 4px solid rgba(254, 49, 118, 1);
-  }
-
-  .reg_button:active {
-    top: 6px;
-    border: none;
-  }
-
-#days{
-    background-color: url('./assets/Rectangle\ 67.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+  top: 4px;
+  border-bottom: 4px solid rgba(254, 49, 118, 1);
 }
 
-.timer-card{
-  font-family: 'Poppins', sans-serif;
+.reg_button:active {
+  top: 6px;
+  border: none;
+}
+
+#days {
+  background-color: url("./assets/Rectangle\ 67.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.timer-card {
+  font-family: "Poppins", sans-serif;
   font-weight: bold;
   font-size: 3rem;
+  width: 14rem;
+  padding: 1rem;
+  border-radius: 5px;
   margin: 3%;
-    background-image: url('./assets/Rectangle\ 67.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* position: relative; */
-    z-index: 3;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    height: 13rem;
-    
+  background-image: url("./assets/Rectangle\ 67.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* position: relative; */
+  z-index: 3;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 13rem;
 }
-.timers{
+.timers {
   width: 100%;
   height: 20rem;
   display: flex;
@@ -89,12 +91,13 @@
   align-items: center;
 }
 
-#headline{
-  font-family: 'Poppins', sans-serif;
+#headline {
+  font-family: "Poppins", sans-serif;
   color: aliceblue;
   text-align: center;
+  margin-bottom: 1.4rem;
 }
-.count{
+.count {
   width: 80%;
   height: 80%;
   display: flex;
@@ -103,19 +106,22 @@
   align-items: center;
 }
 
-.timer{
+.timer {
   display: flex;
   flex-direction: row;
 }
 
 @media screen and (max-width: 650px) {
-    .timer{
-    height:30%;
+  .container{
+    font-size: 50%;
+  }
+  .timer {
+    height: 30%;
     width: auto;
+    font-size: 20%;    
   }
 
   .timers {
     flex-direction: column;
   }
-
 }

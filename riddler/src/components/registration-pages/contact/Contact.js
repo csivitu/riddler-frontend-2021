@@ -11,10 +11,11 @@ import {
   Right,
   Social,
   Sociallogos,
-  Logo
+  Logo,
 } from "./ContactElements";
 import aboutUsImage from "./assets/AboutUs_Box.svg";
-import CSILogo from "./assets/csi-logo.png"
+import CSILogo from "./assets/csi-logo.png";
+import riddlerLogo from "./assets/riddlerlogo_svg.svg";
 import {
   FaFacebookSquare,
   FaInstagram,
@@ -77,73 +78,12 @@ function Contact() {
           </Social>
         </Right>
       </FooterContent>
-      <LeftA href="https://csivit.com/" target="_blank">
-        <Logo src={CSILogo} alt="CSI" className="csi-logo" />
-      </LeftA>
-    </FooterContainer>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <Logo src={riddlerLogo} alt="CSI" className="riddler-logo" />
 
-    //     <div className="about-right">
-    //       <div className="contact-us">
-    //         <h2>CONTACT US</h2>
-    //         <div className="about-line-two">
-    //           <img
-    //             className="ellipse-logo"
-    //             src="./assets/Ellipse 1.png"
-    //             alt="Ellipse"
-    //           />
-    //           <hr />
-    //         </div>
-    //         <p>
-    //           Email -
-    //           <a href="mailto:askcsivit@gmail.com">askcsivit@gmail.com</a>
-    //           <br />
-    //           Phone - <a href="tel:+91234567887">+91234567887</a>
-    //           <br />
-    //         </p>
-    //         <pre>
-    //           {" "}
-    //           <a href="tel:+91328684687">+91328684687</a>
-    //         </pre>
-    //       </div>
-    //       <div className="social">
-    //         <h2>SOCIAL</h2>
-    //         <div className="about-line-three">
-    //           <img
-    //             className="ellipse-logo"
-    //             src="./assets/Ellipse 1.png"
-    //             alt="Ellipse"
-    //           />
-    //           <hr />
-    //         </div>
-    //         <div className="social-logos">
-    //           <a
-    //             href="https://www.instagram.com/csivitu"
-    //             className="fa fa-instagram"
-    //             target="_blank"
-    //           ></a>
-    //           <a
-    //             href="https://www.twitter.com/csivitu"
-    //             className="fa fa-twitter"
-    //             target="_blank"
-    //           ></a>
-    //           <a
-    //             href="https://www.linkedin.com/company/computer-society-of-india-vit-student-chapter/"
-    //             className="fa fa-linkedin"
-    //             target="_blank"
-    //           ></a>
-    //           <a
-    //             href="https://www.facebook.com/csivitu/"
-    //             className="fa fa-facebook"
-    //             target="_blank"
-    //           ></a>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    //   <a href="https://csivit.com/" target="_blank">
-    //     <img src="./assets/csi-logo.png" alt="CSI" className="csi-logo" />
-    //   </a>
-    // </div>
+        <Logo src={CSILogo} alt="CSI" className="csi-logo" />
+      </div>
+    </FooterContainer>
   );
 }
 

@@ -51,7 +51,7 @@ const Sidebar = ({ isOpen, toggle }) => {
           >
             FAQs
           </SidebarLink>
-          <SidebarLink
+          {/* <SidebarLink
             onClick={toggle}
             to="countdown"
             smooth={true}
@@ -61,7 +61,7 @@ const Sidebar = ({ isOpen, toggle }) => {
             offset={-80}
           >
             Countdown
-          </SidebarLink>
+          </SidebarLink> */}
           {/* <SidebarLink
             onClick={toggle}
             to="prizes"

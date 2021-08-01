@@ -68,7 +68,7 @@ const Navbar = ({ toggle }) => {
                 FAQs
               </NavLinks>
             </NavItem>
-            <NavItem>
+            {/* <NavItem>
               <NavLinks
                 to="countdown"
                 smooth={true}
@@ -79,7 +79,7 @@ const Navbar = ({ toggle }) => {
               >
                 Countdown
               </NavLinks>
-            </NavItem>
+            </NavItem> */}
             {/* <NavItem>
               <NavLinks
                 to="prizes"
@@ -107,7 +107,7 @@ const Navbar = ({ toggle }) => {
           </NavMenu>
           <NavBtn>
             <NavBtnLink
-              to="/register"
+              to="/countdown"
               smooth={true}
               duration={500}
               spy={true}

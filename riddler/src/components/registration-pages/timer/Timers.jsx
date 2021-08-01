@@ -1,12 +1,13 @@
 import "./Timer.css"
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 // import p5 from "p5";
 
 
 function Timer() {
   const calculateTimeLeft = () => {
     let year = new Date().getFullYear();
-    const difference = +new Date(`${year}-8-20`) - +new Date();
+    const difference = +new Date(`${year}-8-4`) - +new Date();
     let timeLeft = {};
 
     if (difference > 0) {
@@ -47,13 +48,13 @@ function Timer() {
   timerComponents.push(
     <div className="timers">
       <div className="timer-card">
-        {timeLeft.days} {" "} {"days"}
+        {timeLeft.days} {" "} {"day"}
       </div>
       <div className="timer-card">
         {timeLeft.hours} {" "} {"hours"}
       </div>
       <div className="timer-card">
-        {timeLeft.minutes} {" "} {"minutes"}
+        {timeLeft.minutes} {" "} {"mins"}
       </div>
     </div>
 
@@ -72,7 +73,7 @@ function Timer() {
 
         <div class="section section-timer" data-anchor="timer">
           <div class="container">
-            <h1 id="headline">STARTS IN</h1>
+            <h1 id="headline">REGISTRATIONS STARTS IN</h1>
             <br />
             <div id="timer">
               {timerComponents.length ? timerComponents : <span>Time's up!</span>}
@@ -81,7 +82,7 @@ function Timer() {
         </div>
 
         <div className="HomeBtnWrapper">
-          <button className="reg_button" to="/register">REGISTER</button>
+          <Link className="reg_button" to="/" active>HOME</Link>
         </div>
 
       </div>

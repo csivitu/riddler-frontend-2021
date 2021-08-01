@@ -3,16 +3,9 @@ import Brice from "./assets/Brice-Regular.otf";
 import { Link } from "react-router-dom";
 
 export const FooterContainer = styled.div`
-  // height: 100%;
-  // width: 100%;
-  // background-color: black;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // /* align-items: center; */
-  // position: relative;
-  // z-index: -1;
-  // text-align: center;
+  position: relative;
+  z-index: -1;
+  text-align: center;
 
   min-height: calc(100vh - 80px);
   display: flex;
@@ -124,9 +117,5 @@ export const Sociallogos = styled.div`
   text-align: center;
 `;
 export const Logo = styled.img`
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 5rem;
+  height: 2rem;
 `;

@@ -13,7 +13,6 @@ function Pages() {
             <About />
             <Tracks/>
             <FaqsList />
-            <Timer/>
             <Contact/>
         </div>
     );

@@ -1,7 +1,8 @@
 import React from "react";
 import Video from "./assets/teaser.mp4";
-import riddlerLogo from "./assets/riddler-logo-animated2.gif";
+import riddlerLogo from "./assets/riddlerlogo_svg_black.png";
 import riddlerLogoSvg from "./assets/riddlerlogo_svg.svg";
+import Wave from "react-wavify";
 import {
   HomeContainer,
   HomeBG,
@@ -10,22 +11,47 @@ import {
   HomeBtnWrapper,
   Button,
   RiddlerLogo,
+  AboutBg
 } from "./HomeElements";
 
 function Home() {
   return (
     <HomeContainer id="home">
-      <HomeBG>
+      {/* <HomeBG>
         <VideoBG autoPlay muted loop src={Video} type="teaser.mp4" />
-      </HomeBG>
+      </HomeBG> */}
+      <AboutBg>
+          <Wave
+            className="Wave2"
+            fill="#DBF429"
+            paused={false}
+            options={{
+              height: 20,
+              amplitude: 30,
+              speed: 0.25,
+              points: 3,
+            }}
+          />
+          <Wave
+            className="Wave1"
+            fill="#1C1CD2"
+            paused={false}
+            options={{
+              height: 20,
+              amplitude: 30,
+              speed: 0.25,
+              points: 3,
+            }}
+          />
+        </AboutBg>
       <HomeContent>
         <RiddlerLogo>
           <img src={riddlerLogo} alt="Riddler Logo" />
           <img className="shadow" src={riddlerLogoSvg} alt="Riddler Logo" />
         </RiddlerLogo>
-        <HomeBtnWrapper>
-            <Button to="/register">REGISTER</Button>
-        </HomeBtnWrapper>
+        {/* <HomeBtnWrapper>
+            <Button to="/countdown">REGISTER</Button>
+        </HomeBtnWrapper> */}
       </HomeContent>
     </HomeContainer>
   );
