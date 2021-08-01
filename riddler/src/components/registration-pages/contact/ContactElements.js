@@ -97,6 +97,18 @@ export const LeftA = styled.a`
   }
 `;
 
+export const LeftIcon = styled.a`
+  font-family: montserrat;
+  text-decoration: none;
+  color: white;
+  font-size: 2.5rem;
+  font-style: italic;
+  &:hover {
+    color: white;
+    opacity: 0.7;
+  }
+`;
+
 export const ContactP = styled.p`
   font-family: montserrat;
   color: white;
@@ -111,8 +123,6 @@ export const Sociallogos = styled.div`
   color: white;
   padding: 2px;
   margin: 0;
-  // font-size: 6rem;
-  text-align: center;
 `;
 export const Logo = styled.img`
   height: 2rem;

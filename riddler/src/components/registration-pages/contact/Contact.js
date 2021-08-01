@@ -12,6 +12,7 @@ import {
   Social,
   Sociallogos,
   Logo,
+  LeftIcon
 } from "./ContactElements";
 import aboutUsImage from "./assets/AboutUs_Box.svg";
 import CSILogo from "./assets/csi-logo.png";
@@ -59,29 +60,29 @@ function Contact() {
           <Social>
             <AboutH2>SOCIAL</AboutH2>
             <Sociallogos>
-              <LeftA href="https://www.facebook.com/csivitu/" target="_blank">
+              <LeftIcon href="https://www.facebook.com/csivitu/" target="_blank">
                 <FaFacebookSquare />
-              </LeftA>
-              <LeftA
+              </LeftIcon>
+              <LeftIcon
                 href="https://www.linkedin.com/company/computer-society-of-india-vit-student-chapter/"
                 target="_blank"
               >
                 <FaLinkedin />
-              </LeftA>
-              <LeftA href="https://www.twitter.com/csivitu" target="_blank">
+              </LeftIcon>
+              <LeftIcon href="https://www.twitter.com/csivitu" target="_blank">
                 <FaTwitterSquare />
-              </LeftA>
-              <LeftA href="https://www.instagram.com/csivitu" target="_blank">
+              </LeftIcon>
+              <LeftIcon href="https://www.instagram.com/csivitu" target="_blank">
                 <FaInstagram />
-              </LeftA>
+              </LeftIcon>
             </Sociallogos>
           </Social>
         </Right>
       </FooterContent>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <Logo src={riddlerLogo} alt="CSI" className="riddler-logo" />
+      <Logo src={riddlerLogo} alt="CSI" className="riddler-logo" /> {/* src={riddlerLogo} alt="CSI" style={{marginRight:"3rem"}}  */}
 
-        <Logo src={CSILogo} alt="CSI" className="csi-logo" />
+        <Logo src={CSILogo} alt="CSI" className="csi-logo" /> {/*style={{paddingLeft:"3rem",borderLeft:"0.4rem solid #DBF429"}}*/}
       </div>
     </FooterContainer>
   );
