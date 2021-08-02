@@ -1,8 +1,8 @@
 import React from "react";
 import "./Tracks.css";
-import mythical from "./assets/mythical.png";
-import digital from "./assets/digital.png";
-import dystopian from "./assets/dysptopian.png";
+import mythical from "./assets/1.png";
+import digital from "./assets/2.png";
+import dystopian from "./assets/3.png";
 import tracks from "./assets/tracks box.svg";
 import $ from "jquery";
 

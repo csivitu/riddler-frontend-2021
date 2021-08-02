@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 @font-face {
-  font-family: 'Brice-Bold';
-  src: url('./assets/Brice-Bold.otf');
+  font-family: "Brice-Bold";
+  src: url("./assets/Brice-Bold.otf");
 }
 
 .timer-bg {
@@ -20,26 +20,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 .screensaver {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 0;
   -webkit-animation: screensaver 5s linear infinite alternate;
   animation: screensaver 5s linear infinite alternate;
 }
 
 .screensaver-logo {
-  width: 200px;
-  height: 100px;
-  color: #FE3176;
-  font-family: 'Brice-Bold';
+  width: fit-content;
+  color: #fe3176;
+  font-family: "Brice-Bold";
   font-size: 3.5rem;
   font-weight: 500;
   -webkit-animation: screensaver-logo 4s linear infinite alternate;
-  animation: screensaver-logo 4s linear infinite alternate;
+  animation: screensaver-logo 4s linear infinite alternate, color_change 5s linear infinite alternate;
 }
 
 @-webkit-keyframes screensaver {
@@ -53,14 +53,28 @@
     transform: translateX(calc(100vw - 200px));
   }
 }
+
 @-webkit-keyframes screensaver-logo {
   100% {
-    transform: translateY(calc(100vh - 100px));
+    transform: translateY(calc(100vh));
   }
 }
+
 @keyframes screensaver-logo {
   100% {
-    transform: translateY(calc(100vh - 100px));
+    transform: translateY(calc(100vh));
+  }
+}
+
+@keyframes color_change {
+  0% {
+    color: #1C1CD2;
+  }
+  50% {
+    color: #DBF429;
+  }
+  100% {
+    color: #FE3176;
   }
 }
 
