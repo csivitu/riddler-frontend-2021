@@ -95,7 +95,7 @@ export const NavLinks = styled(LinkScroll)`
   }
 
   &.active, &:active {
-    color: rgba(219, 244, 41, 1);
+    color: #FE3176;
   }
 `;
 
