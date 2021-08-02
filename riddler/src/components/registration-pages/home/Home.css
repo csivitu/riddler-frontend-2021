@@ -1,0 +1,17 @@
+@font-face {
+    font-family: "Brice-Bold";
+    src: url("./assets/Brice-Bold.otf");
+}
+
+.dates {
+    font-family: 'Brice-Bold';
+    color: #DBF429;
+    font-size: 2rem;
+    margin-top: 2%;
+    text-align: center;
+}
+
+.superscript {
+    font-family: 'Brice-Bold';
+    color: #DBF429;
+}

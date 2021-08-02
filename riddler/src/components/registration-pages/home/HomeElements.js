@@ -23,7 +23,8 @@ export const AboutBg = styled.div`
     position: absolute;
     height: 100%;
     width: 100%;
-
+    background-color:black;
+    background-image: url("bg_pattern.svg");
     .Wave1 {
         position: absolute;
         bottom: 0;
@@ -104,14 +105,14 @@ export const Button = styled(LinkRoute)`
   border-radius: 30px;
   white-space: nowrap;
   padding: 10px 20px;
-  color: #ffffff;
+  color: #000;
   font-size: 16px;
   outline: none;
   font-weight: bold;
   cursor: pointer;
   text-decoration: none;
   border-bottom: 6px solid rgba(254, 49, 118, 1);
-  background: rgba(28, 28, 210, 1);
+  background: #DBF429;
   display: inline-block;
   position: relative;
 
