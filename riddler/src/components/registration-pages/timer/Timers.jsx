@@ -68,7 +68,7 @@ function Timer() {
 
     <div className="timer-bg">
       <div class='screensaver'>
-        <p className="screensaver-logo">Riddler</p>
+        <p className="screensaver-logo">RIDDLER</p>
         {/* <img class="screensaver-logo" src={ScreensaverRiddlerLogo} alt="riddler logo" /> */}
       </div>
       <div className="TimerContainer">
