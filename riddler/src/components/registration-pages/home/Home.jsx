@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 // import Video from "./assets/teaser.mp4";
-import riddlerLogo from "./assets/riddlerlogo_svg_black.svg";
+import riddlerLogo from "./assets/riddlerlogo_svg.svg";
 // import riddlerLogoSvg from "./assets/riddlerlogo_svg.svg";
 import Wave from "react-wavify";
 import {
@@ -32,7 +32,7 @@ function Home() {
         <VideoBG autoPlay muted loop src={Video} type="teaser.mp4" />
       </HomeBG> */}
       <AboutBg>
-          <Wave
+          {/* <Wave
             className="Wave2"
             fill="#DBF429"
             paused={pauseTime}
@@ -42,8 +42,8 @@ function Home() {
               speed: 0.25,
               points: 3,
             }}
-          />
-          <Wave
+          /> */}
+          {/* <Wave
             className="Wave1"
             fill="#FE3176"
             paused={false}
@@ -53,7 +53,7 @@ function Home() {
               speed: 0.25,
               points: 3,
             }}
-          />
+          /> */}
         </AboutBg>
       <HomeContent>
         <RiddlerLogo>

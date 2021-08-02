@@ -12,6 +12,7 @@ export const Nav = styled.nav`
   font-size: 1rem;
   position: sticky;
   top: 0;
+  background-color: #DBF429;
   z-index: 10;
 
   @media screen and (min-width: 950px) {
@@ -80,7 +81,7 @@ export const NavItem = styled.li`
 `;
 
 export const NavLinks = styled(LinkScroll)`
-  color: #fff;
+  color: black;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -109,10 +110,10 @@ export const NavBtn = styled.nav`
 `
 export const NavBtnLink = styled(LinkRouter)`
   border-radius:50px;
-  background: #ffffff;
+  background: black;
   white-space: nowrap;
   padding:10px 22px;
-  color:#000000;
+  color:white;
   font-size:16px;
   outline:none;
   border:none;
@@ -123,7 +124,7 @@ export const NavBtnLink = styled(LinkRouter)`
 
   &:hover {
       transition:all 0.2s ease-in-out;
-      background:rgba(219, 244, 41, 1);
+      background:#1C1CD2;
       color:#000000;
   }
 `

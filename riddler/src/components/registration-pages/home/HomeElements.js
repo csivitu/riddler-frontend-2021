@@ -23,6 +23,7 @@ export const AboutBg = styled.div`
     position: absolute;
     height: 100%;
     width: 100%;
+    background-color:black;
 
     .Wave1 {
         position: absolute;
