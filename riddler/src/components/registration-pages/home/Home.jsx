@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import riddlerLogo from "./assets/riddlerlogo_svg.svg";
 // import riddlerLogoSvg from "./assets/riddlerlogo_svg.svg";
 import Wave from "react-wavify";
+import "./Home.css";
 import {
   HomeContainer,
   // HomeBG,
@@ -17,49 +18,16 @@ import {
 
 function Home() {
 
-  const [pauseTime, setPauseTime]  = useState(true)
-
-  const changeAnimation = ()=>{
-    setPauseTime(false)
-  }
-  useEffect(()=>{
-    setTimeout(changeAnimation, 2000);
-  }, [])
-
   return (
     <HomeContainer id="home">
-      {/* <HomeBG>
-        <VideoBG autoPlay muted loop src={Video} type="teaser.mp4" />
-      </HomeBG> */}
       <AboutBg>
-          {/* <Wave
-            className="Wave2"
-            fill="#DBF429"
-            paused={pauseTime}
-            options={{
-              height: 20,
-              amplitude: 30,
-              speed: 0.25,
-              points: 3,
-            }}
-          /> */}
-          {/* <Wave
-            className="Wave1"
-            fill="#FE3176"
-            paused={false}
-            options={{
-              height: 20,
-              amplitude: 30,
-              speed: 0.25,
-              points: 3,
-            }}
-          /> */}
         </AboutBg>
       <HomeContent>
         <RiddlerLogo>
           <img src={riddlerLogo} alt="Riddler Logo" />
           {/* <img className="shadow" src={riddlerLogoSvg} alt="Riddler Logo" /> */}
         </RiddlerLogo>
+        <p className="dates">20<sup className="superscript">th</sup> - 22<sup className="superscript">nd</sup> August 2021</p>
         <HomeBtnWrapper>
             <Button to="/countdown">REGISTER</Button>
         </HomeBtnWrapper>
