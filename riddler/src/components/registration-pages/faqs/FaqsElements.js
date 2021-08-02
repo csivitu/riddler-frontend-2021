@@ -59,25 +59,25 @@ export const StyledFaq = styled.div`
     display: flex;
     align-items: center;
     /* height: fit-content; */
-    height: ${({ isOpen }) => (isOpen ? "40px" : "0")};
+    height: ${({ isOpen }) => (isOpen ? "50px" : "0")};
     opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
     font-size: 14px;
     padding: 5px 10px;
 
     @media screen and (max-width: 900px) {
-      height: ${({ isOpen }) => (isOpen ? "50px" : "0")};
+      height: ${({ isOpen }) => (isOpen ? "60px" : "0")};
     }
 
     @media screen and (max-width: 600px) {
-      height: ${({ isOpen }) => (isOpen ? "70px" : "0")};
+      height: ${({ isOpen }) => (isOpen ? "80px" : "0")};
     }
 
     @media screen and (max-width: 400px) {
-      height: ${({ isOpen }) => (isOpen ? "90px" : "0")};
+      height: ${({ isOpen }) => (isOpen ? "100px" : "0")};
     }
 
     @media screen and (max-width: 320px) {
-      height: ${({ isOpen }) => (isOpen ? "100px" : "0")};
+      height: ${({ isOpen }) => (isOpen ? "110px" : "0")};
     }
   }
 `;
