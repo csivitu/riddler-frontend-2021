@@ -60,11 +60,11 @@ export const AboutText = styled.p`
 
     z-index: 2;
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     letter-spacing: 0.05rem;
-    width: 40%;
+    width: 50%;
     text-align: center;
-    line-height: 3rem;
+    line-height: 2.5rem;
     font-family: Brice;
 
     @media screen and (max-width: 1100px) {

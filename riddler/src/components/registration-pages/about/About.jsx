@@ -43,8 +43,10 @@ const About = ({ toggle }) => {
           <img src={aboutBoxImage} alt="About"></img>
         </AboutBox>
         <AboutText>
-          Riddler is an online cryptic hunt, organized every year by the
-          Computer Society Of India, VIT Student Chapter
+          Riddler is a one-of-a-kind online cryptic hunt where players dive into
+          the depths of the internet and navigate their way to the top of the
+          leaderboard by cracking exhilarating riddles spread across various
+          themes.
         </AboutText>
         <RiddlerBox>
           <img src={riddlerBoxImage} alt="About"></img>
