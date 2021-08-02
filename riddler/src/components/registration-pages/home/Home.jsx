@@ -1,12 +1,12 @@
 import React from "react";
-import Video from "./assets/teaser.mp4";
+// import Video from "./assets/teaser.mp4";
 import riddlerLogo from "./assets/riddlerlogo_svg_black.svg";
-import riddlerLogoSvg from "./assets/riddlerlogo_svg.svg";
+// import riddlerLogoSvg from "./assets/riddlerlogo_svg.svg";
 import Wave from "react-wavify";
 import {
   HomeContainer,
-  HomeBG,
-  VideoBG,
+  // HomeBG,
+  // VideoBG,
   HomeContent,
   HomeBtnWrapper,
   Button,
@@ -34,7 +34,7 @@ function Home() {
           />
           <Wave
             className="Wave1"
-            fill="#1C1CD2"
+            fill="#FE3176"
             paused={false}
             options={{
               height: 20,
