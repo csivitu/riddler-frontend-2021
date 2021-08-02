@@ -3,7 +3,7 @@ import About from './about/About';
 import Tracks from './tracks/Tracks';
 import Home from './home/Home';
 import FaqsList from './faqs/FaqList.js';
-import Timer from './timer/Timers'
+// import Timer from './timer/Timers'
 import Contact from './contact/Contact';
 
 function Pages() {

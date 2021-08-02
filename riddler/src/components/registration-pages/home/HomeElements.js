@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link as LinkRoute } from "react-router-dom";
 
 export const HomeContainer = styled.div`
-  background: rgba(254, 49, 118, 1);
+  background: #1C1CD2;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,7 +35,7 @@ export const AboutBg = styled.div`
         position: absolute;
         bottom: 0;
         left: 0;
-        height: 75%;
+        height: 80%;
     }
 `;
 

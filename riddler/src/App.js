@@ -1,4 +1,4 @@
-import react,{ useState,useHistory,useDispatch,useEffect} from "react";
+// import react,{ useState,useHistory,useDispatch,useEffect} from "react";
 import "./App.css";
 import Regs from "./websites/registrations/Regs";
 // import api, { setAuthToken } from "./api/api.js";

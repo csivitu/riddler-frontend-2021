@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Brice from "./assets/Brice-Regular.otf";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export const FooterContainer = styled.div`
   position: relative;
