@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+@font-face {
+  font-family: 'Brice-Bold';
+  src: url('./assets/Brice-Bold.otf');
+}
 
 .timer-bg {
   /* The image used */
@@ -12,18 +16,17 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  z-index: 1;
 
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow:hidden;
 }
 
 .screensaver {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
   -webkit-animation: screensaver 5s linear infinite alternate;
   animation: screensaver 5s linear infinite alternate;
 }
@@ -31,6 +34,10 @@
 .screensaver-logo {
   width: 200px;
   height: 100px;
+  color: #FE3176;
+  font-family: 'Brice-Bold';
+  font-size: 3.5rem;
+  font-weight: 500;
   -webkit-animation: screensaver-logo 4s linear infinite alternate;
   animation: screensaver-logo 4s linear infinite alternate;
 }
