@@ -170,6 +170,7 @@ export const SocialIcon = styled.a`
   text-decoration: none;
   color: white;
   font-size: 2rem;
+  padding: 0.4rem;
 
   &:hover {
     opacity: 0.7;
