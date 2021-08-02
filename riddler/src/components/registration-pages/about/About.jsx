@@ -6,6 +6,7 @@ import {
   AboutContainer,
   AboutText,
   RiddlerBox,
+  Heading
 } from "./AboutElements";
 
 import aboutBoxImage from "./assets/about-box.svg";
@@ -16,9 +17,9 @@ const About = ({ toggle }) => {
     <>
       <AboutContainer id="about">
         <AboutBg>
-          <Wave
+          {/* <Wave
             className="Wave2"
-            fill="#DBF429"
+            fill=""
             paused={false}
             options={{
               height: 20,
@@ -26,10 +27,10 @@ const About = ({ toggle }) => {
               speed: 0.15,
               points: 3,
             }}
-          />
+          /> */}
           <Wave
             className="Wave1"
-            fill="#1C1CD2"
+            fill="#DBF429"
             paused={false}
             options={{
               height: 20,
@@ -38,7 +39,9 @@ const About = ({ toggle }) => {
               points: 3,
             }}
           />
+          <Heading>What it is?</Heading>
         </AboutBg>
+        
         <AboutBox>
           <img src={aboutBoxImage} alt="About"></img>
         </AboutBox>
@@ -48,9 +51,9 @@ const About = ({ toggle }) => {
           leaderboard by cracking exhilarating riddles spread across various
           themes.
         </AboutText>
-        <RiddlerBox>
+        {/* <RiddlerBox>
           <img src={riddlerBoxImage} alt="About"></img>
-        </RiddlerBox>
+        </RiddlerBox> */}
       </AboutContainer>
     </>
   );
