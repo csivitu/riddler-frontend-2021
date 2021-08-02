@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import Video from "./assets/teaser.mp4";
 import riddlerLogo from "./assets/riddlerlogo_svg_black.svg";
 import riddlerLogoSvg from "./assets/riddlerlogo_svg.svg";
@@ -15,6 +16,16 @@ import {
 } from "./HomeElements";
 
 function Home() {
+
+  const [pauseTime, setPauseTime]  = useState(true)
+
+  const changeAnimation = ()=>{
+    setPauseTime(false)
+  }
+  useEffect(()=>{
+    setTimeout(changeAnimation, 2000);
+  }, [])
+
   return (
     <HomeContainer id="home">
       {/* <HomeBG>
@@ -24,7 +35,7 @@ function Home() {
           <Wave
             className="Wave2"
             fill="#DBF429"
-            paused={false}
+            paused={pauseTime}
             options={{
               height: 20,
               amplitude: 30,
