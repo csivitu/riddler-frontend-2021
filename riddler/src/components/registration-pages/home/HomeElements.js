@@ -104,14 +104,14 @@ export const Button = styled(LinkRoute)`
   border-radius: 30px;
   white-space: nowrap;
   padding: 10px 20px;
-  color: #000000;
+  color: #ffffff;
   font-size: 16px;
   outline: none;
   font-weight: bold;
   cursor: pointer;
   text-decoration: none;
   border-bottom: 6px solid rgba(254, 49, 118, 1);
-  background: rgba(219, 244, 41, 1);
+  background: rgba(28, 28, 210, 1);
   display: inline-block;
   position: relative;
 

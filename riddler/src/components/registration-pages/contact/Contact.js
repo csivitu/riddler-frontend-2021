@@ -12,7 +12,10 @@ import {
   Social,
   Sociallogos,
   Logo,
-  LeftIcon
+  ContactUs,
+  ContactA,
+  FooterLogoWrap,
+  SocialIcon,
 } from "./ContactElements";
 import aboutUsImage from "./assets/AboutUs_Box.svg";
 import CSILogo from "./assets/csi-logo.png";
@@ -42,48 +45,60 @@ function Contact() {
             growth of participants. Visit our website, csivit.com, to see more
             of who we are and the work we do.
           </LeftP>
-          <br />
           <LeftA href="https://csivit.com/" target="_blank">
             Visit Website
           </LeftA>
         </Left>
         <Right>
-          <AboutH2>CONTACT US</AboutH2>
-          <ContactP>
-            Email -
-            <LeftA href="mailto:askcsivit@gmail.com">askcsivit@gmail.com</LeftA>
-            <br />
-            <br />
-            Phone - <LeftA href="tel:+91234567887">+91234567887</LeftA>
-            <LeftA href="tel:+91328684687">+91328684687</LeftA>
-          </ContactP>
+          <ContactUs>
+            <AboutH2>CONTACT US</AboutH2>
+            <ContactP>
+              Email -
+              <ContactA href="mailto:askcsivit@gmail.com">
+                {" "}
+                askcsivit@gmail.com
+              </ContactA>
+              <br />
+              Phone - <ContactA href="tel:+91234567887">+91234567887</ContactA>
+              <br />
+              <ContactA href="tel:+91328684687">+91328684687</ContactA>
+            </ContactP>
+          </ContactUs>
           <Social>
             <AboutH2>SOCIAL</AboutH2>
             <Sociallogos>
-              <LeftIcon href="https://www.facebook.com/csivitu/" target="_blank">
-                <FaFacebookSquare />
-              </LeftIcon>
-              <LeftIcon
+              <SocialIcon
+                href="https://www.instagram.com/csivitu"
+                target="_blank"
+              >
+                <FaInstagram />
+              </SocialIcon>
+              <SocialIcon
+                href="https://www.twitter.com/csivitu"
+                target="_blank"
+              >
+                <FaTwitterSquare />
+              </SocialIcon>
+              <SocialIcon
                 href="https://www.linkedin.com/company/computer-society-of-india-vit-student-chapter/"
                 target="_blank"
               >
                 <FaLinkedin />
-              </LeftIcon>
-              <LeftIcon href="https://www.twitter.com/csivitu" target="_blank">
-                <FaTwitterSquare />
-              </LeftIcon>
-              <LeftIcon href="https://www.instagram.com/csivitu" target="_blank">
-                <FaInstagram />
-              </LeftIcon>
+              </SocialIcon>
+              <SocialIcon
+                href="https://www.facebook.com/csivitu/"
+                target="_blank"
+              >
+                <FaFacebookSquare />
+              </SocialIcon>
             </Sociallogos>
           </Social>
         </Right>
       </FooterContent>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-      <Logo src={riddlerLogo} alt="CSI" className="riddler-logo" /> {/* src={riddlerLogo} alt="CSI" style={{marginRight:"3rem"}}  */}
-
-        <Logo src={CSILogo} alt="CSI" className="csi-logo" /> {/*style={{paddingLeft:"3rem",borderLeft:"0.4rem solid #DBF429"}}*/}
-      </div>
+      <FooterLogoWrap>
+        <Logo src={riddlerLogo} alt="CSI" className="riddler-logo" />
+        <Logo src={CSILogo} alt="CSI" className="csi-logo" />
+      </FooterLogoWrap>
     </FooterContainer>
   );
 }

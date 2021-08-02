@@ -33,16 +33,22 @@ export const StyledFaq = styled.div`
   .faq-question {
     font-size: 16px;
     font-weight: 600;
-    margin-right: 20px;
+    padding-right: 20px;
+    position: relative;
   }
 
   .plus {
     position: absolute;
     cursor: pointer;
     right: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 
     img {
-      height: 18px;
+      width: 18px;
       transition: transform 0.2s;
       transform: rotate(${({ isOpen }) => (isOpen ? "45deg" : "0deg")});
     }
@@ -57,6 +63,22 @@ export const StyledFaq = styled.div`
     opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
     font-size: 14px;
     padding: 5px 10px;
+
+    @media screen and (max-width: 900px) {
+      height: ${({ isOpen }) => (isOpen ? "50px" : "0")};
+    }
+
+    @media screen and (max-width: 600px) {
+      height: ${({ isOpen }) => (isOpen ? "70px" : "0")};
+    }
+
+    @media screen and (max-width: 400px) {
+      height: ${({ isOpen }) => (isOpen ? "90px" : "0")};
+    }
+
+    @media screen and (max-width: 320px) {
+      height: ${({ isOpen }) => (isOpen ? "100px" : "0")};
+    }
   }
 `;
 

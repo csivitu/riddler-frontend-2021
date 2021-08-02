@@ -40,6 +40,13 @@ export const NavLogo = styled(LinkScroll)`
     height: 1.5rem;
     color: white;
   }
+
+  @media screen and (max-width: 350px) {
+    margin-left: 10px;
+    img {
+      width: 70%;
+    }
+  }
 `;
 
 export const MobileIcon = styled.div`
@@ -47,11 +54,11 @@ export const MobileIcon = styled.div`
 
   @media screen and (max-width: 950px) {
     color:white;
-    display: block;
+    display: flex;
+    align-items: center;
     position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-100%, 60%);
+    height: 100%;
+    right: 10px;
     font-size: 1.8rem;
     cursor: pointer;
   }

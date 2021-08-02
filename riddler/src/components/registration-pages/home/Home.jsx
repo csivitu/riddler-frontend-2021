@@ -1,6 +1,6 @@
 import React from "react";
 import Video from "./assets/teaser.mp4";
-import riddlerLogo from "./assets/riddlerlogo_svg_black.png";
+import riddlerLogo from "./assets/riddlerlogo_svg_black.svg";
 import riddlerLogoSvg from "./assets/riddlerlogo_svg.svg";
 import Wave from "react-wavify";
 import {
@@ -47,11 +47,11 @@ function Home() {
       <HomeContent>
         <RiddlerLogo>
           <img src={riddlerLogo} alt="Riddler Logo" />
-          <img className="shadow" src={riddlerLogoSvg} alt="Riddler Logo" />
+          {/* <img className="shadow" src={riddlerLogoSvg} alt="Riddler Logo" /> */}
         </RiddlerLogo>
-        {/* <HomeBtnWrapper>
+        <HomeBtnWrapper>
             <Button to="/countdown">REGISTER</Button>
-        </HomeBtnWrapper> */}
+        </HomeBtnWrapper>
       </HomeContent>
     </HomeContainer>
   );

@@ -1,6 +1,7 @@
 import "./Timer.css"
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import ScreensaverRiddlerLogo from './assets/riddlerlogo_svg.svg';
 // import p5 from "p5";
 
 
@@ -48,33 +49,32 @@ function Timer() {
   timerComponents.push(
     <div id="countdown" className="timers">
       <div className="timer-card">
-        {timeLeft.days} {" "} {"day"}
+        <h1>{timeLeft.days}</h1>
+        <h2>{timeLeft.days === 1? "day" : "days"}</h2>
       </div>
       <div className="timer-card">
-        {timeLeft.hours} {" "} {"hours"}
+        <h1>{timeLeft.hours}</h1>
+        <h2>{timeLeft.hours === 1? "hour" : "hours"}</h2>
       </div>
       <div className="timer-card">
-        {timeLeft.minutes} {" "} {"mins"}
+        <h1>{timeLeft.minutes}</h1>
+        <h2>{timeLeft.minutes === 1? "min" : "mins"}</h2>
       </div>
     </div>
 
   );
 
-
-  //logo bounce
-
-
-  //logo bounce
-
   return (
 
     <div className="timer-bg">
+      <div class='screensaver'>
+        <img class="screensaver-logo" src={ScreensaverRiddlerLogo} alt="riddler logo" />
+      </div>
       <div className="TimerContainer">
 
-        <div class="section section-timer" data-anchor="timer">
-          <div class="container">
+        <div className="section-timer" data-anchor="timer">
+          <div className="container">
             <h1 id="headline">REGISTRATIONS STARTS IN</h1>
-            <br />
             <div id="timer">
               {timerComponents.length ? timerComponents : <span>Time's up!</span>}
             </div>
@@ -82,7 +82,7 @@ function Timer() {
         </div>
 
         <div className="HomeBtnWrapper">
-          <Link className="reg_button" to="/" active>HOME</Link>
+          <Link className="reg_button" to="/">HOME</Link>
         </div>
 
       </div>

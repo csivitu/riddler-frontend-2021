@@ -11,10 +11,9 @@ const Faq = props => {
     <StyledFaq isOpen={isOpen}>
         <span className="faq-question">
           {question}
-        </span>
-
-        <span className="plus" onClick={() => toggleOpen(!isOpen)}>
-          <img src={plusSymbol} alt='plus'/>
+          <span className="plus" onClick={() => toggleOpen(!isOpen)}>
+            <img src={plusSymbol} alt='plus'/>
+          </span>
         </span>
 
         <span className="faq-answer">
