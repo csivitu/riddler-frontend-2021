@@ -78,9 +78,9 @@ function Contact() {
                 askcsivit@gmail.com
               </ContactA>
               <br />
-              Phone - <ContactA href="tel:+91234567887">+91234567887</ContactA>
+              Phone - <ContactA href="tel:+919445876588">+919445876588</ContactA>
               <br />
-              <ContactA href="tel:+91328684687">+91328684687</ContactA>
+              <ContactA href="tel:+918369866141">+918369866141</ContactA>
             </ContactP>
           </ContactUs>
           <Social>

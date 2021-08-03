@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Brice from './assets/Brice.otf';
+// import Brice from './assets/Brice.otf';
 import briceBold from './assets/Brice-Bold.otf';
-import newFont from './assets/Inconsolata.ttf'
+// import newFont from './assets/Inconsolata.ttf';
 
 export const AboutContainer = styled.div`
     height: calc(100vh - 80px); 
@@ -12,7 +12,7 @@ export const AboutContainer = styled.div`
     justify-content: left;
     align-items: center;
     background-image: url("bg_pattern.svg");
-    background-position: top;
+    background-position: center top -20px;
     background-size: cover;
     background-color: black;
 `;
@@ -45,9 +45,12 @@ export const AboutBg = styled.div`
     background-color: rgba(0,0,0,0.5);
     .Wave1 {
         position: absolute;
-        bottom: 0;
-        left: 0;
+        bottom: -1px;
         height: 25%;
+    }
+
+    .Wave1 svg {
+        display: block;
     }
 
     .Wave2 {
@@ -105,21 +108,16 @@ export const Heading = styled.div`
 `;
 
 export const AboutText = styled.p`
-    @font-face {
-        font-family: 'Ligconsolata';
-        src: url(${newFont}) format('truetype');
-    }
-
     z-index: 2;
     margin-left: 4rem;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1.3rem;
-    letter-spacing: 0.05rem;
     width: 50%;
     color: white;
     text-align: left;
     line-height: 2.5rem;
-    font-family: Brice;
+    font-family: 'Inconsolata', monospace;
+    text-transform: uppercase;
 
     @media screen and (max-width: 1100px) {
         width: 50%;
@@ -142,7 +140,12 @@ export const AboutText = styled.p`
 
     @media screen and (max-width: 350px) {
         margin-left: 1rem;
+        font-size: 0.8rem;
     }
+`;
+
+export const Yellow = styled.span`
+    color: #D8F029;
 `;
 
 export const RiddlerBox = styled.div`

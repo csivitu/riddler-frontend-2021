@@ -27,7 +27,7 @@ const Sidebar = ({ isOpen, toggle }) => {
             exact="true"
             offset={-80}
           >
-            About
+            ABOUT
           </SidebarLink>
           <SidebarLink
             onClick={toggle}
@@ -38,7 +38,7 @@ const Sidebar = ({ isOpen, toggle }) => {
             exact="true"
             offset={-80}
           >
-            Tracks
+            TRACKS
           </SidebarLink>
           <SidebarLink
             onClick={toggle}
@@ -82,7 +82,7 @@ const Sidebar = ({ isOpen, toggle }) => {
             exact="true"
             offset={-80}
           >
-            Contact Us
+            CONTACT US
           </SidebarLink>
         </SidebarMenu>
         <SideBtnWrap>

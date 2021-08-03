@@ -6,7 +6,8 @@ import {
   AboutContainer,
   AboutText,
   // RiddlerBox,
-  Heading
+  Heading,
+  Yellow,
 } from "./AboutElements";
 
 import aboutBoxImage from "./assets/about-box.svg";
@@ -39,17 +40,18 @@ const About = ({ toggle }) => {
               points: 3,
             }}
           />
-          <Heading>What it is?</Heading>
+          <Heading>What it is</Heading>
         </AboutBg>
-        
+
         <AboutBox>
           <img src={aboutBoxImage} alt="About"></img>
         </AboutBox>
         <AboutText>
-          Riddler is a one-of-a-kind online cryptic hunt where players dive into
+          Riddler is a <Yellow>one-of-a-kind</Yellow> online cryptic hunt where players dive into
           the depths of the internet and navigate their way to the top of the
-          leaderboard by cracking exhilarating riddles spread across various
-          themes.
+          leaderboard by cracking <Yellow>exhilarating riddles</Yellow> spread across various
+          themes. The last 9 years have seen hundreds try their best every
+          season, only to get bested themselves.
         </AboutText>
         {/* <RiddlerBox>
           <img src={riddlerBoxImage} alt="About"></img>

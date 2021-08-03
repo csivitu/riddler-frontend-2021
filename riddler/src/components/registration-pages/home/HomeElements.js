@@ -4,7 +4,7 @@ import { Link as LinkRoute } from "react-router-dom";
 export const HomeContainer = styled.div`
 background-color: black;
   background-image: url("bg_pattern.svg");
-  background-position: bottom;
+  background-position: center bottom;
   background-size: cover;
   display: flex;
   justify-content: center;

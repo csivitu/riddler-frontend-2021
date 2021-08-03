@@ -84,7 +84,7 @@ export const StyledFaq = styled.div`
   height: max-content;
   margin: 10px 0px;
   border-top: 2px solid black;
-  padding: 15px 0px;
+  padding-top: 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -97,6 +97,7 @@ export const StyledFaq = styled.div`
     padding-right: 20px;
     padding-left: 5px;
     position: relative;
+    padding-bottom: 5px;
   }
 
   .plus {
@@ -117,29 +118,33 @@ export const StyledFaq = styled.div`
   }
 
   .faq-answer {
+    background-color: rgba(0, 0, 0, 0.05);
     transition: all 0.2s ease-in-out;
     display: flex;
     align-items: center;
-    /* height: fit-content; */
-    height: ${({ isOpen }) => (isOpen ? "50px" : "0")};
-    opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
+    height: ${({ isOpen }) => (isOpen ? "60px" : "0")};
+    overflow: hidden;
     font-size: 14px;
-    padding: 5px 10px;
+    padding: ${({ isOpen }) => (isOpen ? "5px 10px" : "0px 10px")};
 
     @media screen and (max-width: 900px) {
-      height: ${({ isOpen }) => (isOpen ? "60px" : "0")};
+      height: ${({ isOpen }) => (isOpen ? "70px" : "0")};
     }
 
     @media screen and (max-width: 600px) {
-      height: ${({ isOpen }) => (isOpen ? "80px" : "0")};
+      height: ${({ isOpen }) => (isOpen ? "90px" : "0")};
     }
 
-    @media screen and (max-width: 400px) {
-      height: ${({ isOpen }) => (isOpen ? "100px" : "0")};
+    @media screen and (max-width: 450px) {
+      height: ${({ isOpen }) => (isOpen ? "120px" : "0")};
+    }
+
+    @media screen and (max-width: 350px) {
+      height: ${({ isOpen }) => (isOpen ? "130px" : "0")};
     }
 
     @media screen and (max-width: 320px) {
-      height: ${({ isOpen }) => (isOpen ? "110px" : "0")};
+      height: ${({ isOpen }) => (isOpen ? "150px" : "0")};
     }
   }
 `;

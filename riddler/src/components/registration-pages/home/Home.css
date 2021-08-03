@@ -9,6 +9,7 @@
     font-size: 2rem;
     margin-top: 1rem;
     text-align: center;
+    font-weight: 700;
 }
 
 .superscript {
@@ -19,5 +20,11 @@
 @media screen and (max-width: 650px) {
     .dates {
         font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .dates {
+        font-size: 0.8rem;
     }
 }
