@@ -7,11 +7,17 @@
     font-family: 'Brice-Bold';
     color: #DBF429;
     font-size: 2rem;
-    margin-top: 2%;
+    margin-top: 5%;
     text-align: center;
 }
 
 .superscript {
     font-family: 'Brice-Bold';
     color: #DBF429;
+}
+
+@media screen and (max-width: 650px) {
+    .dates {
+        font-size: 1rem;
+    }
 }
