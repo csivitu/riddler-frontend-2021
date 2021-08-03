@@ -11,6 +11,10 @@ export const AboutContainer = styled.div`
     display: flex;
     justify-content: left;
     align-items: center;
+    background-image: url("bg_pattern.svg");
+    background-position: top;
+    background-size: cover;
+    background-color: black;
 `;
 
 export const AboutBox = styled.div`
@@ -18,19 +22,18 @@ export const AboutBox = styled.div`
     top: 1rem;
     right: 1rem;
     width: 20rem;
-    transform: rotate(45deg);
     
     img{
         width: 100%;
     }
 
-    @media screen and (max-width: 700px) {
-        width: rem;
+    @media screen and (max-width: 900px) {
+        width: 15rem;
         top: 2rem;
     }
 
-    @media screen and (max-width: 450px) {
-        width: 8rem;
+    @media screen and (max-width: 500px) {
+        width: 10rem;
         top: 4rem;
     }
 `;
@@ -39,8 +42,7 @@ export const AboutBg = styled.div`
     position: absolute;
     height: 100%;
     width: 100%;
-    background-image: url("bg_pattern.svg");
-    background-color: black;
+    background-color: rgba(0,0,0,0.5);
     .Wave1 {
         position: absolute;
         bottom: 0;
@@ -61,37 +63,44 @@ export const Heading = styled.div`
         font-family: 'Brice-Bold';
         src: url(${briceBold}) format('truetype');
     }
-
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
     z-index: 2;
-    margin-left: 4rem;
-    margin-top: 4rem;
     font-weight: 600;
     font-size: 6rem;
     letter-spacing: 0.05rem;
     width: 50%;
     color: #D8F029;
     text-align: left;
-    line-height: 2.5rem;
     font-family: Brice;
 
     @media screen and (max-width: 1100px) {
         width: 50%;
+        font-size: 5rem;
     }
 
     @media screen and (max-width: 900px) {
-        width: 70%;
+        width: 60%;
+        font-size: 3.5rem;
     }
 
     @media screen and (max-width: 650px) {
-        width: 70%;
-        font-size: 2rem;
-        line-height: 2rem;
-        margin-left: 2rem;
-        top: 4rem;
+        font-size: 2.5rem;
     }
 
     @media screen and (max-width: 500px) {
         width: 90%;
+        font-size: 1.5rem;
+        line-height: 5rem;
+        left: 2rem;
+    }
+
+    @media screen and (max-width: 350px) {
+        width: 90%;
+        font-size: 1.2rem;
+        line-height: 5rem;
+        left: 1rem;
     }
 `;
 
@@ -128,6 +137,11 @@ export const AboutText = styled.p`
 
     @media screen and (max-width: 500px) {
         width: 90%;
+        margin-left: 2rem;
+    }
+
+    @media screen and (max-width: 350px) {
+        margin-left: 1rem;
     }
 `;
 

@@ -2,7 +2,10 @@ import styled from "styled-components";
 import { Link as LinkRoute } from "react-router-dom";
 
 export const HomeContainer = styled.div`
-  background: #1C1CD2;
+background-color: black;
+  background-image: url("bg_pattern.svg");
+  background-position: bottom;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,8 +26,8 @@ export const AboutBg = styled.div`
     position: absolute;
     height: 100%;
     width: 100%;
-    background-color:black;
-    background-image: url("bg_pattern.svg");
+    background-color: rgba(0,0,0,0.5);
+    
     .Wave1 {
         position: absolute;
         bottom: 0;

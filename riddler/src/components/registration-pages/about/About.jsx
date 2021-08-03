@@ -5,12 +5,12 @@ import {
   AboutBox,
   AboutContainer,
   AboutText,
-  RiddlerBox,
+  // RiddlerBox,
   Heading
 } from "./AboutElements";
 
 import aboutBoxImage from "./assets/about-box.svg";
-import riddlerBoxImage from "./assets/riddler-box.svg";
+// import riddlerBoxImage from "./assets/riddler-box.svg";
 
 const About = ({ toggle }) => {
   return (
