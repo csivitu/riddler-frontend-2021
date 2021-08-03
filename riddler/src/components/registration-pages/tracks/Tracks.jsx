@@ -3,7 +3,7 @@ import "./Tracks.css";
 import mythical from "./assets/1.png";
 import digital from "./assets/2.png";
 import dystopian from "./assets/3.png";
-import tracks from "./assets/tracks box.svg";
+import tracks from "./assets/track-box.svg";
 import $ from "jquery";
 
 $(document).on('click', ".rotating", function() { $(this).toggleClass("Y"); });
