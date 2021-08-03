@@ -1,7 +1,13 @@
+@font-face {
+  font-family: "Brice-Bold";
+  src: url("./assets/Brice-Bold.otf");
+}
+
 
 .home-bg {
   /* The image used */
-  background-image: url("./assets/background.png");
+  /* background-image: url("./assets/background.png"); */
+  background-color: #DBF429;
 
   /* Full height */
   height: calc(100vh - 80px);
@@ -40,19 +46,30 @@
 .track {
   position: absolute;
   top: 5%;
-  left:6.5%;
+  left:20%;
   z-index: 3;
   height: 20%;
 }
 
+.title {
+  position: absolute;
+  top: 5%;
+  right:12%;
+  z-index: 3;
+  height: 20%;
+  font-family: "Brice-Bold";
+  font-size: 4rem;
+}
+
 .discs{
-  width: 80%;
-  height: 80%;
+  width: 70%;
+  height: 70%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  background-image: url("./assets/tracks-bg.svg");
+  background-color: #DBF429;
+  /* background-image: url("./assets/tracks-bg.svg"); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -150,14 +167,21 @@
   }
 
   .discs {
-    background-image: url("./assets/tracks-bg-p.svg");
+    /* background-image: url("./assets/tracks-bg-p.svg"); */
     flex-direction: column;
   }
 
   .track {
     width: 40%;
     top: 2%;
-    left: 2%;
+    left: 3%;
+  }
+
+  .title {
+    width: 40%;
+    top: 3%;
+    right: 2%;
+    font-size: 1.7rem;
   }
 }
 

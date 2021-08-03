@@ -11,6 +11,7 @@ function Home() {
   return (
     <div className="home-bg" id="tracks">
       <img className="track" src={tracks} alt="" />
+      <p class="title">Yet to be<br/>revealed</p>
       <div className="discs">
         <img className="disc rotating" src={mythical} alt="mythical" />
         <img className="disc disc2 rotating" src={digital} alt="digital" />
