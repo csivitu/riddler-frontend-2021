@@ -5,36 +5,118 @@ import Brice from "./assets/Brice-Regular.otf";
 export const FooterContainer = styled.div`
   position: relative;
   min-height: calc(100vh - 80px);
+  background: url(bg_pattern.svg) no-repeat center center;
+  background-color: black;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background-color: black;
 
-  @media screen and (max-width: 400px) {
-    justify-content: center;
-    align-items: center;
+  .Wave1 {
+    transform: rotate(180deg);
+    z-index: 1;
+  }
+
+  .Wave1 svg {
+    display: block;
+  }
+
+  ::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
   }
 `;
 
 export const FooterHeading = styled.div`
-  width: 200px;
-  margin: 20px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 75%;
+  z-index: 1;
+
+  @media screen and (max-width: 700px) {
+    width: 85%;
+  }
+
+  @media screen and (max-width: 350px) {
+    width: 90%;
+  }
+`;
+
+export const ContactIcon = styled.div`
+  width: 20rem;
+  align-self: flex-end;
+  display: inline-block;
+  margin-inline-end: 1.5rem;
+  margin: 2% 4% 3%;
+  filter: drop-shadow(-20px 20px 10px rgba(0, 0, 0, 0.25));
 
   img {
     width: 100%;
   }
 
-  @media screen and (max-width: 600px) {
-    width: 180px;
+  @media screen and (max-width: 900px) {
+    width: 17rem;
+  }
+
+  @media screen and (max-width: 700px) {
+    width: 10rem;
+    filter: drop-shadow(-15px 15px 8px rgba(0, 0, 0, 0.25));
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 8rem;
+    filter: drop-shadow(-10px 10px 5px rgba(0, 0, 0, 0.25));
+  }
+
+  @media screen and (max-width: 350px) {
+    width: 7rem;
+    filter: drop-shadow(-5px 5px 3px rgba(0, 0, 0, 0.25));
+  }
+`;
+
+export const ContactTitle = styled.div`
+  @font-face {
+    font-family: Brice;
+    src: url(${Brice}) format("truetype");
+  }
+
+  color: #DBF429;
+  font-family: Brice;
+  font-size: 5rem;
+  font-weight: 700;
+  text-align: right;
+
+  @media screen and (max-width: 900px) {
+    font-size: 3rem;
+  }
+
+  @media screen and (max-width: 700px) {
+    font-size: 2rem;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 1.8rem;
+  }
+
+  @media screen and (max-width: 350px) {
+    font-size: 1.5rem;
   }
 `;
 
 export const FooterContent = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   width: 100%;
   margin-bottom: 5%;
+  z-index: 1;
 
   @media screen and (max-width: 400px) {
     flex-direction: column;
@@ -56,11 +138,12 @@ export const Left = styled.div`
 `;
 
 export const Right = styled.div`
-  text-align: left;
+  text-align: right;
   width: 30%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  margin-left: 5%;
 
   @media screen and (max-width: 700px) {
     width: 40%;
@@ -70,6 +153,8 @@ export const Right = styled.div`
     flex-direction: row;
     width: 90%;
     justify-content: space-between;
+    text-align: left;
+    margin-left: 0;
   }
 `;
 
@@ -81,7 +166,7 @@ export const AboutH2 = styled.h2`
 
   color: rgba(219, 244, 41, 1);
   z-index: 2;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.6rem;
   letter-spacing: 0.05rem;
   margin-bottom: 1rem;
@@ -95,7 +180,8 @@ export const AboutH2 = styled.h2`
 export const LeftP = styled.p`
   color: rgba(229, 229, 229, 1);
   font-size: 1rem;
-  font-family: "Montserrat", sans-serif;
+  line-height: 120%;
+  font-family: "Inconsolata", monospace;
   margin-bottom: 1rem;
 
   @media screen and (max-width: 600px) {
@@ -104,11 +190,10 @@ export const LeftP = styled.p`
 `;
 
 export const LeftA = styled.a`
-  font-family: "Montserrat", sans-serif;
+  font-family: "Inconsolata", monospace;
   text-decoration: none;
   color: rgba(219, 244, 41, 1);
   font-size: 1rem;
-  font-style: italic;
 
   &:hover {
     opacity: 0.7;
@@ -131,7 +216,7 @@ export const ContactUs = styled.div`
 `;
 
 export const ContactP = styled.p`
-  font-family: "Montserrat", sans-serif;
+  font-family: "Inconsolata", monospace;
   color: rgba(229, 229, 229, 1);
   font-size: 1rem;
 
@@ -141,11 +226,10 @@ export const ContactP = styled.p`
 `;
 
 export const ContactA = styled.a`
-  font-family: "Montserrat", sans-serif;
+  font-family: "Inconsolata", monospace;
   text-decoration: none;
   color: inherit;
   font-size: 1rem;
-  font-style: italic;
 
   &:hover {
     opacity: 0.7;
@@ -159,6 +243,10 @@ export const ContactA = styled.a`
 export const Social = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 350px) {
+    width: 40%;
+  }
 `;
 
 export const Sociallogos = styled.div`
@@ -187,6 +275,8 @@ export const FooterLogoWrap = styled.div`
   justify-content: center;
   width: 40%;
   height: fit-content;
+  margin-bottom: 10px;
+  z-index: 1;
 
   .riddler-logo {
     padding-right: 20px;

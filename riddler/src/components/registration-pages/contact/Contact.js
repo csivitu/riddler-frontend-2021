@@ -16,8 +16,10 @@ import {
   ContactA,
   FooterLogoWrap,
   SocialIcon,
+  ContactTitle,
+  ContactIcon,
 } from "./ContactElements";
-import aboutUsImage from "./assets/AboutUs_Box.svg";
+import aboutUsImage from "./assets/contact-box.svg";
 import CSILogo from "./assets/csi-logo.png";
 import riddlerLogo from "./assets/riddlerlogo_svg.svg";
 import {
@@ -26,12 +28,29 @@ import {
   FaLinkedin,
   FaTwitterSquare,
 } from "react-icons/fa";
+import Wave from "react-wavify";
 
 function Contact() {
   return (
     <FooterContainer id="contact">
+      <Wave
+            className="Wave1"
+            fill="#DBF429"
+            paused={false}
+            options={{
+              height: 20,
+              amplitude: 30,
+              speed: 0.25,
+              points: 3,
+            }}
+      />
       <FooterHeading>
-        <img src={aboutUsImage} alt="About Us" />
+        <ContactIcon>
+          <img src={aboutUsImage} alt="About Us" />
+        </ContactIcon>
+        <ContactTitle>
+          Get in <br /> touch!
+        </ContactTitle>
       </FooterHeading>
       <FooterContent>
         <Left>
