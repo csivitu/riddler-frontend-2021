@@ -10,12 +10,30 @@ export const FaqContainer = styled.div`
 `;
 
 export const FaqIcon = styled.div`
-  width: 200px;
-  margin: 15px 0px;
-
+  width: 250px;
+  align-self: flex-end;
+  margin-inline-end: 1.5rem;
+  margin: 2% 4% 3%;
   img {
     width: 100%;
   }
+
+  @media screen and (max-width: 900px) {
+    width: 200px;
+  }
+
+  @media screen and (max-width: 600px) {
+    width: 140px;
+  }
+
+  @media screen and (max-width: 400px) {
+    width: 100px;
+  }
+
+  @media screen and (max-width: 320px) {
+
+  }
+
 `;
 
 export const StyledFaq = styled.div`
