@@ -25,12 +25,12 @@ export const AboutBox = styled.div`
     }
 
     @media screen and (max-width: 700px) {
-        width: 15rem;
+        width: rem;
         top: 2rem;
     }
 
     @media screen and (max-width: 450px) {
-        width: 12rem;
+        width: 8rem;
         top: 4rem;
     }
 `;
@@ -64,7 +64,7 @@ export const Heading = styled.div`
 
     z-index: 2;
     margin-left: 4rem;
-    margin-top: 3rem;
+    margin-top: 4rem;
     font-weight: 600;
     font-size: 6rem;
     letter-spacing: 0.05rem;
@@ -83,9 +83,11 @@ export const Heading = styled.div`
     }
 
     @media screen and (max-width: 650px) {
-        width: 80%;
-        font-size: 1rem;
+        width: 70%;
+        font-size: 2rem;
         line-height: 2rem;
+        margin-left: 2rem;
+        top: 4rem;
     }
 
     @media screen and (max-width: 500px) {
