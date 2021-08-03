@@ -1,14 +1,14 @@
 import "./Timer.css"
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import 'background.js';
 // import ScreensaverRiddlerLogo from './assets/riddlerlogo_svg.svg';
 // import p5 from "p5";
 
 
 function Timer() {
   const calculateTimeLeft = () => {
-    let year = new Date().getFullYear();
-    const difference = +new Date(`${year}-8-4`) - +new Date();
+    const difference = +new Date("Aug 4, 2021 21:00:00") - +new Date();
     let timeLeft = {};
 
     if (difference > 0) {
@@ -85,7 +85,6 @@ function Timer() {
         <div className="HomeBtnWrapper">
           <Link className="reg_button" to="/">HOME</Link>
         </div>
-
       </div>
     </div>
   );
