@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Brice from './assets/Brice-Bold.otf'
+import Brice from "./assets/Brice-Bold.otf";
 
 export const FaqContainer = styled.div`
   min-height: calc(100vh - 80px);
@@ -7,36 +7,50 @@ export const FaqContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background-color: #DBF429;
+  background-color: #dbf429;
 `;
 
+export const FaqHeaderWrap = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+
+  @media screen and (max-width: 700px) {
+    width: 90%;
+  }
+`;
 
 export const FaqIcon = styled.div`
-  width: 250px;
+  width: 20rem;
   align-self: flex-end;
   display: inline-block;
   margin-inline-end: 1.5rem;
   margin: 2% 4% 3%;
+  filter: drop-shadow(-20px 20px 10px rgba(0, 0, 0, 0.25));
+
   img {
     width: 100%;
   }
 
   @media screen and (max-width: 900px) {
-    width: 200px;
+    width: 17rem;
   }
 
-  @media screen and (max-width: 600px) {
-    width: 140px;
+  @media screen and (max-width: 700px) {
+    width: 10rem;
+    filter: drop-shadow(-15px 15px 8px rgba(0, 0, 0, 0.25));
   }
 
-  @media screen and (max-width: 400px) {
-    width: 100px;
+  @media screen and (max-width: 500px) {
+    width: 8rem;
+    filter: drop-shadow(-10px 10px 5px rgba(0, 0, 0, 0.25));
   }
 
-  @media screen and (max-width: 320px) {
-    width: 70px;
+  @media screen and (max-width: 350px) {
+    width: 7rem;
+    filter: drop-shadow(-5px 5px 3px rgba(0, 0, 0, 0.25));
   }
-
 `;
 
 export const FaqTitle = styled.div`
@@ -44,36 +58,32 @@ export const FaqTitle = styled.div`
     font-family: Brice;
     src: url(${Brice}) format("truetype");
   }
-  margin-left: 2%;
-  align-self: flex-start;
-  margin-top: 2%;
+
   font-family: Brice;
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: 600;
 
   @media screen and (max-width: 900px) {
-    font-size: 1.4rem;
+    font-size: 3rem;
   }
 
-  @media screen and (max-width: 600px) {
-    font-size: 1rem;
+  @media screen and (max-width: 700px) {
+    font-size: 2rem;
   }
 
-  @media screen and (max-width: 400px) {
-    
+  @media screen and (max-width: 500px) {
+    font-size: 1.5rem;
   }
 
-  @media screen and (max-width: 320px) {
-    
+  @media screen and (max-width: 350px) {
+    font-size: 1.2rem;
   }
-
 `;
 
 export const StyledFaq = styled.div`
   height: max-content;
   margin: 10px 0px;
-  border-top: 1.5px solid black;
-  border-bottom: 1.5px solid black;
+  border-top: 2px solid black;
   padding: 15px 0px;
   display: flex;
   flex-direction: column;
@@ -85,6 +95,7 @@ export const StyledFaq = styled.div`
     font-size: 16px;
     font-weight: 600;
     padding-right: 20px;
+    padding-left: 5px;
     position: relative;
   }
 
@@ -134,5 +145,11 @@ export const StyledFaq = styled.div`
 `;
 
 export const StyledFaqsList = styled.div`
-  width: 95%;
+  width: 80%;
+  border-bottom: 2px solid black;
+  margin-bottom: 10px;
+
+  @media screen and (max-width: 700px) {
+    width: 90%;
+  }
 `;
