@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Brice from './assets/Brice-Bold.otf'
 
 export const FaqContainer = styled.div`
   min-height: calc(100vh - 80px);
@@ -6,12 +7,14 @@ export const FaqContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background-color: rgba(219, 244, 41, 1);
+  background-color: #DBF429;
 `;
+
 
 export const FaqIcon = styled.div`
   width: 250px;
   align-self: flex-end;
+  display: inline-block;
   margin-inline-end: 1.5rem;
   margin: 2% 4% 3%;
   img {
@@ -31,7 +34,37 @@ export const FaqIcon = styled.div`
   }
 
   @media screen and (max-width: 320px) {
+    width: 70px;
+  }
 
+`;
+
+export const FaqTitle = styled.div`
+  @font-face {
+    font-family: Brice;
+    src: url(${Brice}) format("truetype");
+  }
+  margin-left: 2%;
+  align-self: flex-start;
+  margin-top: 2%;
+  font-family: Brice;
+  font-size: 3rem;
+  font-weight: 600;
+
+  @media screen and (max-width: 900px) {
+    font-size: 1.4rem;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 1rem;
+  }
+
+  @media screen and (max-width: 400px) {
+    
+  }
+
+  @media screen and (max-width: 320px) {
+    
   }
 
 `;
