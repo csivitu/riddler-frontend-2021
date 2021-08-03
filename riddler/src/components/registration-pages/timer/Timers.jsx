@@ -1,7 +1,6 @@
 import "./Timer.css"
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import 'background.js';
 // import ScreensaverRiddlerLogo from './assets/riddlerlogo_svg.svg';
 // import p5 from "p5";
 
