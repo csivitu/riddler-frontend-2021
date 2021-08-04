@@ -3,6 +3,12 @@ import Brice from "./assets/Brice-Regular.otf";
 // import { Link } from "react-router-dom";
 
 export const FooterContainer = styled.div`
+  @font-face {
+    font-family: Ligconsolata;
+    src: url("ligconsolata.ttf");
+  }
+  font-family: Ligconsolata;
+
   position: relative;
   min-height: calc(100vh - 80px);
   background: url(bg_pattern.svg) no-repeat center center;
@@ -29,7 +35,7 @@ export const FooterContainer = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.75);
     z-index: 0;
   }
 `;
@@ -88,7 +94,7 @@ export const ContactTitle = styled.div`
     src: url(${Brice}) format("truetype");
   }
 
-  color: #DBF429;
+  color: #dbf429;
   font-family: Brice;
   font-size: 5rem;
   font-weight: 700;
@@ -114,22 +120,25 @@ export const ContactTitle = styled.div`
 export const FooterContent = styled.div`
   display: flex;
   justify-content: center;
-  width: 100%;
-  margin-bottom: 5%;
+  width: 80%;
+  box-sizing: border-box;
+  margin: 5% 10%;
   z-index: 1;
 
-  @media screen and (max-width: 400px) {
-    flex-direction: column;
+  @media screen and (max-width: 700px) {
+    width: 80%;
+    margin: 5% 5%;
   }
 
   @media screen and (max-width: 400px) {
+    flex-direction: column;
     align-items: center;
   }
 `;
 
 export const Left = styled.div`
   text-align: left;
-  width: 40%;
+  width: 50%;
 
   @media screen and (max-width: 400px) {
     width: 90%;
@@ -139,15 +148,11 @@ export const Left = styled.div`
 
 export const Right = styled.div`
   text-align: right;
-  width: 30%;
+  width: 45%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   margin-left: 5%;
-
-  @media screen and (max-width: 700px) {
-    width: 40%;
-  }
 
   @media screen and (max-width: 400px) {
     flex-direction: row;
@@ -179,10 +184,12 @@ export const AboutH2 = styled.h2`
 
 export const LeftP = styled.p`
   color: rgba(229, 229, 229, 1);
-  font-size: 1rem;
+  font-size: 1.2rem;
+  letter-spacing: 1%;
   line-height: 120%;
-  font-family: "Inconsolata", monospace;
+  font-family: Ligconsolata;
   margin-bottom: 1rem;
+  font-weight: 700;
 
   @media screen and (max-width: 600px) {
     font-size: 0.8rem;
@@ -190,10 +197,10 @@ export const LeftP = styled.p`
 `;
 
 export const LeftA = styled.a`
-  font-family: "Inconsolata", monospace;
+  font-family: Ligconsolata;
   text-decoration: none;
   color: rgba(219, 244, 41, 1);
-  font-size: 1rem;
+  font-size: 1.2rem;
 
   &:hover {
     opacity: 0.7;
@@ -216,9 +223,9 @@ export const ContactUs = styled.div`
 `;
 
 export const ContactP = styled.p`
-  font-family: "Inconsolata", monospace;
+  font-family: Ligconsolata;
   color: rgba(229, 229, 229, 1);
-  font-size: 1rem;
+  font-size: 1.2rem;
 
   @media screen and (max-width: 600px) {
     font-size: 0.8rem;
@@ -226,10 +233,10 @@ export const ContactP = styled.p`
 `;
 
 export const ContactA = styled.a`
-  font-family: "Inconsolata", monospace;
+  font-family: Ligconsolata;
   text-decoration: none;
   color: inherit;
-  font-size: 1rem;
+  font-size: 1.2rem;
 
   &:hover {
     opacity: 0.7;
@@ -279,12 +286,12 @@ export const FooterLogoWrap = styled.div`
   z-index: 1;
 
   .riddler-logo {
-    padding-right: 20px;
+    padding-left: 20px;
+    border-left: 2px solid rgba(219, 244, 41, 1);
   }
 
   .csi-logo {
-    padding-left: 20px;
-    border-left: 5px solid rgba(219, 244, 41, 1);
+    padding-right: 20px;
   }
 
   @media screen and (max-width: 1000px) {

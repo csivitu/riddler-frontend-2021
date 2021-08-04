@@ -11,6 +11,7 @@ import {
 } from "./AboutElements";
 
 import aboutBoxImage from "./assets/about-box.svg";
+import Header from "../header/Header";
 // import riddlerBoxImage from "./assets/riddler-box.svg";
 
 const About = ({ toggle }) => {
@@ -40,22 +41,23 @@ const About = ({ toggle }) => {
               points: 3,
             }}
           />
-          <Heading>What it is</Heading>
         </AboutBg>
 
-        <AboutBox>
-          <img src={aboutBoxImage} alt="About"></img>
-        </AboutBox>
+        <Header
+          TitleTextTop="What's in"
+          TitleTextBottom="store"
+          TitleColor="#D8F029"
+          ImageURL={aboutBoxImage}
+          Opposite="false"
+        />
         <AboutText>
-          Riddler is a <Yellow>one-of-a-kind</Yellow> online cryptic hunt where players dive into
-          the depths of the internet and navigate their way to the top of the
-          leaderboard by cracking <Yellow>exhilarating riddles</Yellow> spread across various
-          themes. The last 9 years have seen hundreds try their best every
-          season, only to get bested themselves.
+          Riddler is a <Yellow>one-of-a-kind</Yellow> online cryptic hunt where
+          players dive into the depths of the internet and navigate their way to
+          the top of the leaderboard by cracking{" "}
+          <Yellow>exhilarating riddles</Yellow> spread across various themes.
+          The last 9 years have seen hundreds try their best every season, only
+          to get bested themselves.
         </AboutText>
-        {/* <RiddlerBox>
-          <img src={riddlerBoxImage} alt="About"></img>
-        </RiddlerBox> */}
       </AboutContainer>
     </>
   );

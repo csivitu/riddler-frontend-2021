@@ -2,6 +2,11 @@ import styled from "styled-components";
 import Brice from "./assets/Brice-Bold.otf";
 
 export const FaqContainer = styled.div`
+  @font-face {
+    font-family: Ligconsolata;
+    src: url("ligconsolata.ttf");
+  }
+  font-family: Ligconsolata;
   min-height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;

@@ -2,7 +2,12 @@ import styled from "styled-components";
 import { Link as LinkRoute } from "react-router-dom";
 
 export const HomeContainer = styled.div`
-background-color: black;
+  @font-face {
+    font-family: Ligconsolata;
+    src: url("ligconsolata.ttf");
+  }
+  font-family: Ligconsolata;
+  background-color: black;
   background-image: url("bg_pattern.svg");
   background-position: center bottom;
   background-size: cover;
@@ -13,34 +18,35 @@ background-color: black;
   height: calc(100vh - 80px);
   position: relative;
   z-index: 1;
-  :before{
-      content:'';
-      position:absolute;
-      top: 0;
-      left: 0;right: 0;
-      bottom:0;
+  :before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 `;
 
 export const AboutBg = styled.div`
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0,0,0,0.5);
-    
-    .Wave1 {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 25%;
-    }
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 
-    .Wave2 {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 80%;
-    }
+  .Wave1 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 25%;
+  }
+
+  .Wave2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 80%;
+  }
 `;
 
 export const HomeBG = styled.div`
@@ -115,7 +121,7 @@ export const Button = styled(LinkRoute)`
   cursor: pointer;
   text-decoration: none;
   border-bottom: 6px solid rgba(254, 49, 118, 1);
-  background: #DBF429;
+  background: #dbf429;
   display: inline-block;
   position: relative;
 

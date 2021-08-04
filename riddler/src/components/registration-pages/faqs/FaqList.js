@@ -4,10 +4,11 @@ import Faq from "./Faq.js";
 import {
   FaqContainer,
   StyledFaqsList,
-  FaqIcon,
-  FaqTitle,
-  FaqHeaderWrap,
+  // FaqIcon,
+  // FaqTitle,
+  // FaqHeaderWrap,
 } from "./FaqsElements";
+import Header from '../header/Header';
 import faqImage from "./assets/faq-box.svg";
 
 // this data could come from anywhere
@@ -68,14 +69,21 @@ const faqsData = [
 const FaqsList = () => {
   return (
     <FaqContainer id="faqs">
-      <FaqHeaderWrap>
+      <Header 
+        TitleTextTop="Ask us"
+        TitleTextBottom="anything!"
+        TitleColor="black"
+        ImageURL={faqImage}
+        Opposite="flase"
+      />
+      {/* <FaqHeaderWrap>
         <FaqTitle>
           Ask us <br /> anything!
         </FaqTitle>
         <FaqIcon>
           <img src={faqImage} alt="FAQs" />
         </FaqIcon>
-      </FaqHeaderWrap>
+      </FaqHeaderWrap> */}
       <StyledFaqsList>
         {faqsData.map((faq, i) => (
           <Faq key={"faq_" + i} question={faq.question} answer={faq.answer} />

@@ -29,29 +29,29 @@ import {
   FaTwitterSquare,
 } from "react-icons/fa";
 import Wave from "react-wavify";
+import Header from "../header/Header";
 
 function Contact() {
   return (
     <FooterContainer id="contact">
       <Wave
-            className="Wave1"
-            fill="#DBF429"
-            paused={false}
-            options={{
-              height: 20,
-              amplitude: 30,
-              speed: 0.25,
-              points: 3,
-            }}
+        className="Wave1"
+        fill="#DBF429"
+        paused={false}
+        options={{
+          height: 20,
+          amplitude: 30,
+          speed: 0.25,
+          points: 3,
+        }}
       />
-      <FooterHeading>
-        <ContactIcon>
-          <img src={aboutUsImage} alt="About Us" />
-        </ContactIcon>
-        <ContactTitle>
-          Get in <br /> touch!
-        </ContactTitle>
-      </FooterHeading>
+      <Header
+        TitleTextTop="Get in"
+        TitleTextBottom="touch!"
+        TitleColor="#DBF429"
+        ImageURL={aboutUsImage}
+        Opposite="true"
+      />
       <FooterContent>
         <Left>
           <AboutH2>COMPUTER SOCIETY OF INDIA</AboutH2>
@@ -80,7 +80,7 @@ function Contact() {
               <br />
               Phone - <ContactA href="tel:+91234567887">+919445876588</ContactA>
               <br />
-              <ContactA href="tel:+91328684687">+9183698 66141</ContactA>
+              <ContactA href="tel:+91328684687">+918369866141</ContactA>
             </ContactP>
           </ContactUs>
           <Social>
@@ -115,8 +115,8 @@ function Contact() {
         </Right>
       </FooterContent>
       <FooterLogoWrap>
-        <Logo src={riddlerLogo} alt="CSI" className="riddler-logo" />
         <Logo src={CSILogo} alt="CSI" className="csi-logo" />
+        <Logo src={riddlerLogo} alt="CSI" className="riddler-logo" />
       </FooterLogoWrap>
     </FooterContainer>
   );

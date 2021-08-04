@@ -9,7 +9,7 @@
   background-color: #dbf429;
 
   /* Full height */
-  height: calc(100vh - 80px);
+  min-height: calc(100vh - 80px);
 
   /* Center and scale the image nicely */
   background-position: center;
@@ -19,7 +19,8 @@
   z-index: 1;
 
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
@@ -40,7 +41,7 @@
   position:absolute;
   z-index: 1;
   margin-top: 8%;
-} */
+} 
 
 .track {
   position: absolute;
@@ -49,7 +50,7 @@
   z-index: 3;
   height: 10rem;
   filter: drop-shadow(-20px 20px 10px rgba(0, 0, 0, 0.25));
-}
+} */
 
 .title {
   position: absolute;
@@ -62,8 +63,7 @@
 }
 
 .discs {
-  width: 70%;
-  height: 70%;
+  width: 85%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -73,6 +73,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  margin-bottom: 5%;
 }
 
 .disc {
@@ -149,7 +150,7 @@
   }
 } */
 
-@media screen and (max-width: 1300px) {
+/* @media screen and (max-width: 1300px) {
   .title {
     font-size: 4.5rem;
   }
@@ -157,8 +158,8 @@
   .track {
     height: 10rem;
   }
-}
-
+} */
+/* 
 @media screen and (max-width: 1100px) {
   .title {
     font-size: 4rem;
@@ -171,26 +172,23 @@
   .home-bg {
     align-items: center;
   }
-}
+} */
 
 @media screen and (max-width: 900px) {
   .discs {
     width: 80%;
   }
 
-  .track {
+  /* .track {
     left: 10%;
   }
 
   .title {
     right: 10%;
-  }
+  } */
 }
 
 @media screen and (max-width: 650px) {
-  .home-bg {
-    align-items: flex-end;
-  }
 
   .disc {
     height: 30%;
@@ -202,7 +200,7 @@
     height: 80%;
   }
 
-  .track {
+  /* .track {
     width: 45%;
     top: 2%;
     left: 2%;
@@ -214,10 +212,10 @@
     top: 4%;
     right: 5%;
     font-size: 2.5rem;
-  }
+  } */
 }
 
-@media screen and (max-width: 450px) {
+/* @media screen and (max-width: 450px) {
   .title {
     font-size: 2rem;
     top: 5%;
@@ -229,7 +227,7 @@
     top: 6%;
     font-size: 1.5rem;
   }
-}
+} */
 
 @-webkit-keyframes rotating {
   from {

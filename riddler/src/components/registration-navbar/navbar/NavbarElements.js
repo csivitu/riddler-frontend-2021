@@ -3,7 +3,11 @@ import { Link as LinkRouter } from "react-router-dom";
 import { Link as LinkScroll } from "react-scroll";
 
 export const Nav = styled.nav`
-  background: #000;
+  @font-face {
+    font-family: Ligconsolata;
+    src: url("ligconsolata.ttf");
+  }
+  font-family: Ligconsolata;
   width: 100%;
   height: 80px;
   display: flex;
@@ -12,7 +16,7 @@ export const Nav = styled.nav`
   font-size: 1rem;
   position: sticky;
   top: 0;
-  background-color: #DBF429;
+  background-color: #dbf429;
   z-index: 10;
 
   @media screen and (min-width: 950px) {
@@ -54,7 +58,7 @@ export const MobileIcon = styled.div`
   display: none;
 
   @media screen and (max-width: 950px) {
-    color:white;
+    color: white;
     display: flex;
     align-items: center;
     position: absolute;
@@ -95,36 +99,37 @@ export const NavLinks = styled(LinkScroll)`
     cursor: pointer;
   }
 
-  &.active, &:active {
-    color: #FE3176;
+  &.active,
+  &:active {
+    color: #fe3176;
   }
 `;
 
 export const NavBtn = styled.nav`
-  display:flex;
+  display: flex;
   align-items: center;
   margin-right: 24px;
 
-  @media screen and (max-width: 950px){
-      display:none;
+  @media screen and (max-width: 950px) {
+    display: none;
   }
-`
+`;
 export const NavBtnLink = styled(LinkRouter)`
-  border-radius:50px;
+  border-radius: 50px;
   background: black;
   white-space: nowrap;
-  padding:10px 22px;
-  color:white;
-  font-size:16px;
-  outline:none;
-  border:none;
+  padding: 10px 22px;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  border: none;
   font-weight: bold;
-  cursor:pointer;
-  transition:all 0.2s ease-in-out;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
   text-decoration: none;
 
   &:hover {
-      transition:all 0.2s ease-in-out;
-      background:#FE3176;
+    transition: all 0.2s ease-in-out;
+    background: #fe3176;
   }
-`
+`;

@@ -4,9 +4,15 @@
   src: url("./assets/Brice-Bold.otf");
 }
 
+@font-face {
+  font-family: Ligconsolata;
+  src: url("./assets/ligconsolata.ttf");
+}
+
 .timer-bg {
   /* The image used */
   background-image: url("./assets/background.png");
+  font-family: Ligconsolata;
 
   /* Full height */
   min-height: 100vh;
@@ -40,6 +46,10 @@
   font-weight: 500;
   -webkit-animation: screensaver-logo 4s linear infinite alternate;
   animation: screensaver-logo 4s linear infinite alternate, color_change 5s linear infinite alternate;
+}
+
+.TimerContainer {
+  z-index: 5;
 }
 
 @-webkit-keyframes screensaver {
@@ -89,9 +99,11 @@
 .reg_button {
   border-radius: 30px;
   white-space: nowrap;
-  padding: 15px 25px;
+  padding: 10px;
+  width: 100px;
+  text-align: center;
   color: #000000;
-  font-size: 16px;
+  font-size: 24px;
   outline: none;
   font-weight: bold;
   cursor: pointer;
@@ -152,7 +164,7 @@
 
 .timer-card h2 {
   font-size: 2rem;
-  font-family: "Poppins", sans-serif;
+  font-family: Ligconsolata;
   font-weight: 700;
 }
 
@@ -165,7 +177,7 @@
 }
 
 #headline {
-  font-family: "Poppins", sans-serif;
+  font-family: Ligconsolata;
   color: rgba(229, 229, 229, 1);
   letter-spacing: 1%;
   text-align: center;
