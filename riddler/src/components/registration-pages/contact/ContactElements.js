@@ -190,6 +190,7 @@ export const LeftP = styled.p`
   font-family: Ligconsolata;
   margin-bottom: 1rem;
   font-weight: 700;
+  background-color: rgba(0, 0, 0, 0.5);
 
   @media screen and (max-width: 600px) {
     font-size: 0.8rem;
@@ -201,6 +202,8 @@ export const LeftA = styled.a`
   text-decoration: none;
   color: rgba(219, 244, 41, 1);
   font-size: 1.2rem;
+  font-weight: 700;
+  background-color: rgba(0, 0, 0, 0.5);
 
   &:hover {
     opacity: 0.7;
@@ -216,6 +219,7 @@ export const ContactUs = styled.div`
   flex-direction: column;
   height: 50%;
   margin-bottom: 15px;
+  font-weight: 700;
 
   @media screen and (max-width: 400px) {
     width: 50%;
@@ -226,6 +230,7 @@ export const ContactP = styled.p`
   font-family: Ligconsolata;
   color: rgba(229, 229, 229, 1);
   font-size: 1.2rem;
+  background-color: rgba(0, 0, 0, 0.5);
 
   @media screen and (max-width: 600px) {
     font-size: 0.8rem;
@@ -282,7 +287,7 @@ export const FooterLogoWrap = styled.div`
   justify-content: center;
   width: 40%;
   height: fit-content;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
   z-index: 1;
 
   .riddler-logo {
@@ -292,6 +297,7 @@ export const FooterLogoWrap = styled.div`
 
   .csi-logo {
     padding-right: 20px;
+    width: 35%;
   }
 
   @media screen and (max-width: 1000px) {
