@@ -29,12 +29,12 @@ export const Icon = styled.div`
   }
 
   @media screen and (max-width: 700px) {
-    width: 10rem;
+    width: 14rem;
     filter: drop-shadow(-15px 15px 8px rgba(0, 0, 0, 0.25));
   }
 
   @media screen and (max-width: 500px) {
-    width: 8rem;
+    width: 10rem;
     filter: drop-shadow(-10px 10px 5px rgba(0, 0, 0, 0.25));
   }
 
@@ -54,19 +54,19 @@ export const Title = styled.div`
   font-size: 4rem;
   font-weight: 600;
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 800px) {
     font-size: 3rem;
   }
 
   @media screen and (max-width: 700px) {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   @media screen and (max-width: 500px) {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 
   @media screen and (max-width: 350px) {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 `;

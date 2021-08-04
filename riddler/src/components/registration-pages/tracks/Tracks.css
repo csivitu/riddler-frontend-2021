@@ -174,33 +174,32 @@
   }
 } */
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 700px) {
   .discs {
-    width: 80%;
+    width: 90%;
   }
 
-  /* .track {
+  .track {
     left: 10%;
   }
 
   .title {
     right: 10%;
-  } */
+  }
 }
 
 @media screen and (max-width: 650px) {
 
   .disc {
-    height: 30%;
-    width: auto;
+    width: 50%;
+    margin-bottom: 5%;
   }
 
   .discs {
     flex-direction: column;
-    height: 80%;
   }
 
-  /* .track {
+  .track {
     width: 45%;
     top: 2%;
     left: 2%;
@@ -212,7 +211,7 @@
     top: 4%;
     right: 5%;
     font-size: 2.5rem;
-  } */
+  }
 }
 
 /* @media screen and (max-width: 450px) {
