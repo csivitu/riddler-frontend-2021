@@ -29,7 +29,7 @@ function Home() {
         </RiddlerLogo>
         <p className="dates">20<sup className="superscript">th</sup> - 22<sup className="superscript">nd</sup> August 2021</p>
         <HomeBtnWrapper>
-            <Button to="/countdown">REGISTER NOW</Button>
+            <Button to="/register">REGISTER NOW</Button>
         </HomeBtnWrapper>
       </HomeContent>
     </HomeContainer>

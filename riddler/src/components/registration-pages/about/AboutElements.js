@@ -67,7 +67,7 @@ export const Heading = styled.div`
         src: url(${briceBold}) format('truetype');
     }
     position: absolute;
-    top: 4rem;
+    top: 2rem;
     left: 4rem;
     z-index: 2;
     font-weight: 600;
