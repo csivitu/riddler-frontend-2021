@@ -2,11 +2,11 @@ import React from "react";
 import Wave from "react-wavify";
 import {
   AboutBg,
-  AboutBox,
+  // AboutBox,
   AboutContainer,
   AboutText,
   // RiddlerBox,
-  Heading,
+  // Heading,
   Yellow,
 } from "./AboutElements";
 

@@ -107,7 +107,7 @@ const Navbar = ({ toggle }) => {
           </NavMenu>
           <NavBtn>
             <NavBtnLink
-              to="/countdown"
+              to="/register"
               smooth={true}
               duration={500}
               spy={true}

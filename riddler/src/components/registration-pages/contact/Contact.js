@@ -4,7 +4,7 @@ import {
   ContactP,
   FooterContainer,
   FooterContent,
-  FooterHeading,
+  // FooterHeading,
   Left,
   LeftA,
   LeftP,
@@ -16,8 +16,8 @@ import {
   ContactA,
   FooterLogoWrap,
   SocialIcon,
-  ContactTitle,
-  ContactIcon,
+  // ContactTitle,
+  // ContactIcon,
 } from "./ContactElements";
 import aboutUsImage from "./assets/contact-box.svg";
 import CSILogo from "./assets/csi-logo.png";

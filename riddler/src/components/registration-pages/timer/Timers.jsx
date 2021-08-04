@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 function Timer() {
   const calculateTimeLeft = () => {
-    const difference = +new Date("Aug 4, 2021 21:00:00") - +new Date();
+    const difference = +new Date("Aug 20, 2021 00:00:00") - +new Date();
     let timeLeft = {};
 
     if (difference > 0) {
@@ -74,9 +74,9 @@ function Timer() {
 
         <div className="section-timer" data-anchor="timer">
           <div className="container">
-            <h1 id="headline">REGISTRATIONS STARTS IN</h1>
+            <h1 id="headline">RIDDLER STARTS IN</h1>
             <div id="timer">
-              {timerComponents.length ? timerComponents : <span>Time's up!</span>}
+              {timerComponents.length ? timerComponents : <span>Riddler is live!</span>}
             </div>
           </div>
         </div>
