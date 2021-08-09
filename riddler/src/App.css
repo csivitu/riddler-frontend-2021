@@ -1,0 +1,34 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+/* Track */
+::-webkit-scrollbar-track {
+  /* box-shadow: inset 0 0 5px rgb(0, 0, 0);  */
+  /* border-radius: 10px; */
+  background: black;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: white; 
+  /* border-radius: 10px; */
+}
+
+::-webkit-scrollbar-track-piece:start {
+  background: white;
+}
+
+body {
+  height: 100%;
+  scroll-behavior: smooth;
+}
