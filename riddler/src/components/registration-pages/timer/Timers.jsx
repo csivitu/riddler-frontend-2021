@@ -15,7 +15,7 @@ function Timer() {
         days: Math.floor(difference / (1000 * 60 * 60 * 24)),
         hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
         minutes: Math.floor((difference / 1000 / 60) % 60),
-        // seconds: Math.floor((difference / 1000) % 60),
+        seconds: Math.floor((difference / 1000) % 60),
       };
     }
 
@@ -48,16 +48,20 @@ function Timer() {
   timerComponents.push(
     <div id="countdown" className="timers">
       <div className="timer-card">
-        <h1>{timeLeft.days}</h1>
+        <h1>{timeLeft.days < 10? "0" + timeLeft.days : timeLeft.days}</h1>
         <h2>{timeLeft.days === 1? "day" : "days"}</h2>
       </div>
       <div className="timer-card">
-        <h1>{timeLeft.hours}</h1>
+        <h1>{timeLeft.hours < 10? "0" + timeLeft.hours : timeLeft.hours}</h1>
         <h2>{timeLeft.hours === 1? "hour" : "hours"}</h2>
       </div>
       <div className="timer-card">
-        <h1>{timeLeft.minutes}</h1>
+        <h1>{timeLeft.minutes < 10? "0" + timeLeft.minutes : timeLeft.minutes}</h1>
         <h2>{timeLeft.minutes === 1? "min" : "mins"}</h2>
+      </div>
+      <div className="timer-card">
+        <h1>{timeLeft.seconds < 10? "0" + timeLeft.seconds : timeLeft.seconds}</h1>
+        <h2>{timeLeft.minutes === 1? "sec" : "secs"}</h2>
       </div>
     </div>
 
