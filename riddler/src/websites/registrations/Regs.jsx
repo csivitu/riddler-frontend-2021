@@ -2,6 +2,7 @@ import React from 'react';
 
 import {BrowserRouter as Router,Route} from 'react-router-dom';
 import Leaderboard from '../../components/game-pages/leaderboard';
+import Map from '../../components/game-pages/map';
 import Login from '../../components/login/Login';
 import Layout from '../../components/registration-navbar/Layout';
 import Pages from '../../components/registration-pages/Pages';
@@ -26,6 +27,9 @@ function Regs() {
             {/* <Route exact path="/play" component={}/> */}
             <Route exact path="/leaderboard">
                 <Leaderboard/>
+            </Route>
+            <Route exact path="/map">
+                <Map/>
             </Route>
         </Router>
     );

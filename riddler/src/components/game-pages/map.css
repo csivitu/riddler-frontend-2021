@@ -1,0 +1,218 @@
+:root {
+    --node-side: 25px;
+}
+
+.map {
+    position: relative;
+    width: 1000px;
+    height: 1000px;
+    background-color: #A0A0A0;
+}
+
+.map-background {
+    width: 800px;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+}
+
+.node {
+    font-size: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    width: var(--node-side);
+    height: var(--node-side);
+    background-color: rgb(255, 255, 255);
+    border: 4px solid black;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+}
+
+#node1 {
+    top: 293px;
+    left: 308px;
+}
+
+#node2 {
+    top: 335px;
+    left: 233px;
+}
+
+#node3 {
+    top: 425px;
+    left: 233px;
+}
+
+#node4 {
+    top: 468px;
+    left: 306px;
+}
+
+#node5 {
+    top: 557px;
+    left: 306px;
+}
+#node6 {
+    top: 600px;
+    left: 382px;
+}
+#node7 {
+    top: 680px;
+    left: 382px;
+}
+#node8 {
+    top: 722px;
+    left: 460px;
+}
+#node9 {
+    top: 680px;
+    left: 535px;
+}
+#node10 {
+    top: 722px;
+    left: 611px;
+}
+#node11 {
+    top: 680px;
+    left: 688px;
+}
+#node12 {
+    top: 590px;
+    left: 688px;
+}
+#node13 {
+    top: 543px;
+    left: 762px;
+}
+#node14 {
+    top: 460px;
+    left: 762px;
+}
+#node15 {
+    top: 413px;
+    left: 838px;
+}
+#node16 {
+    top: 327px;
+    left: 838px;
+}
+#node17 {
+    top: 285px;
+    left: 762px;
+}
+#node18 {
+    top: 200px;
+    left: 762px;
+}
+#node19 {
+    top: 155px;
+    left: 685px;
+}
+#node20 {
+    top: 195px;
+    left: 611px;
+}
+#node21 {
+    top: 155px;
+    left: 533px;
+}
+#node22 {
+    top: 200px;
+    left: 460px;
+}
+#node23 {
+    top: 160px;
+    left: 382px;
+}
+#node24 {
+    top: 202px;
+    left: 307px;
+}
+#node25 {
+    top: 332px;
+    left: 386px;
+}
+#node26 {
+    top: 425px;
+    left: 386px;
+}
+#node27 {
+    top: 468px;
+    left: 460px;
+}
+#node28 {
+    top: 552px;
+    left: 460px;
+}
+#node29 {
+    top: 587px;
+    left: 535px;
+}
+#node30 {
+    top: 545px;
+    left: 610px;
+}
+#node31 {
+    top: 460px;
+    left: 610px;
+}
+#node32 {
+    top: 415px;
+    left: 687px;
+}
+#node33 {
+    top: 331px;
+    left: 687px;
+}
+#node34 {
+    top: 290px;
+    left: 610px;
+}
+#node35 {
+    top: 328px;
+    left: 536px;
+}
+#node36 {
+    top: 290px;
+    left: 460px;
+}
+
+.deck {
+    font-size: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+    border: 4px solid black;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+}
+
+.deck::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    border: 4px solid black;
+    border-radius: 50%;
+}
+
+#deck1 {
+    top: 216px;
+    left: 66px;
+}
+
+#deck2 {
+    top: 69px;
+    left: 890px;
+}
+
+#deck3 {
+    top: 880px;
+    left: 623px;
+}
