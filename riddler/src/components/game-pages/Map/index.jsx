@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import mapBackground from '../../../assets/map.svg';
+// import mapBackground from '../../../assets/map.svg';
+import mapBackground from '../../../assets/map.svg'
 import './map.css';
 
 const Map = () => {
