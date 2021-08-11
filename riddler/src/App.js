@@ -1,6 +1,13 @@
 // import react,{ useState,useHistory,useDispatch,useEffect} from "react";
 import "./App.css";
-import Regs from "./websites/registrations/Regs";
+import {BrowserRouter as Router,Route} from 'react-router-dom';
+import Leaderboard from "./components/game-pages/leaderboard";
+import Map from "./components/game-pages/map";
+import Login from "./components/login/Login";
+import Layout from "./components/registration-navbar/Layout";
+import Pages from "./components/registration-pages/Pages";
+import Timer from "./components/registration-pages/timer/Timers";
+import Token from "./components/token/Token";
 // import api, { setAuthToken } from "./api/api.js";
 // import {BrowserRouter as Router} from 'react-router-dom';
 
@@ -78,7 +85,27 @@ function App() {
         <Login />
       </Route> */}
       <div className="App">
-        <Regs />
+      <Router>
+            <Route exact path="/"><Layout /><Pages /></Route>
+            
+            
+            <Route exact path ="/countdown">
+                <Timer/>
+            </Route>
+            <Route exact path="/register">
+                <Login/>
+            </Route>
+            <Route exact path="/oauth/redirect">
+                <Token/>
+            </Route>
+            {/* <Route exact path="/play" component={}/> */}
+            <Route exact path="/leaderboard">
+                <Leaderboard/>
+            </Route>
+            <Route exact path="/map">
+                <Map/>
+            </Route>
+        </Router>
       </div>
     </>
   );
