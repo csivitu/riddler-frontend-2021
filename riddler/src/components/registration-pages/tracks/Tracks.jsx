@@ -1,7 +1,7 @@
 import React from "react";
 import "./Tracks.css";
 import mythical from "./assets/mythical.png";
-import digital from "./assets/Track2.png";
+import digital from "./assets/digital.png";
 import dystopian from "./assets/Track3.png";
 import tracksBox from "./assets/track-box.svg";
 import Header from "../header/Header";
