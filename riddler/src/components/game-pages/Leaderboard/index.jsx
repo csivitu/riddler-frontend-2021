@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getLeaderboard } from "../../api/api";
+import { getLeaderboard } from "../../../api/api";
 
 const Leaderboard = () => {
   const [leaderboard, setLeaderboard] = useState([]);
@@ -21,7 +21,7 @@ const Leaderboard = () => {
       {leaderboard.map((item,rank)=>{
           return (
               <tr>
-                  <th>{rank}</th>
+                  <th>{rank+1}</th>
                   <th>{item.username}</th>
                   <th>{item.score}</th>
               </tr>
