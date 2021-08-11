@@ -3,6 +3,36 @@ import mapBackground from '../../assets/map.svg';
 import './map.css';
 
 const Map = () => {
+    const res = {
+        "correct": true,
+        "currentPos": 1,
+        "unlocked_nodes": [10, 19, 13],
+        "solved_nodes": [1, 3, 4, 5],
+        "portal_nodes": [9, 20, 32],
+        "locked_question": 6
+    };
+
+
+    window.addEventListener("DOMContentLoaded", () => {
+        for(let i = 0; i < res.unlocked_nodes.length; i++) {
+            const element = document.getElementById(`node${res.unlocked_nodes[i]}`);
+            element.classList.add('unlocked');
+        }
+
+        for(let i = 0; i < res.solved_nodes.length; i++) {
+            const element = document.getElementById(`node${res.solved_nodes[i]}`);
+            element.classList.add('solved');
+        }
+
+        for(let i = 0; i < res.portal_nodes.length; i++) {
+            const element = document.getElementById(`node${res.portal_nodes[i]}`);
+            element.classList.add('portal');
+        }
+
+        const element = document.getElementById(`node${res.locked_question}`);
+        element.classList.add('locked');
+    });
+    
     return (
         <div className="map">
             <img className="map-background" src={mapBackground} alt="" />
