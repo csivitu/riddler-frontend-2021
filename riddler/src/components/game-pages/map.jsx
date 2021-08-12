@@ -14,23 +14,44 @@ const Map = () => {
 
 
     window.addEventListener("DOMContentLoaded", () => {
-        for(let i = 0; i < res.unlocked_nodes.length; i++) {
-            const element = document.getElementById(`node${res.unlocked_nodes[i]}`);
+
+        [1,2,3].forEach( (i) => {
+            const element = document.getElementById(`deck${i}`);
+            // element.classList.add('deck');
+            element.addEventListener('click', () => {
+                console.log("Deck Node clicked!");
+            });
+        });
+
+        res.unlocked_nodes.forEach((i) => {
+            const element = document.getElementById(`node${i}`);
             element.classList.add('unlocked');
-        }
+            element.addEventListener('click', () => {
+                console.log("Unlocked Node clicked!");
+            });
+        });
 
-        for(let i = 0; i < res.solved_nodes.length; i++) {
-            const element = document.getElementById(`node${res.solved_nodes[i]}`);
+        res.solved_nodes.forEach( (i) => {
+            const element = document.getElementById(`node${i}`);
             element.classList.add('solved');
-        }
+            element.addEventListener('click', () => {
+                console.log("Solved Node clicked!");
+            });
+        });
 
-        for(let i = 0; i < res.portal_nodes.length; i++) {
-            const element = document.getElementById(`node${res.portal_nodes[i]}`);
+        res.portal_nodes.forEach( (i) => {
+            const element = document.getElementById(`node${i}`);
             element.classList.add('portal');
-        }
+            element.addEventListener('click', () => {
+                console.log("portal Node clicked!");
+            });
+        });
 
         const element = document.getElementById(`node${res.locked_question}`);
         element.classList.add('locked');
+        element.addEventListener('click', () => {
+            console.log("Locked Node clicked!");
+        });
     });
     
     return (
