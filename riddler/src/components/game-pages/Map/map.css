@@ -2,11 +2,38 @@
   --node-side: 25px;
 }
 
+.map-section {
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.map-container {
+  position: relative;
+  height: 85vh;
+  width: 90vw;
+  margin-bottom: 1vh;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+  overflow: scroll;
+  background-color: #a0a0a0;
+  user-select: none;
+  border: 2px solid black;
+}
+
 .map {
   position: relative;
+  display: inline-block;
   width: 1000px;
   height: 1000px;
-  background-color: #a0a0a0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0 auto;
 }
 
 .map-background {
@@ -180,30 +207,30 @@
 }
 
 .portal {
-    background-image: url('../../../assets/portal.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+  background-image: url("../../../assets/portal.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .locked {
-    background-color: #7A7A7A;
+  background-color: #7a7a7a;
 }
 
 .locked::before {
-    content: "?";
-    font-size: 26px;
-    font-weight: bold;
-    position: absolute;
-    top: -30px;
+  content: "?";
+  font-size: 26px;
+  font-weight: bold;
+  position: absolute;
+  top: -30px;
 }
 
 .unlocked {
-    background-color: white;
+  background-color: white;
 }
 
 .solved {
-    background-color: #D8E324;
+  background-color: #d8e324;
 }
 
 .deck {
@@ -243,4 +270,24 @@
 #deck3 {
   top: 880px;
   left: 623px;
+}
+
+/* width */
+.map-container::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+.map-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+.map-container::-webkit-scrollbar-thumb {
+  background: white;
+}
+
+.map-container::-webkit-scrollbar-track-piece:start {
+  background: transparent;
 }
