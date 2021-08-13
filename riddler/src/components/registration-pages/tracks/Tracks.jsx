@@ -16,8 +16,8 @@ function Home() {
       {/* <img className="track" src={tracks} alt="" />
       <p class="title">Yet to be<br/>revealed</p> */}
       <Header
-        TitleTextTop="Yet to be"
-        TitleTextBottom="revealed"
+        TitleTextTop="Explore"
+        TitleTextBottom="the Eras"
         TitleColor="black"
         ImageURL={tracksBox}
         Opposite="true"
