@@ -11,6 +11,7 @@ import {
   NavBtnLink,
   Player,
 } from "./NavbarElements";
+import { useSelector } from 'react-redux';
 import { ReactComponent as PlayLogo } from "../../../assets/play.svg";
 import { ReactComponent as GuideLogo } from "../../../assets/guide.svg";
 import { ReactComponent as LeaderboardLogo } from "../../../assets/leaderboard.svg";
@@ -25,6 +26,7 @@ import { NavLink, useLocation } from "react-router-dom";
 
 const Navbar = ({ toggle }) => {
   const location = useLocation();
+  const userName = useSelector(state => state.auth.username)
 
   const fillSvg = (svgName) => {
     if (location.pathname === svgName) return "#FE3176";
@@ -84,7 +86,7 @@ const Navbar = ({ toggle }) => {
               <img src={star} alt="Riddler Logo" />
               <p>440</p>
             </Player>
-            <Player>Kadambari03</Player>
+            <Player>{userName}</Player>
           </NavMenu>
         </NavbarContainer>
       </Nav>

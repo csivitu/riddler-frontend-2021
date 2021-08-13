@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap');
+
+.whole_page{
+    background-color: black;
+    background-image: url('./assets/bg_pattern.png');
+    min-height: 100vh;
+    width: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    align-items:center;
+}
+.heading{
+    color: #DBF429;
+    /* top:10%; */
+    font-size: 200%;
+    font-family: 'Inconsolata', monospace;
+
+}
+.tables{
+    height: 40vh;
+    width:80%;
+    margin-left: 10%;
+    border-collapse:separate;
+    border-spacing:0 15px;
+    overflow-y:auto; 
+}
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Track */
+.tables::-webkit-scrollbar-track {
+    background: black;
+    border-radius: 5px;
+}
+
+/* Handle */
+.tables::-webkit-scrollbar-thumb {
+    background: #DBF429;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+.tables::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+.names{
+    color: black;
+    height: 20%;
+    font-size: 150%;
+    font-family: 'Inconsolata', monospace;
+    border: 20px red solid;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bolder;
+}
+td {
+    border: solid 1px #000;
+    border-style: solid none;
+    padding: 10px;
+    background-color: #DBF429;
+}
+td:first-child {
+    border-left-style: solid;
+    border-top-left-radius: 15px; 
+    border-bottom-left-radius: 15px;
+}
+td:last-child {
+    border-right-style: solid;
+    border-bottom-right-radius: 15px; 
+    border-top-right-radius: 15px; 
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #DBF429 rgb(0, 0, 0);
+  }
+  
+  *::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: rgb(0, 0, 0);
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: #DBF429;
+    border-radius: 20px;
+  }

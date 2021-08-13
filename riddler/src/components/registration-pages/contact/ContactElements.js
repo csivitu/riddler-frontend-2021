@@ -264,6 +264,21 @@ export const Social = styled.div`
 export const Sociallogos = styled.div`
   color: white;
   margin: 0;
+  align-self: flex-end;
+
+  @media screen and (max-width: 520px) {
+    width: fit-content;
+    height: fit-content;
+    column-gap: 1rem;
+    row-gap: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* justify-items: center; */
+  }
+
+  @media screen and (max-width: 400px) {
+    align-self: flex-start;
+  }
 `;
 
 export const SocialIcon = styled.a`
@@ -274,6 +289,10 @@ export const SocialIcon = styled.a`
 
   &:hover {
     opacity: 0.7;
+  }
+
+  @media screen and (max-width: 520px) {
+    padding: 0;
   }
 
   @media screen and (max-width: 400px) {
