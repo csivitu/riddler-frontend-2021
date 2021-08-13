@@ -1,8 +1,8 @@
 import React from "react";
 import "./Tracks.css";
 import mythical from "./assets/mythical.png";
-import digital from "./assets/Track2.png";
-import dystopian from "./assets/Track3.png";
+import digital from "./assets/digital.png";
+import dystopian from "./assets/dysptopian.png";
 import tracksBox from "./assets/track-box.svg";
 import Header from "../header/Header";
 import $ from "jquery";
@@ -16,8 +16,8 @@ function Home() {
       {/* <img className="track" src={tracks} alt="" />
       <p class="title">Yet to be<br/>revealed</p> */}
       <Header
-        TitleTextTop="Yet to be"
-        TitleTextBottom="revealed"
+        TitleTextTop="Explore"
+        TitleTextBottom="the Eras"
         TitleColor="black"
         ImageURL={tracksBox}
         Opposite="true"

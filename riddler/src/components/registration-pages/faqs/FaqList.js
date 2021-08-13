@@ -16,7 +16,7 @@ const faqsData = [
   {
     question: "Can I participate in a team?",
     answer:
-      "No, Riddler 2021 is a single player event and the prize money will be awarded to one person only. But Jesus is watching.",
+      "No, Riddler’21 is a single player event and the prize money will be awarded to one person only. But Jesus is watching.",
   },
   {
     question:
@@ -32,7 +32,7 @@ const faqsData = [
   {
     question: "Can I participate from my phone?",
     answer:
-      "You can register from your phone. But to enjoy Riddler 2021 in all its glory, it is advised to use the desktop version of the website.",
+      "You can register from your phone. But to enjoy Riddler’21 in all its glory, it is advised to use the desktop version of the website.",
   },
   {
     question: "Are we allowed to use Google?",
@@ -42,7 +42,7 @@ const faqsData = [
   {
     question: "What kind of questions can I expect?",
     answer:
-      "You can check out these posts on our Instagram page and see some questions from the past version of riddler to get a better idea of how the game works and also understand why it has never been beaten :)",
+      "You can check out the stories/highlights on our Instagram page and play some sample questions to get a better idea of how the game works. You’ll also come to know why it has never been beaten :)",
   },
   {
     question:
@@ -52,7 +52,7 @@ const faqsData = [
   },
   {
     question: "How long is the event?",
-    answer: "Riddler 2021 is 72 hours long.",
+    answer: "Riddler’21 is 72 hours long.",
   },
   {
     question: "Is there an eligibility criteria to participate in the event?",
