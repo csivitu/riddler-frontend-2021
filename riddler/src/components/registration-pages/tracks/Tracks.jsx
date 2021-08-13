@@ -2,7 +2,7 @@ import React from "react";
 import "./Tracks.css";
 import mythical from "./assets/mythical.png";
 import digital from "./assets/digital.png";
-import dystopian from "./assets/Track3.png";
+import dystopian from "./assets/dysptopian.png";
 import tracksBox from "./assets/track-box.svg";
 import Header from "../header/Header";
 import $ from "jquery";
