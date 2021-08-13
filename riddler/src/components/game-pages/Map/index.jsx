@@ -1,4 +1,4 @@
-import { useEffect, useState, React } from "react";
+import { useState, React, useRef } from "react";
 // import mapBackground from '../../../assets/map.svg';
 import mapBackground from "../../../assets/map.svg";
 import { ToastContainer, toast } from "react-toastify";
@@ -10,12 +10,14 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import useDraggableScroll from "use-draggable-scroll";
 
 const Map = () => {
   const res = {
     correct: true,
     currentPos: 1,
     unlocked_nodes: [10, 19, 13],
+    // unlocked_nodes: [37, 38, 39],
     solved_nodes: [1, 3, 4, 5],
     portal_nodes: [9, 20, 32],
     locked_question: 6,
@@ -23,7 +25,7 @@ const Map = () => {
 
   const leftover = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-    22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36,
+    22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
   ];
   let arr = [...res.solved_nodes];
   arr.push(...res.unlocked_nodes);
@@ -35,7 +37,7 @@ const Map = () => {
       leftover.splice(index, 1);
     }
   });
-  console.log(leftover);
+  // console.log(leftover);
 
   // Dialogue box
   const [open, setOpen] = useState(false);
@@ -49,13 +51,13 @@ const Map = () => {
   };
 
   window.addEventListener("DOMContentLoaded", () => {
-    [1, 2, 3].forEach((i) => {
-      const element = document.getElementById(`deck${i}`);
-      // element.classList.add('deck');
-      element.addEventListener("click", () => {
-        console.log("Deck Node clicked!");
-      });
-    });
+    // [1, 2, 3].forEach((i) => {
+    //   const element = document.getElementById(`deck${i}`);
+    //   // element.classList.add('deck');
+    //   element.addEventListener("click", () => {
+    //     console.log("Deck Node clicked!");
+    //   });
+    // });
 
     res.unlocked_nodes.forEach((i) => {
       const element = document.getElementById(`node${i}`);
@@ -105,6 +107,7 @@ const Map = () => {
     element.classList.add("locked");
     element.addEventListener("click", () => {
       console.log("Locked Node clicked!");
+      window.location.href = "/play";
     });
   });
 
@@ -118,9 +121,12 @@ const Map = () => {
       progress: undefined,
     });
 
+  const ref = useRef(null);
+  const { onMouseDown } = useDraggableScroll(ref);
+
   return (
     <div className="map-section">
-      <div className="map-container">
+      <div className="map-container" ref={ref} onMouseDown={onMouseDown}>
         <div className="map">
           <img className="map-background" src={mapBackground} alt="" />
           <div id="node1" className="node">
@@ -231,14 +237,14 @@ const Map = () => {
           <div id="node36" className="node">
             36
           </div>
-          <div id="deck1" className="deck">
-            d1
+          <div id="node37" className="deck">
+            37
           </div>
-          <div id="deck2" className="deck">
-            d2
+          <div id="node38" className="deck">
+            38
           </div>
-          <div id="deck3" className="deck">
-            d3
+          <div id="node39" className="deck">
+            39
           </div>
         </div>
       </div>
