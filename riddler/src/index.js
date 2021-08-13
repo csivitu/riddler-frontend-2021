@@ -1,13 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-// import { StateProvider } from "./context/StateProvider";
-// import reducer, { initialState } from "./context/reducer";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistStore } from "redux-persist";
+import store from './redux/configureStore'
+
+const persistor = persistStore(store);
 
 ReactDOM.render(
-  <>
-    <App />
-  </>,
-
+  <Provider store={store}>
+    <PersistGate persistor={persistor}>
+        <App />
+    </PersistGate>
+  </Provider>,
   document.getElementById("root")
 );

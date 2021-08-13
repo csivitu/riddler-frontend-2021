@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link as LinkRouter } from "react-router-dom";
+import { Link as LinkRouter, NavLink } from "react-router-dom";
 import { Link as LinkScroll } from "react-scroll";
 
 export const Nav = styled.nav`
@@ -32,7 +32,7 @@ export const NavbarContainer = styled.div`
   width: 100%;
 `;
 
-export const NavLogo = styled(LinkScroll)`
+export const NavLogo = styled(NavLink)`
   justify-self: flex-start;
   cursor: pointer;
   display: flex;
@@ -40,7 +40,6 @@ export const NavLogo = styled(LinkScroll)`
   margin-left: 24px;
   font-weight: bold;
   text-decoration: none;
-
   img {
     height: 1.5rem;
     color: white;
@@ -70,11 +69,12 @@ export const MobileIcon = styled.div`
   }
 `;
 
-export const NavMenu = styled.ul`
+export const NavMenu = styled.div`
   display: flex;
   align-items: center;
   list-style: none;
   text-align: center;
+  justify-self: center;
 
   @media screen and (max-width: 950px) {
     display: none;
@@ -131,5 +131,29 @@ export const NavBtnLink = styled(LinkRouter)`
   &:hover {
     transition: all 0.2s ease-in-out;
     background: #fe3176;
+  }
+`;
+export const Player = styled.div`
+  justify-self: flex-start;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  justify-content: space-evenly;
+  text-decoration: none;
+  align-self: center;
+  height:40px;
+  padding:2px;
+  min-width:110px;
+  border:3px solid black;
+  margin-right: 24px;
+  img{
+    height:75%;
+  }
+
+  @media screen and (max-width: 350px) {
+    margin-left: 10px;
+    img {
+      width: 70%;
+    }
   }
 `;

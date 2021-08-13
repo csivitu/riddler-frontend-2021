@@ -17,55 +17,46 @@ const Sidebar = ({ isOpen, toggle }) => {
         <CloseIcon />
       </Icon>
       <SidebarWrapper>
+      <SideBtnWrap>
+          {/* <SidebarRoute to="/register">REGISTER</SidebarRoute> */}
+
+        </SideBtnWrap>
         <SidebarMenu>
           <SidebarLink
             onClick={toggle}
-            to="about"
+            to="rules"
             smooth={true}
             duration={500}
             spy={true}
             exact="true"
             offset={-80}
           >
-            ABOUT
+            GUIDE
           </SidebarLink>
           <SidebarLink
             onClick={toggle}
-            to="tracks"
+            to="game"
             smooth={true}
             duration={500}
             spy={true}
             exact="true"
             offset={-80}
           >
-            TRACKS
+            PLAY
           </SidebarLink>
           <SidebarLink
             onClick={toggle}
-            to="faqs"
+            to="leaderboard"
             smooth={true}
             duration={500}
             spy={true}
             exact="true"
             offset={-80}
           >
-            FAQs
-          </SidebarLink>
-          <SidebarLink
-            onClick={toggle}
-            to="contact"
-            smooth={true}
-            duration={500}
-            spy={true}
-            exact="true"
-            offset={-80}
-          >
-            CONTACT US
+            LEADERBOARD
           </SidebarLink>
         </SidebarMenu>
-        <SideBtnWrap>
-          <SidebarRoute to="/register">REGISTER</SidebarRoute>
-        </SideBtnWrap>
+        
       </SidebarWrapper>
     </SidebarContainer>
   );

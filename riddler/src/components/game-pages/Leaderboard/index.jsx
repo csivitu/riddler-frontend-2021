@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { getLeaderboard } from "../../../api/api";
+import { getLeaderboard } from "../../../api/requests";
+import Layout from "../../game-navbar/Layout";
 
 const Leaderboard = () => {
   const [leaderboard, setLeaderboard] = useState([]);
@@ -12,6 +13,9 @@ const Leaderboard = () => {
   }, [leaderboard]);
 
   return(
+    <>
+        <Layout/>
+    
     <table>
         <tr>
             <th>Rank</th>
@@ -28,6 +32,7 @@ const Leaderboard = () => {
           )
       })}
       </table>
+      </>
   )
 };
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Nav,
   NavbarContainer,
@@ -9,114 +9,83 @@ import {
   MobileIcon,
   NavBtn,
   NavBtnLink,
+  Player,
 } from "./NavbarElements";
+import { ReactComponent as PlayLogo } from "../../../assets/play.svg";
+import { ReactComponent as GuideLogo } from "../../../assets/guide.svg";
+import { ReactComponent as LeaderboardLogo } from "../../../assets/leaderboard.svg";
+import star from "../../../assets/star.svg";
 import { FaBars } from "react-icons/fa";
+import { Button } from "@material-ui/core";
+import Tooltip from "@material-ui/core/Tooltip";
+
 import riddlerLogo from "./assets/riddlerlogo_svg_black.svg";
+// import { ReactComponent as RidderLogo } from "./assets/riddlerlogo_svg_black.svg";
+import { NavLink, useLocation } from "react-router-dom";
 
 const Navbar = ({ toggle }) => {
+  const location = useLocation();
+
+  const fillSvg = (svgName) => {
+    if (location.pathname === svgName) return "#FE3176";
+    else return "black";
+  };
+  // color #FE3176
   return (
     <>
       <Nav>
         <NavbarContainer>
-          <NavLogo
-            to="home"
-            smooth={true}
-            duration={500}
-            spy={true}
-            exact="true"
-            offset={-80}
-          >
+          <NavLogo to="game">
             <img src={riddlerLogo} alt="Riddler Logo"></img>
           </NavLogo>
           <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>
           <NavMenu>
-            <NavItem>
-              <NavLinks
-                to="about"
+            <Tooltip title="Guide">
+              <NavLogo
+                to="/rules"
                 smooth={true}
                 duration={500}
                 spy={true}
                 exact="true"
                 offset={-80}
               >
-                ABOUT
-              </NavLinks>
-            </NavItem>
-            <NavItem>
-              <NavLinks
-                to="tracks"
+                <GuideLogo fill={fillSvg("/rules")} />
+              </NavLogo>
+            </Tooltip>
+            <Tooltip title="Game">
+              <NavLogo
+                to="game"
                 smooth={true}
                 duration={500}
                 spy={true}
                 exact="true"
                 offset={-80}
               >
-                TRACKS
-              </NavLinks>
-            </NavItem>
-            <NavItem>
-              <NavLinks
-                to="faqs"
+                <PlayLogo fill={fillSvg("/play")} />
+              </NavLogo>
+            </Tooltip>
+            <Tooltip title="Leaderboard">
+              <NavLogo
+                to="leaderboard"
                 smooth={true}
                 duration={500}
                 spy={true}
                 exact="true"
                 offset={-80}
               >
-                FAQs
-              </NavLinks>
-            </NavItem>
-            {/* <NavItem>
-              <NavLinks
-                to="countdown"
-                smooth={true}
-                duration={500}
-                spy={true}
-                exact="true"
-                offset={-80}
-              >
-                Countdown
-              </NavLinks>
-            </NavItem> */}
-            {/* <NavItem>
-              <NavLinks
-                to="prizes"
-                smooth={true}
-                duration={500}
-                spy={true}
-                exact="true"
-                offset={-80}
-              >
-                Prizes
-              </NavLinks>
-            </NavItem> */}
-            <NavItem>
-              <NavLinks
-                to="contact"
-                smooth={true}
-                duration={500}
-                spy={true}
-                exact="true"
-                offset={-80}
-              >
-                CONTACT US
-              </NavLinks>
-            </NavItem>
+                <LeaderboardLogo fill={fillSvg("/leaderboard")} />
+              </NavLogo>
+            </Tooltip>
           </NavMenu>
-          <NavBtn>
-            <NavBtnLink
-              to="/register"
-              smooth={true}
-              duration={500}
-              spy={true}
-              exact="true"
-              offset={-80}
-            >
-              REGISTER
-            </NavBtnLink>
-          </NavBtn>
+          <NavMenu>
+            <Player>
+              <img src={star} alt="Riddler Logo" />
+              <p>440</p>
+            </Player>
+            <Player>Kadambari03</Player>
+          </NavMenu>
         </NavbarContainer>
       </Nav>
     </>
