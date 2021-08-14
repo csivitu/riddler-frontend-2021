@@ -6,21 +6,46 @@ export const QContainer = styled.div`
   background-color: black;
   overflow-x: hidden;
   color: white;
-  height: 100vh;
+  height: calc(100vh-80px);
   width: 100vw;
   display: flex;
   justify-content: center;
   flex-direction: column;
 `;
 
+export const Container1 = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 3rem;
+  // height:10%;
+  @media screen and (max-width: 350px) {
+    margin: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+  // width:80vw;
+
+  // width:90%;
+`;
+
 export const TrackBox = styled.div`
   display: flex;
   float: left;
   color: black;
-  margin: 0.5rem 5rem;
   padding: 1rem;
+  // width:fit-content;
   border-radius: 5px;
+  margin-bottom: 1rem;
   background-color: #dbf429;
+  @media screen and (max-width: 600px) {
+    font-size: 90%;
+  }
+  @media screen and (max-width: 350px) {
+    font-size: 68%;
+    padding: 0.4rem;
+  }
 `;
 export const Trackname = styled.h3`
   @font-face {
@@ -36,22 +61,23 @@ export const QuestionBox = styled.div`
   background-color: black;
   color: white;
   padding: 2rem;
-  margin: 2rem 5rem;
   border-radius: 7px;
+  max-height: 70%;
+  overflow: auto;
+  @media screen and (max-width: 350px) {
+    font-size: 68%;
+    padding: 1.5rem;
+  }
 `;
 export const QBtnContainer = styled.div`
   display: flex;
   flex-direction: column;
-  // width: 3rem;
-  // height: 6rem;
   float: right;
   justify-content: space-between;
-  z-index: 1000;
-  position:relative;
-  bottom:1rem;
-  right:1rem;
+  position: relative;
+  bottom: 1rem;
+  right: 1rem;
   IconButton {
-    
   }
 `;
 export const QuestionContent = styled.p`
@@ -62,15 +88,27 @@ export const Hint = styled.p`
   font-family: Poppins;
   line-height: 2;
 `;
+export const AContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  width:100%;
+  justify-content:space-between;
+  // padding:1rem;
+  margin-top:1rem;
+  @media screen and (max-width: 350px) {
+    flex-direction: column;
+    justify-content: center;
+  }
+`;
 export const AnswerBox = styled.input`
   border: 2px solid #dbf429;
   background-color: black;
   color: white;
   padding: 1rem;
-  margin: 0rem;
-  max-width: 40rem;
+  // width: 1rem;
+  flex-grow: 2;
+
   border-radius: 7px;
-  width: 40rem;
   ::placeholder {
     color: white;
   }
@@ -80,23 +118,20 @@ export const AnswerBox = styled.input`
 `;
 export const ButtonContainer = styled.div`
   display: flex;
-  height: 100%;
+
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  // padding:1rem;
+  @media screen and (max-width: 350px) {
+    margin-top: 1rem;
+  }
 `;
 
-export const AContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  // width:100%;
-  margin: 0rem 5rem;
-`;
 export const OurButton = styled(LinkRoute)`
   border-radius: 30px;
   white-space: nowrap;
   padding: 10px 20px;
   color: #000;
-  margin: 0 1rem;
   font-size: 16px;
   outline: none;
   font-weight: bold;
