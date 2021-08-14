@@ -6,7 +6,7 @@ export const QContainer = styled.div`
   background-color: black;
   overflow-x: hidden;
   color: white;
-  height: calc(100vh-80px);
+  min-height: calc(100vh - 80px);
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -30,6 +30,25 @@ export const Container1 = styled.div`
   // width:90%;
 `;
 
+export const TopBox = styled.div`
+display:flex;
+justify-content: space-between;
+width:100%;
+`
+
+export const QBtnContainer = styled.div`
+  display: flex;
+  float: right;
+  justify-content: space-evenly;
+  padding:0rem;
+  button{
+    padding:0rem;
+  }
+  img {
+    width:100%;
+
+  }
+`;
 export const TrackBox = styled.div`
   display: flex;
   float: left;
@@ -42,9 +61,25 @@ export const TrackBox = styled.div`
   @media screen and (max-width: 600px) {
     font-size: 90%;
   }
-  @media screen and (max-width: 350px) {
-    font-size: 68%;
-    padding: 0.4rem;
+  @media screen and (max-width: 490px) {
+    font-size: 80%;
+    padding:0.5rem;
+  }
+  @media screen and (max-width: 435px) {
+    font-size: 75%;
+    padding:0.45rem;
+  }
+  @media screen and (max-width: 414px) {
+    font-size: 70%;
+    padding:0.4rem;
+  }
+  @media screen and (max-width: 400px) {
+    font-size: 67.5%;
+    padding:0.35rem;
+  }
+  @media screen and (max-width: 370px) {
+    font-size: 65%;
+    padding: 0.3rem;
   }
 `;
 export const Trackname = styled.h3`
@@ -62,24 +97,25 @@ export const QuestionBox = styled.div`
   color: white;
   padding: 2rem;
   border-radius: 7px;
-  max-height: 70%;
-  overflow: auto;
+  max-height: 60%;
+  overflow: scroll;
+  display:flex;
+  @media screen and (max-width: 414px) {
+    height:65%;
+  }
+  @media screen and (max-width: 380px) {
+    // font-size: 70%;
+    height:60%;
+  }
+  
   @media screen and (max-width: 350px) {
-    font-size: 68%;
+    // font-size: 68%;
     padding: 1.5rem;
+    height:50%;
   }
+  
 `;
-export const QBtnContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  float: right;
-  justify-content: space-between;
-  position: relative;
-  bottom: 1rem;
-  right: 1rem;
-  IconButton {
-  }
-`;
+
 export const QuestionContent = styled.p`
   font-family: Poppins;
   line-height: 3;
@@ -98,6 +134,7 @@ export const AContainer = styled.div`
   @media screen and (max-width: 350px) {
     flex-direction: column;
     justify-content: center;
+    height:10%;
   }
 `;
 export const AnswerBox = styled.input`
