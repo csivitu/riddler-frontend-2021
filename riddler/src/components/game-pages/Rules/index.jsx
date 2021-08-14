@@ -1,7 +1,8 @@
+import Layout from "../../game-navbar/Layout";
 
 const Rules = () =>{
     return(
-        <p>Rules</p>
+        <Layout/>
     )
 }
 export default Rules;

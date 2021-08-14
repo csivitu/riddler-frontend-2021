@@ -41,6 +41,7 @@
   position: absolute;
   top: 100px;
   left: 100px;
+  pointer-events: none;
 }
 
 .node {
@@ -257,17 +258,17 @@
   border-radius: 50%;
 }
 
-#deck1 {
+#node37 {
   top: 216px;
   left: 66px;
 }
 
-#deck2 {
+#node38 {
   top: 69px;
   left: 890px;
 }
 
-#deck3 {
+#node39 {
   top: 880px;
   left: 623px;
 }
@@ -290,4 +291,16 @@
 
 .map-container::-webkit-scrollbar-track-piece:start {
   background: transparent;
+}
+
+.Toastify__toast-container {
+  
+}
+
+.Toastify__toast {
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.Toastify__progress-bar {
+  background-color: #DBF429;
 }

@@ -9,10 +9,4 @@ export const setAuthToken = (token) => {
     API.defaults.headers.common.Authorization = token;
 };
 
-export const getLeaderboard = async () =>{
-    let res = await API.get(`/score`);
-    return res.data;
-
-
-}
 export default API;

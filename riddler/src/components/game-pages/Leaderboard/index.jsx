@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { getLeaderboard } from "../../../api/api";
+import { getLeaderboard } from "../../../api/requests";
+import Layout from "../../game-navbar/Layout";
 import './leader.css';
 
 const Leaderboard = () => {
@@ -13,6 +14,8 @@ const Leaderboard = () => {
   }, [leaderboard]);
 
   return(
+    <>
+    <Layout/>
     <div className="whole_page">
     <table className="tables scrolldown">
         <tr>
@@ -51,6 +54,8 @@ const Leaderboard = () => {
       })}
       </table>
       </div>
+    </>
+
   )
 };
 

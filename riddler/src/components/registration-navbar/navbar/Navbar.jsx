@@ -68,30 +68,7 @@ const Navbar = ({ toggle }) => {
                 FAQs
               </NavLinks>
             </NavItem>
-            {/* <NavItem>
-              <NavLinks
-                to="countdown"
-                smooth={true}
-                duration={500}
-                spy={true}
-                exact="true"
-                offset={-80}
-              >
-                Countdown
-              </NavLinks>
-            </NavItem> */}
-            {/* <NavItem>
-              <NavLinks
-                to="prizes"
-                smooth={true}
-                duration={500}
-                spy={true}
-                exact="true"
-                offset={-80}
-              >
-                Prizes
-              </NavLinks>
-            </NavItem> */}
+            
             <NavItem>
               <NavLinks
                 to="contact"
@@ -107,14 +84,14 @@ const Navbar = ({ toggle }) => {
           </NavMenu>
           <NavBtn>
             <NavBtnLink
-              to="/register"
+              to="/game"
               smooth={true}
               duration={500}
               spy={true}
               exact="true"
               offset={-80}
             >
-              REGISTER
+              PLAY NOW
             </NavBtnLink>
           </NavBtn>
         </NavbarContainer>

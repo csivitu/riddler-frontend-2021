@@ -7,15 +7,6 @@ import leaderboardButton from "../../../assets/leaderboard_button.svg";
 import { useHistory } from "react-router-dom";
 
 const Game = () => {
-  useEffect(() => {
-    const validateLogin = () => {
-      let token = localStorage.getItem("token");
-      if (!token) {
-        console.log("Redirecting..");
-      }
-    };
-    validateLogin();
-  }, []);
   const history = useHistory();
   const routeChange = (path) => {
     history.push(path);
@@ -33,7 +24,7 @@ const Game = () => {
           }}
         />
         <img
-          id="/play"
+          id="/map"
           src={playButton}
           alt={"Riddler Logo"}
           onClick={(e) => {
