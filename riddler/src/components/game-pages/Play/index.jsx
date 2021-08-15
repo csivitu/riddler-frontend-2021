@@ -31,9 +31,19 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import Layout from "../../game-navbar/Layout";
 import { useSelector } from "react-redux";
-import { getHint, getQuestion, penaltyPoint, submitAnswer } from "../../../api/requests";
+import {
+  getHint,
+  getQuestion,
+  penaltyPoint,
+  submitAnswer,
+} from "../../../api/requests";
 
 function Question({ mapOpen, qId, mapData }) {
+  const trackName = {
+    1: "mythical past",
+    2: "digital present",
+    3: "dystopian future",
+  };
   console.log("map data in question");
   console.log(mapData);
   console.log("Questions: ", qId);
@@ -41,12 +51,20 @@ function Question({ mapOpen, qId, mapData }) {
   useEffect(() => {
     const asyncQuestion = async () => {
       let res = await getQuestion(usertoken, qId);
+      console.log("Question: ");
       console.log(res);
       if (res.question) {
         setQues(res.question.text);
         setQuesLink(res.question.links);
         setQuesImg(res.question.img);
-        await handleHint();
+        if (res.track.length === 2) {
+          setTrack1(trackName[res.track[0]]);
+          setTrack2(trackName[res.track[1]]);
+        } else {
+          setTrack1(trackName[res.track[0]]);
+          setTrack2(trackName[res.track[0]]);
+        }
+        handleHint(res);
         setLoadingPage(false);
       } else {
         mapOpen(true);
@@ -54,8 +72,6 @@ function Question({ mapOpen, qId, mapData }) {
     };
 
     asyncQuestion();
-    // console.log("mapres");
-    // console.log(mapRes);
   }, []);
   const [ques, setQues] = useState("");
   const [quesImg, setQuesImg] = useState([]);
@@ -86,17 +102,20 @@ function Question({ mapOpen, qId, mapData }) {
 
   const clickYesHint = async () => {
     const res = await getHint(usertoken, qId);
-    setHint(res.hint.text);
-    setHintImg(res.hint.img);
-    setHintLink(res.hint.links);
-    setWantHint(true);
-    setHintButton(false);
+    if (res.code === "S4") {
+      const ques = await getQuestion(usertoken, qId);
+      setHint(ques.hint.text);
+      setHintImg(ques.hint.img);
+      setHintLink(ques.hint.links);
+      setWantHint(true);
+      setHintButton(false);
+    }
+
     handleClose();
   };
 
-  const handleHint = async () => {
-    if (mapData.hintQues.includes(qId)) {
-      const res = await getHint(usertoken, qId);
+  const handleHint = async (res) => {
+    if (res.hint.text) {
       setHint(res.hint.text);
       setHintImg(res.hint.img);
       setHintLink(res.hint.links);
@@ -126,10 +145,15 @@ function Question({ mapOpen, qId, mapData }) {
     const res = await penaltyPoint(usertoken, qId);
     console.log("Response on unfreeze");
     console.log(res);
-    if(res.code === "L3") 
-    setLoadingPage(false);
+    if (res.code === "L3") setLoadingPage(false);
     mapOpen(true);
-  }
+  };
+
+  useEffect(() => {
+    setHint("");
+    setHintImg([]);
+    setHintImg([]);
+  }, []);
 
   return (
     <>
@@ -182,7 +206,7 @@ function Question({ mapOpen, qId, mapData }) {
                 SUBMIT
               </OurButton>
               <Tooltip title="What does unfreeze do?">
-                <OurButton onClick={handleFreeze} >UNFREEZE</OurButton>
+                <OurButton onClick={handleFreeze}>UNFREEZE</OurButton>
               </Tooltip>
             </ButtonContainer>
           </AContainer>
