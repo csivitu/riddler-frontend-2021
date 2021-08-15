@@ -10,9 +10,22 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import Layout from '../../game-navbar/Layout';
+import { useSelector } from "react-redux";
+import { getQuestion } from '../../../api/requests';
 
 function Question({ mapOpen, qId }) {
-    console.log(qId);
+    console.log("Questions: ",qId);
+    const usertoken = useSelector((state) => state.auth.token);
+    useEffect(() => {
+        const asyncQuestion = async () => {
+          let res = await getQuestion(usertoken, qId);
+          console.log(res);
+        };
+
+        asyncQuestion();
+        // console.log("mapres");
+        // console.log(mapRes);
+      }, []);
     const [ques, setQues] = useState("");
     const [track1, setTrack1] = useState("");
     const [track2, setTrack2] = useState("");

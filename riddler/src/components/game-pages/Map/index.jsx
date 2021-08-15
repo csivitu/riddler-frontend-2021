@@ -19,21 +19,14 @@ import { CircularProgress } from "@material-ui/core";
 const Map = ({ mapOpen, qId }) => {
   // const [mapRes, setMapRes] = useState({});
   // let mapRes = {};
-  const username = useSelector((state) => state.auth.username);
   const usertoken = useSelector((state) => state.auth.token);
   useEffect(() => {
     const asyncInsert = async () => {
       let res = await insertUser(usertoken);
+      console.log(res);
     };
     const asyncMap = async () => {
-      let res = await getMap(usertoken, username);
-      // setMapRes(res.nodeInfo);
-      // mapRes = res.nodeInfo;
-      // console.log(mapRes);
-      renderMap(res);
-    };
-    const asyncQuestion = async () => {
-      let res = await getQuestion(usertoken, username, 37);
+      let res = await getMap(usertoken);
       // setMapRes(res.nodeInfo);
       // mapRes = res.nodeInfo;
       // console.log(mapRes);
@@ -42,7 +35,6 @@ const Map = ({ mapOpen, qId }) => {
 
     asyncInsert();
     asyncMap();
-    asyncQuestion();
     // console.log("mapres");
     // console.log(mapRes);
   }, []);

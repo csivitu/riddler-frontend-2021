@@ -24,7 +24,7 @@ const Game = () => {
           }}
         />
         <img
-          id="/map"
+          id="/play"
           src={playButton}
           alt={"Riddler Logo"}
           onClick={(e) => {
