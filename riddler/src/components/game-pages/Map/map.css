@@ -340,7 +340,7 @@
 }
 
 .locked {
-  
+  background-color: white;
 }
 
 .locked::before {

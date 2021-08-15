@@ -69,3 +69,18 @@ export const getHint = async (usertoken, qId) => {
   res = await res.json();
   return res;
 }
+
+export const penaltyPoint = async (usertoken, qId) => {
+  const requestOptions = {
+    method: "POST",
+    headers: {
+      "x-access-token": usertoken,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ quesId: qId}),
+  };
+
+  let res = await fetch("http://localhost:3001/penalty", requestOptions);
+  res = await res.json();
+  return res;
+}
