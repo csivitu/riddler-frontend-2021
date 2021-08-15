@@ -100,7 +100,7 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
 
     [9, 20, 32].forEach((i) => {
       const element = document.getElementById(`portal-box${i}`);
-      if (mapRes.portalNodes.i) element.classList.add("solved");
+      if (mapRes.portalNodes[i]) element.classList.add("solved");
       element.addEventListener("click", () => {
         console.log("portal Node Box clicked!");
       });
