@@ -31,9 +31,11 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import Layout from "../../game-navbar/Layout";
 import { useSelector } from "react-redux";
-import { getQuestion, submitAnswer } from "../../../api/requests";
+import { getHint, getQuestion, submitAnswer } from "../../../api/requests";
 
-function Question({ mapOpen, qId }) {
+function Question({ mapOpen, qId, mapData }) {
+  console.log("map data in question");
+  console.log(mapData);
   console.log("Questions: ", qId);
   const usertoken = useSelector((state) => state.auth.token);
   useEffect(() => {
@@ -44,8 +46,8 @@ function Question({ mapOpen, qId }) {
         setQues(res.question.text);
         setQuesLink(res.question.links);
         setQuesImg(res.question.img);
-        document.getElementById("map-loading").style.display = "none";
-        document.getElementById("darken").style.display = "none";
+        await handleHint();
+        setLoadingPage(false);
       } else {
         mapOpen(true);
       }
@@ -60,14 +62,16 @@ function Question({ mapOpen, qId }) {
   const [quesLink, setQuesLink] = useState([]);
   const [hintImg, setHintImg] = useState([]);
   const [hintLink, setHintLink] = useState([]);
-  const [track1, setTrack1] = useState("");
-  const [track2, setTrack2] = useState("");
+  const [track1, setTrack1] = useState("digital present");
+  const [track2, setTrack2] = useState("digital present");
   const [hint, setHint] = useState("");
   const [wantHint, setWantHint] = useState(false);
 
   const [openHintDialog, setOpenHintDialog] = useState(false);
+  const [hintButton, setHintButton] = useState(true);
+  const [loadingPage, setLoadingPage] = useState(true);
 
-  const handleClickOpen = () => {
+  const handleClickOpen = async () => {
     setOpenHintDialog(true);
   };
 
@@ -79,43 +83,56 @@ function Question({ mapOpen, qId }) {
     setWantHint(false);
     handleClose();
   };
-  const clickYesHint = () => {
+
+  const clickYesHint = async () => {
+    const res = await getHint(usertoken, qId);
+    setHint(res.hint.text);
+    setHintImg(res.hint.img);
+    setHintLink(res.hint.links);
     setWantHint(true);
+    setHintButton(false);
     handleClose();
   };
-  useEffect(() => {
-    setQues(
-      "Did you hear about the puppet? No, not miss piggy, but you’re pulling the right strings. Close, but you have much lesser than 900 years to find the answer. This Is The Way to go.Almost there, but that’s just what everyone calls him. Maybe you should ask for his real name? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit praesentium voluptas placeat reprehenderit tempore doloribus, voluptatibus sapiente quibusdam tempora tenetur?"
-    );
 
-    setTrack1("digital present");
-    setTrack2("digital present");
-    setHint("Not now bitch");
-    setWantHint(false);
-  }, []);
+  const handleHint = async () => {
+    if (mapData.hintQues.includes(qId)) {
+      const res = await getHint(usertoken, qId);
+      setHint(res.hint.text);
+      setHintImg(res.hint.img);
+      setHintLink(res.hint.links);
+      setWantHint(true);
+      setHintButton(false);
+    }
+  };
 
   const handleAnswer = async () => {
+    setLoadingPage(true);
     const answerBox = document.getElementById("answer-box");
     const answer = answerBox.value;
     if (answer) {
-      console.log(answer);
       answerBox.value = "";
       const res = await submitAnswer(usertoken, qId, [answer]);
+      console.log("Response of answer submit");
       console.log(res);
-      if (res.text === "S2") {
+      if (res.code === "S2") {
         mapOpen(true);
       }
     }
+    setLoadingPage(false);
   };
 
   return (
     <>
       <Layout></Layout>
       <QContainer>
-        <div id="map-loading">
-          <CircularProgress color="secondary" />
-        </div>
-        <div id="darken" />
+        {loadingPage && (
+          <div>
+            <div id="map-loading">
+              <CircularProgress color="secondary" />
+            </div>
+            <div id="darken" />
+          </div>
+        )}
         <Container1>
           <TopBox>
             <TrackBox>
@@ -123,9 +140,11 @@ function Question({ mapOpen, qId }) {
               <Trackname>&nbsp;{track2}</Trackname>
             </TrackBox>
             <QBtnContainer>
-              <IconButton onClick={handleClickOpen}>
-                <img src={hintIcon} alt="" />
-              </IconButton>
+              {hintButton && (
+                <IconButton onClick={handleClickOpen}>
+                  <img src={hintIcon} alt="" />
+                </IconButton>
+              )}
               <IconButton onClick={() => mapOpen(true)}>
                 <img src={mapIcon} alt="" />
               </IconButton>
@@ -133,9 +152,14 @@ function Question({ mapOpen, qId }) {
           </TopBox>
 
           <QuestionBox>
-            <QuestionContent>{ques}</QuestionContent>
-
-            {wantHint && <Hint>Hint: {hint}</Hint>}
+            <QuestionContent>
+              {ques} {quesImg} {quesLink}
+              {wantHint && (
+                <Hint>
+                  Hint: {hint} {hintImg} {hintLink}
+                </Hint>
+              )}
+            </QuestionContent>
           </QuestionBox>
           <AContainer>
             <AnswerBox

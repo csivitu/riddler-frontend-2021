@@ -18,7 +18,7 @@ import { CircularProgress } from "@material-ui/core";
 import { ImZoomIn, ImZoomOut } from "react-icons/im";
 import { FaRedo } from "react-icons/fa";
 
-const Map = ({ mapOpen, qId }) => {
+const Map = ({ setMapRes, mapOpen, qId }) => {
   // const [mapRes, setMapRes] = useState({});
   // let mapRes = {};
   const usertoken = useSelector((state) => state.auth.token);
@@ -32,6 +32,7 @@ const Map = ({ mapOpen, qId }) => {
       // setMapRes(res.nodeInfo);
       // mapRes = res.nodeInfo;
       // console.log(mapRes);
+      setMapRes(res);
       renderMap(res);
     };
 

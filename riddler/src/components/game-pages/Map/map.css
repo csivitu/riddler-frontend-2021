@@ -109,7 +109,7 @@
   box-sizing: border-box;
   width: var(--node-side);
   height: var(--node-side);
-  background-color: rgb(0, 0, 0);
+  background-color: #7C7C7C;
   border: 4px solid black;
   border-radius: 50%;
   position: absolute;
@@ -340,7 +340,7 @@
 }
 
 .locked {
-  background-color: #7a7a7a;
+  
 }
 
 .locked::before {

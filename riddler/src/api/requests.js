@@ -54,3 +54,18 @@ export const submitAnswer = async (usertoken, qId, answer) => {
   res = await res.json();
   return res;
 }
+
+export const getHint = async (usertoken, qId) => {
+  const requestOptions = {
+    method: "POST",
+    headers: {
+      "x-access-token": usertoken,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ quesId: qId}),
+  };
+
+  let res = await fetch("http://localhost:3001/hint", requestOptions);
+  res = await res.json();
+  return res;
+}
