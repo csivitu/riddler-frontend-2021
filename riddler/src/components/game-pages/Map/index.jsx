@@ -12,30 +12,30 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import useDraggableScroll from "use-draggable-scroll";
 import Layout from "../../game-navbar/Layout";
-import { getMap } from "../../../api/requests";
+import { getMap, insertUser } from "../../../api/requests";
 import { useSelector } from "react-redux";
 
 const Map = () => {
   // const [mapRes, setMapRes] = useState({});
   // let mapRes = {};
   const username = useSelector((state) => state.auth.username);
-
+  const usertoken = useSelector((state) => state.auth.token);
   useEffect(() => {
+    const asyncInsert = async () => {
+      let res = await insertUser(usertoken);
+    };
     const asyncMap = async () => {
-      let res = await getMap(username);
-      console.log("nodeInfo");
-      console.log(res);
+      let res = await getMap(usertoken, username);
       // setMapRes(res.nodeInfo);
       // mapRes = res.nodeInfo;
       // console.log(mapRes);
       renderMap(res);
     };
 
+    asyncInsert();
     asyncMap();
     // console.log("mapres");
     // console.log(mapRes);
-
-    
   }, []);
 
   const renderMap = (mapRes) => {
@@ -44,7 +44,6 @@ const Map = () => {
       22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
     ];
     let arr = [...mapRes.solvedNodes];
-    console.log(arr);
     arr.push(...mapRes.unlockedNodes);
     if (mapRes.lockedNode) arr.push(mapRes.lockedNode);
 
@@ -55,70 +54,67 @@ const Map = () => {
       }
     });
 
-    
-      // [1, 2, 3].forEach((i) => {
-      //   const element = document.getElementById(`deck${i}`);
-      //   // element.classList.add('deck');
-      //   element.addEventListener("click", () => {
-      //     console.log("Deck Node clicked!");
-      //   });
-      // });
-      console.log("mapRes.unlockedNodes");
-      mapRes.unlockedNodes.forEach((i) => {
-        if(i === mapRes.lockedNode) return;
-        console.log(i);
-        const element = document.getElementById(`node${i}`);
-        element.classList.add("unlocked");
-        element.addEventListener("click", () => {
-          console.log("Unlocked Node clicked!");
-          handleClickOpen();
+    // [1, 2, 3].forEach((i) => {
+    //   const element = document.getElementById(`deck${i}`);
+    //   // element.classList.add('deck');
+    //   element.addEventListener("click", () => {
+    //     console.log("Deck Node clicked!");
+    //   });
+    // });
+    console.log("mapRes.unlockedNodes");
+    mapRes.unlockedNodes.forEach((i) => {
+      if (i === mapRes.lockedNode) return;
+      console.log(i);
+      const element = document.getElementById(`node${i}`);
+      element.classList.add("unlocked");
+      element.addEventListener("click", () => {
+        console.log("Unlocked Node clicked!");
+        handleClickOpen();
 
-          const confirmButton = document.getElementById("confirm-button");
-          confirmButton.addEventListener(
-            "click",
-            function confirmButtonPress() {
-              console.log("confirmed");
+        const confirmButton = document.getElementById("confirm-button");
+        confirmButton.addEventListener("click", function confirmButtonPress() {
+          console.log("confirmed");
 
-              // Send request
-              window.location.href = "/play";
+          // Send request
+          window.location.href = `/play?qid=${i}`;
 
-              confirmButton.removeEventListener("click", confirmButtonPress);
-            }
-          );
+          confirmButton.removeEventListener("click", confirmButtonPress);
         });
       });
+    });
 
-      mapRes.solvedNodes.forEach((i) => {
-        const element = document.getElementById(`node${i}`);
-        element.classList.add("solved");
-        element.addEventListener("click", () => {
-          console.log("Solved Node clicked!");
-          notify("Solved node clicked");
-        });
+    mapRes.solvedNodes.forEach((i) => {
+      const element = document.getElementById(`node${i}`);
+      element.classList.add("solved");
+      element.addEventListener("click", () => {
+        console.log("Solved Node clicked!");
+        notify("Solved node clicked");
       });
+    });
 
-      [9, 20, 32].forEach((i) => {
-        const element = document.getElementById(`portal-box${i}`);
-        if(mapRes.portalNodes.i) element.classList.add('solved');
-        element.addEventListener("click", () => {
-          console.log("portal Node Box clicked!");
-        });
+    [9, 20, 32].forEach((i) => {
+      const element = document.getElementById(`portal-box${i}`);
+      if (mapRes.portalNodes.i) element.classList.add("solved");
+      element.addEventListener("click", () => {
+        console.log("portal Node Box clicked!");
       });
+    });
 
-      leftover.forEach((i) => {
-        const element = document.getElementById(`node${i}`);
-        element.addEventListener("click", () => {
-          console.log("Other node clicked!");
-          notify("Cannot access this node!");
-        });
+    leftover.forEach((i) => {
+      const element = document.getElementById(`node${i}`);
+      element.addEventListener("click", () => {
+        console.log("Other node clicked!");
+        notify("Cannot access this node!");
       });
-
+    });
+    if (mapRes.lockedNode) {
       const element = document.getElementById(`node${mapRes.lockedNode}`);
       element.classList.add("locked");
       element.addEventListener("click", () => {
         console.log("Locked Node clicked!");
         window.location.href = "/play";
       });
+    }
   };
 
   // Dialogue box

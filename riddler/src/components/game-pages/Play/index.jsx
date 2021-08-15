@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom';
 import { AContainer, AnswerBox, QContainer, QuestionBox, QuestionContent, TrackBox, Trackname, OurButton, ButtonContainer, Hint, Container1, QBtnContainer } from './style'
 // import {Tooltip} from '@material-ui/core';
 import Tooltip from '@material-ui/core/Tooltip';
@@ -8,9 +9,16 @@ import { Button, DialogContentText, DialogTitle, IconButton } from '@material-ui
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import Layout from '../../game-navbar/Layout'
+import Layout from '../../game-navbar/Layout';
+
+function useQuery() {
+    return new URLSearchParams(useLocation().search);
+}
 
 function Play() {
+    const query = useQuery();
+    const qId = query.get('qid');
+    console.log(qId);
     const [ques, setQues] = useState("");
     const [track1, setTrack1] = useState("");
     const [track2, setTrack2] = useState("");

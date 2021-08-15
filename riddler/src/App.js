@@ -23,7 +23,6 @@ function App() {
   const token = useSelector(state => state.auth.token)
   const onLogin = async (tkn) => {
     if (tkn !== '') {
-
       setAuthToken(tkn);
       const response = await api.get(
         `${process.env.REACT_APP_ACCOUNTS_URL}/user`
