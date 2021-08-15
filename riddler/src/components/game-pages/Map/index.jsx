@@ -12,7 +12,7 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import useDraggableScroll from "use-draggable-scroll";
 import Layout from "../../game-navbar/Layout";
-import { getMap, getQuestion, insertUser } from "../../../api/requests";
+import { getMap, insertUser } from "../../../api/requests";
 import { useSelector } from "react-redux";
 import { CircularProgress } from "@material-ui/core";
 

@@ -11,7 +11,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import Layout from '../../game-navbar/Layout';
 import { useSelector } from "react-redux";
-import { getQuestion } from '../../../api/requests';
+import { getQuestion, submitAnswer } from '../../../api/requests';
 
 function Question({ mapOpen, qId }) {
     console.log("Questions: ",qId);
@@ -20,6 +20,9 @@ function Question({ mapOpen, qId }) {
         const asyncQuestion = async () => {
           let res = await getQuestion(usertoken, qId);
           console.log(res);
+          setQues(res.question.text);
+          setQuesLink(res.question.links);
+          setQuesImg(res.question.img);
         };
 
         asyncQuestion();
@@ -27,6 +30,10 @@ function Question({ mapOpen, qId }) {
         // console.log(mapRes);
       }, []);
     const [ques, setQues] = useState("");
+    const [quesImg, setQuesImg] = useState([]);
+    const [quesLink, setQuesLink] = useState([]);
+    const [hintImg, setHintImg] = useState([]);
+    const [hintLink, setHintLink] = useState([]);
     const [track1, setTrack1] = useState("");
     const [track2, setTrack2] = useState("");
     const [hint, setHint] = useState("");
@@ -59,6 +66,18 @@ function Question({ mapOpen, qId }) {
         setWantHint(false)
 
     }, []);
+
+    const handleAnswer = async () => {
+        const answerBox = document.getElementById('answer-box');
+        const answer = answerBox.value;
+        if(answer) {
+            console.log(answer)
+            answerBox.value = "";
+            const res = await submitAnswer(usertoken, qId, [answer]);
+            console.log(res);
+        }
+    }
+
     return (
         <>
             <Layout></Layout>
@@ -81,9 +100,9 @@ function Question({ mapOpen, qId }) {
 
                     </QuestionBox>
                     <AContainer>
-                        <AnswerBox type="text" placeholder="Type here..."></AnswerBox>
+                        <AnswerBox id="answer-box" type="text" placeholder="Type here..."></AnswerBox>
                         <ButtonContainer >
-                            <OurButton >SUBMIT</OurButton>
+                            <OurButton onClick={handleAnswer} type="submit">SUBMIT</OurButton>
                             <Tooltip title="What does unfreeze do?"><OurButton>UNFREEZE</OurButton></Tooltip>
 
 

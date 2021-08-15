@@ -39,3 +39,18 @@ export const getQuestion = async (usertoken, qid) => {
   res = await res.json();
   return res;
 };
+
+export const submitAnswer = async (usertoken, qId, answer) => {
+  const requestOptions = {
+    method: "POST",
+    headers: {
+      "x-access-token": usertoken,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ quesId: qId, answer: answer }),
+  };
+
+  let res = await fetch("http://localhost:3001/submit", requestOptions);
+  res = await res.json();
+  return res;
+}
