@@ -12,9 +12,8 @@ import { logout, setUsername } from './redux/reducers/authReducer';
 import PrivateRoute from './components/privateRoutes';
 import Game from "./components/game-pages/Game";
 import Rules from "./components/game-pages/Rules";
-import Play from "./components/game-pages/Play";
 import Leaderboard from "./components/game-pages/Leaderboard";
-import Map from "./components/game-pages/Map";
+import Play from './components/game-pages/Play';
 
 
 
@@ -58,7 +57,6 @@ function App() {
         </Route>
         <PrivateRoute exact path="/game" component={Game} />
         <PrivateRoute exact path="/leaderboard" component={Leaderboard} />
-        <PrivateRoute exact path="/map" component={Map} />
         <PrivateRoute exact path="/rules" component={Rules} />
         <PrivateRoute exact path="/play" component={Play} />
       </Switch>

@@ -12,10 +12,11 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import useDraggableScroll from "use-draggable-scroll";
 import Layout from "../../game-navbar/Layout";
-import { getMap, insertUser } from "../../../api/requests";
+import { getMap, getQuestion, insertUser } from "../../../api/requests";
 import { useSelector } from "react-redux";
+import { CircularProgress } from "@material-ui/core";
 
-const Map = () => {
+const Map = ({ mapOpen, qId }) => {
   // const [mapRes, setMapRes] = useState({});
   // let mapRes = {};
   const username = useSelector((state) => state.auth.username);
@@ -31,9 +32,17 @@ const Map = () => {
       // console.log(mapRes);
       renderMap(res);
     };
+    const asyncQuestion = async () => {
+      let res = await getQuestion(usertoken, username, 37);
+      // setMapRes(res.nodeInfo);
+      // mapRes = res.nodeInfo;
+      // console.log(mapRes);
+      renderMap(res);
+    };
 
     asyncInsert();
     asyncMap();
+    asyncQuestion();
     // console.log("mapres");
     // console.log(mapRes);
   }, []);
@@ -76,7 +85,9 @@ const Map = () => {
           console.log("confirmed");
 
           // Send request
-          window.location.href = `/play?qid=${i}`;
+          // window.location.href = `/play?qid=${i}`;
+          qId(i);
+          mapOpen(false);
 
           confirmButton.removeEventListener("click", confirmButtonPress);
         });
@@ -115,6 +126,9 @@ const Map = () => {
         window.location.href = "/play";
       });
     }
+
+    document.getElementById('map-loading').style.display = 'none';
+    document.getElementById('darken').style.display = 'none';
   };
 
   // Dialogue box
@@ -145,6 +159,10 @@ const Map = () => {
     <>
       <Layout />
       <div className="map-section">
+        <div id="map-loading">
+          <CircularProgress color="secondary" />
+        </div>
+        <div id="darken" />
         <div className="map-container" ref={ref} onMouseDown={onMouseDown}>
           <div className="map">
             <img className="map-background" src={mapBackground} alt="" />

@@ -24,3 +24,18 @@ export const getMap = async (usertoken, username) => {
   res = await res.json();
   return res;
 };
+
+export const getQuestion = async (usertoken, username, qid) => {
+  const requestOptions = {
+    method: 'POST',
+    headers: {'x-access-token':usertoken},
+    body: JSON.stringify({
+      quesId: qid,
+      username: username
+    })
+  }
+  
+  let res = await fetch('http://localhost:3001/ques', requestOptions);
+  res = await res.json();
+  return res;
+}
