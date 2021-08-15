@@ -15,6 +15,8 @@ import Layout from "../../game-navbar/Layout";
 import { getMap, insertUser } from "../../../api/requests";
 import { useSelector } from "react-redux";
 import { CircularProgress } from "@material-ui/core";
+import { ImZoomIn, ImZoomOut } from "react-icons/im";
+import { FaRedo } from "react-icons/fa";
 
 const Map = ({ mapOpen, qId }) => {
   // const [mapRes, setMapRes] = useState({});
@@ -115,12 +117,13 @@ const Map = ({ mapOpen, qId }) => {
       element.classList.add("locked");
       element.addEventListener("click", () => {
         console.log("Locked Node clicked!");
-        window.location.href = "/play";
+        qId(mapRes.lockedNode);
+        mapOpen(false);
       });
     }
 
-    document.getElementById('map-loading').style.display = 'none';
-    document.getElementById('darken').style.display = 'none';
+    document.getElementById("map-loading").style.display = "none";
+    document.getElementById("darken").style.display = "none";
   };
 
   // Dialogue box
@@ -147,6 +150,22 @@ const Map = ({ mapOpen, qId }) => {
   const ref = useRef(null);
   const { onMouseDown } = useDraggableScroll(ref);
 
+  //Zoom functionality
+  const [zoom, setZoom] = useState(1);
+
+  const zoomIn = () => {
+    setZoom(zoom + 0.1 < 2 ? zoom + 0.1 : 2);
+    document.querySelector(".map").style.zoom = zoom;
+  };
+  const zoomInit = () => {
+    setZoom(1);
+    document.querySelector(".map").style.zoom = zoom;
+  };
+  const zoomOut = () => {
+    setZoom(zoom - 0.1 > 0.2 ? zoom - 0.1 : 0.2);
+    document.querySelector(".map").style.zoom = zoom;
+  };
+
   return (
     <>
       <Layout />
@@ -155,6 +174,17 @@ const Map = ({ mapOpen, qId }) => {
           <CircularProgress color="secondary" />
         </div>
         <div id="darken" />
+        <div className="zoom-buttons">
+          <div onClick={zoomIn} id="zoom-in">
+            <ImZoomIn />
+          </div>
+          <div onClick={zoomOut} id="zoom-out">
+            <ImZoomOut />
+          </div>
+          <div onClick={zoomInit} id="zoom-init">
+            <FaRedo />
+          </div>
+        </div>
         <div className="map-container" ref={ref} onMouseDown={onMouseDown}>
           <div className="map">
             <img className="map-background" src={mapBackground} alt="" />

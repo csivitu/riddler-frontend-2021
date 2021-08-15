@@ -67,6 +67,7 @@
   bottom: 0;
   left: 0;
   margin: 0 auto;
+  transition: zoom 0.2s linear;
 }
 
 .map-background {
@@ -75,6 +76,30 @@
   top: 100px;
   left: 100px;
   pointer-events: none;
+}
+
+.zoom-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.zoom-buttons div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.1rem;
+  font-size: 1.2rem;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 50%;
+  transition: all 0.25s ease-in-out;
+}
+
+.zoom-buttons div:hover {
+  background-color: rgb(185, 185, 185);
 }
 
 .node {

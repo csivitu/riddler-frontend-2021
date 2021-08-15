@@ -11,6 +11,39 @@ export const QContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+
+  #map-loading {
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    top: 50%;
+    margin-left: -50px;
+    margin-top: 30px;
+    height: 100px;
+    width: 100px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+  }
+
+  .MuiCircularProgress-root {
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    top: 50%;
+    margin-left: -20px;
+    margin-top: -20px;
+  }
+
+  #darken {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 1);
+  }
 `;
 
 export const Container1 = styled.div`
@@ -31,22 +64,21 @@ export const Container1 = styled.div`
 `;
 
 export const TopBox = styled.div`
-display:flex;
-justify-content: space-between;
-width:100%;
-`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
 
 export const QBtnContainer = styled.div`
   display: flex;
   float: right;
   justify-content: space-evenly;
-  padding:0rem;
-  button{
-    padding:0rem;
+  padding: 0rem;
+  button {
+    padding: 0rem;
   }
   img {
-    width:100%;
-
+    width: 100%;
   }
 `;
 export const TrackBox = styled.div`
@@ -63,19 +95,19 @@ export const TrackBox = styled.div`
   }
   @media screen and (max-width: 490px) {
     font-size: 80%;
-    padding:0.5rem;
+    padding: 0.5rem;
   }
   @media screen and (max-width: 435px) {
     font-size: 75%;
-    padding:0.45rem;
+    padding: 0.45rem;
   }
   @media screen and (max-width: 414px) {
     font-size: 70%;
-    padding:0.4rem;
+    padding: 0.4rem;
   }
   @media screen and (max-width: 400px) {
     font-size: 67.5%;
-    padding:0.35rem;
+    padding: 0.35rem;
   }
   @media screen and (max-width: 370px) {
     font-size: 65%;
@@ -99,21 +131,20 @@ export const QuestionBox = styled.div`
   border-radius: 7px;
   max-height: 60%;
   overflow: scroll;
-  display:flex;
+  display: flex;
   @media screen and (max-width: 414px) {
-    height:65%;
+    height: 65%;
   }
   @media screen and (max-width: 380px) {
     // font-size: 70%;
-    height:60%;
+    height: 60%;
   }
-  
+
   @media screen and (max-width: 350px) {
     // font-size: 68%;
     padding: 1.5rem;
-    height:50%;
+    height: 50%;
   }
-  
 `;
 
 export const QuestionContent = styled.p`
@@ -127,14 +158,14 @@ export const Hint = styled.p`
 export const AContainer = styled.div`
   display: flex;
   flex-direction: row;
-  width:100%;
-  justify-content:space-between;
+  width: 100%;
+  justify-content: space-between;
   // padding:1rem;
-  margin-top:1rem;
+  margin-top: 1rem;
   @media screen and (max-width: 350px) {
     flex-direction: column;
     justify-content: center;
-    height:10%;
+    height: 10%;
   }
 `;
 export const AnswerBox = styled.input`
