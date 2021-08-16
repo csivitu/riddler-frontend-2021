@@ -130,6 +130,7 @@ export const QuestionBox = styled.div`
   padding: 2rem;
   border-radius: 7px;
   max-height: 60%;
+  width:100%;
   overflow: scroll;
   display: flex;
   @media screen and (max-width: 414px) {
@@ -150,6 +151,27 @@ export const QuestionBox = styled.div`
 export const QuestionContent = styled.p`
   font-family: Poppins;
   line-height: 3;
+
+  a {
+    color:white;
+  }
+`;
+
+export const Image = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  height: max-content;
+  position: relative;
+
+  img {
+    width: 80%;
+  }
+
+  @media screen and (max-width: 750px) {
+    width: 70%;
+  }
 `;
 export const Hint = styled.p`
   font-family: Poppins;
@@ -221,3 +243,5 @@ export const OurButton = styled(LinkRoute)`
     border: none;
   }
 `;
+
+

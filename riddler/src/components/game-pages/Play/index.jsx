@@ -14,6 +14,7 @@ import {
   Container1,
   QBtnContainer,
   TopBox,
+  Image,
 } from "./style";
 // import {Tooltip} from '@material-ui/core';
 import Tooltip from "@material-ui/core/Tooltip";
@@ -184,7 +185,18 @@ function Question({ mapOpen, qId, mapData }) {
 
           <QuestionBox>
             <QuestionContent>
-              {ques} {quesImg} {quesLink}
+              {ques}{" "}
+              {quesImg.map((imgLink) => {
+                return (
+                  <Image>
+                    <img src={imgLink} alt="" />
+                  </Image>
+                );
+              })}
+              <br />
+              {quesLink.map((link) => {
+                return (<a href={link} target="_blank">{link}</a>);
+              })}
               {wantHint && (
                 <Hint>
                   Hint: {hint} {hintImg} {hintLink}
@@ -202,9 +214,7 @@ function Question({ mapOpen, qId, mapData }) {
                 if (event.key === "Enter") {
                   handleAnswer();
                 }
-              }
-              
-            }
+              }}
             ></AnswerBox>
             <ButtonContainer>
               <OurButton onClick={handleAnswer} type="submit">
