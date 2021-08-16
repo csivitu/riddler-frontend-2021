@@ -66,31 +66,42 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
     console.log("mapRes.unlockedNodes");
     mapRes.unlockedNodes.forEach((i) => {
       if (i === mapRes.lockedNode) return;
-      console.log(i+"is this 40");
+      console.log(i + "is this 40");
       const element = document.getElementById(`node${i}`);
-      console.log(element)
+      console.log(element);
       element.classList.add("unlocked");
-      element.addEventListener("click", () => {
-        console.log("Unlocked Node clicked!");
-        handleClickOpen();
+      if (mapRes.lockedNode === 0) {
+        element.addEventListener("click", () => {
+          console.log("Unlocked Node clicked!");
+          handleClickOpen();
 
-        const confirmButton = document.getElementById("confirm-button");
-        confirmButton.addEventListener("click", function confirmButtonPress() {
-          console.log("confirmed");
+          const confirmButton = document.getElementById("confirm-button");
+          confirmButton.addEventListener(
+            "click",
+            function confirmButtonPress() {
+              console.log("confirmed");
 
-          // Send request
-          // window.location.href = `/play?qid=${i}`;
-          qId(i);
-          mapOpen(false);
+              // Send request
+              // window.location.href = `/play?qid=${i}`;
+              qId(i);
+              mapOpen(false);
 
-          confirmButton.removeEventListener("click", confirmButtonPress);
+              confirmButton.removeEventListener("click", confirmButtonPress);
+            }
+          );
         });
-      });
+      } else {
+        element.addEventListener("click", () => {
+          console.log("Unlocked Node clicked!");
+          notify("Unfreeze to access!");
+        });
+      }
     });
 
     mapRes.solvedNodes.forEach((i) => {
       const element = document.getElementById(`node${i}`);
       element.classList.add("solved");
+      if(mapRes.portalNodes[i] === false) return;
       element.addEventListener("click", () => {
         console.log("Solved Node clicked!");
         notify("Solved node clicked");
