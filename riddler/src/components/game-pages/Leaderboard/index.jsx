@@ -7,21 +7,13 @@ import "./leader.css";
 const Leaderboard = () => {
   const token = useSelector((state) => state.auth.token);
   const [leaderboard, setLeaderboard] = useState([]);
-  const [username, setUsername] = useState("");
-
+  const username = useSelector(state => state.auth.username)
   useEffect(() => {
     const asyncLeaderboard = async () => {
       let res = await getLeaderboard();
       setLeaderboard(res);
     };
-
-    const asyncPlayerdata = async () => {
-      let res = await getPlayerdata(token);
-      setUsername(res.player.username);
-    };
-
     asyncLeaderboard();
-    asyncPlayerdata();
   }, []);
 
   return (
