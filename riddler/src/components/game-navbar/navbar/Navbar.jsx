@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Nav,
   NavbarContainer,
@@ -17,22 +17,39 @@ import { ReactComponent as GuideLogo } from "../../../assets/guide.svg";
 import { ReactComponent as LeaderboardLogo } from "../../../assets/leaderboard.svg";
 import star from "../../../assets/star.svg";
 import { FaBars } from "react-icons/fa";
-import { Button } from "@material-ui/core";
 import Tooltip from "@material-ui/core/Tooltip";
 
 import riddlerLogo from "./assets/riddlerlogo_svg_black.svg";
 // import { ReactComponent as RidderLogo } from "./assets/riddlerlogo_svg_black.svg";
 import { NavLink, useLocation } from "react-router-dom";
+import { getPlayerdata } from "../../../api/requests";
 
 const Navbar = ({ toggle }) => {
   const location = useLocation();
   const userName = useSelector(state => state.auth.username)
+  const token = useSelector(state => state.auth.token)
+  const [score, setScore] = useState('')
+  const asyncPlayerdata = async () => {
+    let res = await getPlayerdata(token);
+    setScore(res.score)
+  }
+  asyncPlayerdata();
+
+  // useEffect(() => {
+  //   const asyncPlayerdata = async () => {
+  //     let res = await getPlayerdata(token);
+  //     setScore(res.score)
+  //   };
+  //   asyncPlayerdata();
+    
+  // }, [])
 
   const fillSvg = (svgName) => {
     if (location.pathname === svgName) return "#FE3176";
     else return "black";
   };
-  // color #FE3176
+  console.log("Rerendering");
+
   return (
     <>
       <Nav>
@@ -84,7 +101,7 @@ const Navbar = ({ toggle }) => {
           <NavMenu>
             <Player>
               <img src={star} alt="Riddler Logo" />
-              <p>440</p>
+              <p>{score}</p>
             </Player>
             <Player>{userName}</Player>
           </NavMenu>

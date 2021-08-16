@@ -38,8 +38,6 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
 
     asyncInsert();
     asyncMap();
-    // console.log("mapres");
-    // console.log(mapRes);
   }, []);
 
   const renderMap = (mapRes) => {
@@ -68,8 +66,9 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
     console.log("mapRes.unlockedNodes");
     mapRes.unlockedNodes.forEach((i) => {
       if (i === mapRes.lockedNode) return;
-      console.log(i);
+      console.log(i+"is this 40");
       const element = document.getElementById(`node${i}`);
+      console.log(element)
       element.classList.add("unlocked");
       element.addEventListener("click", () => {
         console.log("Unlocked Node clicked!");

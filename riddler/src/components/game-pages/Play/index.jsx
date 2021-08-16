@@ -44,35 +44,11 @@ function Question({ mapOpen, qId, mapData }) {
     2: "digital present",
     3: "dystopian future",
   };
-  console.log("map data in question");
-  console.log(mapData);
-  console.log("Questions: ", qId);
   const usertoken = useSelector((state) => state.auth.token);
-  useEffect(() => {
-    const asyncQuestion = async () => {
-      let res = await getQuestion(usertoken, qId);
-      console.log("Question: ");
-      console.log(res);
-      if (res.question) {
-        setQues(res.question.text);
-        setQuesLink(res.question.links);
-        setQuesImg(res.question.img);
-        if (res.track.length === 2) {
-          setTrack1(trackName[res.track[0]]);
-          setTrack2(trackName[res.track[1]]);
-        } else {
-          setTrack1(trackName[res.track[0]]);
-          setTrack2(trackName[res.track[0]]);
-        }
-        handleHint(res);
-        setLoadingPage(false);
-      } else {
-        mapOpen(true);
-      }
-    };
+  const [wantHint, setWantHint] = useState(false);
+  console.log(wantHint)
 
-    asyncQuestion();
-  }, []);
+  
   const [ques, setQues] = useState("");
   const [quesImg, setQuesImg] = useState([]);
   const [quesLink, setQuesLink] = useState([]);
@@ -81,7 +57,6 @@ function Question({ mapOpen, qId, mapData }) {
   const [track1, setTrack1] = useState("digital present");
   const [track2, setTrack2] = useState("digital present");
   const [hint, setHint] = useState("");
-  const [wantHint, setWantHint] = useState(false);
 
   const [openHintDialog, setOpenHintDialog] = useState(false);
   const [hintButton, setHintButton] = useState(true);
@@ -150,10 +125,34 @@ function Question({ mapOpen, qId, mapData }) {
   };
 
   useEffect(() => {
+    const asyncQuestion = async () => {
+      let res = await getQuestion(usertoken, qId);
+      console.log("Question: ");
+      console.log(res);
+      if (res.question) {
+        setQues(res.question.text);
+        setQuesLink(res.question.links);
+        setQuesImg(res.question.img);
+        if (res.track.length === 2) {
+          setTrack1(trackName[res.track[0]]);
+          setTrack2(trackName[res.track[1]]);
+        } else {
+          setTrack1(trackName[res.track[0]]);
+          setTrack2(trackName[res.track[0]]);
+        }
+        handleHint(res);
+        setLoadingPage(false);
+      } else {
+        mapOpen(true);
+      }
+    };
+
+    asyncQuestion();
     setHint("");
     setHintImg([]);
     setHintImg([]);
-  }, []);
+  }, [wantHint]);
+
 
   return (
     <>
@@ -200,6 +199,12 @@ function Question({ mapOpen, qId, mapData }) {
               id="answer-box"
               type="text"
               placeholder="Type here..."
+              onKeyDown={
+                (event) => {
+                  if (event.key === 'Enter') {
+                    handleAnswer()
+                  }
+              }}
             ></AnswerBox>
             <ButtonContainer>
               <OurButton onClick={handleAnswer} type="submit">
@@ -224,15 +229,15 @@ function Question({ mapOpen, qId, mapData }) {
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-slide-description">
-              You'll lose 60 points
+              You'll lose 5 points
             </DialogContentText>
           </DialogContent>
           <DialogActions>
             <Button onClick={clickNoHint} color="primary">
-              Nope I'm good 😁
+              No
             </Button>
             <Button onClick={clickYesHint} color="primary">
-              Yes I want 😢
+              Yes
             </Button>
           </DialogActions>
         </Dialog>

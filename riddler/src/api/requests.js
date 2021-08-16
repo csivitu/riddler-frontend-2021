@@ -1,8 +1,18 @@
 import API from "./api";
 
 export const getLeaderboard = async () => {
-  let res = await API.get(`/score`);
+  let res = await API.get(`/score/all`);
   return res.data;
+};
+
+export const getPlayerdata = async (usertoken) => {
+  const requestOptions = {
+    method: "GET",
+    headers: { "x-access-token": usertoken },
+  };
+  let res = await fetch("http://localhost:3001/playerdata", requestOptions);
+  res = await res.json();
+  return res;
 };
 
 export const insertUser = async (usertoken) => {
