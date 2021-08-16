@@ -1,92 +1,165 @@
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap");
 
-.whole_page{
-    background-color: black;
-    background-image: url('./assets/bg_pattern.png');
-    min-height: 100vh;
-    width: auto;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    align-items:center;
+.whole_page {
+  background-color: black;
+  background-image: url("./assets/bg_pattern.png");
+  height: calc(100vh - 80px);
+  width: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  align-items: center;
 }
-.heading{
-    color: #DBF429;
-    /* top:10%; */
-    font-size: 200%;
-    font-family: 'Inconsolata', monospace;
-
-}
-.tables{
-    height: 40vh;
-    width:80%;
-    margin-left: 10%;
-    border-collapse:separate;
-    border-spacing:0 15px;
-    overflow-y:auto; 
-}
-::-webkit-scrollbar {
-    width: 6px;
+@font-face {
+  font-family: Brice;
+  src: url("./assets/Brice-Bold.otf") format("truetype");
 }
 
-/* Track */
-.tables::-webkit-scrollbar-track {
-    background: black;
-    border-radius: 5px;
+@font-face {
+  font-family: Inconsolata;
+  src: url("../../../assets/Inconsolata.ttf") format("truetype");
 }
 
-/* Handle */
-.tables::-webkit-scrollbar-thumb {
-    background: #DBF429;
-    border-radius: 5px;
+.tables {
+  height: 100%;
+  width: 70vw;
+  margin: 0 auto;
+  border-spacing: 0 5px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 80%;
 }
 
-/* Handle on hover */
-.tables::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-.names{
-    color: black;
-    height: 20%;
-    font-size: 150%;
-    font-family: 'Inconsolata', monospace;
-    border: 20px red solid;
-    border-radius: 10px;
-    text-align: center;
-    font-weight: bolder;
-}
-td {
-    border: solid 1px #000;
-    border-style: solid none;
-    padding: 10px;
-    background-color: #DBF429;
-}
-td:first-child {
-    border-left-style: solid;
-    border-top-left-radius: 15px; 
-    border-bottom-left-radius: 15px;
-}
-td:last-child {
-    border-right-style: solid;
-    border-bottom-right-radius: 15px; 
-    border-top-right-radius: 15px; 
+.fixedHeader {
+  padding-right: 15px;
 }
 
-* {
-    scrollbar-width: thin;
-    scrollbar-color: #DBF429 rgb(0, 0, 0);
+.heading {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-size: 2rem;
+  margin: 1.2rem 0;
+  font-family: Brice;
+}
+
+.heading th {
+  width: 10rem;
+}
+
+.scrolldown {
+  overflow-y: scroll;
+  border-spacing: 0 1rem;
+  padding-right: 15px;
+}
+
+.scrolldown::-webkit-scrollbar {
+  display: block;
+  width: 10px;
+}
+
+.scrolldown::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.scrolldown::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+
+.scrolldown::-webkit-scrollbar-thumb {
+  background: var(--map-bg);
+  border-radius: 5px;
+}
+
+.scrolldown::-webkit-scrollbar-track-piece:start {
+  background: transparent;
+}
+
+.names {
+  color: var(--map-bg);
+  height: 2rem;
+  font-size: 1.5rem;
+  font-family: Inconsolata;
+  border-radius: 5%;
+  text-align: center;
+  font-weight: bolder;
+  background-color: black;
+}
+
+.names td {
+  border: solid 3px var(--map-bg);
+  border-style: solid none;
+  padding: 10px 5px;
+}
+
+.names td:nth-child(1) {
+  width: 20vw;
+  border-left-style: solid;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.names td:nth-child(2) {
+  width: 60vw;
+}
+
+.names td:nth-child(3) {
+  width: 20vw;
+  border-right-style: solid;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+#me {
+  padding: 10px;
+  background-color: var(--map-bg);
+  color: black;
+}
+
+@media screen and (max-width: 650px) {
+  .tables {
+    width: 80vw;
   }
-  
-  *::-webkit-scrollbar {
-    width: 12px;
+
+  .heading {
+    font-size: 1.5rem;
+    margin: 1rem 0;
   }
-  
-  *::-webkit-scrollbar-track {
-    background: rgb(0, 0, 0);
+
+  .names {
+    font-size: 1.2rem;
+    height: 1.5rem;
   }
-  
-  *::-webkit-scrollbar-thumb {
-    background-color: #DBF429;
-    border-radius: 20px;
+}
+
+@media screen and (max-width: 420px) {
+  .tables {
+    width: 90vw;
   }
+
+  .fixedHeader {
+    padding-right: 7px;
+  }
+
+  .scrolldown {
+    padding-right: 7px;
+  }
+
+  .scrolldown::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .heading {
+    font-size: 1.2rem;
+    margin: 0.7rem 0;
+  }
+
+  .names {
+    font-size: 1rem;
+    height: 1rem;
+  }
+}

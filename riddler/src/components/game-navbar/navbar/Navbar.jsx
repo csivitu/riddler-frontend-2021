@@ -11,10 +11,10 @@ import {
   NavBtnLink,
   Player,
 } from "./NavbarElements";
-import { useSelector } from 'react-redux';
-import { ReactComponent as PlayLogo } from "../../../assets/play.svg";
-import { ReactComponent as GuideLogo } from "../../../assets/guide.svg";
-import { ReactComponent as LeaderboardLogo } from "../../../assets/leaderboard.svg";
+import { useSelector } from "react-redux";
+import PlayLogo from "../../../assets/play.svg";
+import GuideLogo from "../../../assets/guide.svg";
+import LeaderboardLogo from "../../../assets/leaderboard.svg";
 import star from "../../../assets/star.svg";
 import { FaBars } from "react-icons/fa";
 import Tooltip from "@material-ui/core/Tooltip";
@@ -26,28 +26,19 @@ import { getPlayerdata } from "../../../api/requests";
 
 const Navbar = ({ toggle }) => {
   const location = useLocation();
-  const userName = useSelector(state => state.auth.username)
-  const token = useSelector(state => state.auth.token)
-  const [score, setScore] = useState('')
-  const asyncPlayerdata = async () => {
-    let res = await getPlayerdata(token);
-    setScore(res.score)
-  }
-  asyncPlayerdata();
+  const userName = useSelector((state) => state.auth.username);
+  const token = useSelector((state) => state.auth.token);
+  const [score, setScore] = useState("-");
 
-  // useEffect(() => {
-  //   const asyncPlayerdata = async () => {
-  //     let res = await getPlayerdata(token);
-  //     setScore(res.score)
-  //   };
-  //   asyncPlayerdata();
-    
-  // }, [])
+  useEffect(() => {
+    const asyncPlayerdata = async () => {
+      let res = await getPlayerdata(token);
+      setScore(res.player.score);
+      console.log("score:",score);
+    };
+    asyncPlayerdata();
 
-  const fillSvg = (svgName) => {
-    if (location.pathname === svgName) return "#FE3176";
-    else return "black";
-  };
+  }, [])
   console.log("Rerendering");
 
   return (
@@ -62,40 +53,19 @@ const Navbar = ({ toggle }) => {
           </MobileIcon>
           <NavMenu>
             <Tooltip title="Guide">
-              <NavLogo
-                to="/rules"
-                smooth={true}
-                duration={500}
-                spy={true}
-                exact="true"
-                offset={-80}
-              >
-                <GuideLogo fill={fillSvg("/rules")} />
-              </NavLogo>
+              <NavLinks to="rules">
+                <img src={GuideLogo} alt="Guide Logo"></img>
+              </NavLinks>
             </Tooltip>
             <Tooltip title="Game">
-              <NavLogo
-                to="game"
-                smooth={true}
-                duration={500}
-                spy={true}
-                exact="true"
-                offset={-80}
-              >
-                <PlayLogo fill={fillSvg("/play")} />
-              </NavLogo>
+              <NavLinks to="play">
+              <img src={PlayLogo} alt="Play Logo"></img>
+              </NavLinks>
             </Tooltip>
             <Tooltip title="Leaderboard">
-              <NavLogo
-                to="leaderboard"
-                smooth={true}
-                duration={500}
-                spy={true}
-                exact="true"
-                offset={-80}
-              >
-                <LeaderboardLogo fill={fillSvg("/leaderboard")} />
-              </NavLogo>
+              <NavLinks to="leaderboard">
+              <img src={LeaderboardLogo} alt="Leaderboard Logo"></img>
+              </NavLinks>
             </Tooltip>
           </NavMenu>
           <NavMenu>

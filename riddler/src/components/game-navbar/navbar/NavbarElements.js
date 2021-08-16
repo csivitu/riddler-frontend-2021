@@ -16,7 +16,7 @@ export const Nav = styled.nav`
   font-size: 1rem;
   position: sticky;
   top: 0;
-  background-color: #dbf429;
+  background-color: var(--navbar-bg);
   z-index: 10;
 
   @media screen and (min-width: 950px) {
@@ -75,6 +75,7 @@ export const NavMenu = styled.div`
   list-style: none;
   text-align: center;
   justify-self: center;
+  gap: 1rem;
 
   @media screen and (max-width: 950px) {
     display: none;
@@ -85,23 +86,27 @@ export const NavItem = styled.li`
   height: 80px;
 `;
 
-export const NavLinks = styled(LinkScroll)`
-  color: black;
+export const NavLinks = styled(NavLink)`
+  justify-self: flex-start;
+  cursor: pointer;
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding: 0 1rem;
-  height: 100%;
-  font-weight: bold;
-  cursor: pointer;
+  height: 25px;
 
-  &:hover {
-    cursor: pointer;
+  img {
+    height: 100%;
   }
 
-  &.active,
-  &:active {
-    color: #fe3176;
+  &.active {
+    height: 30px;
+  }
+
+  @media screen and (max-width: 350px) {
+    margin-left: 10px;
+    img {
+      width: 70%;
+    }
   }
 `;
 
@@ -145,7 +150,9 @@ export const Player = styled.div`
   padding:2px;
   min-width:110px;
   border:3px solid black;
+  border-bottom:4px solid black;
   margin-right: 24px;
+
   img{
     height:75%;
   }

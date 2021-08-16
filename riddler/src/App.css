@@ -4,6 +4,16 @@
     padding: 0;
 }
 
+:root {
+  --past: #D8E424;
+  --present: #15BCFF;
+  --future: #FA2E68;
+  --leaderboard-bg: var(--future);
+  --guide-bg: var(--present);
+  --map-bg: var(--past);
+  --navbar-bg: var(--map-bg);
+}
+
 /* scrollbar */
 
 /* width */

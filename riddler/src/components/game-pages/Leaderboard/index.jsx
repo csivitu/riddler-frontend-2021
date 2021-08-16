@@ -1,38 +1,60 @@
 import { useEffect, useState } from "react";
-import { getLeaderboard } from "../../../api/requests";
+import { useSelector } from "react-redux";
+import { getLeaderboard, getPlayerdata } from "../../../api/requests";
 import Layout from "../../game-navbar/Layout";
 import "./leader.css";
 
 const Leaderboard = () => {
+  const token = useSelector((state) => state.auth.token);
   const [leaderboard, setLeaderboard] = useState([]);
-  
+  const [username, setUsername] = useState("");
+
   useEffect(() => {
     const asyncLeaderboard = async () => {
       let res = await getLeaderboard();
       setLeaderboard(res);
     };
+
+    const asyncPlayerdata = async () => {
+      let res = await getPlayerdata(token);
+      setUsername(res.player.username);
+    };
+
     asyncLeaderboard();
+    asyncPlayerdata();
   }, []);
 
   return (
     <>
       <Layout />
       <div className="whole_page">
-        <table className="tables scrolldown">
-          <tr>
-            <th className="heading">Rank</th>
-            <th className="heading">Player</th>
-            <th className="heading">Score</th>
-          </tr>
-          {leaderboard.map((item, rank) => {
-            return (
-              <tr className="names">
-                <td>{rank + 1}</td>
-                <td>{item.username}</td>
-                <td>{item.score}</td>
-              </tr>
-            );
-          })}
+        <table className="tables">
+          <thead class="fixedHeader">
+            <tr className="heading">
+              <th>Rank</th>
+              <th>Player</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody className="scrolldown">
+            {leaderboard.map((item, rank) => {
+              return (
+                <>
+                {username === item.username ? 
+                  <tr id="me" className="names">
+                    <td>{rank + 1}</td>
+                    <td>{item.username}</td>
+                    <td>{item.score}</td>
+                  </tr> : 
+                  <tr className="names">
+                    <td>{rank + 1}</td>
+                    <td>{item.username}</td>
+                    <td>{item.score}</td>
+                  </tr>}
+                </>
+              );
+            })}
+          </tbody>
         </table>
       </div>
     </>

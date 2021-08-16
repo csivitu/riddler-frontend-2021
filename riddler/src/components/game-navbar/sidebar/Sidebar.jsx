@@ -35,7 +35,7 @@ const Sidebar = ({ isOpen, toggle }) => {
           </SidebarLink>
           <SidebarLink
             onClick={toggle}
-            to="game"
+            to="play"
             smooth={true}
             duration={500}
             spy={true}
