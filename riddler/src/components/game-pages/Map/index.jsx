@@ -14,9 +14,19 @@ import useDraggableScroll from "use-draggable-scroll";
 import Layout from "../../game-navbar/Layout";
 import { getMap, insertUser } from "../../../api/requests";
 import { useSelector } from "react-redux";
-import { CircularProgress } from "@material-ui/core";
-import { ImZoomIn, ImZoomOut } from "react-icons/im";
-import { FaRedo } from "react-icons/fa";
+import { CircularProgress, makeStyles, Tooltip } from "@material-ui/core";
+import { ImPlus, ImMinus } from "react-icons/im";
+import { FaRedoAlt, FaPlay, FaDiscord } from "react-icons/fa";
+import { GoKey } from "react-icons/go";
+import { ReactComponent as Marker } from "../../../assets/Marker.svg";
+import { SiApplemusic } from 'react-icons/si';
+import lockedNode from "../../../assets/lockedNode.svg";
+import unlockedNode from "../../../assets/unlockedNode.svg";
+import portalNode from "../../../assets/portalNode.svg";
+import solvedNode from "../../../assets/solvedNode.svg";
+import { ReactComponent as onboardingLogo } from "../../../assets/onboarding.svg";
+import { withStyles } from "@material-ui/styles";
+import LightTooltip from "../Tooltip";
 
 const Map = ({ setMapRes, mapOpen, qId }) => {
   // const [mapRes, setMapRes] = useState({});
@@ -101,7 +111,7 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
     mapRes.solvedNodes.forEach((i) => {
       const element = document.getElementById(`node${i}`);
       element.classList.add("solved");
-      if(mapRes.portalNodes[i] === false) return;
+      if (mapRes.portalNodes[i] === false) return;
       element.addEventListener("click", () => {
         console.log("Solved Node clicked!");
         notify("Solved node clicked");
@@ -166,15 +176,25 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
 
   const zoomIn = () => {
     setZoom(zoom + 0.1 < 2 ? zoom + 0.1 : 2);
-    document.querySelector(".map").style.zoom = zoom;
   };
   const zoomInit = () => {
     setZoom(1);
-    document.querySelector(".map").style.zoom = zoom;
   };
   const zoomOut = () => {
     setZoom(zoom - 0.1 > 0.2 ? zoom - 0.1 : 0.2);
-    document.querySelector(".map").style.zoom = zoom;
+  };
+
+  const [legendOpen, setLegendOpen] = useState(false);
+  const toggleLegend = () => {
+    setLegendOpen(!legendOpen);
+  };
+
+  const onboardingStart = () => {
+    console.log("Onboarding begins");
+  };
+
+  const toggleMusic = () => {
+    console.log("Toggle music button pressed");
   };
 
   return (
@@ -185,19 +205,11 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
           <CircularProgress color="secondary" />
         </div>
         <div id="darken" />
-        <div className="zoom-buttons">
-          <div onClick={zoomIn} id="zoom-in">
-            <ImZoomIn />
-          </div>
-          <div onClick={zoomOut} id="zoom-out">
-            <ImZoomOut />
-          </div>
-          <div onClick={zoomInit} id="zoom-init">
-            <FaRedo />
-          </div>
-        </div>
         <div className="map-container" ref={ref} onMouseDown={onMouseDown}>
-          <div className="map">
+          <div
+            style={{ transition: "all 0.25s ease-in-out", zoom: `${zoom}` }}
+            className="map"
+          >
             <img className="map-background" src={mapBackground} alt="" />
             <div id="node1" className="node">
               1
@@ -322,7 +334,6 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
           </div>
         </div>
         <ToastContainer />
-
         <div>
           {/* <Button variant="outlined" color="primary" onClick={handleClickOpen}>
           Open alert dialog
@@ -351,6 +362,62 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
             </DialogActions>
           </Dialog>
         </div>
+
+        <div className="zoom-buttons">
+          <div onClick={zoomOut} id="zoom-out">
+            <ImMinus />
+          </div>
+          <div onClick={zoomIn} id="zoom-in">
+            <ImPlus />
+          </div>
+          <div onClick={zoomInit} id="zoom-init">
+            <FaRedoAlt />
+          </div>
+        </div>
+
+        <div
+          style={{
+            opacity: `${legendOpen ? "1" : "0"}`,
+            transition: "all 0.25s ease-in-out",
+          }}
+          className="legend-box"
+        >
+          <img src={lockedNode} alt="Locked node" />
+          <p>Locked Question</p>
+          <img src={unlockedNode} alt="Unlocked node" />
+          <p>Unlocked Question</p>
+          <img src={portalNode} alt="Portal Node" />
+          <p>Portal Question</p>
+          <img className="solvedNode" src={solvedNode} alt="Solved Node" />
+          <p>Solved Question</p>
+        </div>
+
+        <div onClick={toggleLegend} className="key-button">
+          <GoKey />
+        </div>
+
+        <LightTooltip title="Onboarding" placement="left">
+          <div onClick={onboardingStart} className="onboarding-button">
+            <FaPlay />
+          </div>
+        </LightTooltip>
+
+        <LightTooltip title="ask questions" placement="right">
+          <a
+            href="https://discord.com"
+            rel="noreferrer"
+            target="_blank"
+            className="discord-button"
+          >
+            <FaDiscord />
+          </a>
+        </LightTooltip>
+
+        <LightTooltip title="mute" placement="right">
+          <div onClick={toggleMusic} className="music-button">
+            <SiApplemusic />
+          </div>
+        </LightTooltip>
       </div>
     </>
   );
