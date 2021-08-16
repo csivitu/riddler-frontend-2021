@@ -46,9 +46,8 @@ function Question({ mapOpen, qId, mapData }) {
   };
   const usertoken = useSelector((state) => state.auth.token);
   const [wantHint, setWantHint] = useState(false);
-  console.log(wantHint)
+  console.log(wantHint);
 
-  
   const [ques, setQues] = useState("");
   const [quesImg, setQuesImg] = useState([]);
   const [quesLink, setQuesLink] = useState([]);
@@ -153,7 +152,6 @@ function Question({ mapOpen, qId, mapData }) {
     setHintImg([]);
   }, [wantHint]);
 
-
   return (
     <>
       <Layout></Layout>
@@ -196,15 +194,17 @@ function Question({ mapOpen, qId, mapData }) {
           </QuestionBox>
           <AContainer>
             <AnswerBox
+              autoFocus
               id="answer-box"
               type="text"
               placeholder="Type here..."
-              onKeyDown={
-                (event) => {
-                  if (event.key === 'Enter') {
-                    handleAnswer()
-                  }
-              }}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                  handleAnswer();
+                }
+              }
+              
+            }
             ></AnswerBox>
             <ButtonContainer>
               <OurButton onClick={handleAnswer} type="submit">

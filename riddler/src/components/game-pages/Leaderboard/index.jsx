@@ -5,14 +5,14 @@ import "./leader.css";
 
 const Leaderboard = () => {
   const [leaderboard, setLeaderboard] = useState([]);
+  
   useEffect(() => {
     const asyncLeaderboard = async () => {
       let res = await getLeaderboard();
       setLeaderboard(res);
-      console.log(res);
     };
     asyncLeaderboard();
-  }, [leaderboard]);
+  }, []);
 
   return (
     <>
