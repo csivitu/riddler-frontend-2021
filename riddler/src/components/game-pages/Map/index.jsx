@@ -16,10 +16,10 @@ import { getMap, insertUser } from "../../../api/requests";
 import { useSelector } from "react-redux";
 import { CircularProgress, makeStyles, Tooltip } from "@material-ui/core";
 import { ImPlus, ImMinus } from "react-icons/im";
-import { FaRedoAlt, FaPlay, FaDiscord } from "react-icons/fa";
+import { FaRedoAlt, FaPlay, FaDiscord, FaLock } from "react-icons/fa";
 import { GoKey } from "react-icons/go";
 import { ReactComponent as Marker } from "../../../assets/Marker.svg";
-import { SiApplemusic } from 'react-icons/si';
+import { SiApplemusic } from "react-icons/si";
 import lockedNode from "../../../assets/lockedNode.svg";
 import unlockedNode from "../../../assets/unlockedNode.svg";
 import portalNode from "../../../assets/portalNode.svg";
@@ -148,14 +148,14 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
   };
 
   // Dialogue box
-  const [open, setOpen] = useState(false);
+  const [dialogueOpen, setDialogueOpen] = useState(false);
 
   const handleClickOpen = () => {
-    setOpen(true);
+    setDialogueOpen(true);
   };
 
   const handleClose = () => {
-    setOpen(false);
+    setDialogueOpen(false);
   };
 
   const notify = (message) =>
@@ -333,31 +333,28 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
             <div id="portal-box32" className="portal-box" />
           </div>
         </div>
+
         <ToastContainer />
+
         <div>
-          {/* <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-          Open alert dialog
-        </Button> */}
           <Dialog
-            open={open}
-            //   onClose={handleClose}
+            open={dialogueOpen}
+            onClose={handleClose}
             aria-labelledby="alert-dialog-title"
-            aria-describedby="alert-dialog-description"
+            className="dialog-container"
           >
+            <div id="dialog-icon">
+              <FaLock />
+            </div>
             <DialogTitle id="alert-dialog-title">
-              {"Choose question"}
+              Freeze onto this question?
             </DialogTitle>
-            <DialogContent>
-              <DialogContentText id="alert-dialog-description">
-                Are you sure you want to lock onto this question?
-              </DialogContentText>
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={handleClose} color="primary">
-                Nah
-              </Button>
+            <DialogActions id="dialog-buttons">
               <Button id="confirm-button" onClick={handleClose} color="primary">
-                Confirm
+                Yes
+              </Button>
+              <Button onClick={handleClose} color="primary">
+                No
               </Button>
             </DialogActions>
           </Dialog>

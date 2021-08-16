@@ -356,7 +356,7 @@
   background: transparent;
 }
 
-
+/* Toast Styles */
 
 .Toastify__toast {
   background-color: rgba(0, 0, 0, 1);
@@ -365,6 +365,56 @@
 .Toastify__progress-bar {
   background-color: #dbf429;
 }
+
+/* Dialogue Box */
+
+.dialog-container div div{
+  background-color: rgba(211, 211, 211, 1);
+  font-family: 'Poppins';
+  width: 18rem;
+  border-radius: 1rem;
+  overflow: visible;
+}
+
+#dialog-icon {
+  position: absolute;
+  width: 6rem;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -3rem;
+  left: 6rem;
+  font-size: 3rem;
+  border-radius: 50%;
+  background-color: var(--map-bg);
+}
+
+#alert-dialog-title h2{
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 700;
+  line-height: 110%;
+  margin-top: 3rem;
+  padding: 0 0.5rem;
+}
+
+#dialog-buttons {
+  justify-content: space-evenly;
+  margin-bottom: 1rem;
+}
+
+#dialog-buttons button {
+  background-color: black;
+  color: white;
+  font-size: 1.2rem;
+  width: 5rem;
+  border-radius: 1.5rem;
+  filter: drop-shadow(0.2rem 0.2rem 0.3rem rgba(0, 0, 0, 0.48));
+  font-weight: 600;
+}
+
+/* Map zoom icons */
 
 .zoom-buttons {
   position: absolute;
@@ -392,6 +442,8 @@
 .zoom-buttons div:hover {
   
 }
+
+/* Legend box */
 
 .key-button {
   background-color: var(--map-bg);
@@ -442,6 +494,8 @@
   font-size: 0.9rem;
 }
 
+/* Onboarding button */
+
 .onboarding-button {
   background-color: var(--map-bg);
   position: absolute;
@@ -459,6 +513,8 @@
   filter: drop-shadow(-0.6rem 0.5rem 0.3rem rgba(0, 0, 0, 0.46));
   transition: all 0.2s ease-in-out;
 }
+
+/* Ask question button */
 
 .discord-button {
   text-decoration: none;
@@ -479,6 +535,8 @@
   filter: drop-shadow(-0.6rem 0.5rem 0.3rem rgba(0, 0, 0, 0.46));
   transition: all 0.2s ease-in-out;
 }
+
+/* Mute music button */
 
 .music-button {
   background-color: var(--map-bg);
