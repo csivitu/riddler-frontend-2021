@@ -23,6 +23,7 @@ import riddlerLogo from "./assets/riddlerlogo_svg_black.svg";
 // import { ReactComponent as RidderLogo } from "./assets/riddlerlogo_svg_black.svg";
 import { NavLink, useLocation } from "react-router-dom";
 import { getPlayerdata } from "../../../api/requests";
+import LightTooltip from "../../game-pages/Tooltip";
 
 const Navbar = ({ toggle }) => {
   const location = useLocation();
@@ -51,21 +52,21 @@ const Navbar = ({ toggle }) => {
             <FaBars />
           </MobileIcon>
           <NavMenu>
-            <Tooltip title="Guide">
+            <LightTooltip title="guide">
               <NavLinks to="rules">
                 <img src={GuideLogo} alt="Guide Logo"></img>
               </NavLinks>
-            </Tooltip>
-            <Tooltip title="Game">
+            </LightTooltip>
+            <LightTooltip title="game">
               <NavLinks to="play">
               <img src={PlayLogo} alt="Play Logo"></img>
               </NavLinks>
-            </Tooltip>
-            <Tooltip title="Leaderboard">
+            </LightTooltip>
+            <LightTooltip title="leaderboard">
               <NavLinks to="leaderboard">
               <img src={LeaderboardLogo} alt="Leaderboard Logo"></img>
               </NavLinks>
-            </Tooltip>
+            </LightTooltip>
           </NavMenu>
           <NavMenu>
             <Player>
