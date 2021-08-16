@@ -7,7 +7,13 @@ import Question from "../Play";
 const Play = () => {
   const [mapOpen, setMapOpen] = useState(true);
   const [qId, setQId] = useState("");
-  const [mapRes, setMapRes] = useState({});
+  const [mapRes, setMapRes] = useState({
+    lockedNode: 0,
+    portalNodes: {9: false, 20: false, 32: false},
+    solvedNodes: [],
+    unlockedNodes: [],
+    username: ""
+  });
   // const [questionOpen, setQuestionOpen] = useState(false);
   console.log("mapRes from play");
   console.log(mapRes);
