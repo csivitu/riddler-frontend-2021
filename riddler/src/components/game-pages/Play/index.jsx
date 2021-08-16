@@ -15,6 +15,8 @@ import {
   QBtnContainer,
   TopBox,
   Image,
+  Qdiv,
+  Adiv,
 } from "./style";
 // import {Tooltip} from '@material-ui/core';
 import Tooltip from "@material-ui/core/Tooltip";
@@ -184,8 +186,8 @@ function Question({ mapOpen, qId, mapData }) {
           </TopBox>
 
           <QuestionBox>
-            <QuestionContent>
-              {ques}{" "}
+            <QuestionContent>{ques}</QuestionContent>
+            <Qdiv  >
               {quesImg.map((imgLink) => {
                 return (
                   <Image>
@@ -195,27 +197,36 @@ function Question({ mapOpen, qId, mapData }) {
               })}
               <br />
               {quesLink.map((link) => {
-                return (<a href={link} target="_blank">{link}</a>);
+                return (
+                  <>
+                    <a href={link} target="_blank">
+                      {link}
+                    </a>
+                    <br />
+                  </>
+                );
               })}
               {wantHint && (
                 <Hint>
                   Hint: {hint} {hintImg} {hintLink}
                 </Hint>
               )}
-            </QuestionContent>
+            </Qdiv>
           </QuestionBox>
           <AContainer>
-            <AnswerBox
-              autoFocus
-              id="answer-box"
-              type="text"
-              placeholder="Type here..."
-              onKeyDown={(event) => {
-                if (event.key === "Enter") {
-                  handleAnswer();
-                }
-              }}
-            ></AnswerBox>
+            <Adiv>
+              <AnswerBox
+                autoFocus
+                id="answer-box"
+                type="text"
+                placeholder="Type here..."
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    handleAnswer();
+                  }
+                }}
+              ></AnswerBox>
+            </Adiv>
             <ButtonContainer>
               <OurButton onClick={handleAnswer} type="submit">
                 SUBMIT

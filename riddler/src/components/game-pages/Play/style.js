@@ -78,7 +78,7 @@ export const QBtnContainer = styled.div`
     padding: 0rem;
   }
   img {
-    width: 100%;
+    width: 3rem;
   }
 `;
 export const TrackBox = styled.div`
@@ -129,17 +129,21 @@ export const QuestionBox = styled.div`
   color: white;
   padding: 2rem;
   border-radius: 7px;
-  max-height: 60%;
+  // max-height: 60%;
   width:100%;
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
   display: flex;
-  @media screen and (max-width: 414px) {
-    height: 65%;
-  }
-  @media screen and (max-width: 380px) {
-    // font-size: 70%;
-    height: 60%;
-  }
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  // @media screen and (max-width: 414px) {
+  //   height: 65%;
+  // }
+  // @media screen and (max-width: 380px) {
+  //   // font-size: 70%;
+  //   height: 60%;
+  // }
 
   @media screen and (max-width: 350px) {
     // font-size: 68%;
@@ -152,26 +156,35 @@ export const QuestionContent = styled.p`
   font-family: Poppins;
   line-height: 3;
 
-  a {
-    color:white;
-  }
+ 
 `;
+export const Qdiv = styled.div`
+width: "100%";
 
+a {
+  color:white;
+  margin-bottom: 1rem;
+}
+
+`
 export const Image = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 600px;
-  height: max-content;
-  position: relative;
+  // width: 600px;
+  // height: max-content;
+  // position: relative;
+  margin-bottom:1rem;
 
   img {
-    width: 80%;
+    width: 100%;
+    max-width:600px;
   }
 
-  @media screen and (max-width: 750px) {
-    width: 70%;
-  }
+
+  // @media screen and (max-width: 750px) {
+  //   width: 70%;
+  // }
 `;
 export const Hint = styled.p`
   font-family: Poppins;
@@ -184,20 +197,26 @@ export const AContainer = styled.div`
   justify-content: space-between;
   // padding:1rem;
   margin-top: 1rem;
-  @media screen and (max-width: 350px) {
+  @media screen and (max-width: 500px) {
     flex-direction: column;
     justify-content: center;
     height: 10%;
   }
 `;
+
+export const Adiv= styled.div`
+padding-right:10px;
+flex-grow:2;
+@media screen and (max-width: 500px) {
+  padding:0;
+}
+`
 export const AnswerBox = styled.input`
   border: 2px solid #dbf429;
   background-color: black;
   color: white;
   padding: 1rem;
-  // width: 1rem;
-  flex-grow: 2;
-
+  width:100%;
   border-radius: 7px;
   ::placeholder {
     color: white;
@@ -208,11 +227,11 @@ export const AnswerBox = styled.input`
 `;
 export const ButtonContainer = styled.div`
   display: flex;
-
+  flex-grow:1;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   // padding:1rem;
-  @media screen and (max-width: 350px) {
+  @media screen and (max-width: 500px) {
     margin-top: 1rem;
   }
 `;
