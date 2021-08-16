@@ -33,8 +33,7 @@ const Navbar = ({ toggle }) => {
   useEffect(() => {
     const asyncPlayerdata = async () => {
       let res = await getPlayerdata(token);
-      setScore(res.player.score);
-      console.log("score:",score);
+      setScore(res.score);
     };
     asyncPlayerdata();
 
