@@ -1,6 +1,6 @@
 import { useState, React, useRef, useEffect } from "react";
 // import mapBackground from '../../../assets/map.svg';
-import mapBackground from "../../../assets/map.svg";
+import mapBackground from "../../../assets/mapBg.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./map.css";
@@ -361,20 +361,26 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
         </div>
 
         <div className="zoom-buttons">
-          <div onClick={zoomOut} id="zoom-out">
-            <ImMinus />
-          </div>
-          <div onClick={zoomIn} id="zoom-in">
-            <ImPlus />
-          </div>
-          <div onClick={zoomInit} id="zoom-init">
-            <FaRedoAlt />
-          </div>
+          <LightTooltip title="Zoom Out" placement="bottom">
+            <div onClick={zoomOut} id="zoom-out">
+              <ImMinus />
+            </div>
+          </LightTooltip>
+          <LightTooltip title="Zoom In" placement="bottom">
+            <div onClick={zoomIn} id="zoom-in">
+              <ImPlus />
+            </div>
+          </LightTooltip>
+          <LightTooltip title="Initial Zoom" placement="bottom">
+            <div onClick={zoomInit} id="zoom-init">
+              <FaRedoAlt />
+            </div>
+          </LightTooltip>
         </div>
 
         <div
           style={{
-            opacity: `${legendOpen ? "1" : "0"}`,
+            display: `${legendOpen ? "grid" : "none"}`,
             transition: "all 0.25s ease-in-out",
           }}
           className="legend-box"
@@ -393,26 +399,9 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
           <GoKey />
         </div>
 
-        <LightTooltip title="Onboarding" placement="left">
+        <LightTooltip title="Tutorial" placement="left">
           <div onClick={onboardingStart} className="onboarding-button">
             <FaPlay />
-          </div>
-        </LightTooltip>
-
-        <LightTooltip title="ask questions" placement="right">
-          <a
-            href="https://discord.com"
-            rel="noreferrer"
-            target="_blank"
-            className="discord-button"
-          >
-            <FaDiscord />
-          </a>
-        </LightTooltip>
-
-        <LightTooltip title="mute" placement="right">
-          <div onClick={toggleMusic} className="music-button">
-            <SiApplemusic />
           </div>
         </LightTooltip>
       </div>

@@ -2,13 +2,14 @@ import { makeStyles, Tooltip } from "@material-ui/core";
 
 const LightTooltipStyle = makeStyles((theme) => ({
   arrow: {
-    color: "#D3D3D3",
+    color: "#3B3B3B",
   },
   tooltip: {
-    backgroundColor: "#D3D3D3",
-    color: "rgba(0, 0, 0, 1)",
+    backgroundColor: "#3B3B3B",
+    color: "#FFFFFF",
+    fontWeight: 500,
     boxShadow: theme.shadows[1],
-    fontSize: "1rem",
+    fontSize: "0.8rem",
   },
 }));
 

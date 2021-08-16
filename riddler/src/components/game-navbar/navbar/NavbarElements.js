@@ -99,7 +99,7 @@ export const NavLinks = styled(NavLink)`
   }
 
   &.active {
-    height: 30px;
+    height: 35px;
   }
 
   @media screen and (max-width: 350px) {
@@ -148,10 +148,12 @@ export const Player = styled.div`
   align-self: center;
   height:40px;
   padding:2px;
+  color: var(--navbar-bg);
+  background-color: black;
   min-width:110px;
   border:3px solid black;
   border-bottom:4px solid black;
-  margin-right: 24px;
+  margin-right: 14px;
 
   img{
     height:75%;
@@ -163,4 +165,16 @@ export const Player = styled.div`
       width: 70%;
     }
   }
+`;
+
+export const MusicPlayer = styled.div`
+  height: 40px;
+  width: 40px;
+  background-color: black;
+  color: var(--navbar-bg);
+  margin-right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
 `;

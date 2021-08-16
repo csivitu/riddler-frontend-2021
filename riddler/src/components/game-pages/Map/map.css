@@ -1,5 +1,5 @@
 :root {
-  --node-side: 25px;
+  --node-side: 23px;
 }
 
 .map-section {
@@ -36,12 +36,12 @@
   position: relative;
   height: 100%;
   width: 100%;
-  margin-bottom: 1vh;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
   overflow: scroll;
-  background-color: #a0a0a0;
+  background-color: #151515;
+  background-image: url("../../../assets/topography.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   user-select: none;
   margin: 0;
 }
@@ -97,24 +97,13 @@
   font-size: 20px;
   text-align: center;
   box-sizing: border-box;
-  width: 40px;
-  height: 40px;
-  background-color: black;
-  border: 4px solid black;
+  width: 50px;
+  height: 50px;
+  background-color: #7C7C7C;
+  border: 4px solid white;
   border-radius: 50%;
   position: absolute;
   cursor: pointer;
-}
-
-.deck::before {
-  content: "";
-  position: absolute;
-  top: -15px;
-  left: -15px;
-  right: -15px;
-  bottom: -15px;
-  border: 4px solid black;
-  border-radius: 50%;
 }
 
 .portal-box {
@@ -130,202 +119,228 @@
   cursor: pointer;
 }
 
-#node5 {
-  top: 293px;
-  left: 308px;
-}
-
 #node1 {
-  top: 335px;
-  left: 233px;
+  top: 362px;
+  left: 304px;
 }
 
 #node2 {
-  top: 425px;
-  left: 233px;
+  top: 427px;
+  left: 304px;
 }
 
 #node3 {
-  top: 468px;
-  left: 306px;
+  top: 460px;
+  left: 360.5px;
 }
 
 #node4 {
-  top: 557px;
-  left: 306px;
+  top: 524px;
+  left: 362px;
 }
-#node12 {
-  top: 600px;
-  left: 382px;
+
+#node5 {
+  top: 329px;
+  left: 360px;
 }
-#node13 {
-  top: 680px;
-  left: 382px;
-}
-#node14 {
-  top: 722px;
-  left: 460px;
-}
-#node15 {
-  top: 680px;
-  left: 535px;
-}
-#node17 {
-  top: 722px;
-  left: 611px;
-}
-#node18 {
-  top: 680px;
-  left: 688px;
-}
-#node19 {
-  top: 590px;
-  left: 688px;
-}
-#node22 {
-  top: 543px;
-  left: 762px;
-}
-#node23 {
-  top: 460px;
-  left: 762px;
-}
-#node28 {
-  top: 413px;
-  left: 838px;
-}
-#node27 {
-  top: 327px;
-  left: 838px;
-}
-#node26 {
-  top: 285px;
-  left: 762px;
-}
-#node29 {
-  top: 200px;
-  left: 762px;
-}
-#node30 {
-  top: 155px;
-  left: 685px;
-}
-#node31 {
-  top: 195px;
-  left: 611px;
-}
-#node34 {
-  top: 155px;
-  left: 533px;
-}
-#node36 {
-  top: 200px;
-  left: 460px;
-}
-#node7 {
-  top: 160px;
-  left: 382px;
-}
+
 #node6 {
-  top: 202px;
-  left: 307px;
+  top: 263px;
+  left: 360px;
 }
+
+#node7 {
+  top: 228px;
+  left: 417px;
+}
+
 #node8 {
-  top: 332px;
-  left: 386px;
+  top: 361px;
+  left: 417px;
 }
+
 #node9 {
-  top: 425px;
-  left: 386px;
+  top: 427px;
+  left: 418px;
 }
+
 #node10 {
-  top: 468px;
-  left: 460px;
+  top: 460px;
+  left: 475px;
 }
 #node11 {
-  top: 552px;
-  left: 460px;
+  top: 524px;
+  left: 475px;
 }
+
+#node12 {
+  top: 557px;
+  left: 418px;
+}
+
+#node13 {
+  top: 622px;
+  left: 418px;
+}
+
+#node14 {
+  top: 656px;
+  left: 475px;
+}
+
+#node15 {
+  top: 622px;
+  left: 532px;
+}
+
 #node16 {
-  top: 587px;
-  left: 535px;
+  top: 556px;
+  left: 532px;
 }
+
+#node17 {
+  top: 657px;
+  left: 589px;
+}
+
+#node18 {
+  top: 622px;
+  left: 644px;
+}
+
+#node19 {
+  top: 557px;
+  left: 644px;
+}
+
 #node20 {
-  top: 545px;
-  left: 610px;
+  top: 523px;
+  left: 589px;
 }
+
 #node21 {
   top: 460px;
-  left: 610px;
+  left: 588px;
 }
+
+#node22 {
+  top: 524px;
+  left: 701px;
+}
+
+#node23 {
+  top: 460px;
+  left: 701px;
+}
+
 #node24 {
-  top: 415px;
-  left: 687px;
+  top: 427px;
+  left: 644px;
 }
+
 #node25 {
-  top: 331px;
-  left: 687px;
+  top: 362px;
+  left: 643px;
 }
+
+#node26 {
+  top: 329px;
+  left: 701px;
+}
+
+#node27 {
+  top: 362px;
+  left: 758px;
+}
+
+#node28 {
+  top: 427px;
+  left: 758px;
+}
+
+#node29 {
+  top: 263px;
+  left: 701px;
+}
+
+#node30 {
+  top: 228px;
+  left: 643px;
+}
+
+#node31 {
+  top: 263px;
+  left: 589px;
+}
+
 #node32 {
-  top: 290px;
-  left: 610px;
+  top: 330px;
+  left: 589px;
 }
+
 #node33 {
-  top: 328px;
-  left: 536px;
+  top: 362px;
+  left: 532px;
 }
+
+#node34 {
+  top: 228px;
+  left: 528px;
+}
+
 #node35 {
-  top: 290px;
-  left: 460px;
+  top: 329px;
+  left: 475px;
+}
+
+#node36 {
+  top: 263px;
+  left: 475px;
 }
 
 #node37 {
-  top: 216px;
-  left: 66px;
-}
-
-#node39 {
-  top: 69px;
-  left: 890px;
+  top: 269px;
+  left: 165px;
 }
 
 #node38 {
-  top: 880px;
-  left: 623px;
+  top: 795px;
+  left: 574px;
+}
+
+#node39 {
+  top: 155px;
+  left: 788px;
 }
 
 #portal-box9 {
-  top: 410px;
-  left: 406px;
+  top: 414px;
+  left: 443px;
 }
 
 #portal-box20 {
-  top: 530px;
-  left: 630px;
+  top: 511px;
+  left: 566px;
 }
 
 #portal-box32 {
-  top: 275px;
-  left: 630px;
+  top: 362px;
+  left: 589px;
 }
 
-.portal {
+.portal-box {
   background-image: url("../../../assets/portal.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
+  border: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
 }
 
 .locked {
   background-color: white;
-}
-
-.locked::before {
-  content: "";
-  font-size: 26px;
-  font-weight: bold;
-  position: absolute;
-  top: -30px;
 }
 
 .unlocked {
@@ -333,7 +348,7 @@
 }
 
 .solved {
-  background-color: #d8e324;
+  opacity: 0;
 }
 
 /* width */
@@ -368,9 +383,9 @@
 
 /* Dialogue Box */
 
-.dialog-container div div{
+.dialog-container div div {
   background-color: rgba(211, 211, 211, 1);
-  font-family: 'Poppins';
+  font-family: "Poppins";
   width: 18rem;
   border-radius: 1rem;
   overflow: visible;
@@ -390,7 +405,7 @@
   background-color: var(--map-bg);
 }
 
-#alert-dialog-title h2{
+#alert-dialog-title h2 {
   font-size: 2rem;
   text-align: center;
   font-weight: 700;
@@ -422,7 +437,6 @@
   right: 2rem;
   display: flex;
   flex-direction: row;
-  gap: 0.25rem;
 }
 
 .zoom-buttons div {
@@ -437,10 +451,15 @@
   background-color: var(--map-bg);
   border-radius: 50%;
   transition: all 0.25s ease-in-out;
+  margin: 0.3rem;
 }
 
 .zoom-buttons div:hover {
-  
+  transition: all 0.25s ease-in-out;
+  width: 2.4rem;
+  height: 2.4rem;
+  margin: 0.1rem;
+  font-size: 1.2rem;
 }
 
 /* Legend box */
@@ -451,7 +470,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  bottom: 6rem;
+  bottom: 2rem;
   right: 2rem;
   height: 3rem;
   width: 3rem;
@@ -459,24 +478,23 @@
   font-size: 2rem;
   border-radius: 50%;
   cursor: pointer;
-  filter: drop-shadow(-0.6rem 0.5rem 0.3rem rgba(0, 0, 0, 0.46));
   transition: all 0.2s ease-in-out;
 }
 
 .legend-box {
   position: absolute;
-  bottom: 7rem;
+  bottom: 3rem;
   right: 3rem;
   display: grid;
   grid-template-columns: 0.5fr 2fr;
   row-gap: 0.7rem;
   align-items: center;
   padding: 3rem 0.5rem;
-  border: 4px solid var(--map-bg);
+  border: 3.5px solid var(--map-bg);
   border-radius: 10px;
   color: white;
   background-color: black;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 550;
   user-select: none;
 }
@@ -503,28 +521,6 @@
   align-items: center;
   justify-content: center;
   bottom: 2rem;
-  right: 2rem;
-  height: 3rem;
-  width: 3rem;
-  padding: 0.5rem;
-  font-size: 1.5rem;
-  border-radius: 50%;
-  cursor: pointer;
-  filter: drop-shadow(-0.6rem 0.5rem 0.3rem rgba(0, 0, 0, 0.46));
-  transition: all 0.2s ease-in-out;
-}
-
-/* Ask question button */
-
-.discord-button {
-  text-decoration: none;
-  color: black;
-  background-color: var(--map-bg);
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  bottom: 6rem;
   left: 2rem;
   height: 3rem;
   width: 3rem;
@@ -532,26 +528,5 @@
   font-size: 1.5rem;
   border-radius: 50%;
   cursor: pointer;
-  filter: drop-shadow(-0.6rem 0.5rem 0.3rem rgba(0, 0, 0, 0.46));
-  transition: all 0.2s ease-in-out;
-}
-
-/* Mute music button */
-
-.music-button {
-  background-color: var(--map-bg);
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  bottom: 2rem;
-  left: 2rem;
-  height: 3rem;
-  width: 3rem;
-  padding: 0.5rem;
-  font-size: 1.5rem;
-  border-radius: 50%;
-  cursor: pointer;
-  filter: drop-shadow(-0.6rem 0.5rem 0.3rem rgba(0, 0, 0, 0.46));
   transition: all 0.2s ease-in-out;
 }

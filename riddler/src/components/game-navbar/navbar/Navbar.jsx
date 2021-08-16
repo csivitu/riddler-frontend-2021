@@ -10,13 +10,14 @@ import {
   NavBtn,
   NavBtnLink,
   Player,
+  MusicPlayer,
 } from "./NavbarElements";
 import { useSelector } from "react-redux";
 import PlayLogo from "../../../assets/play.svg";
 import GuideLogo from "../../../assets/guide.svg";
 import LeaderboardLogo from "../../../assets/leaderboard.svg";
 import star from "../../../assets/star.svg";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaStar, FaMusic } from "react-icons/fa";
 import Tooltip from "@material-ui/core/Tooltip";
 
 import riddlerLogo from "./assets/riddlerlogo_svg_black.svg";
@@ -37,8 +38,7 @@ const Navbar = ({ toggle }) => {
       setScore(res.score);
     };
     asyncPlayerdata();
-
-  }, [])
+  }, []);
   console.log("Rerendering");
 
   return (
@@ -52,28 +52,31 @@ const Navbar = ({ toggle }) => {
             <FaBars />
           </MobileIcon>
           <NavMenu>
-            <LightTooltip title="guide">
+            <LightTooltip title="Guide">
               <NavLinks to="rules">
                 <img src={GuideLogo} alt="Guide Logo"></img>
               </NavLinks>
             </LightTooltip>
-            <LightTooltip title="game">
+            <LightTooltip title="Game">
               <NavLinks to="play">
-              <img src={PlayLogo} alt="Play Logo"></img>
+                <img src={PlayLogo} alt="Play Logo"></img>
               </NavLinks>
             </LightTooltip>
-            <LightTooltip title="leaderboard">
+            <LightTooltip title="Leaderboard">
               <NavLinks to="leaderboard">
-              <img src={LeaderboardLogo} alt="Leaderboard Logo"></img>
+                <img src={LeaderboardLogo} alt="Leaderboard Logo"></img>
               </NavLinks>
             </LightTooltip>
           </NavMenu>
           <NavMenu>
             <Player>
-              <img src={star} alt="Riddler Logo" />
+              <FaStar />
               <p>{score}</p>
             </Player>
             <Player>{userName}</Player>
+            <MusicPlayer>
+              <FaMusic />
+            </MusicPlayer>
           </NavMenu>
         </NavbarContainer>
       </Nav>
