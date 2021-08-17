@@ -11,13 +11,15 @@ import {
   NavBtnLink,
   Player,
   MusicPlayer,
+  MusicDropdown,
+  NavMenuRight,
 } from "./NavbarElements";
 import { useSelector } from "react-redux";
 import PlayLogo from "../../../assets/play.svg";
 import GuideLogo from "../../../assets/guide.svg";
 import LeaderboardLogo from "../../../assets/leaderboard.svg";
 import star from "../../../assets/star.svg";
-import { FaBars, FaStar, FaMusic } from "react-icons/fa";
+import { FaBars, FaStar, FaMusic, FaChevronDown } from "react-icons/fa";
 import Tooltip from "@material-ui/core/Tooltip";
 
 import riddlerLogo from "./assets/riddlerlogo_svg_black.svg";
@@ -68,7 +70,7 @@ const Navbar = ({ toggle }) => {
               </NavLinks>
             </LightTooltip>
           </NavMenu>
-          <NavMenu>
+          <NavMenuRight>
             <Player>
               <FaStar />
               <p>{score}</p>
@@ -77,7 +79,10 @@ const Navbar = ({ toggle }) => {
             <MusicPlayer>
               <FaMusic />
             </MusicPlayer>
-          </NavMenu>
+            <MusicDropdown>
+              <FaChevronDown />
+            </MusicDropdown>
+          </NavMenuRight>
         </NavbarContainer>
       </Nav>
     </>

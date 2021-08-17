@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { getMap, insertUser } from "../../../api/requests";
 import Map from "../Map";
 import Question from "../Play";
 

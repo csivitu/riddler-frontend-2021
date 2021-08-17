@@ -138,6 +138,19 @@ export const NavBtnLink = styled(LinkRouter)`
     background: #fe3176;
   }
 `;
+
+export const NavMenuRight = styled.div`
+  display: flex;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+  justify-self: center;
+
+  @media screen and (max-width: 950px) {
+    display: none;
+  }
+`;
+
 export const Player = styled.div`
   justify-self: flex-start;
   display: flex;
@@ -172,9 +185,21 @@ export const MusicPlayer = styled.div`
   width: 40px;
   background-color: black;
   color: var(--navbar-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+`;
+
+export const MusicDropdown = styled.div`
+  height: 40px;
+  width: 40px;
+  color: black;
   margin-right: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
+  cursor: pointer;
 `;

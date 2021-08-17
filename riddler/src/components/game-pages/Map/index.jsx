@@ -18,19 +18,22 @@ import { CircularProgress, makeStyles, Tooltip } from "@material-ui/core";
 import { ImPlus, ImMinus } from "react-icons/im";
 import { FaRedoAlt, FaPlay, FaDiscord, FaLock } from "react-icons/fa";
 import { GoKey } from "react-icons/go";
-import { ReactComponent as Marker } from "../../../assets/Marker.svg";
+import Marker from "../../../assets/Marker.svg";
 import { SiApplemusic } from "react-icons/si";
 import lockedNode from "../../../assets/lockedNode.svg";
 import unlockedNode from "../../../assets/unlockedNode.svg";
 import portalNode from "../../../assets/portalNode.svg";
 import solvedNode from "../../../assets/solvedNode.svg";
 import { ReactComponent as onboardingLogo } from "../../../assets/onboarding.svg";
+import { ReactComponent as RedoIcon } from "../../../assets/redo.svg";
 import { withStyles } from "@material-ui/styles";
 import LightTooltip from "../Tooltip";
+import Tutorial from "./tutorial";
 
 const Map = ({ setMapRes, mapOpen, qId }) => {
   // const [mapRes, setMapRes] = useState({});
   // let mapRes = {};
+  const [tutorialOpen, setTutorialOpen] = useState(false);
   const usertoken = useSelector((state) => state.auth.token);
   useEffect(() => {
     const asyncInsert = async () => {
@@ -114,7 +117,7 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
       if (mapRes.portalNodes[i] === false) return;
       element.addEventListener("click", () => {
         console.log("Solved Node clicked!");
-        notify("Solved node clicked");
+        notify("Solved node");
       });
     });
 
@@ -130,7 +133,7 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
       const element = document.getElementById(`node${i}`);
       element.addEventListener("click", () => {
         console.log("Other node clicked!");
-        notify("Cannot access this node!");
+        notify("Locked question!");
       });
     });
     if (mapRes.lockedNode) {
@@ -189,12 +192,9 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
     setLegendOpen(!legendOpen);
   };
 
-  const onboardingStart = () => {
-    console.log("Onboarding begins");
-  };
-
-  const toggleMusic = () => {
-    console.log("Toggle music button pressed");
+  const tutorialStart = () => {
+    console.log("tutorial begins");
+    setTutorialOpen(true);
   };
 
   return (
@@ -204,6 +204,7 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
         <div id="map-loading">
           <CircularProgress color="secondary" />
         </div>
+        <Tutorial tutorialOpen={tutorialOpen} setTutorialOpen={setTutorialOpen} setLegendOpen={setLegendOpen} />
         <div id="darken" />
         <div className="map-container" ref={ref} onMouseDown={onMouseDown}>
           <div
@@ -371,9 +372,9 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
               <ImPlus />
             </div>
           </LightTooltip>
-          <LightTooltip title="Initial Zoom" placement="bottom">
+          <LightTooltip title="Reset" placement="bottom">
             <div onClick={zoomInit} id="zoom-init">
-              <FaRedoAlt />
+              <RedoIcon width="1em" height="1em" />
             </div>
           </LightTooltip>
         </div>
@@ -385,6 +386,8 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
           }}
           className="legend-box"
         >
+          <img src={Marker} alt="Marker" />
+          <p>Freezed question</p>
           <img src={lockedNode} alt="Locked node" />
           <p>Locked Question</p>
           <img src={unlockedNode} alt="Unlocked node" />
@@ -400,7 +403,7 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
         </div>
 
         <LightTooltip title="Tutorial" placement="left">
-          <div onClick={onboardingStart} className="onboarding-button">
+          <div onClick={tutorialStart} className="tutorial-button">
             <FaPlay />
           </div>
         </LightTooltip>
