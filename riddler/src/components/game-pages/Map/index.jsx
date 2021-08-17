@@ -31,34 +31,16 @@ import LightTooltip from "../Tooltip";
 import Tutorial from "./tutorial";
 
 const Map = ({ setMapRes, mapOpen, qId }) => {
-  // const [mapRes, setMapRes] = useState({});
-  // let mapRes = {};
   const [tutorialOpen, setTutorialOpen] = useState(false);
   const usertoken = useSelector((state) => state.auth.token);
-  useEffect(() => {
-    const asyncInsert = async () => {
-      let res = await insertUser(usertoken);
-      console.log(res);
-    };
-    const asyncMap = async () => {
-      let res = await getMap(usertoken);
-      // setMapRes(res.nodeInfo);
-      // mapRes = res.nodeInfo;
-      // console.log(mapRes);
-      setMapRes(res);
-      renderMap(res);
-    };
-
-    asyncInsert();
-    asyncMap();
-  }, [tutorialOpen]);
+  const [check, setCheck] = useState(0);
 
   const renderMap = (mapRes) => {
     const leftover = [
       1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
       22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
     ];
-    let arr = [...mapRes.solvedNodes];
+    let arr = mapRes === [] ? [] : [...mapRes.solvedNodes];
     arr.push(...mapRes.unlockedNodes);
     if (mapRes.lockedNode) arr.push(mapRes.lockedNode);
 
@@ -69,13 +51,6 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
       }
     });
 
-    // [1, 2, 3].forEach((i) => {
-    //   const element = document.getElementById(`deck${i}`);
-    //   // element.classList.add('deck');
-    //   element.addEventListener("click", () => {
-    //     console.log("Deck Node clicked!");
-    //   });
-    // });
     console.log("mapRes.unlockedNodes");
     mapRes.unlockedNodes.forEach((i) => {
       if (i === mapRes.lockedNode) return;
@@ -107,10 +82,11 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
           );
         });
       } else {
-        element.addEventListener("click", () => {
+        element.addEventListener("click", function unlockNode() {
           console.log("Unlocked Node clicked!");
           notify("Unfreeze to access!");
         });
+        return () => element.removeEventListener("click", unlockedNode);
       }
     });
 
@@ -118,10 +94,14 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
       const element = document.getElementById(`node${i}`);
       element.classList.add("solved");
       if (mapRes.portalNodes[i] === false) return;
-      element.addEventListener("click", () => {
+      element.addEventListener("click", function solvedNode() {
         console.log("Solved Node clicked!");
         notify("Solved node");
       });
+      return () => {
+        element.removeEventListener("click", solvedNode);
+        console.log("Removed solved event listener");
+      }
     });
 
     [9, 20, 32].forEach((i) => {
@@ -130,6 +110,7 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
       element.addEventListener("click", () => {
         console.log("portal Node Box clicked!");
       });
+      // return () => element.re
     });
 
     leftover.forEach((i) => {
@@ -225,6 +206,31 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
     console.log("tutorial begins");
     setTutorialOpen(true);
   };
+
+  useEffect(() => {
+    const asyncMap = async () => {
+      let res = await getMap(usertoken);
+      setMapRes(res);
+      renderMap(res);
+    };
+    asyncMap();
+    console.log(check);
+    setCheck(check + 1);
+
+    return () => {
+      setMapRes({
+        lockedNode: 0,
+        portalNodes: { 9: false, 20: false, 32: false },
+        solvedNodes: [],
+        unlockedNodes: [],
+        username: "",
+      });
+      setDialogueOpen(false);
+      setZoom(1);
+      ref.current = null;
+      console.log("Clean");
+    };
+  }, [tutorialOpen, mapOpen]);
 
   return (
     <>

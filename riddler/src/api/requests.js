@@ -21,6 +21,7 @@ export const insertUser = async (usertoken) => {
     headers: { "x-access-token": usertoken },
   };
   let res = await fetch("http://localhost:3001/insert/user", requestOptions);
+  localStorage.setItem('userCreated',true);
   return res;
 };
 

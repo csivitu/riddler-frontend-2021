@@ -51,18 +51,45 @@ function Question({ mapOpen, qId, mapData }) {
   const [wantHint, setWantHint] = useState(false);
   console.log(wantHint);
 
-  const [ques, setQues] = useState("");
-  const [quesImg, setQuesImg] = useState([]);
-  const [quesLink, setQuesLink] = useState([]);
-  const [hintImg, setHintImg] = useState([]);
-  const [hintLink, setHintLink] = useState([]);
-  const [track1, setTrack1] = useState("digital present");
-  const [track2, setTrack2] = useState("digital present");
-  const [hint, setHint] = useState("");
+  let ques = "";
+  let quesImg = [];
+  let quesLink = [];
+  let hintImg = [];
+  let hintLink = [];
+  let track1 = "digital present";
+  let track2 = "digital present";
+  let hint = "";
 
+  const [res, setRes] = useState({
+    "question": {
+        "img": [
+            ""
+        ],
+        "links": [
+            ""
+        ],
+        "text": ""
+    },
+    "hint": {
+      "img": [
+            ""
+        ],
+        "links": [
+            ""
+        ],
+        "text": ""
+    },
+    "track": [
+        2,
+        2
+    ],
+    "points": 0
+})
   const [openHintDialog, setOpenHintDialog] = useState(false);
   const [hintButton, setHintButton] = useState(true);
   const [loadingPage, setLoadingPage] = useState(true);
+
+  console.log("Questions page render");
 
   const handleClickOpen = async () => {
     setOpenHintDialog(true);
@@ -81,9 +108,9 @@ function Question({ mapOpen, qId, mapData }) {
     const res = await getHint(usertoken, qId);
     if (res.code === "S4") {
       const ques = await getQuestion(usertoken, qId);
-      setHint(ques.hint.text);
-      setHintImg(ques.hint.img);
-      setHintLink(ques.hint.links);
+      // setHint(ques.hint.text);
+      // setHintImg(ques.hint.img);
+      // setHintLink(ques.hint.links);
       setWantHint(true);
       setHintButton(false);
     }
@@ -93,9 +120,9 @@ function Question({ mapOpen, qId, mapData }) {
 
   const handleHint = async (res) => {
     if (res.hint.text) {
-      setHint(res.hint.text);
-      setHintImg(res.hint.img);
-      setHintLink(res.hint.links);
+      // setHint(res.hint.text);
+      // setHintImg(res.hint.img);
+      // setHintLink(res.hint.links);
       setWantHint(true);
       setHintButton(false);
     }
@@ -131,16 +158,18 @@ function Question({ mapOpen, qId, mapData }) {
       let res = await getQuestion(usertoken, qId);
       console.log("Question: ");
       console.log(res);
+      if(res.track.length === 1) res.track = [res.track[0],res.track[0]];
+      setRes(res);
       if (res.question) {
-        setQues(res.question.text);
-        setQuesLink(res.question.links);
-        setQuesImg(res.question.img);
+        ques = res.question.text;
+        quesLink = res.question.links;
+        quesImg = res.question.img;
         if (res.track.length === 2) {
-          setTrack1(trackName[res.track[0]]);
-          setTrack2(trackName[res.track[1]]);
+          track1 = trackName[res.track[0]];
+          track2 = trackName[res.track[1]];
         } else {
-          setTrack1(trackName[res.track[0]]);
-          setTrack2(trackName[res.track[0]]);
+          track1 = trackName[res.track[0]];
+          track2 = trackName[res.track[0]];
         }
         handleHint(res);
         setLoadingPage(false);
@@ -148,12 +177,13 @@ function Question({ mapOpen, qId, mapData }) {
         mapOpen(true);
       }
     };
-
     asyncQuestion();
-    setHint("");
-    setHintImg([]);
-    setHintImg([]);
-  }, [wantHint]);
+
+    return () => {
+      // setHint("");
+      // setHintImg([]);
+    };
+  }, [wantHint, mapOpen]);
 
   return (
     <>
@@ -170,8 +200,8 @@ function Question({ mapOpen, qId, mapData }) {
         <Container1>
           <TopBox>
             <TrackBox>
-              <Trackname>{track1} X</Trackname>
-              <Trackname>&nbsp;{track2}</Trackname>
+              <Trackname>{trackName[res.track[0]]} X</Trackname>
+              <Trackname>&nbsp;{trackName[res.track[1]]}</Trackname>
             </TrackBox>
             <QBtnContainer>
               {hintButton && (
@@ -186,9 +216,9 @@ function Question({ mapOpen, qId, mapData }) {
           </TopBox>
 
           <QuestionBox>
-            <QuestionContent>{ques}</QuestionContent>
-            <Qdiv  >
-              {quesImg.map((imgLink) => {
+            <QuestionContent>{res.question.text}</QuestionContent>
+            <Qdiv>
+              {res.question.img.map((imgLink) => {
                 return (
                   <Image>
                     <img src={imgLink} alt="" />
@@ -196,7 +226,7 @@ function Question({ mapOpen, qId, mapData }) {
                 );
               })}
               <br />
-              {quesLink.map((link) => {
+              {res.question.links.map((link) => {
                 return (
                   <>
                     <a href={link} target="_blank">
