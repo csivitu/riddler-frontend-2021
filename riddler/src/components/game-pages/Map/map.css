@@ -343,7 +343,14 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
+  /* animation: rotate 4s linear infinite; */
 }
+
+/* @keyframes rotate {
+  100% {
+      transform: rotate(1turn);
+  }
+} */
 
 .locked {
   background-color: white;
@@ -357,6 +364,28 @@
 
 .unlocked {
   background-color: white;
+}
+
+.unlocked::after {
+  content: "";
+  width: 175%;
+  height: 175%;
+  position: absolute;
+  border: 2px dashed white;
+  border-radius: 50%;
+  top: -50%;
+  left: -50%;
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+      transform: rotate(1turn);
+  }
+}
+
+.display-none::after {
+  display: none;
 }
 
 .solved {
@@ -449,6 +478,7 @@
   right: 2rem;
   display: flex;
   flex-direction: row;
+  transition: all 0.2s ease-in-out;
 }
 
 .zoom-buttons div {
@@ -568,4 +598,27 @@
 
 .__floater__arrow span svg polygon {
   fill: #3b3b3b;
+}
+
+
+@media screen and (max-width: 450px) {
+  .key-button {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .legend-box {
+    bottom: 2rem;
+    right: 2rem;
+  }
+
+  .tutorial-button {
+    bottom: 1rem;
+    left: 1rem;
+  }
+
+  .zoom-buttons {
+    top: 1rem;
+    right: 1rem;
+  }
 }

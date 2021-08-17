@@ -107,7 +107,7 @@ function Question({ mapOpen, qId, mapData }) {
     const answer = answerBox.value;
     if (answer) {
       answerBox.value = "";
-      const res = await submitAnswer(usertoken, qId, [answer]);
+      const res = await submitAnswer(usertoken, qId, answer);
       console.log("Response of answer submit");
       console.log(res);
       if (res.code === "S2") {

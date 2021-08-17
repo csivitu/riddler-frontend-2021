@@ -51,7 +51,7 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
 
     asyncInsert();
     asyncMap();
-  }, []);
+  }, [tutorialOpen]);
 
   const renderMap = (mapRes) => {
     const leftover = [
@@ -83,6 +83,9 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
       const element = document.getElementById(`node${i}`);
       console.log(element);
       element.classList.add("unlocked");
+      if ([37, 38, 39].includes(i)) {
+        element.classList.add("display-none");
+      }
       if (mapRes.lockedNode === 0) {
         element.addEventListener("click", () => {
           console.log("Unlocked Node clicked!");
@@ -139,14 +142,37 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
     if (mapRes.lockedNode) {
       const element = document.getElementById(`node${mapRes.lockedNode}`);
       element.classList.add("locked");
-      const peg = document.getElementById('locked-peg');
-      peg.style.setProperty('top', `calc(${getComputedStyle(element).top} - 35px)`);
-      peg.style.setProperty('left', `calc(${getComputedStyle(element).left} - 1px)`);
+      const peg = document.getElementById("locked-peg");
+      peg.style.setProperty(
+        "top",
+        `calc(${getComputedStyle(element).top} - 35px)`
+      );
+      peg.style.setProperty(
+        "left",
+        `calc(${getComputedStyle(element).left} - 1px)`
+      );
       element.addEventListener("click", () => {
         console.log("Locked Node clicked!");
         qId(mapRes.lockedNode);
         mapOpen(false);
       });
+    } else if (mapRes.solvedNodes.length > 0) {
+      const element = document.getElementById(
+        `node${mapRes.solvedNodes[mapRes.solvedNodes.length - 1]}`
+      );
+      const peg = document.getElementById("locked-peg");
+      peg.style.setProperty(
+        "top",
+        `calc(${getComputedStyle(element).top} - 35px)`
+      );
+      peg.style.setProperty(
+        "left",
+        `calc(${getComputedStyle(element).left} - 1px)`
+      );
+    } else {
+      const peg = document.getElementById("locked-peg");
+      peg.style.setProperty("top", "430px");
+      peg.style.setProperty("left", "532px");
     }
 
     document.getElementById("map-loading").style.display = "none";
@@ -207,7 +233,11 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
         <div id="map-loading">
           <CircularProgress color="secondary" />
         </div>
-        <Tutorial tutorialOpen={tutorialOpen} setTutorialOpen={setTutorialOpen} setLegendOpen={setLegendOpen} />
+        <Tutorial
+          tutorialOpen={tutorialOpen}
+          setTutorialOpen={setTutorialOpen}
+          setLegendOpen={setLegendOpen}
+        />
         <div id="darken" />
         <div className="map-container" ref={ref} onMouseDown={onMouseDown}>
           <div
