@@ -1,47 +1,20 @@
-import { useState, React, useRef, useEffect } from "react";
-// import mapBackground from '../../../assets/map.svg';
-import mapBackground from "../../../assets/mapBg.png";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import "./map.css";
-import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import useDraggableScroll from "use-draggable-scroll";
-import Layout from "../../game-navbar/Layout";
-import { getMap, insertUser } from "../../../api/requests";
-import { useSelector } from "react-redux";
-import { CircularProgress, makeStyles, Tooltip } from "@material-ui/core";
-import { ImPlus, ImMinus, ImUndo2 } from "react-icons/im";
-import { FaRedoAlt, FaPlay, FaDiscord, FaLock } from "react-icons/fa";
-import { GoKey } from "react-icons/go";
-import Marker from "../../../assets/Marker.svg";
-import { SiApplemusic } from "react-icons/si";
-import lockedNode from "../../../assets/lockedNode.svg";
-import unlockedNode from "../../../assets/unlockedNode.svg";
-import portalNode from "../../../assets/portalNode.svg";
-import solvedNode from "../../../assets/solvedNode.svg";
-import { ReactComponent as onboardingLogo } from "../../../assets/onboarding.svg";
-import { ReactComponent as RedoIcon } from "../../../assets/redo.svg";
-import { withStyles } from "@material-ui/styles";
-import LightTooltip from "../Tooltip";
+import { React, useRef } from "react";
 import Joyride, { ACTIONS, EVENTS, STATUS } from "react-joyride";
 
 const Tutorial = ({ tutorialOpen, setTutorialOpen, setLegendOpen }) => {
-  const ref = useRef(null);
-  const { onMouseDown } = useDraggableScroll(ref);
-
   const state = {
     run: true,
     steps: [
       {
-        target: ".locked",
+        target: "#locked-peg",
         title: "This is YOU on the map",
         content: "The question mark represents your position on the map",
         disableBeacon: true,
+        style: {
+          spotlight: {
+            margintop: "-87px",
+          },
+        },
       },
       {
         target: "#node21",
@@ -66,7 +39,6 @@ const Tutorial = ({ tutorialOpen, setTutorialOpen, setLegendOpen }) => {
         title: "There are 3 tracks",
         content: "Select and answer any of the questions to lock a track",
         disableBeacon: true,
-        callback: () => setTutorialOpen(false)
       },
     ],
   };
@@ -74,35 +46,86 @@ const Tutorial = ({ tutorialOpen, setTutorialOpen, setLegendOpen }) => {
 
   const handleJoyrideCallback = (data) => {
     const { action, index, status, type } = data;
-    if ([STATUS.FINISHED, STATUS.SKIPPED].includes(status)) {
-        // Need to set our running state to false, so we can restart if we click start again.
-        setTutorialOpen(false);
-      }
+    console.log(data)
+
+    if (index === 2) {
+        setLegendOpen(true);
+    } 
+
+    if (index === 4) {
+        setLegendOpen(false);
+    } 
+
+    if (
+      [STATUS.FINISHED, STATUS.SKIPPED].includes(status) ||
+      action === "close"
+    ) {
+      setTutorialOpen(false);
+      setLegendOpen(false);
+    }
   };
 
   return (
     <>
-        <Joyride
-          run={tutorialOpen}
-          steps={steps}
-          continuous={true}
-          disableOverlayClose={true}
-          disableCloseOnEsc={true}
-          hideCloseButton={true}
-          locale={{
-            back: "Back",
-            next: "Next",
-            last: "Finish",
-          }}
-          showProgress={true}
-          styles={{
-            buttonClose: {
-              display: "none",
+      <Joyride
+        run={tutorialOpen}
+        steps={steps}
+        continuous={true}
+        disableOverlayClose={true}
+        disableCloseOnEsc={true}
+        hideCloseButton={true}
+        locale={{
+          back: "Back",
+          next: "Next",
+          last: "Finish",
+        }}
+        styles={{
+          overlay: {
+            background: "rgba(0, 0, 0, 0.25)",
+          },
+          tooltip: {
+            backgroundColor: "#3B3B3B",
+            color: "white",
+            fontFamily: "Poppins",
+          },
+          floater: {
+            arrow: {
+              color: "#3B3B3B",
             },
-          }}
-          callback={handleJoyrideCallback}
-        />
-        
+          },
+          tooltipTitle: {
+            fontSize: "1.5rem",
+          },
+          tooltipContent: {
+            fontSize: "1rem",
+          },
+          tooltipFooter: {
+            justifyContent: "space-evenly",
+          },
+          buttonNext: {
+            borderRadius: "2rem",
+            width: "4rem",
+            backgroundColor: "white",
+            color: "black",
+            fontFamily: "Poppins",
+            fontWeight: 500,
+            filter: "drop-shadow(4px 3px 11px rgba(0, 0, 0, 0.48))",
+            outline: 'none',
+          },
+          buttonBack: {
+            borderRadius: "2rem",
+            width: "4rem",
+            backgroundColor: "white",
+            color: "black",
+            fontFamily: "Poppins",
+            fontWeight: 500,
+            filter: "drop-shadow(4px 3px 11px rgba(0, 0, 0, 0.48))",
+            justifySelf: "flex-start",
+            outline: "none",
+          },
+        }}
+        callback={handleJoyrideCallback}
+      />
     </>
   );
 };

@@ -139,6 +139,9 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
     if (mapRes.lockedNode) {
       const element = document.getElementById(`node${mapRes.lockedNode}`);
       element.classList.add("locked");
+      const peg = document.getElementById('locked-peg');
+      peg.style.setProperty('top', `calc(${getComputedStyle(element).top} - 35px)`);
+      peg.style.setProperty('left', `calc(${getComputedStyle(element).left} - 1px)`);
       element.addEventListener("click", () => {
         console.log("Locked Node clicked!");
         qId(mapRes.lockedNode);
@@ -332,6 +335,9 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
             <div id="portal-box9" className="portal-box" />
             <div id="portal-box20" className="portal-box" />
             <div id="portal-box32" className="portal-box" />
+            <div id="locked-peg">
+              <img src={Marker} alt="locked peg" />
+            </div>
           </div>
         </div>
 

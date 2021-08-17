@@ -349,18 +349,10 @@
   background-color: white;
 }
 
-.locked::before {
-  content: "";
+#locked-peg {
   position: absolute;
   width: 30px;
   height: 30px;
-  color: red;
-  top: -32px;
-  left: -5px;
-  background-image: url('../../../assets/Marker.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
 }
 
 .unlocked {
@@ -568,4 +560,12 @@
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+}
+
+.react-joyride-step-0 > .react-joyride__spotlight {
+  transform: translateY(-30px);
+}
+
+.__floater__arrow span svg polygon {
+  fill: #3b3b3b;
 }
