@@ -160,7 +160,7 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
       const res = await submitAnswer(usertoken, qId, answer);
       console.log("Response of answer submit");
       console.log(res);
-      if (res.code === "S2") {
+      if (res.code === "S2" || res.code === "S0") {
         setCorrectAnsAlert(true);
         setTimeout(function () {
           setCorrectAnsAlert(false);
@@ -200,6 +200,33 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
     setLoadingPage(false);
   };
 
+  const updateColor = (res) => {
+    // setCurrentTrack(JSON.parse(localStorage.getItem("currentTracks")));
+    console.log(res);
+    const current = res.currentTrack;
+    if (current === [] || current === null) {
+      document.documentElement.style.setProperty(
+        "--leaderboard-bg",
+        "--future"
+      );
+      document.documentElement.style.setProperty("--map-bg", "--past");
+      document.documentElement.style.setProperty("--guide-bg", "--present");
+    } else {
+      const varNames = {
+        1: "--present",
+        2: "--past",
+        3: "--future",
+      };
+      const currentColor = varNames[current[0]];
+      document.documentElement.style.setProperty(
+        "--leaderboard-bg",
+        `var(${currentColor})`
+      );
+      document.documentElement.style.setProperty("--map-bg", `var(${currentColor})`);
+      document.documentElement.style.setProperty("--guide-bg", `var(${currentColor})`);
+    }
+  };
+
   useEffect(() => {
     const asyncQuestion = async () => {
       let res = await getQuestion(usertoken, qId);
@@ -225,6 +252,7 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
         mapOpen(true);
       }
       let userData = await getPlayerdata(usertoken);
+      updateColor(userData);
       setPenaltyPoints(userData.playerPenaltyPoints);
     };
 

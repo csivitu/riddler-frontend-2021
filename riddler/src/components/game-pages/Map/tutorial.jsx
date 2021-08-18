@@ -65,14 +65,6 @@ const Tutorial = ({ tutorialOpen, setTutorialOpen, setLegendOpen }) => {
     if (index === 4) {
       setLegendOpen(false);
     }
-
-    if (
-      [STATUS.FINISHED, STATUS.SKIPPED].includes(status) ||
-      action === "close"
-    ) {
-      setTutorialOpen(false);
-      setLegendOpen(false);
-    }
   };
 
   return (

@@ -38,20 +38,25 @@ const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
   const [check, setCheck] = useState(0);
 
   const renderMap = (mapRes) => {
-    if(mapRes.unlockedNodes[0] === 40) {
+    if (mapRes.solvedNodes.length === 40) {
+      console.log("Game complete!!");
+      setLastQuestion(true);
+    } else if (JSON.stringify(mapRes.unlockedNodes) === JSON.stringify([40])) {
       mapRes.unlockedNodes = [];
       mapRes.lockedNode = 0;
       setLastQuestion(true);
-      const element = document.getElementById('node40');
+      const element = document.getElementById("node40");
       element.addEventListener("click", () => {
         qId(40);
         mapOpen(false);
       });
+      console.log("last Node");
     }
 
     const leftover = [
       1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
       22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
+      40,
     ];
     let arr = mapRes === [] ? [] : [...mapRes.solvedNodes];
     arr.push(...mapRes.unlockedNodes);
@@ -146,18 +151,29 @@ const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
         `node${mapRes.solvedNodes[mapRes.solvedNodes.length - 1]}`
       );
       const peg = document.getElementById("locked-peg");
-      peg.style.setProperty(
-        "top",
-        `calc(${getComputedStyle(element).top} - 35px)`
-      );
-      peg.style.setProperty(
-        "left",
-        `calc(${getComputedStyle(element).left} - 1px)`
-      );
+      if (mapRes.solvedNodes[mapRes.solvedNodes.length - 1] === 40) {
+        peg.style.setProperty(
+          "top",
+          `calc(${getComputedStyle(element).top} - 5px)`
+        );
+        peg.style.setProperty(
+          "left",
+          `calc(${getComputedStyle(element).left} + 37px)`
+        );
+      } else {
+        peg.style.setProperty(
+          "top",
+          `calc(${getComputedStyle(element).top} - 35px)`
+        );
+        peg.style.setProperty(
+          "left",
+          `calc(${getComputedStyle(element).left} - 1px)`
+        );
+      }
     } else {
       const peg = document.getElementById("locked-peg");
       peg.style.setProperty("top", "430px");
-      peg.style.setProperty("left", "532px");
+      peg.style.setProperty("left", "850px");
     }
 
     document.getElementById("map-loading").style.display = "none";
@@ -379,7 +395,10 @@ const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
               <img src={Marker} alt="locked peg" />
             </div>
             <div id="node40">
-              <img src={ lastQuestion ? finalSolved : finalNotSolved} alt="Final node" />
+              <img
+                src={lastQuestion ? finalSolved : finalNotSolved}
+                alt="Final node"
+              />
             </div>
           </div>
         </div>

@@ -10,6 +10,7 @@ export const PlaySection = styled.div`
   padding: 0 5%;
   background-color: black;
   min-height: calc(100vh - 80px);
+  transition: all 0.2s ease-in-out;
 `;
 
 export const TopBox = styled.div`

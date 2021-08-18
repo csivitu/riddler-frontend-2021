@@ -13,7 +13,7 @@ import { Tooltip } from "@material-ui/core";
 function Guide() {
   return (
     <div>
-      <Layout backgroundColor="var(--map-bg)"></Layout>
+      <Layout backgroundColor="var(--guide-bg)"></Layout>
       <div className="guide-container">
         <div id="heading">
           <hr id="heading-line" />
