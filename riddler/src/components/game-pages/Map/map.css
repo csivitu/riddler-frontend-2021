@@ -310,13 +310,13 @@
 }
 
 #node38 {
-  top: 795px;
-  left: 574px;
+  top: 155px;
+  left: 788px;
 }
 
 #node39 {
-  top: 155px;
-  left: 788px;
+  top: 795px;
+  left: 574px;
 }
 
 #portal-box9 {
@@ -392,7 +392,7 @@
 
 @keyframes rotate {
   100% {
-      transform: rotate(1turn);
+    transform: rotate(1turn);
   }
 }
 
@@ -437,7 +437,7 @@
 /* Dialogue Box */
 
 .dialog-container div div {
-  background-color: rgba(211, 211, 211, 1);
+  background-color: #3B3B3B;
   font-family: "Poppins";
   width: 18rem;
   border-radius: 1rem;
@@ -459,12 +459,12 @@
 }
 
 #alert-dialog-title h2 {
-  font-size: 2rem;
+  font-size: 1.4rem;
   text-align: center;
   font-weight: 700;
   line-height: 110%;
   margin-top: 3rem;
-  padding: 0 0.5rem;
+  color: white;
 }
 
 #dialog-buttons {
@@ -473,10 +473,10 @@
 }
 
 #dialog-buttons button {
-  background-color: black;
-  color: white;
-  font-size: 1.2rem;
-  width: 5rem;
+  background-color: white;
+  color: black;
+  font-size: 0.9rem;
+  width: 4rem;
   border-radius: 1.5rem;
   filter: drop-shadow(0.2rem 0.2rem 0.3rem rgba(0, 0, 0, 0.48));
   font-weight: 600;
@@ -614,7 +614,7 @@
 
 .react-joyride__overlay {
   margin-top: 80px;
-  height: calc(100vh - 80px)!important;
+  height: calc(100vh - 80px) !important;
 }
 
 .react-joyride__tooltip button svg g path {

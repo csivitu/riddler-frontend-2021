@@ -382,7 +382,7 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
               <FaLock />
             </div>
             <DialogTitle id="alert-dialog-title">
-              Freeze onto this question?
+              Freeze this question?
             </DialogTitle>
             <DialogActions id="dialog-buttons">
               <Button id="confirm-button" onClick={handleClose} color="primary">

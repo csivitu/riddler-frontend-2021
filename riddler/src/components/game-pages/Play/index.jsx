@@ -5,7 +5,7 @@ import "./play.css";
 import Tooltip from "@material-ui/core/Tooltip";
 import hintIcon from "./assets/hint.svg";
 import mapIcon from "./assets/map.svg";
-import bulb from "../../../assets/bulb_dark.svg";
+import { ReactComponent as Bulb } from "../../../assets/bulb_dark.svg";
 import {
   FaRedoAlt,
   FaPlay,
@@ -205,8 +205,6 @@ function Question({ mapOpen, qId, mapData }) {
 
   const handleFreeze = async () => {
     setOpenUnfreezeDialog(true);
-    // console.log('On clicking yes after unfreeze');
-    // console.log(res);
   };
 
   const unfreezeYes = async () => {
@@ -214,10 +212,14 @@ function Question({ mapOpen, qId, mapData }) {
     const res = await penaltyPoint(usertoken, qId);
     console.log("Response on unfreeze");
     console.log(res);
-    if (res.code === "L3") setLoadingPage(false);
-    mapOpen(true);
+    if (res.code === "S3") {
+      mapOpen(true);
+    } else if(res.code === "L4") {
+      notify("Not enough penalty points");
+    }
     setOpenUnfreezeDialog(false);
     setUnfreezeQues(true);
+    setLoadingPage(false);
   };
 
   useEffect(() => {
@@ -303,9 +305,9 @@ function Question({ mapOpen, qId, mapData }) {
                   );
                 })}
                 {hintLink.map((link) => (
-                      <LinkText href={link} rel="noreferrer" target="_blank">
-                        {link}
-                      </LinkText>
+                  <LinkText href={link} rel="noreferrer" target="_blank">
+                    {link}
+                  </LinkText>
                 ))}
               </>
             )}
@@ -351,7 +353,11 @@ function Question({ mapOpen, qId, mapData }) {
         className="hintDialog-container"
       >
         <div id="hintDialog-icon">
-          <img src={bulb} alt="" />
+          <Bulb
+            style={{
+              width: "1em",
+            }}
+          />
         </div>
         <DialogTitle id="alert-hintDialog-title">Take a hint?</DialogTitle>
         <DialogContent id="hintDialog-text">
@@ -373,7 +379,11 @@ function Question({ mapOpen, qId, mapData }) {
         className="hintDialog-container"
       >
         <div id="hintDialog-icon">
-          <img src={bulb} alt="" />
+          <Bulb
+            style={{
+              width: "1em",
+            }}
+          />
         </div>
         <DialogTitle id="alert-hintDialog-title">
           Unfreeze this question?
@@ -397,11 +407,15 @@ function Question({ mapOpen, qId, mapData }) {
         <Fade in={correctAnsAlert}>
           <div id="answer-alert">
             <div id="alert-icon">
-              <img src={bulb} alt="" />
+              <Bulb
+                style={{
+                  width: "1em",
+                }}
+              />
             </div>
             <h2 id="alert-title">Correct</h2>
             <p id="alert-message">
-              +20 <FaStar />
+              +10 <FaStar />
             </p>
           </div>
         </Fade>
