@@ -7,7 +7,7 @@ import "./leader.css";
 const Leaderboard = () => {
   const token = useSelector((state) => state.auth.token);
   const [leaderboard, setLeaderboard] = useState([]);
-  const username = useSelector(state => state.auth.username)
+  const username = useSelector((state) => state.auth.username);
   useEffect(() => {
     const asyncLeaderboard = async () => {
       let res = await getLeaderboard();
@@ -20,7 +20,7 @@ const Leaderboard = () => {
 
   return (
     <>
-      <Layout backgroundColor={getComputedStyle(document.documentElement).getPropertyValue('--leaderboard-bg')} />
+      <Layout backgroundColor="var(--leaderboard-bg)" />
       <div className="whole_page">
         <table className="tables">
           <thead class="fixedHeader">
@@ -34,17 +34,19 @@ const Leaderboard = () => {
             {leaderboard.map((item, rank) => {
               return (
                 <>
-                {username === item.username ? 
-                  <tr id="me" className="names">
-                    <td>{rank + 1}</td>
-                    <td>{item.username}</td>
-                    <td>{item.score}</td>
-                  </tr> : 
-                  <tr className="names">
-                    <td>{rank + 1}</td>
-                    <td>{item.username}</td>
-                    <td>{item.score}</td>
-                  </tr>}
+                  {username === item.username ? (
+                    <tr id="me" className="names">
+                      <td>{rank + 1}</td>
+                      <td>{item.username}</td>
+                      <td>{item.score}</td>
+                    </tr>
+                  ) : (
+                    <tr className="names">
+                      <td>{rank + 1}</td>
+                      <td>{item.username}</td>
+                      <td>{item.score}</td>
+                    </tr>
+                  )}
                 </>
               );
             })}

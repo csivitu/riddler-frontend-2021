@@ -12,11 +12,7 @@ import { FaDiscord } from "react-icons/fa";
 function Guide() {
   return (
     <>
-      <Layout
-        backgroundColor={getComputedStyle(
-          document.documentElement
-        ).getPropertyValue("--map-bg")}
-      ></Layout>
+      <Layout backgroundColor="var(--map-bg)"></Layout>
       <div className="guide-container">
         <div id="heading">
           <hr id="heading-line" />

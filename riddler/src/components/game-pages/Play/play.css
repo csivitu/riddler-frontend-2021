@@ -1,3 +1,31 @@
+#darken {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 1);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  justify-items: center;
+}
+
+#map-loading {
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  top: 50%;
+  margin-left: -50px;
+  margin-top: 30px;
+  height: 100px;
+  width: 100px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 10px;
+}
+
 .hintDialog-container div div {
   background-color: #3b3b3b;
   font-family: "Poppins";

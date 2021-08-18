@@ -181,6 +181,25 @@ function Question({ mapOpen, qId, mapData }) {
     setLoadingPage(false);
   };
 
+  const handleFreeze = async () => {
+    setOpenUnfreezeDialog(true);
+  };
+
+  const unfreezeYes = async () => {
+    setLoadingPage(true);
+    const res = await penaltyPoint(usertoken, qId);
+    console.log("Response on unfreeze");
+    console.log(res);
+    if (res.code === "S3") {
+      mapOpen(true);
+    } else if (res.code === "L4") {
+      notify("Not enough penalty points");
+    }
+    setOpenUnfreezeDialog(false);
+    setUnfreezeQues(true);
+    setLoadingPage(false);
+  };
+
   useEffect(() => {
     const asyncQuestion = async () => {
       let res = await getQuestion(usertoken, qId);
@@ -215,25 +234,6 @@ function Question({ mapOpen, qId, mapData }) {
     setHintImg([]);
   }, [wantHint]);
 
-  const handleFreeze = async () => {
-    setOpenUnfreezeDialog(true);
-  };
-
-  const unfreezeYes = async () => {
-    setLoadingPage(true);
-    const res = await penaltyPoint(usertoken, qId);
-    console.log("Response on unfreeze");
-    console.log(res);
-    if (res.code === "S3") {
-      mapOpen(true);
-    } else if (res.code === "L4") {
-      notify("Not enough penalty points");
-    }
-    setOpenUnfreezeDialog(false);
-    setUnfreezeQues(true);
-    setLoadingPage(false);
-  };
-
   // useEffect(() => {
   //   const asyncUnfreezeQues = async () => {
   //     let res = await penaltyPoint(usertoken, qId);
@@ -260,11 +260,7 @@ function Question({ mapOpen, qId, mapData }) {
 
   return (
     <>
-      <Layout
-        backgroundColor={getComputedStyle(
-          document.documentElement
-        ).getPropertyValue("--map-bg")}
-      />
+      <Layout backgroundColor="var(--map-bg)" />
       <PlaySection>
         {loadingPage && (
           <div>
@@ -402,7 +398,10 @@ function Question({ mapOpen, qId, mapData }) {
         </DialogTitle>
         {penaltyPoints > 0 ? (
           <>
-            <DialogContent id="hintDialog-text">{Math.floor(penaltyPoints/10)} chance{Math.floor(penaltyPoints/10) === 2? 's' : ''} left</DialogContent>
+            <DialogContent id="hintDialog-text">
+              {Math.floor(penaltyPoints / 10)} chance
+              {Math.floor(penaltyPoints / 10) === 2 ? "s" : ""} left
+            </DialogContent>
             <DialogActions id="hintDialog-buttons">
               <Button id="confirm-button" onClick={unfreezeYes} color="primary">
                 Yes
@@ -413,7 +412,9 @@ function Question({ mapOpen, qId, mapData }) {
             </DialogActions>
           </>
         ) : (
-          <><DialogContent id="hintDialog-text">Until midnight</DialogContent></>
+          <>
+            <DialogContent id="hintDialog-text">Until midnight</DialogContent>
+          </>
         )}
       </Dialog>
 

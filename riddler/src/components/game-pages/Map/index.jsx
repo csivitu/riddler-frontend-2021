@@ -96,8 +96,7 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
     [9, 20, 32].forEach((i) => {
       const element = document.getElementById(`portal-box${i}`);
       if (mapRes.portalNodes[i]) element.classList.add("solved");
-      element.addEventListener("click", () => {
-      });
+      element.addEventListener("click", () => {});
       // return () => element.re
     });
 
@@ -111,8 +110,12 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
       const element = document.getElementById(`node${mapRes.lockedNode}`);
       element.classList.add("locked");
       const peg = document.getElementById("locked-peg");
-      const topOffset = [37, 38, 39].includes(mapRes.lockedNode) ? "50px" : "35px";
-      const leftOffset = [37, 38, 39].includes(mapRes.lockedNode) ? "1px" : "1px";
+      const topOffset = [37, 38, 39].includes(mapRes.lockedNode)
+        ? "50px"
+        : "35px";
+      const leftOffset = [37, 38, 39].includes(mapRes.lockedNode)
+        ? "1px"
+        : "1px";
       peg.style.setProperty(
         "top",
         `calc(${getComputedStyle(element).top} - ${topOffset})`
@@ -202,7 +205,7 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
       renderMap(res);
     };
     asyncMap();
-    console.log('Render: ', check);
+    console.log("Render: ", check);
     setCheck(check + 1);
 
     return () => {
@@ -222,11 +225,7 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
 
   return (
     <>
-      <Layout
-        backgroundColor={getComputedStyle(
-          document.documentElement
-        ).getPropertyValue("--map-bg")}
-      />
+      <Layout backgroundColor="var(--map-bg)" />
       <div className="map-section">
         <div id="map-loading">
           <CircularProgress color="secondary" />
