@@ -33,12 +33,11 @@ const Navbar = ({ toggle, backgroundColor }) => {
   const userName = useSelector((state) => state.auth.username);
   const token = useSelector((state) => state.auth.token);
   const [score, setScore] = useState("-");
-  const [currentTrack, setCurrentTrack] = useState(JSON.parse(localStorage.getItem("currentTracks")));
+  const [currentTrack, setCurrentTrack] = useState(JSON.parse(localStorage.getItem("currentTracks")) ? JSON.parse(localStorage.getItem("currentTracks")) : []);
 
   const updateColor = (res) => {
     // setCurrentTrack(JSON.parse(localStorage.getItem("currentTracks")));
     setCurrentTrack(res.currentTrack);
-    console.log("Tracks from navbar: ", currentTrack);
     if (currentTrack === [] || currentTrack === null) {
       document.documentElement.style.setProperty(
         "--leaderboard-bg",
@@ -46,7 +45,6 @@ const Navbar = ({ toggle, backgroundColor }) => {
       );
       document.documentElement.style.setProperty("--map-bg", "--past");
       document.documentElement.style.setProperty("--guide-bg", "--present");
-      console.log("Resetting colors");
     } else {
       const varNames = {
         1: "--present",
@@ -54,7 +52,6 @@ const Navbar = ({ toggle, backgroundColor }) => {
         3: "--future",
       };
       const currentColor = varNames[currentTrack[0]];
-      console.log("Updating colors to", currentTrack[0]);
       document.documentElement.style.setProperty(
         "--leaderboard-bg",
         `var(${currentColor})`
@@ -74,7 +71,7 @@ const Navbar = ({ toggle, backgroundColor }) => {
     };
     asyncPlayerdata();
   }, []);
-  console.log("Rerendering");
+  console.log("Rerendering Navbar");
 
   return (
     <>

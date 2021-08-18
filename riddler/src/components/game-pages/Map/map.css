@@ -431,7 +431,7 @@
 }
 
 .Toastify__progress-bar {
-  background-color: #dbf429;
+  background-color: var(--map-bg);
 }
 
 /* Dialogue Box */

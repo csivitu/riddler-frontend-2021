@@ -11,9 +11,9 @@ import api, { setAuthToken } from './api/api';
 import { logout, setUsername } from './redux/reducers/authReducer';
 import PrivateRoute from './components/privateRoutes';
 import Game from "./components/game-pages/Game";
-import Guide from "./components/game-pages/Rules";
 import Leaderboard from "./components/game-pages/Leaderboard";
 import Play from './components/game-pages/PlayPage';
+import Guide from './components/game-pages/Guide';
 
 
 

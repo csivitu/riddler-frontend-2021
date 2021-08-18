@@ -51,29 +51,21 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
       }
     });
 
-    console.log("mapRes.unlockedNodes");
     mapRes.unlockedNodes.forEach((i) => {
       if (i === mapRes.lockedNode) return;
-      console.log(i + "is this 40");
       const element = document.getElementById(`node${i}`);
-      console.log(element);
       element.classList.add("unlocked");
       if ([37, 38, 39].includes(i)) {
         element.classList.add("display-none");
       }
       if (mapRes.lockedNode === 0) {
         element.addEventListener("click", () => {
-          console.log("Unlocked Node clicked!");
           handleClickOpen();
 
           const confirmButton = document.getElementById("confirm-button");
           confirmButton.addEventListener(
             "click",
             function confirmButtonPress() {
-              console.log("confirmed");
-
-              // Send request
-              // window.location.href = `/play?qid=${i}`;
               qId(i);
               mapOpen(false);
 
@@ -83,8 +75,7 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
         });
       } else {
         element.addEventListener("click", function unlockNode() {
-          console.log("Unlocked Node clicked!");
-          notify("Unfreeze to access!");
+          notify("Unfreeze to access");
         });
         return () => element.removeEventListener("click", unlockedNode);
       }
@@ -95,12 +86,10 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
       element.classList.add("solved");
       if (mapRes.portalNodes[i] === false) return;
       element.addEventListener("click", function solvedNode() {
-        console.log("Solved Node clicked!");
-        notify("Solved node");
+        notify("Solved Question");
       });
       return () => {
         element.removeEventListener("click", solvedNode);
-        console.log("Removed solved event listener");
       };
     });
 
@@ -108,7 +97,6 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
       const element = document.getElementById(`portal-box${i}`);
       if (mapRes.portalNodes[i]) element.classList.add("solved");
       element.addEventListener("click", () => {
-        console.log("portal Node Box clicked!");
       });
       // return () => element.re
     });
@@ -116,8 +104,7 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
     leftover.forEach((i) => {
       const element = document.getElementById(`node${i}`);
       element.addEventListener("click", () => {
-        console.log("Other node clicked!");
-        notify("Locked question!");
+        notify("Locked Question!");
       });
     });
     if (mapRes.lockedNode) {
@@ -135,7 +122,6 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
         `calc(${getComputedStyle(element).left} - ${leftOffset})`
       );
       element.addEventListener("click", () => {
-        console.log("Locked Node clicked!");
         qId(mapRes.lockedNode);
         mapOpen(false);
       });
@@ -205,7 +191,7 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
   };
 
   const tutorialStart = () => {
-    console.log("tutorial begins");
+    console.log("Tutorial begins");
     setTutorialOpen(true);
   };
 
@@ -216,7 +202,7 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
       renderMap(res);
     };
     asyncMap();
-    console.log(check);
+    console.log('Render: ', check);
     setCheck(check + 1);
 
     return () => {
@@ -230,7 +216,7 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
       setDialogueOpen(false);
       setZoom(1);
       ref.current = null;
-      console.log("Clean");
+      console.log("Map clean");
     };
   }, [tutorialOpen, mapOpen]);
 

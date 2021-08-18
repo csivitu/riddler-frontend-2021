@@ -97,7 +97,7 @@ const Game = () => {
       <RiddlerLogo src={riddlerLogo} alt={"Riddler Logo"}/>
       <ButtonContainer>
         <img
-          id="/rules"
+          id="/guide"
           src={guideButton}
           alt={"Riddler Logo"}
           onClick={(e) => {

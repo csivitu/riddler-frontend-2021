@@ -5,6 +5,7 @@
   color: white;
   border-radius: 1rem;
   overflow: visible;
+  outline: none;
 }
 
 #hintDialog-icon {
@@ -35,6 +36,7 @@
     color: var(--map-bg);
     font-size: 1.5rem;
 }
+
 #hintDialog-buttons {
   justify-content: space-evenly;
   margin-bottom: 1rem;
@@ -54,8 +56,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
+
 #answer-alert {
   background-color: #3b3b3b;
   font-family: "Poppins";
@@ -66,6 +68,7 @@
   position: relative;
   height:10rem;
 }
+
 #alert-icon {
   position: absolute;
   width: 6rem;
@@ -79,6 +82,7 @@
   border-radius: 50%;
   background-color: var(--map-bg);
 }
+
 #alert-title {
   font-size: 2rem;
   text-align: center;
