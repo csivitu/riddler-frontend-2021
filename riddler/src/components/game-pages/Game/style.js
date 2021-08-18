@@ -17,6 +17,7 @@ flex-direction:column;
 export const RiddlerLogo = styled.img`
 height:10%;
 margin-bottom: 5%;
+pointer-events:none;
 @media screen and (max-width: 700px) {
     width:90%;
   }
