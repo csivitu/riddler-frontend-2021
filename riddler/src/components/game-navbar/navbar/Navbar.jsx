@@ -36,8 +36,8 @@ const Navbar = ({ toggle, backgroundColor }) => {
   const [currentTrack, setCurrentTrack] = useState(JSON.parse(localStorage.getItem("currentTracks")));
 
   const updateColor = (res) => {
-    setCurrentTrack(JSON.parse(localStorage.getItem("currentTracks")));
-    // setCurrentTrack(res.token);
+    // setCurrentTrack(JSON.parse(localStorage.getItem("currentTracks")));
+    setCurrentTrack(res.currentTrack);
     console.log("Tracks from navbar: ", currentTrack);
     if (currentTrack === [] || currentTrack === null) {
       document.documentElement.style.setProperty(
@@ -69,8 +69,8 @@ const Navbar = ({ toggle, backgroundColor }) => {
       let res = await getPlayerdata(token);
       console.log("Player data: ");
       console.log(res);
-      setScore(res._doc.score);
       updateColor(res);
+      setScore(res.playerScore);
     };
     asyncPlayerdata();
   }, []);

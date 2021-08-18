@@ -1,0 +1,95 @@
+.hintDialog-container div div {
+  background-color: #3b3b3b;
+  font-family: "Poppins";
+  width: 18rem;
+  color: white;
+  border-radius: 1rem;
+  overflow: visible;
+}
+
+#hintDialog-icon {
+  position: absolute;
+  width: 6rem;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -3rem;
+  left: 6rem;
+  font-size: 3rem;
+  border-radius: 50%;
+  background-color: var(--map-bg);
+}
+
+#alert-hintDialog-title h2 {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 700;
+  line-height: 110%;
+  margin-top: 3rem;
+  padding: 0 0.5rem;
+}
+
+#hintDialog-text {
+    text-align: center;
+    color: var(--map-bg);
+    font-size: 1.5rem;
+}
+#hintDialog-buttons {
+  justify-content: space-evenly;
+  margin-bottom: 1rem;
+}
+
+#hintDialog-buttons button {
+  background-color: white;
+  color: black;
+  font-size: 1.2rem;
+  width: 5rem;
+  border-radius: 1.5rem;
+  filter: drop-shadow(0.2rem 0.2rem 0.3rem rgba(0, 0, 0, 0.48));
+  font-weight: 600;
+}
+
+.answer-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+#answer-alert {
+  background-color: #3b3b3b;
+  font-family: "Poppins";
+  width: 18rem;
+  color: white;
+  border-radius: 1rem;
+  overflow: visible;
+  position: relative;
+  height:10rem;
+}
+#alert-icon {
+  position: absolute;
+  width: 6rem;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -3rem;
+  left: 6rem;
+  font-size: 3rem;
+  border-radius: 50%;
+  background-color: var(--map-bg);
+}
+#alert-title {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 700;
+  line-height: 110%;
+  margin-top: 4rem;
+  padding: 0 0.5rem;
+}
+
+#alert-message{
+    text-align: center;
+    color: var(--map-bg);
+    font-size: 1.5rem;
+}
