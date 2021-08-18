@@ -11,6 +11,8 @@ const Leaderboard = () => {
   useEffect(() => {
     const asyncLeaderboard = async () => {
       let res = await getLeaderboard();
+      console.log("Leaderboard data: ");
+      console.log(res);
       setLeaderboard(res);
     };
     asyncLeaderboard();
@@ -18,7 +20,7 @@ const Leaderboard = () => {
 
   return (
     <>
-      <Layout />
+      <Layout backgroundColor={getComputedStyle(document.documentElement).getPropertyValue('--leaderboard-bg')} />
       <div className="whole_page">
         <table className="tables">
           <thead class="fixedHeader">

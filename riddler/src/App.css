@@ -5,9 +5,9 @@
 }
 
 :root {
-  --past: #D8E424;
-  --present: #15BCFF;
-  --future: #FA2E68;
+  --past: #DBF429;
+  --present: #FE3176;
+  --future: #15BCFF;
   --leaderboard-bg: var(--future);
   --guide-bg: var(--present);
   --map-bg: var(--past);

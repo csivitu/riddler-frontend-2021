@@ -4,7 +4,7 @@ import Sidebar from './sidebar/Sidebar';
 
 import './Layout.css';
 
-const Layout = () => {
+const Layout = ({ backgroundColor }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => {
@@ -13,8 +13,8 @@ const Layout = () => {
 
     return (
         <>
-            <Sidebar isOpen={isOpen} toggle={toggle}/>
-            <Navbar toggle={toggle}/>
+            <Sidebar backgroundColor={backgroundColor} isOpen={isOpen} toggle={toggle}/>
+            <Navbar backgroundColor={backgroundColor} toggle={toggle}/>
         </>
     )
 }

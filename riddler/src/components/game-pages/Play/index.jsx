@@ -43,8 +43,8 @@ import {
 
 function Question({ mapOpen, qId, mapData }) {
   const trackName = {
-    1: "mythical past",
-    2: "digital present",
+    2: "mythical past",
+    1: "digital present",
     3: "dystopian future",
   };
   const usertoken = useSelector((state) => state.auth.token);
@@ -158,6 +158,7 @@ function Question({ mapOpen, qId, mapData }) {
       let res = await getQuestion(usertoken, qId);
       console.log("Question: ");
       console.log(res);
+      localStorage.setItem("currentTracks",JSON.stringify(res.track));
       if(res.track.length === 1) res.track = [res.track[0],res.track[0]];
       setRes(res);
       if (res.question) {
@@ -187,7 +188,7 @@ function Question({ mapOpen, qId, mapData }) {
 
   return (
     <>
-      <Layout></Layout>
+      <Layout backgroundColor={getComputedStyle(document.documentElement).getPropertyValue('--map-bg')} />
       <QContainer>
         {loadingPage && (
           <div>

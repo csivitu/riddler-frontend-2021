@@ -65,7 +65,7 @@ export const SidebarLink = styled(NavLink)`
 
   &.active,
   &:active {
-    color: var(--navbar-bg);
+    color: ${({ backgroundColor }) => backgroundColor};
   }
 `;
 

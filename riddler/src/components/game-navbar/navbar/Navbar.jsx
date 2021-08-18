@@ -28,16 +28,49 @@ import { NavLink, useLocation } from "react-router-dom";
 import { getPlayerdata } from "../../../api/requests";
 import LightTooltip from "../../game-pages/Tooltip";
 
-const Navbar = ({ toggle }) => {
+const Navbar = ({ toggle, backgroundColor }) => {
   const location = useLocation();
   const userName = useSelector((state) => state.auth.username);
   const token = useSelector((state) => state.auth.token);
   const [score, setScore] = useState("-");
+  const [currentTrack, setCurrentTrack] = useState(JSON.parse(localStorage.getItem("currentTracks")));
+
+  const updateColor = (res) => {
+    setCurrentTrack(JSON.parse(localStorage.getItem("currentTracks")));
+    // setCurrentTrack(res.token);
+    console.log("Tracks from navbar: ", currentTrack);
+    if (currentTrack === [] || currentTrack === null) {
+      document.documentElement.style.setProperty(
+        "--leaderboard-bg",
+        "--future"
+      );
+      document.documentElement.style.setProperty("--map-bg", "--past");
+      document.documentElement.style.setProperty("--guide-bg", "--present");
+      console.log("Resetting colors");
+    } else {
+      const varNames = {
+        1: "--present",
+        2: "--past",
+        3: "--future",
+      };
+      const currentColor = varNames[currentTrack[0]];
+      console.log("Updating colors to", currentTrack[0]);
+      document.documentElement.style.setProperty(
+        "--leaderboard-bg",
+        `var(${currentColor})`
+      );
+      document.documentElement.style.setProperty("--map-bg", `var(${currentColor})`);
+      document.documentElement.style.setProperty("--guide-bg", `var(${currentColor})`);
+    }
+  };
 
   useEffect(() => {
     const asyncPlayerdata = async () => {
       let res = await getPlayerdata(token);
+      console.log("Player data: ");
+      console.log(res);
       setScore(res._doc.score);
+      updateColor(res);
     };
     asyncPlayerdata();
   }, []);
@@ -45,7 +78,7 @@ const Navbar = ({ toggle }) => {
 
   return (
     <>
-      <Nav>
+      <Nav backgroundColor={backgroundColor}>
         <NavbarContainer>
           <NavLogo to="game">
             <img src={riddlerLogo} alt="Riddler Logo"></img>
@@ -71,15 +104,15 @@ const Navbar = ({ toggle }) => {
             </LightTooltip>
           </NavMenu>
           <NavMenuRight>
-            <Player>
+            <Player backgroundColor={backgroundColor}>
               <FaStar />
               <p>{score}</p>
             </Player>
-            <Player>{userName}</Player>
-            <MusicPlayer>
+            <Player backgroundColor={backgroundColor}>{userName}</Player>
+            <MusicPlayer backgroundColor={backgroundColor}>
               <FaMusic />
             </MusicPlayer>
-            <MusicDropdown>
+            <MusicDropdown backgroundColor={backgroundColor}>
               <FaChevronDown />
             </MusicDropdown>
           </NavMenuRight>

@@ -71,7 +71,7 @@
 }
 
 .scrolldown::-webkit-scrollbar-thumb {
-  background: var(--map-bg);
+  background: var(--leaderboard-bg);
   border-radius: 5px;
 }
 
@@ -80,7 +80,7 @@
 }
 
 .names {
-  color: var(--map-bg);
+  color: var(--leaderboard-bg);
   height: 2rem;
   font-size: 1.5rem;
   font-family: Inconsolata;
@@ -91,7 +91,7 @@
 }
 
 .names td {
-  border: solid 3px var(--map-bg);
+  border: solid 3px var(--leaderboard-bg);
   border-style: solid none;
   padding: 10px 5px;
 }
@@ -116,7 +116,7 @@
 
 #me {
   padding: 10px;
-  background-color: var(--map-bg);
+  background-color: var(--leaderboard-bg);
   color: black;
 }
 

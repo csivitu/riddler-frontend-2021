@@ -101,7 +101,7 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
       return () => {
         element.removeEventListener("click", solvedNode);
         console.log("Removed solved event listener");
-      }
+      };
     });
 
     [9, 20, 32].forEach((i) => {
@@ -124,13 +124,15 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
       const element = document.getElementById(`node${mapRes.lockedNode}`);
       element.classList.add("locked");
       const peg = document.getElementById("locked-peg");
+      const topOffset = [37, 38, 39].includes(mapRes.lockedNode) ? "50px" : "35px";
+      const leftOffset = [37, 38, 39].includes(mapRes.lockedNode) ? "1px" : "1px";
       peg.style.setProperty(
         "top",
-        `calc(${getComputedStyle(element).top} - 35px)`
+        `calc(${getComputedStyle(element).top} - ${topOffset})`
       );
       peg.style.setProperty(
         "left",
-        `calc(${getComputedStyle(element).left} - 1px)`
+        `calc(${getComputedStyle(element).left} - ${leftOffset})`
       );
       element.addEventListener("click", () => {
         console.log("Locked Node clicked!");
@@ -234,18 +236,22 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
 
   return (
     <>
-      <Layout />
+      <Layout
+        backgroundColor={getComputedStyle(
+          document.documentElement
+        ).getPropertyValue("--map-bg")}
+      />
       <div className="map-section">
         <div id="map-loading">
           <CircularProgress color="secondary" />
         </div>
-        <Tutorial
-          tutorialOpen={tutorialOpen}
-          setTutorialOpen={setTutorialOpen}
-          setLegendOpen={setLegendOpen}
-        />
         <div id="darken" />
         <div className="map-container" ref={ref} onMouseDown={onMouseDown}>
+          <Tutorial
+            tutorialOpen={tutorialOpen}
+            setTutorialOpen={setTutorialOpen}
+            setLegendOpen={setLegendOpen}
+          />
           <div
             style={{ transition: "all 0.25s ease-in-out", zoom: `${zoom}` }}
             className="map"

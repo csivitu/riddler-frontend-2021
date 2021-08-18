@@ -16,7 +16,7 @@ export const Nav = styled.nav`
   font-size: 1rem;
   position: sticky;
   top: 0;
-  background-color: var(--navbar-bg);
+  background-color: ${({ backgroundColor }) => backgroundColor};
   z-index: 10;
 
   @media screen and (min-width: 950px) {
@@ -161,7 +161,7 @@ export const Player = styled.div`
   align-self: center;
   height:40px;
   padding:2px;
-  color: var(--navbar-bg);
+  color: ${({ backgroundColor }) => backgroundColor};
   background-color: black;
   min-width:110px;
   border:3px solid black;
@@ -184,7 +184,7 @@ export const MusicPlayer = styled.div`
   height: 40px;
   width: 40px;
   background-color: black;
-  color: var(--navbar-bg);
+  color: ${({ backgroundColor }) => backgroundColor};
   display: flex;
   align-items: center;
   justify-content: center;

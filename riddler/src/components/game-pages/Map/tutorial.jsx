@@ -46,15 +46,27 @@ const Tutorial = ({ tutorialOpen, setTutorialOpen, setLegendOpen }) => {
 
   const handleJoyrideCallback = (data) => {
     const { action, index, status, type } = data;
-    console.log(data)
+    console.log(data);
+    const elem = document.getElementsByClassName("map-container")[0];
+    console.log(elem);
+    let top = getComputedStyle(
+      document.querySelector(state.steps[index].target)
+    ).top;
+    let left = getComputedStyle(
+      document.querySelector(state.steps[index].target)
+    ).left;
+
+    if (type === "tour:start") {
+      elem.scrollTo(0, 0);
+    }
 
     if (index === 2) {
-        setLegendOpen(true);
-    } 
+      setLegendOpen(true);
+    }
 
     if (index === 4) {
-        setLegendOpen(false);
-    } 
+      setLegendOpen(false);
+    }
 
     if (
       [STATUS.FINISHED, STATUS.SKIPPED].includes(status) ||
@@ -110,7 +122,7 @@ const Tutorial = ({ tutorialOpen, setTutorialOpen, setLegendOpen }) => {
             fontFamily: "Poppins",
             fontWeight: 500,
             filter: "drop-shadow(4px 3px 11px rgba(0, 0, 0, 0.48))",
-            outline: 'none',
+            outline: "none",
           },
           buttonBack: {
             borderRadius: "2rem",

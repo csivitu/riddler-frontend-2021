@@ -10,7 +10,7 @@ import {
   SidebarRoute,
 } from "./SidebarElements";
 
-const Sidebar = ({ isOpen, toggle }) => {
+const Sidebar = ({ isOpen, toggle, backgroundColor }) => {
   return (
     <SidebarContainer isOpen={isOpen} onClick={toggle}>
       <Icon onClick={toggle}>
@@ -30,6 +30,7 @@ const Sidebar = ({ isOpen, toggle }) => {
             spy={true}
             exact="true"
             offset={-80}
+            backgroundColor={backgroundColor}
           >
             GUIDE
           </SidebarLink>
@@ -41,6 +42,7 @@ const Sidebar = ({ isOpen, toggle }) => {
             spy={true}
             exact="true"
             offset={-80}
+            backgroundColor={backgroundColor}
           >
             PLAY
           </SidebarLink>
@@ -52,6 +54,7 @@ const Sidebar = ({ isOpen, toggle }) => {
             spy={true}
             exact="true"
             offset={-80}
+            backgroundColor={backgroundColor}
           >
             LEADERBOARD
           </SidebarLink>
