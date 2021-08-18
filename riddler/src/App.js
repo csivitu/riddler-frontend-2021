@@ -14,6 +14,7 @@ import Game from "./components/game-pages/Game";
 import Rules from "./components/game-pages/Rules";
 import Leaderboard from "./components/game-pages/Leaderboard";
 import Play from './components/game-pages/PlayPage';
+import Guide from './components/game-pages/Guide';
 
 
 
@@ -57,7 +58,7 @@ function App() {
         </Route>
         <PrivateRoute exact path="/game" component={Game} />
         <PrivateRoute exact path="/leaderboard" component={Leaderboard} />
-        <PrivateRoute exact path="/rules" component={Rules} />
+        <PrivateRoute exact path="/rules" component={Guide} />
         <PrivateRoute exact path="/play" component={Play} />
       </Switch>
     </Router>
