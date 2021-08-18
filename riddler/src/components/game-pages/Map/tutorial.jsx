@@ -46,9 +46,7 @@ const Tutorial = ({ tutorialOpen, setTutorialOpen, setLegendOpen }) => {
 
   const handleJoyrideCallback = (data) => {
     const { action, index, status, type } = data;
-    console.log(data);
     const elem = document.getElementsByClassName("map-container")[0];
-    console.log(elem);
     let top = getComputedStyle(
       document.querySelector(state.steps[index].target)
     ).top;

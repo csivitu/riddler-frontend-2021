@@ -1,30 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import {
-  AContainer,
-  AnswerBox,
-  QContainer,
-  QuestionBox,
-  QuestionContent,
-  TrackBox,
-  Trackname,
-  OurButton,
-  ButtonContainer,
-  Hint,
-  Container1,
-  QBtnContainer,
-  TopBox,
-  Image,
-  Qdiv,
-  Adiv,
-} from "./style";
 // import {Tooltip} from '@material-ui/core';
-import './play.css'
+import "./play.css";
 import Tooltip from "@material-ui/core/Tooltip";
 import hintIcon from "./assets/hint.svg";
 import mapIcon from "./assets/map.svg";
 import bulb from "../../../assets/bulb_dark.svg";
-import { FaRedoAlt, FaPlay, FaDiscord, FaLock, FaStar } from "react-icons/fa";
+import {
+  FaRedoAlt,
+  FaPlay,
+  FaDiscord,
+  FaLock,
+  FaStar,
+  FaTimes,
+} from "react-icons/fa";
 import {
   Button,
   CircularProgress,
@@ -43,21 +32,35 @@ import {
   penaltyPoint,
   submitAnswer,
 } from "../../../api/requests";
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import Fade from "@material-ui/core/Fade";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { makeStyles } from '@material-ui/core/styles';
-
+import { makeStyles } from "@material-ui/core/styles";
+import {
+  PlaySection,
+  QuestionContainer,
+  TopBox,
+  TrackBox,
+  Trackname,
+  QuestionBox,
+  QBtnContainer,
+  AContainer,
+  AnswerBox,
+  OurButton,
+  QuestionContent,
+  Image,
+  ButtonContainer,
+  LinkText,
+} from "./playElements";
 
 const useStyles = makeStyles({
   myStyle: {
-    backgroundColor: 'transparent',
-    color: 'white',
-
+    backgroundColor: "transparent",
+    color: "white",
   },
 });
 
@@ -71,9 +74,7 @@ const notify = (message) =>
     progress: undefined,
   });
 
-
 function Question({ mapOpen, qId, mapData }) {
-
   const classes = useStyles();
 
   const trackName = {
@@ -83,7 +84,6 @@ function Question({ mapOpen, qId, mapData }) {
   };
   const usertoken = useSelector((state) => state.auth.token);
   const [wantHint, setWantHint] = useState(false);
-  console.log(wantHint);
 
   const [ques, setQues] = useState("");
   const [quesImg, setQuesImg] = useState([]);
@@ -116,10 +116,10 @@ function Question({ mapOpen, qId, mapData }) {
 
   const handleCorrectAnsClose = () => {
     setCorrectAnsAlert(false);
-  }
+  };
   const handleUnfreezeClose = () => {
     setOpenUnfreezeDialog(false);
-  }
+  };
   const clickNoHint = () => {
     setWantHint(false);
     handleClose();
@@ -158,14 +158,13 @@ function Question({ mapOpen, qId, mapData }) {
       const res = await submitAnswer(usertoken, qId, answer);
       console.log("Response of answer submit");
       console.log(res);
-      if (res.code==='S2') {
+      if (res.code === "S2") {
         setCorrectAnsAlert(true);
         setTimeout(function () {
           setCorrectAnsAlert(false);
           mapOpen(true);
         }, 2000);
-      }
-      else {
+      } else {
         notify("Incorrect Answer");
       }
     }
@@ -177,8 +176,8 @@ function Question({ mapOpen, qId, mapData }) {
       let res = await getQuestion(usertoken, qId);
       console.log("Question: ");
       console.log(res);
-      localStorage.setItem("currentTracks",JSON.stringify(res.track));
-      if(res.track.length === 1) res.track = [res.track[0],res.track[0]];
+      localStorage.setItem("currentTracks", JSON.stringify(res.track));
+      if (res.track.length === 1) res.track = [res.track[0], res.track[0]];
       // setRes(res);
       if (res.question) {
         setQues(res.question.text);
@@ -208,7 +207,6 @@ function Question({ mapOpen, qId, mapData }) {
     setOpenUnfreezeDialog(true);
     // console.log('On clicking yes after unfreeze');
     // console.log(res);
-
   };
 
   const unfreezeYes = async () => {
@@ -220,7 +218,7 @@ function Question({ mapOpen, qId, mapData }) {
     mapOpen(true);
     setOpenUnfreezeDialog(false);
     setUnfreezeQues(true);
-  }
+  };
 
   useEffect(() => {
     const asyncUnfreezeQues = async () => {
@@ -244,12 +242,16 @@ function Question({ mapOpen, qId, mapData }) {
       //   mapOpen(true);
       // }
     };
-  }, [unfreezeQues])
+  }, [unfreezeQues]);
 
   return (
     <>
-      <Layout backgroundColor={getComputedStyle(document.documentElement).getPropertyValue('--map-bg')} />
-      <QContainer>
+      <Layout
+        backgroundColor={getComputedStyle(
+          document.documentElement
+        ).getPropertyValue("--map-bg")}
+      />
+      <PlaySection>
         {loadingPage && (
           <div>
             <div id="map-loading">
@@ -258,79 +260,89 @@ function Question({ mapOpen, qId, mapData }) {
             <div id="darken" />
           </div>
         )}
-        <Container1>
-          <TopBox>
-            <TrackBox>
-              <Trackname>{track1} X</Trackname>
-              <Trackname>&nbsp;{track2}</Trackname>
-            </TrackBox>
-            <QBtnContainer>
-              {hintButton && (
-                <IconButton onClick={handleClickOpen}>
-                  <img src={hintIcon} alt="" />
-                </IconButton>
-              )}
-              <IconButton onClick={() => mapOpen(true)}>
-                <img src={mapIcon} alt="" />
-              </IconButton>
-            </QBtnContainer>
-          </TopBox>
-
+        <TopBox>
+          <TrackBox>
+            <Trackname>{track1}</Trackname>
+            <Trackname>
+              <FaTimes />
+            </Trackname>
+            <Trackname>{track2}</Trackname>
+          </TrackBox>
+        </TopBox>
+        <QuestionContainer>
           <QuestionBox>
             <QuestionContent>{ques}</QuestionContent>
-            <Qdiv  >
-              {quesImg.map((imgLink) => {
-                return (
-                  <Image>
-                    <img src={imgLink} alt="" />
-                  </Image>
-                );
-              })}
-              <br />
-              {quesLink.map((link) => {
-                return (
-                  <>
-                    <a href={link} target="_blank">
-                      {link}
-                    </a>
-                    <br />
-                  </>
-                );
-              })}
-              {wantHint && (
-                <Hint>
-                  Hint: {hint} {hintImg} {hintLink}
-                </Hint>
-              )}
-            </Qdiv>
+            {quesImg.map((imgLink) => {
+              return (
+                <Image>
+                  <img src={imgLink} alt="" />
+                </Image>
+              );
+            })}
+            {quesLink.map((link) => (
+              <LinkText href={link} rel="noreferrer" target="_blank">
+                {link}
+              </LinkText>
+            ))}
+            {wantHint && (
+              <>
+                <h1
+                  style={{
+                    color: "var(--map-bg)",
+                    fontFamily: "Poppins",
+                  }}
+                >
+                  Hint
+                </h1>
+                <QuestionContent>{hint}</QuestionContent>
+                {hintImg.map((imgLink) => {
+                  return (
+                    <Image>
+                      <img src={imgLink} alt="" />
+                    </Image>
+                  );
+                })}
+                {hintLink.map((link) => (
+                      <LinkText href={link} rel="noreferrer" target="_blank">
+                        {link}
+                      </LinkText>
+                ))}
+              </>
+            )}
           </QuestionBox>
-          <AContainer>
-            <Adiv>
-              <AnswerBox
-                autoFocus
-                id="answer-box"
-                type="text"
-                placeholder="Type here..."
-                onKeyDown={(event) => {
-                  if (event.key === "Enter") {
-                    handleAnswer();
-                  }
-                }}
-              ></AnswerBox>
-            </Adiv>
-            <ButtonContainer>
-              <OurButton onClick={handleAnswer} type="submit">
-                SUBMIT
-              </OurButton>
-              <Tooltip title="What does unfreeze do?">
-                <OurButton onClick={handleFreeze}>UNFREEZE</OurButton>
-              </Tooltip>
-            </ButtonContainer>
-          </AContainer>
-        </Container1>
-
-
-      </QContainer>
+          <QBtnContainer>
+            {hintButton && (
+              <IconButton onClick={handleClickOpen}>
+                <img src={hintIcon} alt="" />
+              </IconButton>
+            )}
+            <IconButton onClick={() => mapOpen(true)}>
+              <img src={mapIcon} alt="" />
+            </IconButton>
+          </QBtnContainer>
+        </QuestionContainer>
+        <AContainer>
+          <AnswerBox
+            autoFocus
+            id="answer-box"
+            type="text"
+            placeholder="Type here..."
+            onKeyDown={(event) => {
+              if (event.key === "Enter") {
+                handleAnswer();
+              }
+            }}
+          ></AnswerBox>
+          <ButtonContainer>
+            <OurButton onClick={handleAnswer} type="submit">
+              SUBMIT
+            </OurButton>
+            <Tooltip title="What does unfreeze do?">
+              <OurButton onClick={handleFreeze}>UNFREEZE</OurButton>
+            </Tooltip>
+          </ButtonContainer>
+        </AContainer>
+      </PlaySection>
 
       <Dialog
         open={openHintDialog}
@@ -341,10 +353,10 @@ function Question({ mapOpen, qId, mapData }) {
         <div id="hintDialog-icon">
           <img src={bulb} alt="" />
         </div>
-        <DialogTitle id="alert-hintDialog-title">
-          Take a hint?
-        </DialogTitle>
-        <DialogContent id="hintDialog-text">-5 <FaStar /></DialogContent>
+        <DialogTitle id="alert-hintDialog-title">Take a hint?</DialogTitle>
+        <DialogContent id="hintDialog-text">
+          -5 <FaStar />
+        </DialogContent>
         <DialogActions id="hintDialog-buttons">
           <Button id="confirm-button" onClick={clickYesHint} color="primary">
             Yes
@@ -388,7 +400,9 @@ function Question({ mapOpen, qId, mapData }) {
               <img src={bulb} alt="" />
             </div>
             <h2 id="alert-title">Correct</h2>
-            <p id="alert-message">+20 <FaStar /></p>
+            <p id="alert-message">
+              +20 <FaStar />
+            </p>
           </div>
         </Fade>
       </Modal>
