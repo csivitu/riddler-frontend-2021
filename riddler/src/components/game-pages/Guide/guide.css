@@ -6,7 +6,7 @@
   background-color: black;
   color: white;
   height: 100%;
-  /* position: relative; */
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,19 +62,24 @@
   border-radius: 50%;
   background-color: var(--guide-bg);
   width: fit-content;
-  padding: 1rem;
+  padding: 0.8rem;
   color: black;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-#discord-link{
-    /* text-decoration: none; */
-    margin-top: 1rem;
-    margin-bottom: 3rem;
-    color: var(--guide-bg);
-    font-family: Poppins;
-    text-align: center;
+#discord-link {
+  /* text-decoration: none; */
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  color: var(--guide-bg);
+  font-family: Poppins;
+  text-align: center;
+}
+#discord-button {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
 }
 @media screen and (max-width: 450px) {
   .images {
@@ -87,4 +92,10 @@
   /* .headings{
         font-size:90%;
     } */
+
+  #discord-button {
+    position: fixed;
+    top: 100px;
+    right: 10px;
+  }
 }

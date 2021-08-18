@@ -8,10 +8,11 @@ import img4 from "../../../assets/guide-img-4.png";
 import img5 from "../../../assets/guide-img-5.png";
 import img6 from "../../../assets/guide-img-6.png";
 import { FaDiscord } from "react-icons/fa";
+import { Tooltip } from "@material-ui/core";
 
 function Guide() {
   return (
-    <>
+    <div>
       <Layout backgroundColor="var(--map-bg)"></Layout>
       <div className="guide-container">
         <div id="heading">
@@ -109,19 +110,18 @@ function Guide() {
             </li>
           </ul>
           <img className="images" src={img6} alt="img6" />
-          <div>
-            <a href="https://google.com" target="_blank">
-              <div id="discord-icon">
-                <FaDiscord size="3rem" />
-              </div>
-            </a>
-          </div>
-          <a href="https://google.com" target="_blank" id="discord-link">
-            Join the discord server for any doubt clarifications.
-          </a>
         </div>
       </div>
-    </>
+      <Tooltip title="Join the discord server for any doubt clarifications." arrow placement="left">
+        <div id="discord-button">
+          <a href="https://discord.gg/DG7UMRx22j" target="_blank">
+            <div id="discord-icon">
+              <FaDiscord size="2rem" />
+            </div>
+          </a>
+        </div>
+      </Tooltip>
+    </div>
   );
 }
 

@@ -159,6 +159,7 @@ export const Player = styled.div`
   justify-content: space-evenly;
   text-decoration: none;
   align-self: center;
+  border-radius:5px;
   height:40px;
   padding:2px;
   color: ${({ backgroundColor }) => backgroundColor};
@@ -189,6 +190,7 @@ export const MusicPlayer = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
+  border-radius:5px;
   cursor: pointer;
 `;
 
