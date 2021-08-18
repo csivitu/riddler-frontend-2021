@@ -6,6 +6,7 @@ import Question from "../Play";
 const Play = () => {
   const [mapOpen, setMapOpen] = useState(true);
   const [qId, setQId] = useState("");
+  const [lastQuestion, setLastQuestion] = useState(false);
   const [mapRes, setMapRes] = useState({
     lockedNode: 0,
     portalNodes: {9: false, 20: false, 32: false},
@@ -22,9 +23,9 @@ const Play = () => {
   return (
     <>
       {mapOpen ? (
-        <Map mapOpen={setMapOpen} qId={setQId} setMapRes={setMapRes} />
+        <Map lastQuestion={lastQuestion} setLastQuestion={setLastQuestion} mapOpen={setMapOpen} qId={setQId} setMapRes={setMapRes} />
       ) : (
-        <Question mapOpen={setMapOpen} qId={qId} mapData={mapRes}/>
+        <Question lastQuestion={lastQuestion} mapOpen={setMapOpen} qId={qId} mapData={mapRes}/>
       )}
     </>
   );

@@ -334,6 +334,13 @@
   left: 589px;
 }
 
+#node40 {
+  position: absolute;
+  top: 395px;
+  left: 495px;
+  cursor: pointer;
+}
+
 .portal-box {
   background-image: url("../../../assets/portal.png");
   background-position: center;

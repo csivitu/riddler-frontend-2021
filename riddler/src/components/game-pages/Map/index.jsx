@@ -29,13 +29,26 @@ import { ReactComponent as RedoIcon } from "../../../assets/redo.svg";
 import { withStyles } from "@material-ui/styles";
 import LightTooltip from "../Tooltip";
 import Tutorial from "./tutorial";
+import finalNotSolved from "../../../assets/finalNotSolved.svg";
+import finalSolved from "../../../assets/finalSolved.svg";
 
-const Map = ({ setMapRes, mapOpen, qId }) => {
+const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
   const [tutorialOpen, setTutorialOpen] = useState(false);
   const usertoken = useSelector((state) => state.auth.token);
   const [check, setCheck] = useState(0);
 
   const renderMap = (mapRes) => {
+    if(mapRes.unlockedNodes[0] === 40) {
+      mapRes.unlockedNodes = [];
+      mapRes.lockedNode = 0;
+      setLastQuestion(true);
+      const element = document.getElementById('node40');
+      element.addEventListener("click", () => {
+        qId(40);
+        mapOpen(false);
+      });
+    }
+
     const leftover = [
       1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
       22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
@@ -364,6 +377,9 @@ const Map = ({ setMapRes, mapOpen, qId }) => {
             <div id="portal-box32" className="portal-box" />
             <div id="locked-peg">
               <img src={Marker} alt="locked peg" />
+            </div>
+            <div id="node40">
+              <img src={ lastQuestion ? finalSolved : finalNotSolved} alt="Final node" />
             </div>
           </div>
         </div>

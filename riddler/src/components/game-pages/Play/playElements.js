@@ -229,6 +229,10 @@ export const AnswerBox = styled.input`
     color: white;
     font: "Poppins";
   }
+
+  @media screen and (max-width: 500px) {
+    height: 2rem;
+  }
 `;
 
 export const ButtonContainer = styled.div`

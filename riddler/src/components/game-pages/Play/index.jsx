@@ -75,7 +75,7 @@ const notify = (message) =>
     progress: undefined,
   });
 
-function Question({ mapOpen, qId, mapData }) {
+function Question({ lastQuestion, mapOpen, qId, mapData }) {
   const classes = useStyles();
 
   const trackName = {
@@ -272,11 +272,23 @@ function Question({ mapOpen, qId, mapData }) {
         )}
         <TopBox>
           <TrackBox>
-            <Trackname>{track1}</Trackname>
-            <Trackname>
-              <FaTimes />
-            </Trackname>
-            <Trackname>{track2}</Trackname>
+            {lastQuestion ? (
+              <Trackname>Final Question</Trackname>
+            ) : (
+              <>
+                {track1 === track2 ? (
+                  <Trackname>{track1}</Trackname>
+                ) : (
+                  <>
+                    <Trackname>{track1}</Trackname>
+                    <Trackname>
+                      <FaTimes />
+                    </Trackname>
+                    <Trackname>{track2}</Trackname>
+                  </>
+                )}
+              </>
+            )}
           </TrackBox>
         </TopBox>
         <QuestionContainer>
@@ -347,9 +359,11 @@ function Question({ mapOpen, qId, mapData }) {
             <OurButton onClick={handleAnswer} type="submit">
               SUBMIT
             </OurButton>
-            <Tooltip title="What does unfreeze do?">
-              <OurButton onClick={handleFreeze}>UNFREEZE</OurButton>
-            </Tooltip>
+            {!lastQuestion && (
+              <Tooltip title="What does unfreeze do?">
+                <OurButton onClick={handleFreeze}>UNFREEZE</OurButton>
+              </Tooltip>
+            )}
           </ButtonContainer>
         </AContainer>
       </PlaySection>
