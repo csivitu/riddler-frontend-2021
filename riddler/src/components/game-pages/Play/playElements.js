@@ -247,7 +247,7 @@ export const OurButton = styled(LinkRoute)`
   font-weight: bold;
   cursor: pointer;
   text-decoration: none;
-  border-bottom: 6px solid rgba(254, 49, 118, 1);
+  border-bottom: 6px solid #3B3B3B;
   background-color: var(--map-bg);
   display: inline-block;
   position: relative;
@@ -255,7 +255,7 @@ export const OurButton = styled(LinkRoute)`
 
   &:hover {
     top: 4px;
-    border-bottom: 4px solid rgba(254, 49, 118, 1);
+    border-bottom: 4px solid #3B3B3B;
   }
 
   &:active {

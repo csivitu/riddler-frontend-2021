@@ -28,6 +28,7 @@ import Layout from "../../game-navbar/Layout";
 import { useSelector } from "react-redux";
 import {
   getHint,
+  getPlayerdata,
   getQuestion,
   penaltyPoint,
   submitAnswer,
@@ -90,10 +91,11 @@ function Question({ mapOpen, qId, mapData }) {
   const [quesLink, setQuesLink] = useState([]);
   const [hintImg, setHintImg] = useState([]);
   const [hintLink, setHintLink] = useState([]);
-  const [track1, setTrack1] = useState("digital present");
-  const [track2, setTrack2] = useState("digital present");
+  const [track1, setTrack1] = useState("");
+  const [track2, setTrack2] = useState("");
   const [hint, setHint] = useState("");
   const [unfreezeQues, setUnfreezeQues] = useState(false);
+  const [penaltyPoints, setPenaltyPoints] = useState(0);
 
   const [openHintDialog, setOpenHintDialog] = useState(false);
   const [openUnfreezeDialog, setOpenUnfreezeDialog] = useState(false);
@@ -165,7 +167,15 @@ function Question({ mapOpen, qId, mapData }) {
           mapOpen(true);
         }, 2000);
       } else {
-        notify("Incorrect Answer");
+        const notifs = [
+          "Hold on there buddy...Think more about this.",
+          "It looks like you’ve hit a bump...Try again?",
+          "Oops..Try Again",
+          "“Try harder.”",
+          "NOPE.Try Again",
+          "You can do better. Try again ",
+        ];
+        notify(notifs[Math.floor(Math.random() * 6)]);
       }
     }
     setLoadingPage(false);
@@ -195,6 +205,8 @@ function Question({ mapOpen, qId, mapData }) {
       } else {
         mapOpen(true);
       }
+      let userData = await getPlayerdata(usertoken);
+      setPenaltyPoints(userData.playerPenaltyPoints);
     };
 
     asyncQuestion();
@@ -214,7 +226,7 @@ function Question({ mapOpen, qId, mapData }) {
     console.log(res);
     if (res.code === "S3") {
       mapOpen(true);
-    } else if(res.code === "L4") {
+    } else if (res.code === "L4") {
       notify("Not enough penalty points");
     }
     setOpenUnfreezeDialog(false);
@@ -222,29 +234,29 @@ function Question({ mapOpen, qId, mapData }) {
     setLoadingPage(false);
   };
 
-  useEffect(() => {
-    const asyncUnfreezeQues = async () => {
-      let res = await penaltyPoint(usertoken, qId);
-      console.log("On Unfreeze yes: ");
-      console.log(res);
-      // if (res.question) {
-      //   setQues(res.question.text);
-      //   setQuesLink(res.question.links);
-      //   setQuesImg(res.question.img);
-      //   if (res.track.length === 2) {
-      //     setTrack1(trackName[res.track[0]]);
-      //     setTrack2(trackName[res.track[1]]);
-      //   } else {
-      //     setTrack1(trackName[res.track[0]]);
-      //     setTrack2(trackName[res.track[0]]);
-      //   }
-      //   handleHint(res);
-      //   setLoadingPage(false);
-      // } else {
-      //   mapOpen(true);
-      // }
-    };
-  }, [unfreezeQues]);
+  // useEffect(() => {
+  //   const asyncUnfreezeQues = async () => {
+  //     let res = await penaltyPoint(usertoken, qId);
+  //     console.log("On Unfreeze yes: ");
+  //     console.log(res);
+  //     // if (res.question) {
+  //     //   setQues(res.question.text);
+  //     //   setQuesLink(res.question.links);
+  //     //   setQuesImg(res.question.img);
+  //     //   if (res.track.length === 2) {
+  //     //     setTrack1(trackName[res.track[0]]);
+  //     //     setTrack2(trackName[res.track[1]]);
+  //     //   } else {
+  //     //     setTrack1(trackName[res.track[0]]);
+  //     //     setTrack2(trackName[res.track[0]]);
+  //     //   }
+  //     //   handleHint(res);
+  //     //   setLoadingPage(false);
+  //     // } else {
+  //     //   mapOpen(true);
+  //     // }
+  //   };
+  // }, [unfreezeQues]);
 
   return (
     <>
@@ -388,15 +400,21 @@ function Question({ mapOpen, qId, mapData }) {
         <DialogTitle id="alert-hintDialog-title">
           Unfreeze this question?
         </DialogTitle>
-        <DialogContent id="hintDialog-text">2 chances left</DialogContent>
-        <DialogActions id="hintDialog-buttons">
-          <Button id="confirm-button" onClick={unfreezeYes} color="primary">
-            Yes
-          </Button>
-          <Button onClick={handleUnfreezeClose} color="primary">
-            No
-          </Button>
-        </DialogActions>
+        {penaltyPoints > 0 ? (
+          <>
+            <DialogContent id="hintDialog-text">{Math.floor(penaltyPoints/10)} chance{Math.floor(penaltyPoints/10) === 2? 's' : ''} left</DialogContent>
+            <DialogActions id="hintDialog-buttons">
+              <Button id="confirm-button" onClick={unfreezeYes} color="primary">
+                Yes
+              </Button>
+              <Button onClick={handleUnfreezeClose} color="primary">
+                No
+              </Button>
+            </DialogActions>
+          </>
+        ) : (
+          <><DialogContent id="hintDialog-text">Until midnight</DialogContent></>
+        )}
       </Dialog>
 
       <Modal
@@ -413,7 +431,13 @@ function Question({ mapOpen, qId, mapData }) {
                 }}
               />
             </div>
-            <h2 id="alert-title">Correct</h2>
+            <h2 id="alert-title">
+              {
+                ["Spot On!", "Nailed it!", "Way to go!", "Correct-a-mundo!"][
+                  Math.floor(Math.random() * 4)
+                ]
+              }
+            </h2>
             <p id="alert-message">
               +10 <FaStar />
             </p>

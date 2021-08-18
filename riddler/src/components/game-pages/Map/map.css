@@ -427,7 +427,7 @@
 /* Toast Styles */
 
 .Toastify__toast {
-  background-color: rgba(0, 0, 0, 1);
+  background-color: #3b3b3b;
 }
 
 .Toastify__progress-bar {
@@ -437,7 +437,7 @@
 /* Dialogue Box */
 
 .dialog-container div div {
-  background-color: #3B3B3B;
+  background-color: #3b3b3b;
   font-family: "Poppins";
   width: 18rem;
   border-radius: 1rem;

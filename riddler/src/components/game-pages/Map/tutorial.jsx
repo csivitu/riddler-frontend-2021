@@ -35,7 +35,7 @@ const Tutorial = ({ tutorialOpen, setTutorialOpen, setLegendOpen }) => {
         disableBeacon: true,
       },
       {
-        target: "#node37",
+        target: "#node39",
         title: "There are 3 tracks",
         content: "Select and answer any of the questions to lock a track",
         disableBeacon: true,
