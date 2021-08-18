@@ -85,7 +85,7 @@ const Navbar = ({ toggle, backgroundColor }) => {
           </MobileIcon>
           <NavMenu>
             <LightTooltip title="Guide">
-              <NavLinks to="rules">
+              <NavLinks to="guide">
                 <img src={GuideLogo} alt="Guide Logo"></img>
               </NavLinks>
             </LightTooltip>

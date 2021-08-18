@@ -106,7 +106,7 @@ const Game = () => {
           
         />
         <img
-          id="/play"
+          id="/guide"
           src={playButton}
           alt={"Riddler Logo"}
           onClick={(e) => {
