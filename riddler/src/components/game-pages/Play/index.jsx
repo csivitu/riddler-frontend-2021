@@ -19,9 +19,12 @@ import {
   Adiv,
 } from "./style";
 // import {Tooltip} from '@material-ui/core';
+import './play.css'
 import Tooltip from "@material-ui/core/Tooltip";
 import hintIcon from "./assets/hint.svg";
 import mapIcon from "./assets/map.svg";
+import bulb from "../../../assets/bulb_dark.svg";
+import { FaRedoAlt, FaPlay, FaDiscord, FaLock, FaStar } from "react-icons/fa";
 import {
   Button,
   CircularProgress,
@@ -40,8 +43,39 @@ import {
   penaltyPoint,
   submitAnswer,
 } from "../../../api/requests";
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import { makeStyles } from '@material-ui/core/styles';
+
+
+const useStyles = makeStyles({
+  myStyle: {
+    backgroundColor: 'transparent',
+    color: 'white',
+
+  },
+});
+
+const notify = (message) =>
+  toast.dark(message, {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    draggable: true,
+    progress: undefined,
+  });
+
 
 function Question({ mapOpen, qId, mapData }) {
+
+  const classes = useStyles();
+
   const trackName = {
     1: "mythical past",
     2: "digital present",
@@ -51,45 +85,22 @@ function Question({ mapOpen, qId, mapData }) {
   const [wantHint, setWantHint] = useState(false);
   console.log(wantHint);
 
-  let ques = "";
-  let quesImg = [];
-  let quesLink = [];
-  let hintImg = [];
-  let hintLink = [];
-  let track1 = "digital present";
-  let track2 = "digital present";
-  let hint = "";
+  const [ques, setQues] = useState("");
+  const [quesImg, setQuesImg] = useState([]);
+  const [quesLink, setQuesLink] = useState([]);
+  const [hintImg, setHintImg] = useState([]);
+  const [hintLink, setHintLink] = useState([]);
+  const [track1, setTrack1] = useState("digital present");
+  const [track2, setTrack2] = useState("digital present");
+  const [hint, setHint] = useState("");
+  const [unfreezeQues, setUnfreezeQues] = useState(false);
 
-  const [res, setRes] = useState({
-    "question": {
-        "img": [
-            ""
-        ],
-        "links": [
-            ""
-        ],
-        "text": ""
-    },
-    "hint": {
-      "img": [
-            ""
-        ],
-        "links": [
-            ""
-        ],
-        "text": ""
-    },
-    "track": [
-        2,
-        2
-    ],
-    "points": 0
-})
   const [openHintDialog, setOpenHintDialog] = useState(false);
+  const [openUnfreezeDialog, setOpenUnfreezeDialog] = useState(false);
   const [hintButton, setHintButton] = useState(true);
   const [loadingPage, setLoadingPage] = useState(true);
 
-  console.log("Questions page render");
+  const [correctAnsAlert, setCorrectAnsAlert] = useState(false);
 
   const handleClickOpen = async () => {
     setOpenHintDialog(true);
@@ -99,6 +110,16 @@ function Question({ mapOpen, qId, mapData }) {
     setOpenHintDialog(false);
   };
 
+  // const handleUnfreezeClick = () => {
+
+  // }
+
+  const handleCorrectAnsClose = () => {
+    setCorrectAnsAlert(false);
+  }
+  const handleUnfreezeClose = () => {
+    setOpenUnfreezeDialog(false);
+  }
   const clickNoHint = () => {
     setWantHint(false);
     handleClose();
@@ -108,9 +129,9 @@ function Question({ mapOpen, qId, mapData }) {
     const res = await getHint(usertoken, qId);
     if (res.code === "S4") {
       const ques = await getQuestion(usertoken, qId);
-      // setHint(ques.hint.text);
-      // setHintImg(ques.hint.img);
-      // setHintLink(ques.hint.links);
+      setHint(ques.hint.text);
+      setHintImg(ques.hint.img);
+      setHintLink(ques.hint.links);
       setWantHint(true);
       setHintButton(false);
     }
@@ -120,9 +141,9 @@ function Question({ mapOpen, qId, mapData }) {
 
   const handleHint = async (res) => {
     if (res.hint.text) {
-      // setHint(res.hint.text);
-      // setHintImg(res.hint.img);
-      // setHintLink(res.hint.links);
+      setHint(res.hint.text);
+      setHintImg(res.hint.img);
+      setHintLink(res.hint.links);
       setWantHint(true);
       setHintButton(false);
     }
@@ -137,20 +158,18 @@ function Question({ mapOpen, qId, mapData }) {
       const res = await submitAnswer(usertoken, qId, answer);
       console.log("Response of answer submit");
       console.log(res);
-      if (res.code === "S2") {
-        mapOpen(true);
+      if (res.code==='S2') {
+        setCorrectAnsAlert(true);
+        setTimeout(function () {
+          setCorrectAnsAlert(false);
+          mapOpen(true);
+        }, 2000);
+      }
+      else {
+        notify("Incorrect Answer");
       }
     }
     setLoadingPage(false);
-  };
-
-  const handleFreeze = async () => {
-    setLoadingPage(true);
-    const res = await penaltyPoint(usertoken, qId);
-    console.log("Response on unfreeze");
-    console.log(res);
-    if (res.code === "L3") setLoadingPage(false);
-    mapOpen(true);
   };
 
   useEffect(() => {
@@ -158,18 +177,16 @@ function Question({ mapOpen, qId, mapData }) {
       let res = await getQuestion(usertoken, qId);
       console.log("Question: ");
       console.log(res);
-      if(res.track.length === 1) res.track = [res.track[0],res.track[0]];
-      setRes(res);
       if (res.question) {
-        ques = res.question.text;
-        quesLink = res.question.links;
-        quesImg = res.question.img;
+        setQues(res.question.text);
+        setQuesLink(res.question.links);
+        setQuesImg(res.question.img);
         if (res.track.length === 2) {
-          track1 = trackName[res.track[0]];
-          track2 = trackName[res.track[1]];
+          setTrack1(trackName[res.track[0]]);
+          setTrack2(trackName[res.track[1]]);
         } else {
-          track1 = trackName[res.track[0]];
-          track2 = trackName[res.track[0]];
+          setTrack1(trackName[res.track[0]]);
+          setTrack2(trackName[res.track[0]]);
         }
         handleHint(res);
         setLoadingPage(false);
@@ -177,13 +194,54 @@ function Question({ mapOpen, qId, mapData }) {
         mapOpen(true);
       }
     };
-    asyncQuestion();
 
-    return () => {
-      // setHint("");
-      // setHintImg([]);
+    asyncQuestion();
+    setHint("");
+    setHintImg([]);
+    setHintImg([]);
+  }, [wantHint]);
+
+  const handleFreeze = async () => {
+    setOpenUnfreezeDialog(true);
+    // console.log('On clicking yes after unfreeze');
+    // console.log(res);
+
+  };
+
+  const unfreezeYes = async () => {
+    setLoadingPage(true);
+    const res = await penaltyPoint(usertoken, qId);
+    console.log("Response on unfreeze");
+    console.log(res);
+    if (res.code === "L3") setLoadingPage(false);
+    mapOpen(true);
+    setOpenUnfreezeDialog(false);
+    setUnfreezeQues(true);
+  }
+
+  useEffect(() => {
+    const asyncUnfreezeQues = async () => {
+      let res = await penaltyPoint(usertoken, qId);
+      console.log("On Unfreeze yes: ");
+      console.log(res);
+      // if (res.question) {
+      //   setQues(res.question.text);
+      //   setQuesLink(res.question.links);
+      //   setQuesImg(res.question.img);
+      //   if (res.track.length === 2) {
+      //     setTrack1(trackName[res.track[0]]);
+      //     setTrack2(trackName[res.track[1]]);
+      //   } else {
+      //     setTrack1(trackName[res.track[0]]);
+      //     setTrack2(trackName[res.track[0]]);
+      //   }
+      //   handleHint(res);
+      //   setLoadingPage(false);
+      // } else {
+      //   mapOpen(true);
+      // }
     };
-  }, [wantHint, mapOpen]);
+  }, [unfreezeQues])
 
   return (
     <>
@@ -200,8 +258,8 @@ function Question({ mapOpen, qId, mapData }) {
         <Container1>
           <TopBox>
             <TrackBox>
-              <Trackname>{trackName[res.track[0]]} X</Trackname>
-              <Trackname>&nbsp;{trackName[res.track[1]]}</Trackname>
+              <Trackname>{track1} X</Trackname>
+              <Trackname>&nbsp;{track2}</Trackname>
             </TrackBox>
             <QBtnContainer>
               {hintButton && (
@@ -216,9 +274,9 @@ function Question({ mapOpen, qId, mapData }) {
           </TopBox>
 
           <QuestionBox>
-            <QuestionContent>{res.question.text}</QuestionContent>
-            <Qdiv>
-              {res.question.img.map((imgLink) => {
+            <QuestionContent>{ques}</QuestionContent>
+            <Qdiv  >
+              {quesImg.map((imgLink) => {
                 return (
                   <Image>
                     <img src={imgLink} alt="" />
@@ -226,7 +284,7 @@ function Question({ mapOpen, qId, mapData }) {
                 );
               })}
               <br />
-              {res.question.links.map((link) => {
+              {quesLink.map((link) => {
                 return (
                   <>
                     <a href={link} target="_blank">
@@ -268,31 +326,71 @@ function Question({ mapOpen, qId, mapData }) {
           </AContainer>
         </Container1>
 
-        <Dialog
-          open={openHintDialog}
-          keepMounted
-          onClose={handleClose}
-          aria-labelledby="alert-dialog-slide-title"
-          aria-describedby="alert-dialog-slide-description"
-        >
-          <DialogTitle id="alert-dialog-slide-title">
-            {"Do you want to take a hint?"}
-          </DialogTitle>
-          <DialogContent>
-            <DialogContentText id="alert-dialog-slide-description">
-              You'll lose 5 points
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={clickNoHint} color="primary">
-              No
-            </Button>
-            <Button onClick={clickYesHint} color="primary">
-              Yes
-            </Button>
-          </DialogActions>
-        </Dialog>
+
       </QContainer>
+
+      <Dialog
+        open={openHintDialog}
+        keepMounted
+        onClose={handleClose}
+        className="hintDialog-container"
+      >
+        <div id="hintDialog-icon">
+          <img src={bulb} alt="" />
+        </div>
+        <DialogTitle id="alert-hintDialog-title">
+          Take a hint?
+        </DialogTitle>
+        <DialogContent id="hintDialog-text">-5 <FaStar /></DialogContent>
+        <DialogActions id="hintDialog-buttons">
+          <Button id="confirm-button" onClick={clickYesHint} color="primary">
+            Yes
+          </Button>
+          <Button onClick={handleClose} color="primary">
+            No
+          </Button>
+        </DialogActions>
+      </Dialog>
+      <Dialog
+        open={openUnfreezeDialog}
+        keepMounted
+        onClose={handleUnfreezeClose}
+        className="hintDialog-container"
+      >
+        <div id="hintDialog-icon">
+          <img src={bulb} alt="" />
+        </div>
+        <DialogTitle id="alert-hintDialog-title">
+          Unfreeze this question?
+        </DialogTitle>
+        <DialogContent id="hintDialog-text">2 chances left</DialogContent>
+        <DialogActions id="hintDialog-buttons">
+          <Button id="confirm-button" onClick={unfreezeYes} color="primary">
+            Yes
+          </Button>
+          <Button onClick={handleUnfreezeClose} color="primary">
+            No
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      <Modal
+        open={correctAnsAlert}
+        closeAfterTransition
+        className="answer-modal"
+      >
+        <Fade in={correctAnsAlert}>
+          <div id="answer-alert">
+            <div id="alert-icon">
+              <img src={bulb} alt="" />
+            </div>
+            <h2 id="alert-title">Correct</h2>
+            <p id="alert-message">+20 <FaStar /></p>
+          </div>
+        </Fade>
+      </Modal>
+
+      <ToastContainer />
     </>
   );
 }
