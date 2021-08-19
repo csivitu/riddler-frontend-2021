@@ -16,7 +16,7 @@ export const GameContainer = styled.div`
 `;
 
 export const RiddlerLogo = styled.img`
-  height: 10%;
+  height: 20%;
   margin-bottom: 5%;
   pointer-events: none;
   @media screen and (max-width: 700px) {
@@ -34,7 +34,9 @@ export const ButtonContainer = styled.div`
     padding: 0 20px;
     cursor: pointer;
   }
-  
+  /* div{
+    height:20%;
+  } */
   @media screen and (max-width: 700px) {
     img {
       height: 80%;
@@ -51,6 +53,7 @@ export const ButtonContainer = styled.div`
 export const Checkers = styled.img`
   width: 100vw;
   position: absolute;
+  z-index:1;
 
   @media screen and (max-width: 700px) {
     width: 130vw;

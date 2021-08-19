@@ -33,7 +33,13 @@ const Navbar = ({ toggle, backgroundColor }) => {
   const userName = useSelector((state) => state.auth.username);
   const token = useSelector((state) => state.auth.token);
   const [score, setScore] = useState("-");
-  const [currentTrack, setCurrentTrack] = useState(JSON.parse(localStorage.getItem("currentTracks")) ? JSON.parse(localStorage.getItem("currentTracks")) : []);
+  const [currentTrack, setCurrentTrack] = useState(
+    JSON.parse(localStorage.getItem("currentTracks"))
+      ? JSON.parse(localStorage.getItem("currentTracks"))
+      : []
+  );
+  const [play, setPlay] = useState(false);
+  const url = play?"https://www.youtube.com/embed/4NRXx6U8ABQ?rel=0&autoplay=1&loop=1&autopause=0":"https://www.youtube.com/embed/4NRXx6U8ABQ?rel=0&autoplay=0&loop=1&autopause=0"
 
   const updateColor = (res) => {
     // setCurrentTrack(JSON.parse(localStorage.getItem("currentTracks")));
@@ -56,8 +62,14 @@ const Navbar = ({ toggle, backgroundColor }) => {
         "--leaderboard-bg",
         `var(${currentColor})`
       );
-      document.documentElement.style.setProperty("--map-bg", `var(${currentColor})`);
-      document.documentElement.style.setProperty("--guide-bg", `var(${currentColor})`);
+      document.documentElement.style.setProperty(
+        "--map-bg",
+        `var(${currentColor})`
+      );
+      document.documentElement.style.setProperty(
+        "--guide-bg",
+        `var(${currentColor})`
+      );
     }
   };
 
@@ -106,8 +118,19 @@ const Navbar = ({ toggle, backgroundColor }) => {
               <p>{score}</p>
             </Player>
             <Player backgroundColor={backgroundColor}>{userName}</Player>
-            <MusicPlayer backgroundColor={backgroundColor}>
+            <MusicPlayer backgroundColor={backgroundColor} onClick={() => {
+              setPlay(!play)
+            }}>
+              
               <FaMusic />
+              <iframe
+          width="560"
+          height="315"
+          src={url}
+          frameBorder="0"
+          allow="accelerometer; autoplay; loop; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
             </MusicPlayer>
             {/* <MusicDropdown backgroundColor={backgroundColor}>
               <FaChevronDown />

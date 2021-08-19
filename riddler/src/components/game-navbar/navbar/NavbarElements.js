@@ -200,7 +200,9 @@ export const MusicPlayer = styled.div`
   border-radius:5px;
   cursor: pointer;
   margin-right: 14px;
-
+  iframe{
+    display:none;
+  }
   @media screen and (max-width: 950px) {
     margin-right: 5px;
   }

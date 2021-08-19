@@ -44,7 +44,7 @@
 
 #darken {
   position: absolute;
-  z-index: 5;
+  z-index: 6;
   top: 0;
   bottom: 0;
   left: 0;
@@ -380,7 +380,7 @@
   position: absolute;
   width: 30px;
   height: 30px;
-  z-index: 10;
+  z-index: 2;
 }
 
 .unlocked {
@@ -594,6 +594,25 @@
   transition: all 0.2s ease-in-out;
 }
 
+/* Info Button */
+
+.info-button {
+  color: var(--map-bg);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 2rem;
+  left: 2rem;
+  height: 3rem;
+  width: 3rem;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
 /* Back button */
 
 .back-button {
@@ -613,17 +632,8 @@
   transition: all 0.2s ease-in-out;
 }
 
-.react-joyride-step-0 > .react-joyride__spotlight {
-  transform: translateY(-30px);
-}
-
 .__floater__arrow span svg polygon {
   fill: #3b3b3b;
-}
-
-.react-joyride__overlay {
-  margin-top: 80px;
-  height: calc(100vh - 80px) !important;
 }
 
 .react-joyride__tooltip button svg g path {
@@ -649,5 +659,10 @@
   .zoom-buttons {
     top: 1rem;
     right: 1rem;
+  }
+
+  .info-button {
+    top: 1rem;
+    left: 1rem;
   }
 }
