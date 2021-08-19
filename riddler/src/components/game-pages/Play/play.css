@@ -129,3 +129,32 @@
 .Toastify__toast {
   background-color: #3B3B3B;
 }
+
+.past-color{
+  background-color:var(--past)
+}
+.present-color{
+  background-color:var(--present)
+}
+.future-color{
+  background-color:var(--future)
+}
+
+.pre-pa{
+  background: linear-gradient(90deg, var(--present) 0%, var(--past) 100%);
+}
+.pa-pre{
+  background: linear-gradient(90deg, var(--past) 0%, var(--present) 100%);
+}
+.pa-fu{
+  background: linear-gradient(90deg, var(--past) 0%, var(--future) 100%);
+}
+.fu-pa{
+  background: linear-gradient(90deg, var(--future) 0%, var(--past) 100%);
+}
+.fu-pre{
+  background: linear-gradient(90deg, var(--future) 0%, var(--present) 100%);
+}
+.pre-fu{
+  background: linear-gradient(90deg, var(--present) 0%, var(--future) 100%);
+}
