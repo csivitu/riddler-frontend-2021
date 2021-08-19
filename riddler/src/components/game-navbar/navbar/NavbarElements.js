@@ -84,6 +84,7 @@ export const NavMenu = styled.div`
   text-align: center;
   justify-self: center;
   gap: 1rem;
+  margin-left: 55px;
 
   @media screen and (max-width: 950px) {
     display: none;

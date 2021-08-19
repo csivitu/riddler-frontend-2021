@@ -34,6 +34,7 @@ export const ButtonContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  z-index: 5;
 
   img {
     padding: 0 15px;
@@ -71,5 +72,17 @@ export const Checkers = styled.img`
 
   @media screen and (max-width: 500px) {
     width: 200vw;
+  }
+`;
+
+export const GifImage = styled.img`
+  position: absolute;
+  width: 65rem;
+  transform: translateY(-1rem);
+  z-index: 0;
+  pointer-events: none;
+
+  @media screen and (max-width: 800px) {
+    display: none;
   }
 `;

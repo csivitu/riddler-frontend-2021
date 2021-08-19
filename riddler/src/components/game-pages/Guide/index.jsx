@@ -54,8 +54,10 @@ function Guide() {
               questions on the map.
             </li>
             <li className="each-list">
-              For each question you solve, you get ___ points, and for every
-              hint you use, you lose ___ points
+              For every hint you take you lose 40 points.
+            </li>
+            <li className="each-list">
+              For every standard question you solve, you gain 100 points.
             </li>
             <li className="each-list">
               When all the 39 questions from all 3 tracks are solved, the final
@@ -84,7 +86,7 @@ function Guide() {
           <img className="images" src={img5} alt="img5" />
           <ul className="all-lists">
             <li className="each-list">
-              These are with 2 possible answers to the same question. When you
+              These have 2 possible answers to the same question. When you
               choose to solve a portal question, there are 2 possible outcomes:
               <ul style={{ marginLeft: "20px" }}>
                 <li className="each-list">
@@ -99,6 +101,9 @@ function Guide() {
                   at a portal, you need one possible answer of the destination
                   portal to proceed.
                 </li>
+                <li className="each-list">
+                  For each answer of the portal question you gain 50 points.
+                </li>
               </ul>
             </li>
           </ul>
@@ -108,13 +113,24 @@ function Guide() {
               These questions lie in the intersection of two themes. That means,
               the question on that node will relate to a mix of both the themes.
             </li>
+            <li className="each-list">
+              Every bridge question is worth 70 points.
+            </li>
           </ul>
           <img className="images" src={img6} alt="img6" />
         </div>
       </div>
-      <Tooltip title="Join the discord server for any doubt clarifications." arrow placement="left">
+      <Tooltip
+        title="Join the discord server for any doubt clarifications."
+        arrow
+        placement="left"
+      >
         <div id="discord-button">
-          <a href="https://discord.gg/DG7UMRx22j" rel="noreferrer" target="_blank">
+          <a
+            href="https://discord.gg/DG7UMRx22j"
+            rel="noreferrer"
+            target="_blank"
+          >
             <div id="discord-icon">
               <FaDiscord size="2rem" />
             </div>

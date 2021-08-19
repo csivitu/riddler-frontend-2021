@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { GameContainer, ButtonContainer, RiddlerLogo, Checkers } from "./style";
+import { GameContainer, ButtonContainer, RiddlerLogo, Checkers, GifImage } from "./style";
 // import riddlerLogo from "../../../assets/riddlerlogo_svg.svg";
 import riddlerLogo from "../../../assets/power.svg";
 
@@ -16,6 +16,7 @@ import { ReactComponent as StarBlue } from "../../../assets/star_thing_2.svg";
 import { ReactComponent as StarYellow } from "../../../assets/star_thing_3.svg";
 import { ReactComponent as StarsmallBlue } from "../../../assets/star_thing_4.svg";
 import checkers from "../../../assets/checkers.svg";
+import GIF from "../../../assets/GIF.gif";
 
 import { useHistory } from "react-router-dom";
 import { useDrag } from "react-use-gesture";
@@ -64,7 +65,7 @@ const Game = () => {
             position: "absolute",
             top: "10%",
             right: "12%",
-            zIndex:"2",
+            zIndex:"6",
             cursor: "pointer",
       
           }}
@@ -79,7 +80,7 @@ const Game = () => {
             position: "absolute",
             top: "20%",
             right: "12%",
-            zIndex:"2",
+            zIndex:"6",
             cursor: "pointer",
 
             // userSelect:"none",
@@ -95,7 +96,7 @@ const Game = () => {
             position: "absolute",
             bottom: "10%",
             left: "12%",
-            zIndex:"2",
+            zIndex:"6",
             cursor: "pointer",
 
             // userSelect:"none",
@@ -111,7 +112,7 @@ const Game = () => {
             position: "absolute",
             bottom: "20%",
             left: "10%",
-            zIndex:"2",
+            zIndex:"6",
             cursor: "pointer",
 
             // userSelect:"none",

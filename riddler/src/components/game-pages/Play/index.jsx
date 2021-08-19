@@ -151,7 +151,7 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
   };
 
   const checkType = (qId) => {
-    if (qId === 36 || qId === 37 || qId === 23 || qId === 24 || qId === 11 || qId === 12) {
+    if (qId === 35 || qId === 36 || qId === 23 || qId === 24 || qId === 11 || qId === 12) {
       return 'bridge'
     }
     else if (qId === 9 || qId === 20 || qId === 32) {
@@ -212,7 +212,15 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
     // setCurrentTrack(JSON.parse(localStorage.getItem("currentTracks")));
     console.log(res);
     const current = res.currentTrack;
-    if (current === [] || current === null) {
+    console.log("Qid = ",qId);
+    if(qId === 40) {
+      document.documentElement.style.setProperty(
+        "--leaderboard-bg",
+        "white"
+      );
+      document.documentElement.style.setProperty("--map-bg", "white");
+      document.documentElement.style.setProperty("--guide-bg", "white");
+    } else if (current === [] || current === null) {
       document.documentElement.style.setProperty(
         "--leaderboard-bg",
         "--future"
@@ -424,7 +432,7 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
         </div>
         <DialogTitle id="alert-hintDialog-title">Take a hint?</DialogTitle>
         <DialogContent id="hintDialog-text">
-          -50 <FaStar />
+          -40 <FaStar />
         </DialogContent>
         <DialogActions id="hintDialog-buttons">
           <Button id="confirm-button" onClick={clickYesHint} color="primary">
