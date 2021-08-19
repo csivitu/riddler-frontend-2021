@@ -34,23 +34,12 @@ import Header from "../header/Header";
 function Contact() {
   return (
     <FooterContainer id="contact">
-      <Wave
-        className="Wave1"
-        fill="#DBF429"
-        paused={false}
-        options={{
-          height: 20,
-          amplitude: 30,
-          speed: 0.25,
-          points: 3,
-        }}
-      />
       <Header
         TitleTextTop="Get in"
         TitleTextBottom="touch!"
         TitleColor="#DBF429"
         ImageURL={aboutUsImage}
-        Opposite="true"
+        Opposite="false"
       />
       <FooterContent>
         <Left>
