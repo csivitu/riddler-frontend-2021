@@ -1,0 +1,23 @@
+@font-face {
+    font-family: Ligconsolata;
+    src: url('./ligconsolata.ttf');
+}
+
+#collabimggrid {
+	min-height: 25rem;
+	width: 85%
+}
+
+@media (max-width: 768px) {
+    #collabimggrid {
+        width: 85%;
+        min-height: 10rem;
+    }
+}
+
+.title-spons {
+    color: white;
+    font-family: Ligconsolata;
+	font-weight: bold;
+	text-decoration: underline;
+}

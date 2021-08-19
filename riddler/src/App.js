@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from './components/login/Login';
