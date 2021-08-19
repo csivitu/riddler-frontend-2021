@@ -16,36 +16,42 @@ export const GameContainer = styled.div`
 `;
 
 export const RiddlerLogo = styled.img`
-  height: 20%;
-  margin-bottom: 5%;
+  height: 8rem;
+  margin-bottom: 2rem;
   pointer-events: none;
   @media screen and (max-width: 700px) {
     width: 90%;
   }
+
+  @media screen and (max-width: 500px) {
+    margin-bottom: 1rem;
+  }
 `;
 
 export const ButtonContainer = styled.div`
-  height: 12%;
+  height: fit-content;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
 
   img {
-    padding: 0 20px;
+    padding: 0 15px;
     cursor: pointer;
+    width: 10rem;
   }
-  /* div{
-    height:20%;
-  } */
+  
   @media screen and (max-width: 700px) {
+
     img {
-      height: 80%;
+      width: 8rem;
+      padding: 0 10px;
     }
   }
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 500px) {
     img {
-      padding: 0 10px;
+      width: 6rem;
     }
   }
 `;

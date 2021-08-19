@@ -9,8 +9,8 @@
   --past: #DBF429;
   --present: #FE3176;
   --future: #15BCFF;
-  --leaderboard-bg: var(--future);
-  --guide-bg: var(--present);
+  --leaderboard-bg: var(--present);
+  --guide-bg: var(--future);
   --map-bg: var(--past);
   --navbar-bg: var(--map-bg);
 }

@@ -47,10 +47,10 @@ const Navbar = ({ toggle, backgroundColor }) => {
     if (currentTrack === [] || currentTrack === null) {
       document.documentElement.style.setProperty(
         "--leaderboard-bg",
-        "--future"
+        "--present"
       );
       document.documentElement.style.setProperty("--map-bg", "--past");
-      document.documentElement.style.setProperty("--guide-bg", "--present");
+      document.documentElement.style.setProperty("--guide-bg", "--future");
     } else {
       const varNames = {
         1: "--present",
