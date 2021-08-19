@@ -1,7 +1,7 @@
 import React from "react";
 // import { useEffect, useState } from "react";
 // import Video from "./assets/teaser.mp4";
-import riddlerLogo from "./assets/riddlerlogo_svg.svg";
+import riddlerLogo from "../../../assets/power.svg";
 // import riddlerLogoSvg from "./assets/riddlerlogo_svg.svg";
 // import Wave from "react-wavify";
 import "./Home.css";

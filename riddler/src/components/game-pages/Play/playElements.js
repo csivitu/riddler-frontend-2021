@@ -28,10 +28,8 @@ export const TrackBox = styled.div`
   display: flex;
   justify-content: center;
   color: black;
-  // padding: 0.3rem; 
   border-radius: 5px;
-  background-color: var(--map-bg);
-
+  
   @media screen and (max-width: 600px) {
     width: 100%;
   }
@@ -48,11 +46,15 @@ export const Trackname = styled.h3`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5px;
+  padding: 0px 10px;
+  height: 2rem;
   text-align: center;
-
+  background: rgb(0,0,0);
+  background: linear-gradient(135deg, ${({color1}) => color1} 0%, ${({color1}) => color1} 50%, ${({color2}) => color2} 50%, ${({color2}) => color2} 100%);
+  
   @media screen and (max-width: 500px) {
     font-size: 0.8rem;
+    height: 1.8rem;
   }
 `;
 
@@ -76,7 +78,7 @@ export const QuestionContainer = styled.div`
 export const QuestionBox = styled.div`
   height: 60vh;
   width: 100%;
-  padding: 0 1rem;
+  padding: 0.5rem 1rem;
   width: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -146,7 +148,7 @@ export const Image = styled.div`
   }
 `;
 
-export const LinkText = styled(LinkRoute)`
+export const LinkText = styled.a`
   font-family: "Poppins";
   font-size: 1.2rem;
   cursor: pointer;

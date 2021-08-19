@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
-import { GameContainer, ButtonContainer, RiddlerLogo, Checkers, GifImage } from "./style";
+import {
+  GameContainer,
+  ButtonContainer,
+  RiddlerLogo,
+  Checkers,
+  GifImage,
+} from "./style";
 // import riddlerLogo from "../../../assets/riddlerlogo_svg.svg";
 import riddlerLogo from "../../../assets/power.svg";
 
@@ -47,12 +53,9 @@ const Game = () => {
     cPos.x.set(params.offset[0]);
     cPos.y.set(params.offset[1]);
   });
-  const [stateGuide, setstateGuide] = useState(guideButton)
-  const [statePlay, setstatePlay] = useState(playButton)
-  const [stateLeaderboard, setstateLeaderboard] = useState(leaderboardButton)
-
-  
-
+  const [stateGuide, setstateGuide] = useState(guideButton);
+  const [statePlay, setstatePlay] = useState(playButton);
+  const [stateLeaderboard, setstateLeaderboard] = useState(leaderboardButton);
 
   return (
     <>
@@ -63,11 +66,11 @@ const Game = () => {
             x: logoPos.x,
             y: logoPos.y,
             position: "absolute",
-            top: "10%",
+            top: "8%",
             right: "12%",
-            zIndex:"6",
+            zIndex: "6",
             cursor: "pointer",
-      
+            fontSize: '6rem'
           }}
         >
           <StarRed />
@@ -79,9 +82,10 @@ const Game = () => {
             y: aPos.y,
             position: "absolute",
             top: "20%",
-            right: "12%",
-            zIndex:"6",
+            right: "11%",
+            zIndex: "6",
             cursor: "pointer",
+            fontSize: '3rem'
 
             // userSelect:"none",
           }}
@@ -94,11 +98,11 @@ const Game = () => {
             x: bPos.x,
             y: bPos.y,
             position: "absolute",
-            bottom: "10%",
-            left: "12%",
-            zIndex:"6",
+            bottom: "0%",
+            left: "7%",
+            zIndex: "6",
             cursor: "pointer",
-
+            fontSize: '8rem'
             // userSelect:"none",
           }}
         >
@@ -110,10 +114,11 @@ const Game = () => {
             x: cPos.x,
             y: cPos.y,
             position: "absolute",
-            bottom: "20%",
-            left: "10%",
-            zIndex:"6",
+            bottom: "21%",
+            left: "6%",
+            zIndex: "6",
             cursor: "pointer",
+            fontSize: '4rem'
 
             // userSelect:"none",
           }}
@@ -121,58 +126,51 @@ const Game = () => {
           <StarsmallBlue />
         </animated.div>
 
-        <Checkers style={{ top: 0}} src={checkers} alt="Checkers" />
+        <Checkers style={{ top: 0 }} src={checkers} alt="Checkers" />
         <Checkers style={{ bottom: 0 }} src={checkers} alt="Checkers" />
         <RiddlerLogo src={riddlerLogo} alt={"Riddler Logo"} />
         <ButtonContainer>
-          <div onMouseEnter={()=>{
-            setstateGuide(guideWithColor)
-          }}
-          onMouseLeave={()=>{
-            setstateGuide(guideButton)
-          }} 
-          >
-          <img
+          <div
             id="/guide"
-            src={stateGuide}
-            alt={"Riddler Logo"}
+            onMouseEnter={() => {
+              setstateGuide(guideWithColor);
+            }}
+            onMouseLeave={() => {
+              setstateGuide(guideButton);
+            }}
             onClick={(e) => {
               routeChange(e.target.id);
             }}
-            
-          />
-          </div>
-          <div onMouseEnter={()=>{
-            setstatePlay(playWithColor)
-          }}
-          onMouseLeave={()=>{
-            setstatePlay(playButton)
-          }} 
           >
-          <img
+            <img src={stateGuide} alt={"Riddler Logo"} />
+          </div>
+          <div
             id="/play"
-            src={statePlay}
-            alt={"Riddler Logo"}
+            onMouseEnter={() => {
+              setstatePlay(playWithColor);
+            }}
+            onMouseLeave={() => {
+              setstatePlay(playButton);
+            }}
             onClick={(e) => {
               routeChange(e.target.id);
             }}
-          />
-          </div>
-          <div onMouseEnter={()=>{
-            setstateLeaderboard(leaderboardwithColor)
-          }}
-          onMouseLeave={()=>{
-            setstateLeaderboard(leaderboardButton)
-          }} 
           >
-          <img
+            <img src={statePlay} alt={"Riddler Logo"} />
+          </div>
+          <div
             id="/leaderboard"
-            src={stateLeaderboard}
-            alt={"Riddler Logo"}
+            onMouseEnter={() => {
+              setstateLeaderboard(leaderboardwithColor);
+            }}
+            onMouseLeave={() => {
+              setstateLeaderboard(leaderboardButton);
+            }}
             onClick={(e) => {
               routeChange(e.target.id);
             }}
-          />
+          >
+            <img src={stateLeaderboard} alt={"Riddler Logo"} />
           </div>
         </ButtonContainer>
       </GameContainer>

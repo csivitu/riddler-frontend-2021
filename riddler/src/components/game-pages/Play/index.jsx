@@ -11,9 +11,11 @@ import {
   FaPlay,
   FaDiscord,
   FaLock,
+  FaUnlock,
   FaStar,
   FaTimes,
 } from "react-icons/fa";
+import { GoCheck } from "react-icons/go";
 import {
   Button,
   CircularProgress,
@@ -83,6 +85,11 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
     1: "digital present",
     3: "dystopian future",
   };
+  const colorVariable = {
+    "mythical past": "var(--past)",
+    "digital present": "var(--present)",
+    "dystopian future": "var(--future)",
+  };
   const usertoken = useSelector((state) => state.auth.token);
   const [wantHint, setWantHint] = useState(false);
 
@@ -104,7 +111,7 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
 
   const [correctAnsAlert, setCorrectAnsAlert] = useState(false);
 
-  const [type, setType] = useState('normal');
+  const [type, setType] = useState("normal");
 
   const handleClickOpen = async () => {
     setOpenHintDialog(true);
@@ -135,13 +142,15 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
       setHintLink(ques.hint.links);
       setWantHint(true);
       setHintButton(false);
+    } else {
+      notify("Hint was not provided");
     }
 
     handleClose();
   };
 
   const handleHint = async (res) => {
-    if (res.hint.text) {
+    if (JSON.stringify(res.hint) !== JSON.stringify({})) {
       setHint(res.hint.text);
       setHintImg(res.hint.img);
       setHintLink(res.hint.links);
@@ -151,14 +160,19 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
   };
 
   const checkType = (qId) => {
-    if (qId === 35 || qId === 36 || qId === 23 || qId === 24 || qId === 11 || qId === 12) {
-      return 'bridge'
-    }
-    else if (qId === 9 || qId === 20 || qId === 32) {
-      return 'portal'
-    }
-    else return 'normal'
-  }
+    if (
+      qId === 35 ||
+      qId === 36 ||
+      qId === 23 ||
+      qId === 24 ||
+      qId === 11 ||
+      qId === 12
+    ) {
+      return "bridge";
+    } else if (qId === 9 || qId === 20 || qId === 32) {
+      return "portal";
+    } else return "normal";
+  };
   const handleAnswer = async () => {
     setLoadingPage(true);
     const answerBox = document.getElementById("answer-box");
@@ -212,12 +226,9 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
     // setCurrentTrack(JSON.parse(localStorage.getItem("currentTracks")));
     console.log(res);
     const current = res.currentTrack;
-    console.log("Qid = ",qId);
-    if(qId === 40) {
-      document.documentElement.style.setProperty(
-        "--leaderboard-bg",
-        "white"
-      );
+    console.log("Qid = ", qId);
+    if (qId === 40) {
+      document.documentElement.style.setProperty("--leaderboard-bg", "white");
       document.documentElement.style.setProperty("--map-bg", "white");
       document.documentElement.style.setProperty("--guide-bg", "white");
     } else if (current === [] || current === null) {
@@ -238,8 +249,14 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
         "--leaderboard-bg",
         `var(${currentColor})`
       );
-      document.documentElement.style.setProperty("--map-bg", `var(${currentColor})`);
-      document.documentElement.style.setProperty("--guide-bg", `var(${currentColor})`);
+      document.documentElement.style.setProperty(
+        "--map-bg",
+        `var(${currentColor})`
+      );
+      document.documentElement.style.setProperty(
+        "--guide-bg",
+        `var(${currentColor})`
+      );
     }
   };
 
@@ -271,6 +288,9 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
       let userData = await getPlayerdata(usertoken);
       updateColor(userData);
       setPenaltyPoints(userData.playerPenaltyPoints);
+      if (userData.playerScore < 40) {
+        setHintButton(false);
+      }
     };
 
     asyncQuestion();
@@ -322,14 +342,43 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
             ) : (
               <>
                 {track1 === track2 ? (
-                  <Trackname >{track1}</Trackname>
+                  <Trackname
+                    color1={colorVariable[track1]}
+                    color2={colorVariable[track1]}
+                    style={{
+                      borderRadius: 5,
+                    }}
+                  >
+                    {track1}
+                  </Trackname>
                 ) : (
                   <>
-                    <Trackname className={track1 === "mythical past" ? 'past-color' : track1 === "digital present" ? 'present-color' : 'future-color'}>{track1}</Trackname>
-                    <Trackname className={track1 === "mythical past" && track2 === "digital present" ? 'pa-pre' : track2 === "mythical past" && track1 === "digital present" ? 'pre-pa' : track1 === "mythical past" && track2 === "dystopian future" ? 'pa-fu' : track2 === "mythical past" && track1 === "dystopian future" ? 'fu-pa' : track1 === "digital present" && track2 === "dystopian future" ? 'pre-fu' : 'fu-pre'}>
+                    <Trackname
+                      color1={colorVariable[track1]}
+                      color2={colorVariable[track1]}
+                      style={{
+                        borderTopLeftRadius: 5,
+                        borderBottomLeftRadius: 5,
+                      }}
+                    >
+                      {track1}
+                    </Trackname>
+                    <Trackname
+                      color1={colorVariable[track1]}
+                      color2={colorVariable[track2]}
+                    >
                       <FaTimes />
                     </Trackname>
-                    <Trackname className={track2 === "mythical past" ? 'past-color' : track2 === "digital present" ? 'present-color' : 'future-color'}>{track2}</Trackname>
+                    <Trackname
+                      color1={colorVariable[track2]}
+                      color2={colorVariable[track2]}
+                      style={{
+                        borderTopRightRadius: 5,
+                        borderBottomRightRadius: 5,
+                      }}
+                    >
+                      {track2}
+                    </Trackname>
                   </>
                 )}
               </>
@@ -379,7 +428,7 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
           </QuestionBox>
           <QBtnContainer>
             {hintButton && (
-              <Tooltip title="Hint" arrow placement="left" >
+              <Tooltip title="Hint" arrow placement="left">
                 <IconButton onClick={handleClickOpen}>
                   <img src={hintIcon} alt="" />
                 </IconButton>
@@ -427,6 +476,7 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
           <Bulb
             style={{
               width: "1em",
+              fill: "black",
             }}
           />
         </div>
@@ -450,9 +500,10 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
         className="hintDialog-container"
       >
         <div id="hintDialog-icon">
-          <Bulb
+          <FaUnlock
             style={{
-              width: "1em",
+              width: "0.6em",
+              fill: "black",
             }}
           />
         </div>
@@ -462,8 +513,8 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
         {penaltyPoints > 0 ? (
           <>
             <DialogContent id="hintDialog-text">
-              {Math.floor(penaltyPoints / 10)} chance
-              {Math.floor(penaltyPoints / 10) === 2 ? "s" : ""} left
+              {Math.floor(penaltyPoints)} chance
+              {Math.floor(penaltyPoints) === 2 ? "s" : ""} left
             </DialogContent>
             <DialogActions id="hintDialog-buttons">
               <Button id="confirm-button" onClick={unfreezeYes} color="primary">
@@ -476,7 +527,15 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
           </>
         ) : (
           <>
-            <DialogContent id="hintDialog-text">Penalty points renew after midnight!</DialogContent>
+            <DialogContent
+              id="hintDialog-text"
+              style={{
+                fontSize: "1rem",
+                marginBottom: "1rem",
+              }}
+            >
+              Penalty points renew after midnight!
+            </DialogContent>
           </>
         )}
       </Dialog>
@@ -489,21 +548,23 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
         <Fade in={correctAnsAlert}>
           <div id="answer-alert">
             <div id="alert-icon">
-              <Bulb
+              <GoCheck
                 style={{
                   width: "1em",
+                  fill: "black",
                 }}
               />
             </div>
             <h2 id="alert-title">
               {
                 ["Spot On!", "Nailed it!", "Way to go!", "Correct-a-mundo!"][
-                Math.floor(Math.random() * 4)
+                  Math.floor(Math.random() * 4)
                 ]
               }
             </h2>
             <p id="alert-message">
-              +{type === 'portal' ? 50 : type === 'bridge' ? 70 : 100} <FaStar />
+              +{type === "portal" ? 50 : type === "bridge" ? 70 : 100}{" "}
+              <FaStar />
             </p>
           </div>
         </Fade>

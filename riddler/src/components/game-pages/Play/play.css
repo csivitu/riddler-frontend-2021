@@ -53,7 +53,7 @@
 #alert-hintDialog-title h2 {
   font-size: 2rem;
   text-align: center;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 110%;
   margin-top: 3rem;
   padding: 0 0.5rem;
@@ -133,7 +133,7 @@
   background-color: #3B3B3B;
 }
 
-.past-color{
+/* .past-color{
   background-color:var(--past)
 }
 .present-color{
@@ -160,4 +160,4 @@
 }
 .pre-fu{
   background: linear-gradient(135deg, var(--present) 0%, var(--present) 49%, var(--future) 51%, var(--future) 100%);
-}
+} */

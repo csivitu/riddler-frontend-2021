@@ -13,6 +13,10 @@ export const GameContainer = styled.div`
   flex-direction: column;
   overflow: hidden;
   position: relative;
+
+  svg {
+    width: 1em;
+  }
 `;
 
 export const RiddlerLogo = styled.img`
@@ -36,10 +40,15 @@ export const ButtonContainer = styled.div`
   align-items: center;
   z-index: 5;
 
+  div {
+    cursor: pointer;
+  }
+
   img {
     padding: 0 15px;
     cursor: pointer;
     width: 10rem;
+    pointer-events: none;
   }
   
   @media screen and (max-width: 700px) {

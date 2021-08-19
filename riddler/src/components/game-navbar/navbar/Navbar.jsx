@@ -21,6 +21,7 @@ import LeaderboardLogo from "../../../assets/leaderboard.svg";
 import star from "../../../assets/star.svg";
 import { FaBars, FaStar, FaMusic, FaChevronDown } from "react-icons/fa";
 import Tooltip from "@material-ui/core/Tooltip";
+import { ReactComponent as Cross } from "../../../assets/cross.svg";
 
 import riddlerLogo from "./assets/riddlerlogo_svg_black.svg";
 // import { ReactComponent as RidderLogo } from "./assets/riddlerlogo_svg_black.svg";
@@ -39,7 +40,9 @@ const Navbar = ({ toggle, backgroundColor }) => {
       : []
   );
   const [play, setPlay] = useState(false);
-  const url = play?"https://www.youtube.com/embed/4NRXx6U8ABQ?rel=0&autoplay=1&loop=1&autopause=0":"https://www.youtube.com/embed/4NRXx6U8ABQ?rel=0&autoplay=0&loop=1&autopause=0"
+  const url = play
+    ? "https://www.youtube.com/embed/qt_urUz42vI?rel=0&autoplay=1&loop=1&autopause=0"
+    : "https://www.youtube.com/embed/qt_urUz42vI?rel=0&autoplay=0&loop=1&autopause=0";
 
   const updateColor = (res) => {
     // setCurrentTrack(JSON.parse(localStorage.getItem("currentTracks")));
@@ -118,19 +121,23 @@ const Navbar = ({ toggle, backgroundColor }) => {
               <p>{score}</p>
             </Player>
             <Player backgroundColor={backgroundColor}>{userName}</Player>
-            <MusicPlayer backgroundColor={backgroundColor} onClick={() => {
-              setPlay(!play)
-            }}>
-              
+            <MusicPlayer
+              backgroundColor={backgroundColor}
+              onClick={() => {
+                setPlay(!play);
+              }}
+            >
               <FaMusic />
+              {!play && <Cross id="music-cross" />}
               <iframe
-          width="560"
-          height="315"
-          src={url}
-          frameBorder="0"
-          allow="accelerometer; autoplay; loop; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+                title="music"
+                width="560"
+                height="315"
+                src={url}
+                frameBorder="0"
+                allow="accelerometer; autoplay; loop; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
             </MusicPlayer>
             {/* <MusicDropdown backgroundColor={backgroundColor}>
               <FaChevronDown />

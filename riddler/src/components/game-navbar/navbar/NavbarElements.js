@@ -18,6 +18,7 @@ export const Nav = styled.nav`
   top: 0;
   background-color: ${({ backgroundColor }) => backgroundColor};
   z-index: 10;
+  user-select: none;
 
   @media screen and (min-width: 950px) {
     transition: all 0.8s ease-in-out;
@@ -83,8 +84,8 @@ export const NavMenu = styled.div`
   list-style: none;
   text-align: center;
   justify-self: center;
-  gap: 1rem;
-  margin-left: 55px;
+  gap: 1.5rem;
+  margin-left: 80px;
 
   @media screen and (max-width: 950px) {
     display: none;
@@ -164,18 +165,18 @@ export const Player = styled.div`
   justify-content: space-evenly;
   text-decoration: none;
   align-self: center;
-  border-radius:5px;
-  height:40px;
-  padding:2px;
+  border-radius: 5px;
+  height: 40px;
+  padding: 2px;
   color: ${({ backgroundColor }) => backgroundColor};
   background-color: black;
-  min-width:110px;
-  border:3px solid black;
-  border-bottom:4px solid black;
+  min-width: 110px;
+  border: 3px solid black;
+  border-bottom: 4px solid black;
   margin-right: 14px;
 
-  img{
-    height:75%;
+  img {
+    height: 75%;
   }
 
   @media screen and (max-width: 950px) {
@@ -198,12 +199,19 @@ export const MusicPlayer = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
-  border-radius:5px;
+  border-radius: 5px;
   cursor: pointer;
   margin-right: 14px;
-  iframe{
-    display:none;
+
+  iframe {
+    display: none;
   }
+
+  #music-cross {
+    position: absolute;
+   fill: ${({ backgroundColor }) => backgroundColor};
+  }
+
   @media screen and (max-width: 950px) {
     margin-right: 5px;
   }
