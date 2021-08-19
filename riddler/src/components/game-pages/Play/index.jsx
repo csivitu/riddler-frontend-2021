@@ -175,7 +175,7 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
   const handleAnswer = async () => {
     setLoadingPage(true);
     const answerBox = document.getElementById("answer-box");
-    const answer = answerBox.value;
+    const answer = answerBox.value.toLowerCase().trim();
     if (answer) {
       answerBox.value = "";
       const res = await submitAnswer(usertoken, qId, answer);

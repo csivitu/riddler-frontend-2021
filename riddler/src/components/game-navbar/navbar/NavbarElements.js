@@ -213,7 +213,7 @@ export const MusicPlayer = styled.div`
   }
 
   @media screen and (max-width: 950px) {
-    margin-right: 5px;
+    display: none;
   }
 `;
 
