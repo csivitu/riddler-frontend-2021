@@ -28,7 +28,7 @@ export const TrackBox = styled.div`
   display: flex;
   justify-content: center;
   color: black;
-  padding: 0.3rem;
+  // padding: 0.3rem; 
   border-radius: 5px;
   background-color: var(--map-bg);
 

@@ -306,14 +306,14 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
             ) : (
               <>
                 {track1 === track2 ? (
-                  <Trackname>{track1}</Trackname>
+                  <Trackname >{track1}</Trackname>
                 ) : (
                   <>
-                    <Trackname>{track1}</Trackname>
-                    <Trackname>
+                    <Trackname className={track1=== "mythical past"? 'past-color' : track1=== "digital present" ? 'present-color' : 'future-color'}>{track1}</Trackname>
+                    <Trackname className={track1=== "mythical past" && track2=== "digital present" ? 'pa-pre' : track2=== "mythical past" && track1=== "digital present" ? 'pre-pa' : track1=== "mythical past" && track2=== "dystopian future" ? 'pa-fu' : track2=== "mythical past" && track1=== "dystopian future"? 'fu-pa':track1=== "digital present" && track2=== "dystopian future"?'pre-fu' : 'fu-pre'}>
                       <FaTimes />
                     </Trackname>
-                    <Trackname>{track2}</Trackname>
+                    <Trackname className={track2==="mythical past" ? 'past-color' : track2=== "digital present" ? 'present-color' : 'future-color'}>{track2}</Trackname>
                   </>
                 )}
               </>
@@ -323,14 +323,14 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
         <QuestionContainer>
           <QuestionBox>
             <QuestionContent>{ques}</QuestionContent>
-            {quesImg.map((imgLink) => {
+            {quesImg?.map((imgLink) => {
               return (
                 <Image>
                   <img src={imgLink} alt="" />
                 </Image>
               );
             })}
-            {quesLink.map((link) => (
+            {quesLink?.map((link) => (
               <LinkText href={link} rel="noreferrer" target="_blank">
                 {link}
               </LinkText>
@@ -346,14 +346,14 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
                   Hint
                 </h1>
                 <QuestionContent>{hint}</QuestionContent>
-                {hintImg.map((imgLink) => {
+                {hintImg?.map((imgLink) => {
                   return (
                     <Image>
                       <img src={imgLink} alt="" />
                     </Image>
                   );
                 })}
-                {hintLink.map((link) => (
+                {hintLink?.map((link) => (
                   <LinkText href={link} rel="noreferrer" target="_blank">
                     {link}
                   </LinkText>
@@ -412,7 +412,7 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
         </div>
         <DialogTitle id="alert-hintDialog-title">Take a hint?</DialogTitle>
         <DialogContent id="hintDialog-text">
-          -5 <FaStar />
+          -50 <FaStar />
         </DialogContent>
         <DialogActions id="hintDialog-buttons">
           <Button id="confirm-button" onClick={clickYesHint} color="primary">
@@ -456,7 +456,7 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
           </>
         ) : (
           <>
-            <DialogContent id="hintDialog-text">Until midnight</DialogContent>
+            <DialogContent id="hintDialog-text">Penalty points renew after midnight!</DialogContent>
           </>
         )}
       </Dialog>
@@ -483,7 +483,7 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
               }
             </h2>
             <p id="alert-message">
-              +10 <FaStar />
+              +100 <FaStar />
             </p>
           </div>
         </Fade>
