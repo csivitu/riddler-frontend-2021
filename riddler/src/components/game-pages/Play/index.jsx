@@ -121,13 +121,6 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
     setOpenHintDialog(false);
   };
 
-  // const handleUnfreezeClick = () => {
-
-  // }
-
-  // const handleCorrectAnsClose = () => {
-  //   setCorrectAnsAlert(false);
-  // };
   const handleUnfreezeClose = () => {
     setOpenUnfreezeDialog(false);
   };
@@ -257,6 +250,7 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
     const asyncQuestion = async () => {
       setType(checkType(qId));
       let res = await getQuestion(usertoken, qId);
+      console.log(res)
       localStorage.setItem("currentTracks", JSON.stringify(res.track));
       if (res.track.length === 1) res.track = [res.track[0], res.track[0]];
       // setRes(res);
@@ -289,10 +283,11 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
     setHintImg([]);
     setHintImg([]);
   }, [wantHint]);
+  console.log("Checking..")
 
   return (
     <>
-      <Layout backgroundColor="var(--map-bg)" />
+      <Layout backgroundColor="var(--map-bg)" wantHint={wantHint}/>
       <PlaySection>
         {loadingPage && (
           <div>

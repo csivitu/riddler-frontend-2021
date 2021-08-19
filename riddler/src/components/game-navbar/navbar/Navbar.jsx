@@ -29,7 +29,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { getPlayerdata } from "../../../api/requests";
 import LightTooltip from "../../game-pages/Tooltip";
 
-const Navbar = ({ toggle, backgroundColor }) => {
+const Navbar = ({ toggle, backgroundColor, wantHint }) => {
   const location = useLocation();
   const userName = useSelector((state) => state.auth.username);
   const token = useSelector((state) => state.auth.token);
@@ -75,15 +75,18 @@ const Navbar = ({ toggle, backgroundColor }) => {
       );
     }
   };
+  
 
   useEffect(() => {
     const asyncPlayerdata = async () => {
       let res = await getPlayerdata(token);
+      console.log(res);
       updateColor(res);
       setScore(res.playerScore);
     };
     asyncPlayerdata();
-  }, []);
+  }, [wantHint]);
+  console.log("Rerendering")
 
   return (
     <>
