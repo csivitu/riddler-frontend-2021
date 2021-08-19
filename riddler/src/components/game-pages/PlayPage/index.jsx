@@ -15,8 +15,6 @@ const Play = () => {
     username: ""
   });
   // const [questionOpen, setQuestionOpen] = useState(false);
-  console.log("mapRes from play");
-  console.log(mapRes);
 
   // if(mapRes.lockedNode) setMapOpen(false);
 

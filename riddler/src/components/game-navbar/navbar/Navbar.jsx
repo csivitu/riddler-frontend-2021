@@ -79,14 +79,11 @@ const Navbar = ({ toggle, backgroundColor }) => {
   useEffect(() => {
     const asyncPlayerdata = async () => {
       let res = await getPlayerdata(token);
-      console.log("Player data: ");
-      console.log(res);
       updateColor(res);
       setScore(res.playerScore);
     };
     asyncPlayerdata();
   }, []);
-  console.log("Rerendering Navbar");
 
   return (
     <>

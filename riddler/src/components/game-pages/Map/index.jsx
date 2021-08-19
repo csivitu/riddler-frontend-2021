@@ -66,7 +66,6 @@ const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
     if (document.getElementById("final-not-solved")) renderNode40Color(mapRes);
 
     if (mapRes.solvedNodes.length === 40) {
-      console.log("Game complete!!");
       setLastQuestion(true);
     } else if (JSON.stringify(mapRes.unlockedNodes) === JSON.stringify([40])) {
       mapRes.unlockedNodes = [];
@@ -77,7 +76,6 @@ const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
         qId(40);
         mapOpen(false);
       });
-      console.log("last Node");
     }
 
     const leftover = [
@@ -258,7 +256,6 @@ const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
   };
 
   const tutorialStart = () => {
-    console.log("Tutorial begins");
     setTutorialOpen(true);
   };
 
@@ -284,7 +281,6 @@ const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
       checkTutorialStatus();
     };
     asyncMap();
-    console.log("Render: ", check);
     setCheck(check + 1);
 
     return () => {
@@ -298,7 +294,6 @@ const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
       setDialogueOpen(false);
       setZoom(1);
       ref.current = null;
-      console.log("Map clean");
     };
   }, []);
 

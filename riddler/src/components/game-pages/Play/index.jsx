@@ -134,7 +134,6 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
 
   const clickYesHint = async () => {
     const res = await getHint(usertoken, qId);
-    console.log("Hint: ", res);
     if (res.code === "S4") {
       const ques = await getQuestion(usertoken, qId);
       setHint(ques.hint.text);
@@ -180,8 +179,6 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
     if (answer) {
       answerBox.value = "";
       const res = await submitAnswer(usertoken, qId, answer);
-      console.log("Response of answer submit");
-      console.log(res);
       if (res.code === "S2" || res.code === "S0") {
         setCorrectAnsAlert(true);
         setTimeout(function () {
@@ -210,8 +207,6 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
   const unfreezeYes = async () => {
     setLoadingPage(true);
     const res = await penaltyPoint(usertoken, qId);
-    console.log("Response on unfreeze");
-    console.log(res);
     if (res.code === "S3") {
       mapOpen(true);
     } else if (res.code === "L4") {
@@ -224,9 +219,7 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
 
   const updateColor = (res) => {
     // setCurrentTrack(JSON.parse(localStorage.getItem("currentTracks")));
-    console.log(res);
     const current = res.currentTrack;
-    console.log("Qid = ", qId);
     if (qId === 40) {
       document.documentElement.style.setProperty("--leaderboard-bg", "white");
       document.documentElement.style.setProperty("--map-bg", "white");
@@ -264,8 +257,6 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
     const asyncQuestion = async () => {
       setType(checkType(qId));
       let res = await getQuestion(usertoken, qId);
-      console.log("Question: ");
-      console.log(res);
       localStorage.setItem("currentTracks", JSON.stringify(res.track));
       if (res.track.length === 1) res.track = [res.track[0], res.track[0]];
       // setRes(res);
@@ -298,30 +289,6 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
     setHintImg([]);
     setHintImg([]);
   }, [wantHint]);
-
-  // useEffect(() => {
-  //   const asyncUnfreezeQues = async () => {
-  //     let res = await penaltyPoint(usertoken, qId);
-  //     console.log("On Unfreeze yes: ");
-  //     console.log(res);
-  //     // if (res.question) {
-  //     //   setQues(res.question.text);
-  //     //   setQuesLink(res.question.links);
-  //     //   setQuesImg(res.question.img);
-  //     //   if (res.track.length === 2) {
-  //     //     setTrack1(trackName[res.track[0]]);
-  //     //     setTrack2(trackName[res.track[1]]);
-  //     //   } else {
-  //     //     setTrack1(trackName[res.track[0]]);
-  //     //     setTrack2(trackName[res.track[0]]);
-  //     //   }
-  //     //   handleHint(res);
-  //     //   setLoadingPage(false);
-  //     // } else {
-  //     //   mapOpen(true);
-  //     // }
-  //   };
-  // }, [unfreezeQues]);
 
   return (
     <>

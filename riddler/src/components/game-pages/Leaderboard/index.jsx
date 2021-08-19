@@ -13,8 +13,6 @@ const Leaderboard = () => {
   useEffect(() => {
     const asyncLeaderboard = async () => {
       let res = await getLeaderboard();
-      console.log("Leaderboard data: ");
-      console.log(res);
       setLeaderboard(res);
       setLoadingPage(false);
     };
