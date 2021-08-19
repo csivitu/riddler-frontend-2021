@@ -114,7 +114,7 @@ function Guide() {
       </div>
       <Tooltip title="Join the discord server for any doubt clarifications." arrow placement="left">
         <div id="discord-button">
-          <a href="https://discord.gg/DG7UMRx22j" target="_blank">
+          <a href="https://discord.gg/DG7UMRx22j" rel="noreferrer" target="_blank">
             <div id="discord-icon">
               <FaDiscord size="2rem" />
             </div>
