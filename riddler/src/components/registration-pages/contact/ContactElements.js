@@ -14,6 +14,7 @@ export const FooterContainer = styled.div`
   background: url(bg_pattern.svg) no-repeat center center;
   background-color: black;
   background-size: cover;
+  background-position: center top -20px;
   display: flex;
   flex-direction: column;
   align-items: center;

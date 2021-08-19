@@ -33,6 +33,7 @@ import { ReactComponent as FinalNotSolved } from "../../../assets/finalNotSolved
 import { ReactComponent as FinalSolved } from "../../../assets/finalSolved.svg";
 import { ReactComponent as TutorialIcon } from "../../../assets/tutorial.svg";
 import { BsInfoCircleFill } from "react-icons/bs";
+import { isMobile } from "react-device-detect";
 
 const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
   const [tutorialOpen, setTutorialOpen] = useState(false);
@@ -152,6 +153,7 @@ const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
     });
 
     leftover.forEach((i) => {
+      if(mapRes.solvedNodes.length === 39) return;
       const element = document.getElementById(`node${i}`);
       element.addEventListener("click", () => {
         notify("Locked Question!");
@@ -260,18 +262,21 @@ const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
   };
 
   const checkTutorialStatus = () => {
-    const tutorialStatus = localStorage.getItem("tutorialDone");
-    if (!tutorialStatus) {
-      tutorialStart();
-      localStorage.setItem("tutorialDone", true);
+    if (!isMobile) {
+      const tutorialStatus = localStorage.getItem("tutorialDone");
+      if (!tutorialStatus) {
+        tutorialStart();
+        localStorage.setItem("tutorialDone", true);
+      }
     }
   };
 
   useEffect(() => {
     const asyncMap = async () => {
       let res = await getMap(usertoken);
+      console.log(res);
       if (res.code[0] !== "S") {
-        await notify("Some error occured");
+        await notify("Something went wrong!");
         await setTimeout(function () {
           window.location.href = "/game";
         }, 2000);
@@ -511,7 +516,19 @@ const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
           <GoKey />
         </div>
         <LightTooltip title="Tutorial" placement="left">
-          <div onClick={tutorialStart} className="tutorial-button">
+          <div
+            onClick={
+              isMobile
+                ? () => {
+                    window.open(
+                      "https://www.youtube.com/user/csivitu",
+                      "_blank"
+                    );
+                  }
+                : () => tutorialStart()
+            }
+            className="tutorial-button"
+          >
             <TutorialIcon />
           </div>
         </LightTooltip>

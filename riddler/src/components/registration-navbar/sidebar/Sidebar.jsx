@@ -75,6 +75,17 @@ const Sidebar = ({ isOpen, toggle }) => {
           </SidebarLink> */}
           <SidebarLink
             onClick={toggle}
+            to="sponsors"
+            smooth={true}
+            duration={500}
+            spy={true}
+            exact="true"
+            offset={-80}
+          >
+            SPONSORS
+          </SidebarLink>
+          <SidebarLink
+            onClick={toggle}
             to="contact"
             smooth={true}
             duration={500}
