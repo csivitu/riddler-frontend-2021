@@ -129,6 +129,7 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
 
   const clickYesHint = async () => {
     const res = await getHint(usertoken, qId);
+    console.log("Hint: ",res);
     if (res.code === "S4") {
       const ques = await getQuestion(usertoken, qId);
       setHint(ques.hint.text);

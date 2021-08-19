@@ -1,4 +1,4 @@
-import API from "./api";
+import { API, baseURL} from "./api";
 
 export const getLeaderboard = async () => {
   let res = await API.get(`/score/all`);
@@ -10,7 +10,7 @@ export const getPlayerdata = async (usertoken) => {
     method: "GET",
     headers: { "x-access-token": usertoken },
   };
-  let res = await fetch("http://localhost:3001/playerdata", requestOptions);
+  let res = await fetch(`${baseURL}/playerdata`, requestOptions);
   res = await res.json();
   return res;
 };
@@ -20,7 +20,7 @@ export const insertUser = async (usertoken) => {
     method: "POST",
     headers: { "x-access-token": usertoken },
   };
-  let res = await fetch("http://localhost:3001/insert/user", requestOptions);
+  let res = await fetch(`${baseURL}/insert/user`, requestOptions);
   localStorage.setItem('userCreated',true);
   return res;
 };
@@ -31,7 +31,7 @@ export const getMap = async (usertoken) => {
     headers: { "x-access-token": usertoken },
   };
 
-  let res = await fetch("http://localhost:3001/map", requestOptions);
+  let res = await fetch(`${baseURL}/map`, requestOptions);
   res = await res.json();
   return res;
 };
@@ -46,7 +46,7 @@ export const getQuestion = async (usertoken, qid) => {
     body: JSON.stringify({ quesId: qid }),
   };
 
-  let res = await fetch("http://localhost:3001/ques", requestOptions);
+  let res = await fetch(`${baseURL}/ques`, requestOptions);
   res = await res.json();
   return res;
 };
@@ -61,7 +61,7 @@ export const submitAnswer = async (usertoken, qId, answer) => {
     body: JSON.stringify({ quesId: qId, answer: answer }),
   };
 
-  let res = await fetch("http://localhost:3001/submit", requestOptions);
+  let res = await fetch(`${baseURL}/submit`, requestOptions);
   res = await res.json();
   return res;
 }
@@ -76,7 +76,7 @@ export const getHint = async (usertoken, qId) => {
     body: JSON.stringify({ quesId: qId}),
   };
 
-  let res = await fetch("http://localhost:3001/hint", requestOptions);
+  let res = await fetch(`${baseURL}/hint`, requestOptions);
   res = await res.json();
   return res;
 }
@@ -91,7 +91,7 @@ export const penaltyPoint = async (usertoken, qId) => {
     body: JSON.stringify({ quesId: qId}),
   };
 
-  let res = await fetch("http://localhost:3001/penalty", requestOptions);
+  let res = await fetch(`${baseURL}/penalty`, requestOptions);
   res = await res.json();
   return res;
 }

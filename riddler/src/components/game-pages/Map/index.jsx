@@ -31,6 +31,7 @@ import LightTooltip from "../Tooltip";
 import Tutorial from "./tutorial";
 import finalNotSolved from "../../../assets/finalNotSolved.svg";
 import finalSolved from "../../../assets/finalSolved.svg";
+import { ReactComponent as TutorialIcon } from '../../../assets/tutorial.svg';
 
 const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
   const [tutorialOpen, setTutorialOpen] = useState(false);
@@ -472,7 +473,7 @@ const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
 
         <LightTooltip title="Tutorial" placement="left">
           <div onClick={tutorialStart} className="tutorial-button">
-            <FaPlay />
+            <TutorialIcon />
           </div>
         </LightTooltip>
       </div>

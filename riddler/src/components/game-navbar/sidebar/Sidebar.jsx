@@ -24,7 +24,7 @@ const Sidebar = ({ isOpen, toggle, backgroundColor }) => {
         <SidebarMenu>
           <SidebarLink
             onClick={toggle}
-            to="rules"
+            to="guide"
             smooth={true}
             duration={500}
             spy={true}

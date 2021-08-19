@@ -30,6 +30,10 @@ export const NavbarContainer = styled.div`
   height: 80px;
   z-index: 1;
   width: 100%;
+
+  @media screen and (max-width: 950px) {
+    justify-content: flex-end;
+  }
 `;
 
 export const NavLogo = styled(NavLink)`
@@ -43,6 +47,10 @@ export const NavLogo = styled(NavLink)`
   img {
     height: 1.5rem;
     color: white;
+  }
+
+  @media screen and (max-width: 950px) {
+    display: none;
   }
 
   @media screen and (max-width: 350px) {
@@ -62,7 +70,7 @@ export const MobileIcon = styled.div`
     align-items: center;
     position: absolute;
     height: 100%;
-    right: 10px;
+    left: 10px;
     font-size: 1.8rem;
     cursor: pointer;
     color: black;
@@ -145,10 +153,6 @@ export const NavMenuRight = styled.div`
   list-style: none;
   text-align: center;
   justify-self: center;
-
-  @media screen and (max-width: 950px) {
-    display: none;
-  }
 `;
 
 export const Player = styled.div`
@@ -173,8 +177,11 @@ export const Player = styled.div`
     height:75%;
   }
 
+  @media screen and (max-width: 950px) {
+    margin-right: 5px;
+  }
+
   @media screen and (max-width: 350px) {
-    margin-left: 10px;
     img {
       width: 70%;
     }
@@ -192,6 +199,11 @@ export const MusicPlayer = styled.div`
   font-size: 1.5rem;
   border-radius:5px;
   cursor: pointer;
+  margin-right: 14px;
+
+  @media screen and (max-width: 950px) {
+    margin-right: 5px;
+  }
 `;
 
 export const MusicDropdown = styled.div`

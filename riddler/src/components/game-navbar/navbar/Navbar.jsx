@@ -109,9 +109,9 @@ const Navbar = ({ toggle, backgroundColor }) => {
             <MusicPlayer backgroundColor={backgroundColor}>
               <FaMusic />
             </MusicPlayer>
-            <MusicDropdown backgroundColor={backgroundColor}>
+            {/* <MusicDropdown backgroundColor={backgroundColor}>
               <FaChevronDown />
-            </MusicDropdown>
+            </MusicDropdown> */}
           </NavMenuRight>
         </NavbarContainer>
       </Nav>

@@ -7,8 +7,8 @@ const Tutorial = ({ tutorialOpen, setTutorialOpen, setLegendOpen }) => {
     steps: [
       {
         target: "#locked-peg",
-        title: "This is YOU on the map",
-        content: "The question mark represents your position on the map",
+        title: "YOU are here!",
+        content: "The cursor shows your postion on the Map.",
         disableBeacon: true,
         style: {
           spotlight: {
@@ -19,7 +19,13 @@ const Tutorial = ({ tutorialOpen, setTutorialOpen, setLegendOpen }) => {
       {
         target: "#node21",
         title: "This is a QUESTION",
-        content: "Each node in the map represents a question",
+        content: "Once you solve a question, the nodes connected to it become unlocked.",
+        disableBeacon: true,
+      },
+      {
+        target: "#node39",
+        title: "There are 3 tracks",
+        content: "Select and answer any of the questions to lock a track",
         disableBeacon: true,
       },
       {
@@ -32,12 +38,6 @@ const Tutorial = ({ tutorialOpen, setTutorialOpen, setLegendOpen }) => {
         target: ".legend-box",
         title: "Refer the Key",
         content: "The map key explains the representations on the map",
-        disableBeacon: true,
-      },
-      {
-        target: "#node39",
-        title: "There are 3 tracks",
-        content: "Select and answer any of the questions to lock a track",
         disableBeacon: true,
       },
     ],
@@ -58,12 +58,8 @@ const Tutorial = ({ tutorialOpen, setTutorialOpen, setLegendOpen }) => {
       elem.scrollTo(0, 0);
     }
 
-    if (index === 2) {
+    if (index === 3) {
       setLegendOpen(true);
-    }
-
-    if (index === 4) {
-      setLegendOpen(false);
     }
   };
 
