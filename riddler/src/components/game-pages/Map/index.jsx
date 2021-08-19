@@ -29,16 +29,42 @@ import { ReactComponent as RedoIcon } from "../../../assets/redo.svg";
 import { withStyles } from "@material-ui/styles";
 import LightTooltip from "../Tooltip";
 import Tutorial from "./tutorial";
-import finalNotSolved from "../../../assets/finalNotSolved.svg";
-import finalSolved from "../../../assets/finalSolved.svg";
-import { ReactComponent as TutorialIcon } from '../../../assets/tutorial.svg';
+import { ReactComponent as FinalNotSolved } from "../../../assets/finalNotSolved.svg";
+import { ReactComponent as FinalSolved } from "../../../assets/finalSolved.svg";
+import { ReactComponent as TutorialIcon } from "../../../assets/tutorial.svg";
+import { BsInfoCircleFill } from "react-icons/bs";
 
 const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
   const [tutorialOpen, setTutorialOpen] = useState(false);
   const usertoken = useSelector((state) => state.auth.token);
   const [check, setCheck] = useState(0);
 
+  let arrayChecker = (arr, target) => target.every((v) => arr.includes(v));
+
+  const renderNode40Color = (res) => {
+    const solved = res.solvedNodes;
+    const portal = res.portalNodes;
+    const pastNodes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 36, 37, 37];
+    const presentNodes = [
+      11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 39,
+    ];
+    const futureNodes = [
+      23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 38,
+    ];
+    if (arrayChecker(solved, pastNodes) && portal[9]) {
+      document.getElementById("final-past").style.fill = "var(--past)";
+    }
+    if (arrayChecker(solved, presentNodes) && portal[20]) {
+      document.getElementById("final-present").style.fill = "var(--present)";
+    }
+    if (arrayChecker(solved, futureNodes) && portal[32]) {
+      document.getElementById("final-future").style.fill = "var(--future)";
+    }
+  };
+
   const renderMap = (mapRes) => {
+    if (document.getElementById("final-not-solved")) renderNode40Color(mapRes);
+
     if (mapRes.solvedNodes.length === 40) {
       console.log("Game complete!!");
       setLastQuestion(true);
@@ -76,6 +102,14 @@ const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
       element.classList.add("unlocked");
       if ([37, 38, 39].includes(i)) {
         element.classList.add("display-none");
+      }
+      if (
+        JSON.stringify([37, 38, 39]) === JSON.stringify(mapRes.unlockedNodes)
+      ) {
+        element.addEventListener("click", () => {
+          qId(i);
+          mapOpen(false);
+        });
       }
       if (mapRes.lockedNode === 0) {
         element.addEventListener("click", () => {
@@ -228,11 +262,26 @@ const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
     setTutorialOpen(true);
   };
 
+  const checkTutorialStatus = () => {
+    const tutorialStatus = localStorage.getItem("tutorialDone");
+    if (!tutorialStatus) {
+      tutorialStart();
+      localStorage.setItem("tutorialDone", true);
+    }
+  };
+
   useEffect(() => {
     const asyncMap = async () => {
       let res = await getMap(usertoken);
+      if (res.code[0] !== "S") {
+        await notify("Some error occured");
+        await setTimeout(function () {
+          window.location.href = "/game";
+        }, 2000);
+      }
       setMapRes(res);
       renderMap(res);
+      checkTutorialStatus();
     };
     asyncMap();
     console.log("Render: ", check);
@@ -251,7 +300,7 @@ const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
       ref.current = null;
       console.log("Map clean");
     };
-  }, [tutorialOpen, mapOpen]);
+  }, []);
 
   return (
     <>
@@ -396,16 +445,15 @@ const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
               <img src={Marker} alt="locked peg" />
             </div>
             <div id="node40">
-              <img
-                src={lastQuestion ? finalSolved : finalNotSolved}
-                alt="Final node"
-              />
+              {lastQuestion ? (
+                <FinalSolved />
+              ) : (
+                <FinalNotSolved id="final-not-solved" />
+              )}
             </div>
           </div>
         </div>
-
         <ToastContainer />
-
         <div>
           <Dialog
             open={dialogueOpen}
@@ -429,7 +477,6 @@ const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
             </DialogActions>
           </Dialog>
         </div>
-
         <div className="zoom-buttons">
           <LightTooltip title="Zoom Out" placement="bottom">
             <div onClick={zoomOut} id="zoom-out">
@@ -447,7 +494,6 @@ const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
             </div>
           </LightTooltip>
         </div>
-
         <div
           style={{
             display: `${legendOpen ? "grid" : "none"}`,
@@ -466,16 +512,24 @@ const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
           <img className="solvedNode" src={solvedNode} alt="Solved Node" />
           <p>Solved Question</p>
         </div>
-
         <div onClick={toggleLegend} className="key-button">
           <GoKey />
         </div>
-
         <LightTooltip title="Tutorial" placement="left">
           <div onClick={tutorialStart} className="tutorial-button">
             <TutorialIcon />
           </div>
         </LightTooltip>
+        {!lastQuestion && (
+          <LightTooltip
+            title="Select the next unlocked question"
+            placement="left"
+          >
+            <div className="info-button">
+              <BsInfoCircleFill />
+            </div>
+          </LightTooltip>
+        )}
       </div>
     </>
   );
