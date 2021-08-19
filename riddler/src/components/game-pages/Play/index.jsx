@@ -104,6 +104,8 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
 
   const [correctAnsAlert, setCorrectAnsAlert] = useState(false);
 
+  const [type, setType] = useState('normal');
+
   const handleClickOpen = async () => {
     setOpenHintDialog(true);
   };
@@ -116,20 +118,16 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
 
   // }
 
-  const handleCorrectAnsClose = () => {
-    setCorrectAnsAlert(false);
-  };
+  // const handleCorrectAnsClose = () => {
+  //   setCorrectAnsAlert(false);
+  // };
   const handleUnfreezeClose = () => {
     setOpenUnfreezeDialog(false);
-  };
-  const clickNoHint = () => {
-    setWantHint(false);
-    handleClose();
   };
 
   const clickYesHint = async () => {
     const res = await getHint(usertoken, qId);
-    console.log("Hint: ",res);
+    console.log("Hint: ", res);
     if (res.code === "S4") {
       const ques = await getQuestion(usertoken, qId);
       setHint(ques.hint.text);
@@ -152,6 +150,15 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
     }
   };
 
+  const checkType = (qId) => {
+    if (qId === 36 || qId === 37 || qId === 23 || qId === 24 || qId === 11 || qId === 12) {
+      return 'bridge'
+    }
+    else if (qId === 9 || qId === 20 || qId === 32) {
+      return 'portal'
+    }
+    else return 'normal'
+  }
   const handleAnswer = async () => {
     setLoadingPage(true);
     const answerBox = document.getElementById("answer-box");
@@ -230,6 +237,7 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
 
   useEffect(() => {
     const asyncQuestion = async () => {
+      setType(checkType(qId));
       let res = await getQuestion(usertoken, qId);
       console.log("Question: ");
       console.log(res);
@@ -309,11 +317,11 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
                   <Trackname >{track1}</Trackname>
                 ) : (
                   <>
-                    <Trackname className={track1=== "mythical past"? 'past-color' : track1=== "digital present" ? 'present-color' : 'future-color'}>{track1}</Trackname>
-                    <Trackname className={track1=== "mythical past" && track2=== "digital present" ? 'pa-pre' : track2=== "mythical past" && track1=== "digital present" ? 'pre-pa' : track1=== "mythical past" && track2=== "dystopian future" ? 'pa-fu' : track2=== "mythical past" && track1=== "dystopian future"? 'fu-pa':track1=== "digital present" && track2=== "dystopian future"?'pre-fu' : 'fu-pre'}>
+                    <Trackname className={track1 === "mythical past" ? 'past-color' : track1 === "digital present" ? 'present-color' : 'future-color'}>{track1}</Trackname>
+                    <Trackname className={track1 === "mythical past" && track2 === "digital present" ? 'pa-pre' : track2 === "mythical past" && track1 === "digital present" ? 'pre-pa' : track1 === "mythical past" && track2 === "dystopian future" ? 'pa-fu' : track2 === "mythical past" && track1 === "dystopian future" ? 'fu-pa' : track1 === "digital present" && track2 === "dystopian future" ? 'pre-fu' : 'fu-pre'}>
                       <FaTimes />
                     </Trackname>
-                    <Trackname className={track2==="mythical past" ? 'past-color' : track2=== "digital present" ? 'present-color' : 'future-color'}>{track2}</Trackname>
+                    <Trackname className={track2 === "mythical past" ? 'past-color' : track2 === "digital present" ? 'present-color' : 'future-color'}>{track2}</Trackname>
                   </>
                 )}
               </>
@@ -363,13 +371,17 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
           </QuestionBox>
           <QBtnContainer>
             {hintButton && (
-              <IconButton onClick={handleClickOpen}>
-                <img src={hintIcon} alt="" />
-              </IconButton>
+              <Tooltip title="Hint" arrow placement="left" >
+                <IconButton onClick={handleClickOpen}>
+                  <img src={hintIcon} alt="" />
+                </IconButton>
+              </Tooltip>
             )}
-            <IconButton onClick={() => mapOpen(true)}>
-              <img src={mapIcon} alt="" />
-            </IconButton>
+            <Tooltip title="Map" arrow placement="left">
+              <IconButton onClick={() => mapOpen(true)}>
+                <img src={mapIcon} alt="" />
+              </IconButton>
+            </Tooltip>
           </QBtnContainer>
         </QuestionContainer>
         <AContainer>
@@ -478,12 +490,12 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
             <h2 id="alert-title">
               {
                 ["Spot On!", "Nailed it!", "Way to go!", "Correct-a-mundo!"][
-                  Math.floor(Math.random() * 4)
+                Math.floor(Math.random() * 4)
                 ]
               }
             </h2>
             <p id="alert-message">
-              +100 <FaStar />
+              +{type === 'portal' ? 50 : type === 'bridge' ? 70 : 100} <FaStar />
             </p>
           </div>
         </Fade>

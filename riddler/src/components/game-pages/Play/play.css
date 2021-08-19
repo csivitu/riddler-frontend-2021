@@ -124,6 +124,8 @@
     text-align: center;
     color: var(--map-bg);
     font-size: 1.5rem;
+    font-weight: bold;
+    margin-top:0.5rem;
 }
 
 .Toastify__toast {
@@ -141,20 +143,20 @@
 }
 
 .pre-pa{
-  background: linear-gradient(90deg, var(--present) 0%, var(--past) 100%);
+  background: linear-gradient(135deg, var(--present) 0%, var(--present) 49%, var(--past) 51% var(--past) 100%);
 }
 .pa-pre{
-  background: linear-gradient(90deg, var(--past) 0%, var(--present) 100%);
+  background: linear-gradient(135deg, var(--past) 0%, var(--past) 49%, var(--present) 51%, var(--present) 100%);
 }
 .pa-fu{
-  background: linear-gradient(90deg, var(--past) 0%, var(--future) 100%);
+  background: linear-gradient(135deg, var(--past) 0%, var(--past) 49%, var(--future) 51% var(--future) 100%);
 }
 .fu-pa{
-  background: linear-gradient(90deg, var(--future) 0%, var(--past) 100%);
+  background: linear-gradient(135deg, var(--future) 0%, var(--future) 49%, var(--past) 51%, var(--past) 100%);
 }
 .fu-pre{
-  background: linear-gradient(90deg, var(--future) 0%, var(--present) 100%);
+  background: linear-gradient(135deg, var(--future) 0%, var(--future) 49%, var(--present) 51% var(--present) 100%);
 }
 .pre-fu{
-  background: linear-gradient(90deg, var(--present) 0%, var(--future) 100%);
+  background: linear-gradient(135deg, var(--present) 0%, var(--present) 49%, var(--future) 51%, var(--future) 100%);
 }
