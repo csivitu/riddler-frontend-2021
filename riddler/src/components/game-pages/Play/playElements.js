@@ -85,7 +85,7 @@ export const QuestionBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   /* padding-right: 5rem; */
   /* margin-right: 0.25rem; */
 
@@ -121,8 +121,7 @@ export const QuestionContent = styled.p`
   line-height: 1.5;
   font-size: 1.2rem;
   white-space: pre-wrap;
-
-  
+  width: 100%;
 
   @media screen and (max-width: 700px) {
     font-size: 1rem;

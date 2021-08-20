@@ -250,6 +250,7 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
     const asyncQuestion = async () => {
       setType(checkType(qId));
       let res = await getQuestion(usertoken, qId);
+      console.log(res);
       localStorage.setItem("currentTracks", JSON.stringify(res.track));
       if (res.track.length === 1) res.track = [res.track[0], res.track[0]];
       // setRes(res);
@@ -285,7 +286,7 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
 
   return (
     <>
-      <Layout backgroundColor="var(--map-bg)" wantHint={wantHint}/>
+      <Layout backgroundColor="var(--map-bg)" wantHint={wantHint} />
       <PlaySection>
         {loadingPage && (
           <div>
@@ -364,13 +365,32 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
               <>
                 <h1
                   style={{
-                    color: "var(--map-bg)",
-                    fontFamily: "Poppins",
+                    backgroundColor: "var(--map-bg)",
+                    fontFamily: "Brice",
+                    fontSize: "1.1rem",
+                    margin: "1rem 0",
+                    color: "black",
+                    padding: "5px",
+                    borderRadius: 5,
+                    height: "2rem",
+                    userSelect: "none",
                   }}
                 >
-                  Hint
+                  HINT{" "}
+                  <Bulb
+                    style={{
+                      height: "1em",
+                      width: "1em",
+                    }}
+                  />
                 </h1>
-                <QuestionContent>{hint}</QuestionContent>
+                <QuestionContent
+                  style={{
+                    color: "var(--map-bg)",
+                  }}
+                >
+                  {hint}
+                </QuestionContent>
                 {hintImg?.map((imgLink) => {
                   return (
                     <Image>
@@ -379,7 +399,14 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
                   );
                 })}
                 {hintLink?.map((link) => (
-                  <LinkText href={link} rel="noreferrer" target="_blank">
+                  <LinkText
+                    style={{
+                      color: "var(--map-bg)",
+                    }}
+                    href={link}
+                    rel="noreferrer"
+                    target="_blank"
+                  >
                     {link}
                   </LinkText>
                 ))}
