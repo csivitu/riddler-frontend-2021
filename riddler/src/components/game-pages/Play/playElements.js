@@ -78,7 +78,7 @@ export const QuestionContainer = styled.div`
 export const QuestionBox = styled.div`
   height: 60vh;
   width: 100%;
-  padding: 0.5rem 1rem;
+  padding: 5% 5%;
   width: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -86,8 +86,8 @@ export const QuestionBox = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-right: 5rem;
-  margin-right: 0.25rem;
+  /* padding-right: 5rem; */
+  /* margin-right: 0.25rem; */
 
   ::-webkit-scrollbar {
     display: block;
@@ -107,19 +107,20 @@ export const QuestionBox = styled.div`
     background: transparent;
   }
 
-  @media screen and (max-width: 900px) {
+  /* @media screen and (max-width: 900px) {
     padding-right: 4rem;
   }
 
   @media screen and (max-width: 500px) {
     padding-right: 3rem;
-  }
+  } */
 `;
 
 export const QuestionContent = styled.p`
   font-family: "Poppins";
-  line-height: 3;
+  line-height: 1.5;
   font-size: 1.2rem;
+  white-space: pre-wrap;
 
   
 
@@ -145,6 +146,8 @@ export const Image = styled.div`
   img {
     width: 100%;
     max-width: 600px;
+    pointer-events: none;
+    /* user-select: none; */
   }
 `;
 
