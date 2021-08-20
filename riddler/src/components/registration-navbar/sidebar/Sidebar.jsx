@@ -51,28 +51,6 @@ const Sidebar = ({ isOpen, toggle }) => {
           >
             FAQs
           </SidebarLink>
-          {/* <SidebarLink
-            onClick={toggle}
-            to="countdown"
-            smooth={true}
-            duration={500}
-            spy={true}
-            exact="true"
-            offset={-80}
-          >
-            Countdown
-          </SidebarLink> */}
-          {/* <SidebarLink
-            onClick={toggle}
-            to="prizes"
-            smooth={true}
-            duration={500}
-            spy={true}
-            exact="true"
-            offset={-80}
-          >
-            Prizes
-          </SidebarLink> */}
           <SidebarLink
             onClick={toggle}
             to="sponsors"
@@ -97,7 +75,7 @@ const Sidebar = ({ isOpen, toggle }) => {
           </SidebarLink>
         </SidebarMenu>
         <SideBtnWrap>
-          <SidebarRoute to="/register">PLAY NOW</SidebarRoute>
+          <SidebarRoute to="/game">PLAY NOW</SidebarRoute>
         </SideBtnWrap>
       </SidebarWrapper>
     </SidebarContainer>

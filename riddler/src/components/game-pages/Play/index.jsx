@@ -127,7 +127,6 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
 
   const clickYesHint = async () => {
     const res = await getHint(usertoken, qId);
-    console.log(res);
     if (res.code === "S4") {
       const ques = await getQuestion(usertoken, qId);
       setHint(ques.hint.text);
@@ -170,11 +169,9 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
     setLoadingPage(true);
     const answerBox = document.getElementById("answer-box");
     const answer = answerBox.value.toLowerCase().trim();
-    console.log(answer)
     if (answer) {
       answerBox.value = "";
       const res = await submitAnswer(usertoken, qId, answer);
-      console.log(res)
       if (res.code === "S2" || res.code === "S0") {
         setCorrectAnsAlert(true);
         setTimeout(function () {
@@ -253,7 +250,6 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
     const asyncQuestion = async () => {
       setType(checkType(qId));
       let res = await getQuestion(usertoken, qId);
-      console.log(res)
       localStorage.setItem("currentTracks", JSON.stringify(res.track));
       if (res.track.length === 1) res.track = [res.track[0], res.track[0]];
       // setRes(res);
@@ -286,8 +282,6 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
     setHintImg([]);
     setHintImg([]);
   }, [wantHint]);
-  console.log("Checking..")
-  console.log(ques);
 
   return (
     <>
