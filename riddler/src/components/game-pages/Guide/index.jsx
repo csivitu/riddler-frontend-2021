@@ -65,7 +65,7 @@ function Guide() {
               solve.{" "}
             </li>
             <li className="each-list">
-              The participants who hold the top three slots of the leaderboard
+              The participants who hold the top five slots of the leaderboard
               at the end of the 72 hours will be awarded with the main prizes.
             </li>
           </ul>

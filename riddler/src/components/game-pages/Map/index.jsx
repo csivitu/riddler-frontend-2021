@@ -510,13 +510,20 @@ const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
         <div onClick={toggleLegend} className="key-button">
           <GoKey />
         </div>
-        {!isMobile && (
+        {isMobile ? (
+          <LightTooltip title="Tutorial" placement="left">
+            <div onClick={() => window.open("https://www.youtube.com/watch?v=ifayZiXxAWo&ab_channel=ComputerSocietyofIndia-VITChapter", "_blank")} className="tutorial-button">
+              <TutorialIcon />
+            </div>
+          </LightTooltip>
+        ):(
           <LightTooltip title="Tutorial" placement="left">
             <div onClick={() => tutorialStart()} className="tutorial-button">
               <TutorialIcon />
             </div>
           </LightTooltip>
-        )}
+        )
+        }
         {!lastQuestion && (
           <LightTooltip
             title="Select the next unlocked question"
