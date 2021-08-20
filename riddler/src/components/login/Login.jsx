@@ -1,4 +1,5 @@
 import React from 'react';
+const {process} = require('../../env.json');
 
 export default function Login() {
     const redirectUrl = encodeURIComponent(process.env.REACT_APP_REDIRECT_URL);

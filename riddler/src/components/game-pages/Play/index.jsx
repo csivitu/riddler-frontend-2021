@@ -250,7 +250,6 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
     const asyncQuestion = async () => {
       setType(checkType(qId));
       let res = await getQuestion(usertoken, qId);
-      console.log(res);
       localStorage.setItem("currentTracks", JSON.stringify(res.track));
       if (res.track.length === 1) res.track = [res.track[0], res.track[0]];
       // setRes(res);
@@ -287,7 +286,7 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
   return (
     <>
       <Layout backgroundColor="var(--map-bg)" wantHint={wantHint} />
-      <PlaySection>
+      <PlaySection id="background">
         {loadingPage && (
           <div>
             <div id="map-loading">

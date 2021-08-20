@@ -6,26 +6,21 @@ import "./map.css";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import useDraggableScroll from "use-draggable-scroll";
 import Layout from "../../game-navbar/Layout";
-import { getMap, insertUser } from "../../../api/requests";
+import { getMap } from "../../../api/requests";
 import { useSelector } from "react-redux";
-import { CircularProgress, makeStyles, Tooltip } from "@material-ui/core";
+import { CircularProgress } from "@material-ui/core";
 import { ImPlus, ImMinus } from "react-icons/im";
-import { FaRedoAlt, FaPlay, FaDiscord, FaLock } from "react-icons/fa";
+import { FaLock } from "react-icons/fa";
 import { GoKey } from "react-icons/go";
 import Marker from "../../../assets/Marker.svg";
-import { SiApplemusic } from "react-icons/si";
 import lockedNode from "../../../assets/lockedNode.svg";
 import unlockedNode from "../../../assets/unlockedNode.svg";
 import portalNode from "../../../assets/portalNode.svg";
 import solvedNode from "../../../assets/solvedNode.svg";
-import { ReactComponent as onboardingLogo } from "../../../assets/onboarding.svg";
 import { ReactComponent as RedoIcon } from "../../../assets/redo.svg";
-import { withStyles } from "@material-ui/styles";
 import LightTooltip from "../Tooltip";
 import Tutorial from "./tutorial";
 import { ReactComponent as FinalNotSolved } from "../../../assets/finalNotSolved.svg";
@@ -475,7 +470,9 @@ const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
             </DialogActions>
           </Dialog>
         </div>
-        <div className="zoom-buttons">
+        <div className="zoom-buttons" style={{
+          display: `${isMobile ? 'none' : ''}`,
+        }}>
           <LightTooltip title="Zoom Out" placement="bottom">
             <div onClick={zoomOut} id="zoom-out">
               <ImMinus />

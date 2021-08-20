@@ -636,6 +636,10 @@
   fill: #3b3b3b;
 }
 
+.react-joyride__tooltip {
+  font-family: 'Poppins' !important;
+}
+
 .react-joyride__tooltip button svg g path {
   fill: white;
 }

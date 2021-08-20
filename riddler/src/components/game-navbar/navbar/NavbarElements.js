@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Link as LinkRouter, NavLink } from "react-router-dom";
-import { Link as LinkScroll } from "react-scroll";
 
 export const Nav = styled.nav`
   @font-face {
@@ -203,17 +202,13 @@ export const MusicPlayer = styled.div`
   cursor: pointer;
   margin-right: 14px;
 
-  iframe {
-    display: none;
-  }
-
   #music-cross {
     position: absolute;
-   fill: ${({ backgroundColor }) => backgroundColor};
+    fill: ${({ backgroundColor }) => backgroundColor};
   }
 
   @media screen and (max-width: 950px) {
-    display: none;
+    margin-right: 5px;
   }
 `;
 

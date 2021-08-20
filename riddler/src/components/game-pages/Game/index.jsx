@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   GameContainer,
   ButtonContainer,
   RiddlerLogo,
   Checkers,
-  GifImage,
 } from "./style";
 // import riddlerLogo from "../../../assets/riddlerlogo_svg.svg";
 import riddlerLogo from "../../../assets/power.svg";
@@ -16,13 +15,11 @@ import guideWithColor from "../../../assets/guideWithColor.svg";
 import guideButton from "../../../assets/guide_button.svg";
 import leaderboardButton from "../../../assets/leaderboard_button.svg";
 import leaderboardwithColor from "../../../assets/leaderboardwithColor.svg";
-import checkerLine from "../../../assets/checkers_line.svg";
 import { ReactComponent as StarRed } from "../../../assets/star_thing_1.svg";
 import { ReactComponent as StarBlue } from "../../../assets/star_thing_2.svg";
 import { ReactComponent as StarYellow } from "../../../assets/star_thing_3.svg";
 import { ReactComponent as StarsmallBlue } from "../../../assets/star_thing_4.svg";
 import checkers from "../../../assets/checkers.svg";
-import GIF from "../../../assets/GIF.gif";
 
 import { useHistory } from "react-router-dom";
 import { useDrag } from "react-use-gesture";

@@ -70,6 +70,19 @@ function Guide() {
             </li>
           </ul>
 
+          <h1 className="headings">ANSWERS</h1>
+
+          <ul className="all-lists">
+            <li className="each-list">
+              The answers are <b style={{color: 'var(--guide-bg)'}}>NOT</b> case-sensitive.
+            </li>
+            <li className="each-list">
+              Please try multiple iterations of your answer, occasionally the
+              answers that are submitted are spelled in a different way than the
+              one accepted, though both are correct.
+            </li>
+          </ul>
+
           <h1 className="headings">Unfreeze</h1>
 
           <img className="images" src={img4} alt="img4" />
@@ -132,7 +145,7 @@ function Guide() {
             target="_blank"
           >
             <div id="discord-icon">
-              <FaDiscord size="2rem" />
+              <FaDiscord size="3rem" />
             </div>
           </a>
         </div>

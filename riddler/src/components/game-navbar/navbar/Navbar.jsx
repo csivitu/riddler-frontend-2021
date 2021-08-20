@@ -4,33 +4,25 @@ import {
   NavbarContainer,
   NavLogo,
   NavMenu,
-  NavItem,
   NavLinks,
   MobileIcon,
-  NavBtn,
-  NavBtnLink,
   Player,
   MusicPlayer,
-  MusicDropdown,
   NavMenuRight,
 } from "./NavbarElements";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PlayLogo from "../../../assets/play.svg";
 import GuideLogo from "../../../assets/guide.svg";
 import LeaderboardLogo from "../../../assets/leaderboard.svg";
-import star from "../../../assets/star.svg";
-import { FaBars, FaStar, FaMusic, FaChevronDown } from "react-icons/fa";
-import Tooltip from "@material-ui/core/Tooltip";
-import { ReactComponent as Cross } from "../../../assets/cross.svg";
-
+import { FaBars, FaStar } from "react-icons/fa";
+import { HiOutlineLogout } from "react-icons/hi";
 import riddlerLogo from "./assets/riddlerlogo_svg_black.svg";
-// import { ReactComponent as RidderLogo } from "./assets/riddlerlogo_svg_black.svg";
-import { NavLink, useLocation } from "react-router-dom";
 import { getPlayerdata } from "../../../api/requests";
 import LightTooltip from "../../game-pages/Tooltip";
+import { logout } from "../../../redux/reducers/authReducer";
 
 const Navbar = ({ toggle, backgroundColor, wantHint }) => {
-  const location = useLocation();
+  const dispatch = useDispatch();
   const userName = useSelector((state) => state.auth.username);
   const token = useSelector((state) => state.auth.token);
   const [score, setScore] = useState("-");
@@ -39,13 +31,8 @@ const Navbar = ({ toggle, backgroundColor, wantHint }) => {
       ? JSON.parse(localStorage.getItem("currentTracks"))
       : []
   );
-  const [play, setPlay] = useState(false);
-  const url = play
-    ? "https://www.youtube.com/embed/qt_urUz42vI?rel=0&autoplay=1&loop=1&autopause=0"
-    : "https://www.youtube.com/embed/qt_urUz42vI?rel=0&autoplay=0&loop=1&autopause=0";
 
   const updateColor = (res) => {
-    // setCurrentTrack(JSON.parse(localStorage.getItem("currentTracks")));
     setCurrentTrack(res.currentTrack);
     if (currentTrack === [] || currentTrack === null) {
       document.documentElement.style.setProperty(
@@ -75,7 +62,6 @@ const Navbar = ({ toggle, backgroundColor, wantHint }) => {
       );
     }
   };
-  
 
   useEffect(() => {
     const asyncPlayerdata = async () => {
@@ -119,27 +105,19 @@ const Navbar = ({ toggle, backgroundColor, wantHint }) => {
               <p>{score}</p>
             </Player>
             <Player backgroundColor={backgroundColor}>{userName}</Player>
-            <MusicPlayer
-              backgroundColor={backgroundColor}
-              onClick={() => {
-                setPlay(!play);
-              }}
-            >
-              <FaMusic />
-              {!play && <Cross id="music-cross" />}
-              <iframe
-                title="music"
-                width="560"
-                height="315"
-                src={url}
-                frameBorder="0"
-                allow="accelerometer; autoplay; loop; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </MusicPlayer>
-            {/* <MusicDropdown backgroundColor={backgroundColor}>
-              <FaChevronDown />
-            </MusicDropdown> */}
+            <LightTooltip title="Log Out">
+              <MusicPlayer
+                backgroundColor={backgroundColor}
+              >
+                <HiOutlineLogout
+                  onClick={() => {
+                    dispatch(logout());
+                    localStorage.removeItem("userCreated");
+                    // window.location.href = "/";
+                  }}
+                />
+              </MusicPlayer>
+            </LightTooltip>
           </NavMenuRight>
         </NavbarContainer>
       </Nav>

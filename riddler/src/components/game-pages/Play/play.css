@@ -13,6 +13,13 @@
   justify-items: center;
 }
 
+#background {
+  background-image: url('../../../assets/bg_pattern.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 #map-loading {
   position: absolute;
   z-index: 10;
