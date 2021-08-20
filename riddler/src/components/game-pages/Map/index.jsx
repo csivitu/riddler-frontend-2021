@@ -153,7 +153,7 @@ const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
     });
 
     leftover.forEach((i) => {
-      if(mapRes.solvedNodes.length === 39) return;
+      if (mapRes.solvedNodes.length === 39) return;
       const element = document.getElementById(`node${i}`);
       element.addEventListener("click", () => {
         notify("Locked Question!");
@@ -515,23 +515,13 @@ const Map = ({ lastQuestion, setLastQuestion, setMapRes, mapOpen, qId }) => {
         <div onClick={toggleLegend} className="key-button">
           <GoKey />
         </div>
-        <LightTooltip title="Tutorial" placement="left">
-          <div
-            onClick={
-              isMobile
-                ? () => {
-                    window.open(
-                      "https://www.youtube.com/user/csivitu",
-                      "_blank"
-                    );
-                  }
-                : () => tutorialStart()
-            }
-            className="tutorial-button"
-          >
-            <TutorialIcon />
-          </div>
-        </LightTooltip>
+        {!isMobile && (
+          <LightTooltip title="Tutorial" placement="left">
+            <div onClick={() => tutorialStart()} className="tutorial-button">
+              <TutorialIcon />
+            </div>
+          </LightTooltip>
+        )}
         {!lastQuestion && (
           <LightTooltip
             title="Select the next unlocked question"
