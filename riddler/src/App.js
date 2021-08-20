@@ -49,7 +49,6 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/"><Layout /><Pages /></Route>
-        <Route exact path="/countdown" component={Timer} />
         <Route exact path="/register" component={Login} />
         <Route exact path="/oauth/redirect">
           <Token onLogin={onLogin} />
