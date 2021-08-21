@@ -2,15 +2,25 @@
   font-family: Brice;
   src: url("../../../assets/Brice-Bold.otf");
 }
-.guide-container {
+
+#guide-section {
   background-color: black;
+  background-image: url(../../../assets/bg_pattern.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.guide-container {
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
-  height: 100%;
+  height: calc(100vh - 80px);
+  overflow: scroll;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   /* justify-content: center; */
 }
 #heading {
@@ -36,7 +46,7 @@
   width: 80%;
 }
 .headings {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   text-transform: uppercase;
   font-size: 2rem;
   text-align: center;
@@ -46,15 +56,17 @@
   margin-bottom: 1rem;
 }
 .all-lists {
-  font-family: 'Poppins';
+  font-family: "Poppins";
+  list-style: none;
 }
 .all-lists li::before {
-  content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
-  color: var(--guide-bg); /* Change the color */
-  font-weight: bolder; /* If you want it to be bold */
-  display: inline-block; /* Needed to add space between the bullet and the text */
-  width: 1em; /* Also needed for space (tweak if needed) */
-  margin-left: -1em; /* Also needed for space (tweak if needed) */
+  content: "\2022";
+  color: var(--guide-bg);
+  font-size: 1.3rem;
+  font-weight: bolder;
+  display: inline-block;
+  width: 1.3rem;
+  margin-left: -1em;
 }
 .each-list {
   margin: 1rem 0;
@@ -74,7 +86,7 @@
   margin-top: 1rem;
   margin-bottom: 3rem;
   color: var(--guide-bg);
-  font-family: 'Poppins';
+  font-family: "Poppins";
   text-align: center;
 }
 #discord-button {

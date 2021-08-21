@@ -12,7 +12,7 @@ import { Tooltip } from "@material-ui/core";
 
 function Guide() {
   return (
-    <div>
+    <div id='guide-section'>
       <Layout backgroundColor="var(--guide-bg)"></Layout>
       <div className="guide-container">
         <div id="heading">
@@ -65,8 +65,8 @@ function Guide() {
               solve.{" "}
             </li>
             <li className="each-list">
-              The participants who hold the top five slots of the leaderboard
-              at the end of the 72 hours will be awarded with the main prizes.
+              The participants who hold the top five slots of the leaderboard at
+              the end of the 72 hours will be awarded with the main prizes.
             </li>
           </ul>
 
@@ -74,7 +74,8 @@ function Guide() {
 
           <ul className="all-lists">
             <li className="each-list">
-              The answers are <b style={{color: 'var(--guide-bg)'}}>NOT</b> case-sensitive.
+              The answers are <b style={{ color: "var(--guide-bg)" }}>NOT</b>{" "}
+              case-sensitive.
             </li>
             <li className="each-list">
               Please try multiple iterations of your answer, occasionally the
