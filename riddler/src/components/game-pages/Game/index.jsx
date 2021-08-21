@@ -4,6 +4,7 @@ import {
   ButtonContainer,
   RiddlerLogo,
   Checkers,
+  Bottom10,
 } from "./style";
 // import riddlerLogo from "../../../assets/riddlerlogo_svg.svg";
 import riddlerLogo from "../../../assets/power.svg";
@@ -67,7 +68,7 @@ const Game = () => {
             right: "12%",
             zIndex: "6",
             cursor: "pointer",
-            fontSize: '6rem'
+            fontSize: "6rem",
           }}
         >
           <StarRed />
@@ -82,7 +83,7 @@ const Game = () => {
             right: "11%",
             zIndex: "6",
             cursor: "pointer",
-            fontSize: '3rem'
+            fontSize: "3rem",
 
             // userSelect:"none",
           }}
@@ -99,7 +100,7 @@ const Game = () => {
             left: "7%",
             zIndex: "6",
             cursor: "pointer",
-            fontSize: '8rem'
+            fontSize: "8rem",
             // userSelect:"none",
           }}
         >
@@ -115,14 +116,16 @@ const Game = () => {
             left: "6%",
             zIndex: "6",
             cursor: "pointer",
-            fontSize: '4rem'
+            fontSize: "4rem",
 
             // userSelect:"none",
           }}
         >
           <StarsmallBlue />
         </animated.div>
-
+        <Bottom10>
+          Made with <span>♥</span> by CSI-VIT.
+        </Bottom10>
         <Checkers style={{ top: 0 }} src={checkers} alt="Checkers" />
         <Checkers style={{ bottom: 0 }} src={checkers} alt="Checkers" />
         <RiddlerLogo src={riddlerLogo} alt={"Riddler Logo"} />

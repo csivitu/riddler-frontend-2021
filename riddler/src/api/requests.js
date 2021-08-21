@@ -138,3 +138,17 @@ export const penaltyPoint = async (usertoken, qId) => {
   res = await res.json();
   return res;
 };
+
+export const getHintPoints = async (usertoken) => {
+  const requestOptions = {
+    method: "POST",
+    headers: {
+      "x-access-token": usertoken,
+      "Content-Type": "application/json",
+    },
+  };
+
+  let res = await fetch(`${baseURL}/hintpoints`, requestOptions);
+  res = await res.json();
+  return res;
+};

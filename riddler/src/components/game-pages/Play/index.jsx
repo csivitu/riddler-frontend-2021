@@ -30,6 +30,7 @@ import Layout from "../../game-navbar/Layout";
 import { useSelector } from "react-redux";
 import {
   getHint,
+  getHintPoints,
   getPlayerdata,
   getQuestion,
   penaltyPoint,
@@ -108,12 +109,14 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
   const [openUnfreezeDialog, setOpenUnfreezeDialog] = useState(false);
   const [hintButton, setHintButton] = useState(true);
   const [loadingPage, setLoadingPage] = useState(true);
+  const [hintAmount, setHintAmount] = useState(40);
 
   const [correctAnsAlert, setCorrectAnsAlert] = useState(false);
 
   const [type, setType] = useState("normal");
 
   const handleClickOpen = async () => {
+    getHintValue();
     setOpenHintDialog(true);
   };
 
@@ -246,9 +249,15 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
     }
   };
 
+  const getHintValue = async () => {
+    let hintData = await getHintPoints(usertoken);
+    setHintAmount(hintData.hintpoints);
+  };
+
   useEffect(() => {
     const asyncQuestion = async () => {
       setType(checkType(qId));
+
       let res = await getQuestion(usertoken, qId);
       localStorage.setItem("currentTracks", JSON.stringify(res.track));
       if (res.track.length === 1) res.track = [res.track[0], res.track[0]];
@@ -444,7 +453,7 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
               SUBMIT
             </OurButton>
             {!lastQuestion && (
-              <Tooltip title="What does unfreeze do?">
+              <Tooltip title="If you’re stuck on a question, you may use 1 unfreeze charge and choose to solve another unlocked question.">
                 <OurButton onClick={handleFreeze}>UNFREEZE</OurButton>
               </Tooltip>
             )}
@@ -468,7 +477,7 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
         </div>
         <DialogTitle id="alert-hintDialog-title">Take a hint?</DialogTitle>
         <DialogContent id="hintDialog-text">
-          -40 <FaStar />
+          -{hintAmount} <FaStar />
         </DialogContent>
         <DialogActions id="hintDialog-buttons">
           <Button id="confirm-button" onClick={clickYesHint} color="primary">

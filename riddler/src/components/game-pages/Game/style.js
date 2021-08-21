@@ -50,9 +50,8 @@ export const ButtonContainer = styled.div`
     width: 10rem;
     pointer-events: none;
   }
-  
-  @media screen and (max-width: 700px) {
 
+  @media screen and (max-width: 700px) {
     img {
       width: 8rem;
       padding: 0 10px;
@@ -69,7 +68,7 @@ export const ButtonContainer = styled.div`
 export const Checkers = styled.img`
   width: 100vw;
   position: absolute;
-  z-index:1;
+  z-index: 1;
 
   @media screen and (max-width: 700px) {
     width: 130vw;
@@ -81,6 +80,22 @@ export const Checkers = styled.img`
 
   @media screen and (max-width: 500px) {
     width: 200vw;
+  }
+`;
+
+export const Bottom10 = styled.p`
+  color: transparent;
+
+  span {
+    color: transparent;
+  }
+
+  span::selection {
+      color: #fe3176;
+    }
+
+  ::selection {
+    color: #dbf429;
   }
 `;
 
