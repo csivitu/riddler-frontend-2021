@@ -175,7 +175,7 @@ const Game = () => {
           </div>
         </ButtonContainer>
         <Bottom11>
-          Kadambari Chikara | Prayul Kumar | Sourish Gupta | Vidhi Khaitan | Subhanu Sankar Roy | Anoushka Chakravorty | Nimish Jain
+          Kadambari Chikara | Prayul Kumar | Sourish Gupta | Vidhi Khaitan | Subhanu Sankar Roy | Anoushka Chakravorty | Nimish Jain | Banjay Saskaran
         </Bottom11>
       </GameContainer>
     </>

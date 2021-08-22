@@ -281,9 +281,9 @@ function Question({ lastQuestion, mapOpen, qId, mapData }) {
       let userData = await getPlayerdata(usertoken);
       updateColor(userData);
       setPenaltyPoints(userData.playerPenaltyPoints);
-      if (userData.playerScore < 40) {
-        setHintButton(false);
-      }
+      // if (userData.playerScore < 40) {
+      //   setHintButton(false);
+      // }
     };
 
     asyncQuestion();
