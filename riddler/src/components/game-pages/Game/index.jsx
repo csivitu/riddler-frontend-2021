@@ -5,6 +5,7 @@ import {
   RiddlerLogo,
   Checkers,
   Bottom10,
+  Bottom11,
 } from "./style";
 // import riddlerLogo from "../../../assets/riddlerlogo_svg.svg";
 import riddlerLogo from "../../../assets/power.svg";
@@ -173,6 +174,9 @@ const Game = () => {
             <img src={stateLeaderboard} alt={"Riddler Logo"} />
           </div>
         </ButtonContainer>
+        <Bottom11>
+          Kadambari Chikara | Prayul Kumar | Sourish Gupta | Vidhi Khaitan | Subhanu Sankar Roy | Anoushka Chakravorty | Nimish Jain
+        </Bottom11>
       </GameContainer>
     </>
   );

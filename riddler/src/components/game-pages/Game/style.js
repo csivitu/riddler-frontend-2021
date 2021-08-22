@@ -69,6 +69,7 @@ export const Checkers = styled.img`
   width: 100vw;
   position: absolute;
   z-index: 1;
+  pointer-events: none;
 
   @media screen and (max-width: 700px) {
     width: 130vw;
@@ -85,17 +86,40 @@ export const Checkers = styled.img`
 
 export const Bottom10 = styled.p`
   color: transparent;
+  pointer-events: none;
+  font-family: 'Poppins';
 
   span {
     color: transparent;
   }
 
   span::selection {
-      color: #fe3176;
-    }
+    color: #fe3176;
+  }
 
   ::selection {
     color: #dbf429;
+  }
+`;
+
+export const Bottom11 = styled.p`
+  color: transparent;
+  position: absolute;
+  bottom: 10vh;
+  pointer-events: none;
+  text-align: center;
+  font-family: 'Poppins';
+
+  span {
+    color: transparent;
+  }
+
+  span::selection {
+    color: var(--present);
+  }
+
+  ::selection {
+    color: var(--future);
   }
 `;
 
