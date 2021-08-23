@@ -89,11 +89,18 @@
 }
 
 .HomeBtnWrapper {
-  margin-top: 80px;
+  margin-top: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 50px;
+}
+
+.reg-success {
+  padding: 0.3rem;
+  color: white;
+  font-family: "Brice-Bold";
+  margin-bottom: 1rem;
 }
 
 .reg_button {

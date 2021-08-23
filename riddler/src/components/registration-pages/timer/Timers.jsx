@@ -86,6 +86,7 @@ function Timer() {
         </div>
 
         <div className="HomeBtnWrapper">
+          <p className="reg-success">Registration Successful</p>
           <Link className="reg_button" to="/">HOME</Link>
         </div>
       </div>
