@@ -1,0 +1,114 @@
+@font-face {
+  font-family: Brice;
+  src: url("../../../assets/Brice-Bold.otf");
+}
+
+#guide-section {
+  background-color: black;
+  background-image: url(../../../assets/bg_pattern.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.guide-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  height: calc(100vh - 80px);
+  overflow: scroll;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Poppins";
+  /* justify-content: center; */
+}
+#heading {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-family: Brice;
+  margin-top: 2rem;
+  /* position: absolute;
+    top:2rem; */
+}
+#heading hr {
+  width: 2rem;
+  border: 1px solid white;
+  margin-right: 0.5rem;
+}
+#guide-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+  width: 80%;
+}
+.headings {
+  font-family: "Poppins";
+  text-transform: uppercase;
+  font-size: 2rem;
+  text-align: center;
+}
+.images {
+  width: 85%;
+  margin-bottom: 1rem;
+}
+.all-lists {
+  font-family: "Poppins";
+  list-style: none;
+}
+.all-lists li::before {
+  content: "\2022";
+  color: var(--guide-bg);
+  font-size: 1.3rem;
+  font-weight: bolder;
+  display: inline-block;
+  width: 1.3rem;
+  margin-left: -1em;
+}
+.each-list {
+  margin: 1rem 0;
+}
+#discord-icon {
+  border-radius: 50%;
+  background-color: var(--guide-bg);
+  width: fit-content;
+  padding: 0.8rem;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#discord-link {
+  /* text-decoration: none; */
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  color: var(--guide-bg);
+  font-family: "Poppins";
+  text-align: center;
+}
+#discord-button {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+}
+@media screen and (max-width: 450px) {
+  .images {
+    width: 98%;
+  }
+  #heading {
+    font-size: 90%;
+    margin-bottom: 0.5rem;
+  }
+  /* .headings{
+        font-size:90%;
+    } */
+
+  #discord-button {
+    position: fixed;
+    top: 100px;
+    right: 10px;
+  }
+}
