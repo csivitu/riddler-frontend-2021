@@ -1,0 +1,49 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+:root {
+  --past: #DBF429;
+  --present: #FE3176;
+  --future: #15BCFF;
+  --leaderboard-bg: var(--present);
+  --guide-bg: var(--future);
+  --map-bg: var(--past);
+  --navbar-bg: var(--map-bg);
+}
+
+/* scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+/* Track */
+::-webkit-scrollbar-track {
+  /* box-shadow: inset 0 0 5px rgb(0, 0, 0);  */
+  /* border-radius: 10px; */
+  background: black;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: white; 
+  /* border-radius: 10px; */
+}
+
+::-webkit-scrollbar-track-piece:start {
+  background: white;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  height: 100vh;
+  scroll-behavior: smooth;
+}
