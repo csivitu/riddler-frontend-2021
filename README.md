@@ -30,6 +30,7 @@
 ## Table of Contents
 
 * [About the Project](#about-the-project)
+  * [Tutorial](#tutorial)
   * [Built With](#built-with)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
@@ -49,6 +50,8 @@
 
 Riddler is a one-of-a-kind online cryptic hunt where players dive into the depths of the internet and navigate their way to the top of the leaderboard by cracking exhilarating riddles spread across various themes. The last 9 years have seen hundreds try their best every season, only to get bested themselves.
 
+### Tutorial
+[Link](https://www.youtube.com/watch?v=ifayZiXxAWo) to the tutorial
 
 ### Built With
 
