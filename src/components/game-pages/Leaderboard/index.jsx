@@ -40,7 +40,7 @@ const Leaderboard = () => {
             </tr>
           </thead>
           <tbody className="scrolldown">
-            {/* {leaderboard.map((item, rank) => {
+            {leaderboard.map((item, rank) => {
               return (
                 <>
                   {username === item.username ? (
@@ -58,57 +58,7 @@ const Leaderboard = () => {
                   )}
                 </>
               );
-            })} */}
-            <tr class="names">
-              <td>1</td>
-              <td>horcrux</td>
-              <td>1820</td>
-            </tr>
-            <tr class="names">
-              <td>2</td>
-              <td>milloii</td>
-              <td>1580</td>
-            </tr>
-            <tr class="names">
-              <td>3</td>
-              <td>pridevta</td>
-              <td>1500</td>
-            </tr>
-            <tr class="names">
-              <td>4</td>
-              <td>Gligy</td>
-              <td>1460</td>
-            </tr>
-            <tr class="names">
-              <td>5</td>
-              <td>CoolGirl2019</td>
-              <td>990</td>
-            </tr>
-            <tr class="names">
-              <td>6</td>
-              <td>itsayush</td>
-              <td>990</td>
-            </tr>
-            <tr class="names">
-              <td>7</td>
-              <td>Thaman</td>
-              <td>990</td>
-            </tr>
-            <tr class="names">
-              <td>8</td>
-              <td>alok27a</td>
-              <td>990</td>
-            </tr>
-            <tr class="names">
-              <td>9</td>
-              <td>bhavye_27</td>
-              <td>990</td>
-            </tr>
-            <tr class="names">
-              <td>10</td>
-              <td>nanduri_jv</td>
-              <td>990</td>
-            </tr>
+            })}
           </tbody>
         </table>
       </div>
