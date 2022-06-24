@@ -173,6 +173,8 @@ export const Player = styled.div`
   border: 3px solid black;
   border-bottom: 4px solid black;
   margin-right: 14px;
+  max-width: 200px;
+  overflow: hidden;
 
   img {
     height: 75%;

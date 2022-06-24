@@ -20,8 +20,10 @@ import riddlerLogo from "./assets/riddlerlogo_svg_black.svg";
 import { getPlayerdata } from "../../../api/requests";
 import LightTooltip from "../../game-pages/Tooltip";
 import { logout } from "../../../redux/reducers/authReducer";
+import { useHistory } from "react-router-dom";
 
 const Navbar = ({ toggle, backgroundColor, wantHint }) => {
+  let history = useHistory();
   const dispatch = useDispatch();
   const userName = useSelector((state) => state.auth.username);
   const token = useSelector((state) => state.auth.token);
@@ -104,7 +106,16 @@ const Navbar = ({ toggle, backgroundColor, wantHint }) => {
               <FaStar />
               <p>{score}</p>
             </Player>
-            <Player backgroundColor={backgroundColor}>{userName}</Player>
+            <Player backgroundColor={backgroundColor}>
+              <span style={{
+                overflow: 'hidden',
+                whiteSpace: 'nowrap',
+                textOverflow: 'ellipsis',
+                maxWidth: 180,
+              }}>
+                {userName}
+              </span>
+            </Player>
             <LightTooltip title="Log Out">
               <MusicPlayer
                 backgroundColor={backgroundColor}
@@ -113,7 +124,7 @@ const Navbar = ({ toggle, backgroundColor, wantHint }) => {
                   onClick={() => {
                     dispatch(logout());
                     localStorage.removeItem("userCreated");
-                    // window.location.href = "/";
+                    history.push('/')
                   }}
                 />
               </MusicPlayer>

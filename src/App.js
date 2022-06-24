@@ -15,7 +15,7 @@ import Leaderboard from "./components/game-pages/Leaderboard";
 import Play from './components/game-pages/PlayPage';
 import Guide from './components/game-pages/Guide';
 
-const {process} = require('./env.json');
+const { process } = require('./env.json');
 
 
 
@@ -34,7 +34,7 @@ function App() {
         dispatch(logout());
         return;
       }
-      dispatch(setUsername({ username: user.username }));
+      // dispatch(setUsername({ username: user.username }));
 
     }
   };
