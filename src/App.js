@@ -28,9 +28,9 @@ function App() {
       const response = await api.get(
         `${process.env.REACT_APP_ACCOUNTS_URL}/user`
       );
-      const { user, success } = response.data;
+      const { code } = response.data;
 
-      if (!success) {
+      if (!code.startsWith('S')) {
         dispatch(logout());
         return;
       }
